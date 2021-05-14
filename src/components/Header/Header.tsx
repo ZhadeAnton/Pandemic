@@ -1,14 +1,23 @@
 import React from 'react'
-import BrandLogo from '../BrandLogo/BrandLogo'
 import { Nav } from 'react-bootstrap'
 
 import './header.scss'
+import BrandLogo from '../BrandLogo/BrandLogo'
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu'
 
-const headerLinks = [
-  { title: 'homepage' },
-  { title: 'pages' },
-  { title: 'matches' },
+const headerMenu = [
+  { 
+    title: 'homepage',
+    ul: ['home esports', 'home magazine', 'home white', 'home shop', 'home team']
+  },
+  { 
+    title: 'pages',
+    ul: ['about us', 'sponsors', 'contact us']
+  },
+  {
+    title: 'matches',
+    ul: ['match', 'team', 'player']
+  },
   { title: 'blogs' },
   { title: 'shop' },
   { title: 'landing' }
@@ -20,13 +29,29 @@ function Header() {
       <div className='header-inner d-flex align-items-center'>
         <BrandLogo />
 
-      <Nav className='header-navigation d-none d-lg-flex col-7'>
+        <Nav as='ul' className='header-navigation d-none d-lg-flex col-7'>
         {
-          headerLinks.map((link) => {
+          headerMenu.map((link) => {
             return (
-              <Nav.Item>
-                <Nav.Link href="/" className='text-uppercase'>
+              <Nav.Item as='li'>
+                <Nav.Link as='a' href="/">
                   {link.title}
+
+                  {
+                    link.ul
+                    ?
+                    <Nav as='ul' className='header-navigation-sub-menu'>
+                      {
+                        link.ul.map((item) => {
+                          return <Nav.Item as='li' className='lis'>
+                            <Nav.Link as='a'>{item}</Nav.Link>
+                          </Nav.Item>
+                        })
+                      }
+                    </Nav>
+                    :
+                      null
+                  }
                 </Nav.Link>
               </Nav.Item>
             )

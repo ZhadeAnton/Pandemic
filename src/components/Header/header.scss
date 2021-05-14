@@ -1,6 +1,6 @@
 
 .header {
- min-height: 82px;
+ height: 82px;
  background-color: var(--e-global-color-secondary);
 
   &-menu {
@@ -10,11 +10,45 @@
   &-inner {
     width: 95%;
     margin: 0 auto;
-    height: 100%;
   }
 
  &-navigation {
-   margin-left: 4rem;
+   margin-left: 4rem !important;
+
+   li {
+    position: relative;
+
+     &:hover {
+      .header-navigation-sub-menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: inherit;
+        transform: translateY(0);
+       }
+     }
+   }
+
+   &-sub-menu {
+    width: 220px;
+    padding: 1rem 0 !important;
+    position: absolute;
+    top: 90%;
+    pointer-events: none;
+    transition: all .4s ease;
+    transform: translateY(.5rem);
+    opacity: 0;
+    visibility: hidden;
+    background-color: var(--e-global-color-secondary);
+
+    li {
+      width: 100%;
+
+      a {
+        line-height: initial;
+        width: 100%;
+      }
+    }
+   }
 
    a {
      font-family: 'Oswald', sans-serif;
@@ -22,6 +56,8 @@
      letter-spacing: 1.55px;
      font-weight: 600;
      color: white;
+     line-height: 80px;
+     text-transform: uppercase;
 
      &:hover {
        color: var(--e-global-color-primary);
