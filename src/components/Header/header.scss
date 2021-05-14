@@ -1,6 +1,7 @@
 
 .header {
  height: 82px;
+ z-index: 100;
  background-color: var(--e-global-color-secondary);
 
   &-menu {
@@ -9,11 +10,12 @@
 
   &-inner {
     width: 95%;
+    z-index: 100;
     margin: 0 auto;
   }
 
  &-navigation {
-   margin-left: 4rem !important;
+   margin-left: 8rem !important;
 
    li {
     position: relative;
