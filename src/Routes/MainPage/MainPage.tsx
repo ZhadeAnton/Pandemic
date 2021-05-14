@@ -1,11 +1,11 @@
 import React from 'react'
-import BrandLogo from '../../components/BrandLogo/BrandLogo'
+import Header from '../../components/Header/Header'
 
 function MainPage() {
   return (
-    <div>
-      <BrandLogo />
-    </div>
+    <section>
+      <Header />
+    </section>
   )
 }
 

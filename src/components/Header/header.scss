@@ -1,0 +1,31 @@
+
+.header {
+ min-height: 82px;
+ background-color: var(--e-global-color-secondary);
+
+  &-menu {
+    margin-left: auto;
+  }
+
+  &-inner {
+    width: 95%;
+    margin: 0 auto;
+    height: 100%;
+  }
+
+ &-navigation {
+   margin-left: 4rem;
+
+   a {
+     font-family: 'Oswald', sans-serif;
+     font-size: 14px;
+     letter-spacing: 1.55px;
+     font-weight: 600;
+     color: white;
+
+     &:hover {
+       color: var(--e-global-color-primary);
+     }
+   }
+ }
+}

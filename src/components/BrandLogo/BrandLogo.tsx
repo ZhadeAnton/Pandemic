@@ -5,9 +5,7 @@ import brandLogo from '../../assets/pandemic-logo.png'
 
 function BrandLogo() {
   return (
-    <div>
-      <NavLink to='/'><img src={brandLogo} alt="logo" /></NavLink>
-    </div>
+    <NavLink to='/'><img src={brandLogo} alt="logo" /></NavLink>
   )
 }
 
