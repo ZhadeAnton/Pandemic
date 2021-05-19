@@ -133,8 +133,8 @@
   }
 
   .slick-slide {
-    height: 500px;
-    max-width: 1290px !important;
+    height: auto;
+    max-width: 1290px;
     opacity: .85;
     overflow: hidden;
     transform: scale(.7);
