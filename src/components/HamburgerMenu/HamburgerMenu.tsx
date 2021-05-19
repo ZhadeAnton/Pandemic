@@ -10,10 +10,10 @@ interface Props {
 const HamburgerMenu: React.FC<Props> = (props) => {
   return (
     <div className={cn('hamburger-menu', props.className)}>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   )
 }
 

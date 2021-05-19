@@ -3,7 +3,7 @@ import React from 'react'
 import './mainPage.scss'
 import Header from '../../components/Header/Header'
 import Elementor from '../../components/Elementor/Elementor'
-import MainSlider from '../../components/MainSlider/MainSlider'
+import AnnounceSlider from '../../components/AnnounceSlider/AnnounceSlider'
 
 function MainPage() {
   return (
@@ -11,7 +11,7 @@ function MainPage() {
       <Header />
       <Elementor />
       <div className='main-content'>
-      <MainSlider />
+        <AnnounceSlider />
       </div>
     </section>
   )

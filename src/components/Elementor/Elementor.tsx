@@ -8,12 +8,13 @@ import doctor from '../../assets/pdoctor.png'
 import { ReactComponent as BottomShape } from '../../assets/bottom-shape.svg'
 
 const Elementor = () => {
-  const videoSource = "https:\/\/skywarriorthemes.com\/pandemic\/wp-content\/uploads\/2021\/01\/hero_landings.webm"
+  // eslint-disable-next-line max-len
+  const videoSource = 'https:\/\/skywarriorthemes.com\/pandemic\/wp-content\/uploads\/2021\/01\/hero_landings.webm'
   return (
     <div className='elementor'>
       <div className='elementor-row'>
         <img
-        className='elementor-row__pandemic top-appear'
+          className='elementor-row__pandemic top-appear'
           src={pandemic}
           alt="pandemic"
         />
@@ -34,14 +35,14 @@ const Elementor = () => {
 
       <div className="elementor-background-video-container">
         <video className="elementor-background-video" autoPlay loop muted>
-        <source src={videoSource} type="video/webm" />
-          Your browser does not support the video tag.
+          <source src={videoSource} type="video/webm" />
+            Your browser does not support the video tag.
         </video>
       </div>
 
       <div className='elementor-shape-bottom'>
         <BottomShape />
-        </div>
+      </div>
     </div>
   )
 }
