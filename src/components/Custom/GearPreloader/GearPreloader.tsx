@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './gearPreloader.scss'
-import gearIcon from '../../assets/Preloaders/gear-preloader.gif'
+import gearIcon from '../../../assets/Preloaders/gear-preloader.gif'
 
 function GearPreloader() {
   return (

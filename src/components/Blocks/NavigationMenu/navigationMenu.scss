@@ -1,0 +1,32 @@
+.navigation-menu {
+
+  &__item {
+    position: relative;
+
+     &:hover {
+      .navigation-menu-sub-menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: inherit;
+        transform: translateY(0);
+       }
+     }
+  }
+
+  &-sub-menu {
+    width: 220px;
+    padding: 1rem 0 !important;
+    position: absolute;
+    top: 90%;
+    pointer-events: none;
+    transition: all .4s ease;
+    transform: translateY(.5rem);
+    opacity: 0;
+    visibility: hidden;
+    background-color: var(--e-global-color-secondary);
+
+      &__item {
+        width: 100%;
+      }
+  }
+}

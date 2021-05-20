@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-import brandLogo from '../../assets/pandemic-logo.png'
+import brandLogo from '../../../assets/pandemic-logo.png'
 
 function BrandLogo() {
   return (

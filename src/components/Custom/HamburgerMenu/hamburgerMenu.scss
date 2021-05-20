@@ -6,7 +6,7 @@
   cursor: pointer;
   transition: all .5s ease;
 
-  span {
+  &__line {
     height: 2px;
     background-color: white;
     margin-bottom: .5rem;
@@ -27,7 +27,7 @@
   }
 
   &:hover {
-    span {
+    .hamburger-menu__line {
       &:nth-child(1) {
         width: 90%;
       }
@@ -43,4 +43,4 @@
       }
     }
   }
- }
+}

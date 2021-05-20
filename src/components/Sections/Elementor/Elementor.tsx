@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGem } from '@fortawesome/free-solid-svg-icons'
 
 import './elementor.scss'
-import pandemic from '../../assets/landing-logo.png'
-import doctor from '../../assets/pdoctor.png'
-import { ReactComponent as BottomShape } from '../../assets/bottom-shape.svg'
+import { ReactComponent as BottomShape } from '../../../assets/bottom-shape.svg'
+import pandemic from '../../../assets/landing-logo.png'
+import doctor from '../../../assets/pdoctor.png'
 
 const Elementor = () => {
   // eslint-disable-next-line max-len

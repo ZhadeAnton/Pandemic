@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { MainPageProps } from '../../Containers/MainContainer';
-import { IAnnounce } from '../../interfaces';
+import { MainPageProps } from '../../../Containers/MainContainer';
+import { IAnnounce } from '../../../interfaces';
 
 import './announceSlider.scss'
 

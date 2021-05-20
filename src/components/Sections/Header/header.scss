@@ -1,0 +1,43 @@
+@import '../../../scss/variables';
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 5.125rem;
+  z-index: 100;
+  background-color: var(--e-global-color-secondary);
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    width: 95%;
+    z-index: 100;
+    margin: 0 auto;
+  }
+
+  &__navigation {
+    margin-left: 8rem !important;
+
+    @include media-breakpoint-down(xl) {
+      margin-left: 6rem !important;
+    }
+  }
+
+  &__link {
+    width: 100%;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.875rem;
+    letter-spacing: 1.55px;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+
+    &:hover {
+      color: var(--e-global-color-primary);
+    }
+  }
+
+  &__hamburger-menu {
+    margin-left: auto;
+  }
+}

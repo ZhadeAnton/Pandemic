@@ -12,3 +12,7 @@ $grid-breakpoints: (
   xxl: 1400px,
   xxxl: 1820px
 );
+
+// @include media-breakpoint-down(md) {
+//   padding: 20px 35px;
+// }

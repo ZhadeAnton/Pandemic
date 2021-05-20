@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 
 import './mainPage.scss'
 import { MainPageProps } from '../../Containers/MainContainer'
-import Header from '../../components/Header/Header'
-import Elementor from '../../components/Elementor/Elementor'
-import AnnounceSlider from '../../components/AnnounceSlider/AnnounceSlider'
-import GearPreloader from '../../components/GearPreloader/GearPreloader'
+import Header from '../../components/Sections/Header/Header'
+import Elementor from '../../components/Sections/Elementor/Elementor'
+import AnnounceSlider from '../../components/Sections/AnnounceSlider/AnnounceSlider'
+import GearPreloader from '../../components/Custom/GearPreloader/GearPreloader'
 
 function MainPage(props: MainPageProps) {
   useEffect(() => {
