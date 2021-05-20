@@ -6,12 +6,9 @@ import { MainState } from '../Redux/MainPage/MainReducer'
 import { RootState } from '../Redux/Store/Store'
 import { getAnnounces } from '../Redux/MainPage/MainActionCreators'
 import MainPage from '../Routes/MainPage/MainPage'
-
-
 interface StateProps {
   announces: MainState['announces']
 }
-
 interface DispatchProps {
   getAnnounces: () => void
 }
