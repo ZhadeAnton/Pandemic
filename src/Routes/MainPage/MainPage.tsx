@@ -6,6 +6,7 @@ import Header from '../../components/Sections/Header/Header'
 import HeroSection from '../../components/Sections/HeroSection/HeroSection'
 import AnnounceSlider from '../../components/Sections/AnnounceSlider/AnnounceSlider'
 import GearPreloader from '../../components/Custom/GearPreloader/GearPreloader'
+import LatestMatches from '../../components/Sections/LatestMatches/LatestMatches'
 
 function MainPage(props: MainPageProps) {
   useEffect(() => {
@@ -23,6 +24,8 @@ function MainPage(props: MainPageProps) {
           <AnnounceSlider
             announces={props.announces}
           />
+
+          <LatestMatches />
         </div>
       </section>
     )

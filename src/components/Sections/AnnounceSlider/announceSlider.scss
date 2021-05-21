@@ -1,11 +1,11 @@
 @import '../../../scss/variables';
 
 .announce-slider {
-  padding: 7rem 0;
+  padding-top: 7rem;
   overflow: hidden;
 
   @include media-breakpoint-down(xxl) {
-    padding: 5rem 0;
+    padding-top: 5rem;
   }
 
   &__item {
@@ -137,7 +137,7 @@
 
   &__progress-bar {
     width: 100%;
-    padding: 5rem 0;
+    padding-top: 5rem;
 
     &--wrapper {
       max-width: 1300px;
