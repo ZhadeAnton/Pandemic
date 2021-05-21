@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { ProgressBar } from 'react-bootstrap';
 import Slider from 'react-slick';
 import { MainPageProps } from '../../../Containers/MainContainer';
 import { IAnnounce } from '../../../interfaces';
@@ -10,6 +11,8 @@ interface Props {
 }
 
 function AnnounceSlider(props: Props) {
+  const [activeSlide, setActiveSlide] = useState<number>(1)
+
   const settings = {
     infinite: true,
     speed: 500,
@@ -18,6 +21,7 @@ function AnnounceSlider(props: Props) {
     arrows: true,
     prevArrow: <button type="button"><span>Previous</span></button>,
     nextArrow: <button type="button"><span>Next</span></button>,
+    beforeChange: (_: any, next: number) => setActiveSlide(next + 1),
     variableWidth: true,
     adaptiveHeight: true,
     slidesToShow: 1,
@@ -55,6 +59,9 @@ function AnnounceSlider(props: Props) {
           })
         }
       </Slider>
+
+      <ProgressBar
+        now={activeSlide} max={props.announces.length} min={0} />
     </div>
   );
 }
