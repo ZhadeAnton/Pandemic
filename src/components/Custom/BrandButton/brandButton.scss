@@ -1,0 +1,44 @@
+@import '../../../scss/variables';
+
+.brand-button {
+  font-size: .9rem;
+  font-weight: 800;
+  background-color: transparent;
+  text-transform: uppercase;
+  padding: 1.3rem 3rem;
+  opacity: 0;
+  line-height: 1.2em;
+  border-width: 2px;
+  border-radius: 0 30px;
+  border-style: solid;
+  z-index: 100;
+  cursor: pointer;
+  border-color: var(--e-global-color-primary);
+  transition: all .4s ease;
+
+  @include media-breakpoint-down(md) {
+    font-size: .8rem;
+    padding: 1rem 2.5rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: .7rem;
+    padding: .9rem 2rem;
+  }
+
+  &__link {
+    color: #ffffff;
+  }
+
+  &__icon {
+    margin-right: .5rem;
+  }
+
+  &:hover {
+    background-color: var(--e-global-color-primary);
+
+    .brand-button__link {
+      color: var(--e-global-color-secondary);
+    }
+  }
+}
