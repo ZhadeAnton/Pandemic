@@ -17,14 +17,13 @@ function AnnounceSlider(props: Props) {
     infinite: true,
     speed: 500,
     slidesToScroll: 1,
+    slidesToShow: 1,
     centerMode: true,
+    variableWidth: true,
     arrows: true,
     prevArrow: <button type="button"><span>Previous</span></button>,
     nextArrow: <button type="button"><span>Next</span></button>,
     beforeChange: (_: any, next: number) => setActiveSlide(next + 1),
-    variableWidth: true,
-    adaptiveHeight: true,
-    slidesToShow: 1,
     responsive: [
       {
         breakpoint: 1400,
@@ -41,18 +40,21 @@ function AnnounceSlider(props: Props) {
         {
           props.announces.map((slide: IAnnounce, idx: number) => {
             return (
-              <div className='announce-slider-item' key={idx}>
-                <div className='announce-slider-item__image-wrap'>
+              <div className='announce-slider__item' key={idx}>
+                <div className='announce-slider__item--image-wrapper'>
                   <img
+                    className='announce-slider__item--image'
                     src={`${slide.image}`}
                     alt='slider image'
-                    className='announce-slider__img'
                   />
                 </div>
 
-                <div className='announce-slider-item__content'>
-                  <h3>{slide.title}</h3>
-                  <span></span>
+                <div className='announce-slider__content'>
+                  <h3 className='announce-slider__content--title'>
+                    {slide.title}
+                  </h3>
+
+                  <span className='announce-slider__content--bottom-line'></span>
                 </div>
               </div>
             )
@@ -60,8 +62,33 @@ function AnnounceSlider(props: Props) {
         }
       </Slider>
 
-      <ProgressBar
-        now={activeSlide} max={props.announces.length} min={0} />
+      <div className='announce-slider__progress-bar'>
+        <div className='announce-slider__progress-bar--wrapper'>
+          <span className='announce-slider__progress-bar--number'>
+            {
+              activeSlide <= 9
+              ? '0' + activeSlide
+              : activeSlide
+            }
+          </span>
+
+          <ProgressBar
+            bsPrefix='announce-slider__progress-bar--main'
+            now={activeSlide}
+            max={props.announces.length}
+            min={0}
+            animated={true}
+          />
+
+          <span className='announce-slider__progress-bar--number'>
+            {
+              props.announces.length <= 9
+              ? '0' + props.announces.length
+              : props.announces.length
+            }
+          </span>
+        </div>
+      </div>
     </div>
   );
 }
