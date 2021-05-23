@@ -11,6 +11,7 @@ import LatestMatches from '../../components/Sections/LatestMatches/LatestMatches
 function MainPage(props: MainPageProps) {
   useEffect(() => {
     props.getAnnounces()
+    props.getLatestMatches()
   }, [])
 
   if (props.announces.length === 0) {
@@ -25,7 +26,9 @@ function MainPage(props: MainPageProps) {
             announces={props.announces}
           />
 
-          <LatestMatches />
+          <LatestMatches
+            matches={props.matches}
+          />
         </div>
       </section>
     )

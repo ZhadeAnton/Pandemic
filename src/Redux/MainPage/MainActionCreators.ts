@@ -10,3 +10,13 @@ export const getAnnouncesSuccess = (
   type: actions.GET_ANNOUNCES_SUCCESS,
   payload: announces
 })
+
+export const getLatestMatches = (): actions.GetLatestMatches => ({
+  type: actions.GET_LATEST_MATCHES
+})
+
+export const getLatestMatchesSuccess = (
+    matches: Array<any>): actions.GetLatestMatchesSuccess => ({
+  type: actions.GET_LATEST_MATCHES_SUCCESS,
+  payload: matches
+})

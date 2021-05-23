@@ -1,24 +1,28 @@
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 
+import * as actions from '../Redux/MainPage/MainActionCreators'
 import { Maintypes } from '../Redux/MainPage/MainActionsTypes'
 import { MainState } from '../Redux/MainPage/MainReducer'
 import { RootState } from '../Redux/Store/Store'
-import { getAnnounces } from '../Redux/MainPage/MainActionCreators'
 import MainPage from '../Routes/MainPage/MainPage'
 interface StateProps {
-  announces: MainState['announces']
+  announces: MainState['announces'],
+  matches: MainState['matches']
 }
 interface DispatchProps {
-  getAnnounces: () => void
+  getAnnounces: () => void,
+  getLatestMatches: () => void,
 }
 
 const mapStateToProps = (state: RootState) => ({
-  announces: state.main.announces
+  announces: state.main.announces,
+  matches: state.main.matches
 })
 
 const mapDispatchToProps = (dispatch: Dispatch<Maintypes>) => ({
-  getAnnounces: () => dispatch(getAnnounces())
+  getAnnounces: () => dispatch(actions.getAnnounces()),
+  getLatestMatches: () => dispatch(actions.getLatestMatches()),
 })
 
 const MainPageContainer =
