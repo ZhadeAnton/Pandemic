@@ -1,0 +1,13 @@
+@mixin transform-element($name, $direction, $transform-number) {
+  .transform-element-#{$name} {
+    transition: all .4s ease;
+    transform: translateX(0px);
+
+    @if $direction == left {
+      transform: translateX(-$transform-number * 1px);
+    }
+    @if $direction == right {
+      transform: translateX($transform-number * 1px);
+    }
+  }
+}

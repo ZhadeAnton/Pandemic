@@ -12,12 +12,26 @@ function* getAnnounces() {
   }
 }
 
+function* getLatestMatches() {
+  try {
+    const matches = yield api.fetchLatestMatches()
+    yield put(actionCreators.getLatestMatchesSuccess(matches))
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 function* onGetAnnounces() {
   yield takeLatest(actionTypes.GET_ANNOUNCES, getAnnounces)
 }
 
+function* onGetLatestMatches() {
+  yield takeLatest(actionTypes.GET_LATEST_MATCHES, getLatestMatches)
+}
+
 export default function* mainSagas() {
   yield all([
-    call(onGetAnnounces)
+    call(onGetAnnounces),
+    call(onGetLatestMatches),
   ])
 }
