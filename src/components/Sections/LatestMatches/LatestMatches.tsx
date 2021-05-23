@@ -1,8 +1,16 @@
 import React from 'react'
 
+import { IMatch } from '../../../interfaces'
+import { MainPageProps } from '../../../Containers/MainContainer'
+import MatchItem from '../../Blocks/MatchItem/MatchItem'
+
 import './latestMatches.scss'
 
-function LatestMatches() {
+interface Props {
+  matches: MainPageProps['matches']
+}
+
+function LatestMatches(props: Props) {
   return (
     <section className='latest-matches'>
       <div className='latest-matches__wrapper container'>
@@ -17,7 +25,16 @@ function LatestMatches() {
         </div>
 
         <div className='latest-matches__slider'>
-
+          {
+            props.matches.map((match: IMatch, idx: number) => {
+              return (
+                <MatchItem
+                  key={idx}
+                  match={match}
+                />
+              )
+            })
+          }
         </div>
       </div>
     </section>
