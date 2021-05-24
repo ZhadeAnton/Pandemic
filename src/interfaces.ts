@@ -18,7 +18,7 @@ interface ITeam {
 export interface IMatch {
   discipline: string,
   score: string,
-  date: Date,
+  date: any,
   team1: ITeam,
   team2: ITeam
 }
