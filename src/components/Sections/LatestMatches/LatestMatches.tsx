@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { IMatch } from '../../../interfaces'
 import { MainPageProps } from '../../../Containers/MainContainer'
@@ -8,23 +8,23 @@ import CustomPagination from '../../Custom/Pagination/Pagination'
 import './latestMatches.scss'
 
 interface Props {
-  matches: MainPageProps['matches']
+  matches: MainPageProps['matches'],
+  currentPage: MainPageProps['currentPage'],
+  matchesPerPage: MainPageProps['matchesPerPage'],
+  setPageNumber: MainPageProps['setPageNumber'],
+  setLastPage: MainPageProps['setLastPage'],
+  setNextPage: MainPageProps['setNextPage'],
+  setPrevPage: MainPageProps['setPrevPage'],
+  setFirstPage: MainPageProps['setFirstPage']
 }
 
 function LatestMatches(props: Props) {
-  const [currentPage, setCurrentPage] = useState(1)
-  const matchesPerPage = 1;
   const totalMatches = props.matches.length
-  const indexOfLastMatch = currentPage * matchesPerPage
-  const indexOfFirstMatch = indexOfLastMatch - matchesPerPage
+  const indexOfLastMatch =
+    props.currentPage * props.matchesPerPage
+  const indexOfFirstMatch = indexOfLastMatch - props.matchesPerPage
   const currentMatches = props.matches.slice(indexOfFirstMatch, indexOfLastMatch)
-  const pagesLength = Math.ceil(totalMatches / matchesPerPage)
-
-  const setPage = (pageNum: number) => setCurrentPage(pageNum)
-  const setNextPage = () => setCurrentPage(currentPage + 1)
-  const setPrevPage = () => setCurrentPage(currentPage - 1)
-  const setFirstPage = () => setCurrentPage(1)
-  const setLastPage = () => setCurrentPage(pagesLength)
+  const pagesLength = Math.ceil(totalMatches / props.matchesPerPage)
 
   return (
     <section className='latest-matches'>
@@ -54,15 +54,15 @@ function LatestMatches(props: Props) {
       </div>
 
       <CustomPagination
-        currentPage={currentPage}
+        currentPage={props.currentPage}
+        matchesPerPage={props.matchesPerPage}
         totalMatches={totalMatches}
-        matchesPerPage={matchesPerPage}
         pagesLength={pagesLength}
-        setPage={setPage}
-        setNextPage={setNextPage}
-        setPrevPage={setPrevPage}
-        setFirstPage={setFirstPage}
-        setLastPage={setLastPage}
+        setPageNumber={props.setPageNumber}
+        setNextPage={props.setNextPage}
+        setPrevPage={props.setPrevPage}
+        setFirstPage={props.setFirstPage}
+        setLastPage={props.setLastPage}
       />
     </section>
   )

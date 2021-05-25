@@ -1,12 +1,14 @@
 import React from 'react'
 import { Pagination } from 'react-bootstrap'
 
+import { MainPageProps } from '../../../Containers/MainContainer'
+
 interface Props {
-  setPage: (pageNum: number) => void,
-  setNextPage: () => void,
-  setPrevPage: () => void,
-  setFirstPage: () => void,
-  setLastPage: () => void,
+  setPageNumber: MainPageProps['setPageNumber'],
+  setLastPage: MainPageProps['setLastPage'],
+  setNextPage: MainPageProps['setNextPage'],
+  setPrevPage: MainPageProps['setPrevPage'],
+  setFirstPage: MainPageProps['setFirstPage'],
   currentPage: number,
   totalMatches: number,
   matchesPerPage: number
@@ -25,7 +27,10 @@ function CustomPagination(props: Props) {
 
   return (
     <Pagination>
-      <Pagination.First onClick={() => props.setFirstPage()} />
+      <Pagination.First
+        disabled={prevArrowDisable}
+        onClick={props.setFirstPage}
+      />
 
       <Pagination.Item
         disabled={prevArrowDisable}
@@ -41,7 +46,7 @@ function CustomPagination(props: Props) {
               key={idx}
               active={props.currentPage === num}
               className='page-item'
-              onClick={() =>props.setPage(num)}
+              onClick={() => props.setPageNumber(num)}
             >
               {num}
             </Pagination.Item>
@@ -56,7 +61,9 @@ function CustomPagination(props: Props) {
         Next
       </Pagination.Next>
 
-      <Pagination.Last onClick={props.setLastPage} />
+      <Pagination.Last
+        disabled={nextArrowDisable}
+        onClick={() => props.setLastPage(props.pagesLength)} />
     </Pagination>
   )
 }

@@ -28,6 +28,13 @@ function MainPage(props: MainPageProps) {
 
           <LatestMatches
             matches={props.matches}
+            currentPage={props.currentPage}
+            matchesPerPage={props.matchesPerPage}
+            setFirstPage={props.setFirstPage}
+            setLastPage={props.setLastPage}
+            setNextPage={props.setNextPage}
+            setPageNumber={props.setPageNumber}
+            setPrevPage={props.setPrevPage}
           />
         </div>
       </section>
