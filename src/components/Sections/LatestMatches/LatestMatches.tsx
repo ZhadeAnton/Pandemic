@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { IMatch } from '../../../interfaces'
 import { MainPageProps } from '../../../Containers/MainContainer'
 import MatchItem from '../../Blocks/MatchItem/MatchItem'
+import CustomPagination from '../../Custom/Pagination/Pagination'
 
 import './latestMatches.scss'
 
@@ -11,6 +12,20 @@ interface Props {
 }
 
 function LatestMatches(props: Props) {
+  const [currentPage, setCurrentPage] = useState(1)
+  const matchesPerPage = 1;
+  const totalMatches = props.matches.length
+  const indexOfLastMatch = currentPage * matchesPerPage
+  const indexOfFirstMatch = indexOfLastMatch - matchesPerPage
+  const currentMatches = props.matches.slice(indexOfFirstMatch, indexOfLastMatch)
+  const pagesLength = Math.ceil(totalMatches / matchesPerPage)
+
+  const setPage = (pageNum: number) => setCurrentPage(pageNum)
+  const setNextPage = () => setCurrentPage(currentPage + 1)
+  const setPrevPage = () => setCurrentPage(currentPage - 1)
+  const setFirstPage = () => setCurrentPage(1)
+  const setLastPage = () => setCurrentPage(pagesLength)
+
   return (
     <section className='latest-matches'>
       <div className='latest-matches__wrapper container'>
@@ -26,7 +41,7 @@ function LatestMatches(props: Props) {
 
         <div className='latest-matches__slider'>
           {
-            props.matches.map((match: IMatch, idx: number) => {
+            currentMatches.map((match: IMatch, idx: number) => {
               return (
                 <MatchItem
                   key={idx}
@@ -37,6 +52,18 @@ function LatestMatches(props: Props) {
           }
         </div>
       </div>
+
+      <CustomPagination
+        currentPage={currentPage}
+        totalMatches={totalMatches}
+        matchesPerPage={matchesPerPage}
+        pagesLength={pagesLength}
+        setPage={setPage}
+        setNextPage={setNextPage}
+        setPrevPage={setPrevPage}
+        setFirstPage={setFirstPage}
+        setLastPage={setLastPage}
+      />
     </section>
   )
 }
