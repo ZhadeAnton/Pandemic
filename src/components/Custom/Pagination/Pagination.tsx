@@ -1,6 +1,8 @@
 import React from 'react'
 import { Pagination } from 'react-bootstrap'
+import PageItem from 'react-bootstrap/PageItem'
 
+import './pagination..scss'
 import { MainPageProps } from '../../../Containers/MainContainer'
 
 interface Props {
@@ -32,24 +34,23 @@ function CustomPagination(props: Props) {
         onClick={props.setFirstPage}
       />
 
-      <Pagination.Item
+      <PageItem
         disabled={prevArrowDisable}
         onClick={props.setPrevPage}
       >
         Prev
-      </Pagination.Item>
+      </PageItem>
 
       {
         pageNumbers.map((num: number, idx: number) => {
           return (
-            <Pagination.Item
+            <PageItem
               key={idx}
               active={props.currentPage === num}
-              className='page-item'
               onClick={() => props.setPageNumber(num)}
             >
               {num}
-            </Pagination.Item>
+            </PageItem>
           )
         })
       }

@@ -27,8 +27,8 @@ function LatestMatches(props: Props) {
   const pagesLength = Math.ceil(totalMatches / props.matchesPerPage)
 
   return (
-    <section className='latest-matches'>
-      <div className='latest-matches__wrapper container'>
+    <section className='latest-matches container'>
+      <div className='latest-matches__wrapper'>
         <div className='latest-matches__top-banner'>
           <h2 className='latest-matches__top-banner--title'>
             latest matches
@@ -39,7 +39,7 @@ function LatestMatches(props: Props) {
           <span className='latest-matches__top-banner--line'></span>
         </div>
 
-        <div className='latest-matches__slider'>
+        <div className='latest-matches__list'>
           {
             currentMatches.map((match: IMatch, idx: number) => {
               return (
@@ -53,17 +53,25 @@ function LatestMatches(props: Props) {
         </div>
       </div>
 
-      <CustomPagination
-        currentPage={props.currentPage}
-        matchesPerPage={props.matchesPerPage}
-        totalMatches={totalMatches}
-        pagesLength={pagesLength}
-        setPageNumber={props.setPageNumber}
-        setNextPage={props.setNextPage}
-        setPrevPage={props.setPrevPage}
-        setFirstPage={props.setFirstPage}
-        setLastPage={props.setLastPage}
-      />
+      {
+          pagesLength > 1
+          ?
+            <div className='latest-matches__pagination'>
+              <CustomPagination
+                currentPage={props.currentPage}
+                matchesPerPage={props.matchesPerPage}
+                totalMatches={totalMatches}
+                pagesLength={pagesLength}
+                setPageNumber={props.setPageNumber}
+                setNextPage={props.setNextPage}
+                setPrevPage={props.setPrevPage}
+                setFirstPage={props.setFirstPage}
+                setLastPage={props.setLastPage}
+              />
+            </div>
+          :
+            null
+      }
     </section>
   )
 }

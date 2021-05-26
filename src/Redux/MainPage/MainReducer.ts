@@ -16,7 +16,7 @@ const INITIAL_STATE: MainState = {
   matchesLength: null,
   initialPage: 1,
   currentPage: 1,
-  matchesPerPage: 2
+  matchesPerPage: 3
 }
 
 const mainReducer =

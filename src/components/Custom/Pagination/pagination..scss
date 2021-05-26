@@ -1,0 +1,29 @@
+.page-item .page-link {
+  color: white;
+  background-color: transparent;
+  border: none;
+
+  &:hover {
+    color: var(--e-global-color-primary);
+    background-color: transparent;
+    border: none;
+  }
+}
+
+.page-item.disabled .page-link {
+  color: grey;
+  background-color: transparent;
+  border: none;
+}
+
+.page-item.disabled {
+  &:hover {
+    cursor: not-allowed;
+  }
+}
+
+.page-item.active .page-link {
+  color: var(--e-global-color-primary);
+  background-color: transparent;
+  border: none;
+}
