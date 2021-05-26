@@ -64,9 +64,10 @@ function MatchItem(props: Props) {
         </div>
 
         <div className='match-item__back'></div>
-        <div className='match-item__date'>
-          {moment(timeStamp).format('MMM D YYYY, h:mm a')}
-        </div>
+      </div>
+
+      <div className='match-item__date'>
+        {moment(timeStamp).format('MMM D YYYY, h:mm a')}
       </div>
     </div>
   )
