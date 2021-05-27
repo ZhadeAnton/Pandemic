@@ -8,6 +8,7 @@ import MatchItem from '../../Blocks/MatchItem/MatchItem'
 import CustomPagination from '../../Custom/Pagination/Pagination'
 import MatchFilter from '../../Custom/MatchFilter/MatchFilter'
 import Spinner from '../../Custom/Spinner/Spinner'
+import NotFoundMatches from '../../Blocks/NotFoundMatches/NotFoundMatches'
 
 interface Props {
   matches: MainPageProps['matches'],
@@ -46,10 +47,12 @@ function LatestMatches(props: Props) {
           </div>
         </Slide>
 
-        <MatchFilter
-          disciplines={props.disciplines}
-          sortMatches={props.sortMatches}
-        />
+        <div className='latest-matches__sort-row'>
+          <MatchFilter
+            disciplines={props.disciplines}
+            sortMatches={props.sortMatches}
+          />
+        </div>
 
         <ul className='latest-matches__list'>
           {
@@ -57,13 +60,17 @@ function LatestMatches(props: Props) {
             ?
               <Spinner />
             :
-            currentMatches.map((match: IMatch, idx: number) => {
-              return (
-                <li key={idx} >
-                  <MatchItem match={match} />
-                </li>
-              )
-            })
+              currentMatches.length !== 0
+            ?
+              currentMatches.map((match: IMatch, idx: number) => {
+                return (
+                  <li key={idx} >
+                    <MatchItem match={match} />
+                  </li>
+                )
+              })
+            :
+              <NotFoundMatches />
           }
         </ul>
       </div>

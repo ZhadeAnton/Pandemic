@@ -40,6 +40,10 @@
     }
   }
 
+  &__sort-row {
+    margin-top: 5rem;
+  }
+
   &__list {
     padding: 3rem 0 !important;
     min-height: 30rem;
@@ -110,7 +114,7 @@
     }
 
     &__list {
-      padding: 1.5rem 0;
+      padding: 1.5rem 0 !important;
     }
   }
 
@@ -130,7 +134,7 @@
     }
 
     &__list {
-      padding: 1rem 0;
+      padding: 1rem 0 !important;
     }
   }
 }
