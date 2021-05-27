@@ -1,14 +1,14 @@
 import React from 'react'
 
-import './gearPreloader.scss'
+import './cubePreloader.scss'
 import preloader1 from '../../../assets/Preloaders/preloader1.gif'
 
-function GearPreloader() {
+function Preloader() {
   return (
-    <div className='preloader-gear'>
+    <div className='preloader-cube'>
       <img src={preloader1} alt="loading" />
     </div>
   )
 }
 
-export default GearPreloader
+export default Preloader

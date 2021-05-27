@@ -5,7 +5,7 @@ import { MainPageProps } from '../../Containers/MainContainer'
 import Header from '../../components/Sections/Header/Header'
 import HeroSection from '../../components/Sections/HeroSection/HeroSection'
 import AnnounceSlider from '../../components/Sections/AnnounceSlider/AnnounceSlider'
-import GearPreloader from '../../components/Custom/GearPreloader/GearPreloader'
+import Preloader from '../../components/Custom/CubePreloader/CubePreloader'
 import LatestMatches from '../../components/Sections/LatestMatches/LatestMatches'
 
 function MainPage(props: MainPageProps) {
@@ -16,7 +16,7 @@ function MainPage(props: MainPageProps) {
   }, [])
 
   if (props.announces.length === 0) {
-    return <GearPreloader />
+    return <Preloader />
   } else {
     return (
       <section className='mainPage'>
@@ -29,6 +29,7 @@ function MainPage(props: MainPageProps) {
 
           <LatestMatches
             matches={props.matches}
+            isLoading={props.isLoading}
             disciplines={props.disciplines}
             currentPage={props.currentPage}
             matchesPerPage={props.matchesPerPage}

@@ -1,5 +1,15 @@
 import { IAnnounce, IDiscipline, IMatch } from './../../interfaces';
 
+export const SET_LOADING_TRUE = 'SET_LOADING_TRUE'
+export interface SetLoadingTrue {
+  type: typeof SET_LOADING_TRUE
+}
+
+export const SET_LOADING_FALSE = 'SET_LOADING_FALSE'
+export interface SetLoadingFalse {
+  type: typeof SET_LOADING_FALSE
+}
+
 export const GET_ANNOUNCES = 'GET_ANNOUNCES'
 export interface GetAnnounces {
   type: typeof GET_ANNOUNCES
@@ -62,6 +72,8 @@ export interface SortMatchesSuccess {
 }
 
 export type Maintypes =
+|SetLoadingTrue
+|SetLoadingFalse
 |GetAnnounces
 |GetAnnouncesSuccess
 |SetPageNumber

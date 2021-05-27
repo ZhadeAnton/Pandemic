@@ -8,7 +8,8 @@ export interface MainState {
   matchesLength: number | null,
   initialPage: number,
   currentPage: number,
-  matchesPerPage: number
+  matchesPerPage: number,
+  isLoading: boolean
 }
 
 const INITIAL_STATE: MainState = {
@@ -18,7 +19,8 @@ const INITIAL_STATE: MainState = {
   matchesLength: null,
   initialPage: 1,
   currentPage: 1,
-  matchesPerPage: 3
+  matchesPerPage: 3,
+  isLoading: false
 }
 
 const mainReducer =
@@ -30,10 +32,17 @@ const mainReducer =
           announces: [...action.payload]
         }
 
+      case actions.SORT_MATCHES:
+        return {
+          ...state,
+          isLoading: true
+        }
+
       case actions.SORT_MATCHES_SUCCESS:
         return {
           ...state,
-          matches: action.payload
+          matches: action.payload,
+          isLoading: false
         }
 
       case actions.GET_LIST_OF_DISCIPLINES_SUCCESS:

@@ -1,6 +1,14 @@
 import { IAnnounce, IDiscipline, IMatch } from '../../interfaces'
 import * as actions from './MainActionsTypes'
 
+export const setLoadingTrue = (): actions.SetLoadingTrue => ({
+  type: actions.SET_LOADING_TRUE
+})
+
+export const setLoadingFalse = (): actions.SetLoadingFalse => ({
+  type: actions.SET_LOADING_FALSE
+})
+
 export const getAnnounces = (): actions.GetAnnounces => ({
   type: actions.GET_ANNOUNCES
 })

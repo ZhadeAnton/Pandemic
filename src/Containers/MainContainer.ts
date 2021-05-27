@@ -12,6 +12,7 @@ interface StateProps {
   matches: MainState['matches'],
   currentPage: MainState['currentPage'],
   matchesPerPage: MainState['matchesPerPage'],
+  isLoading: MainState['isLoading']
 }
 interface DispatchProps {
   getAnnounces: () => void,
@@ -29,7 +30,8 @@ const mapStateToProps = (state: RootState) => ({
   disciplines: state.main.disciplines,
   matches: state.main.matches,
   currentPage: state.main.currentPage,
-  matchesPerPage: state.main.matchesPerPage
+  matchesPerPage: state.main.matchesPerPage,
+  isLoading: state.main.isLoading
 })
 
 const mapDispatchToProps = (dispatch: Dispatch<Maintypes>) => ({

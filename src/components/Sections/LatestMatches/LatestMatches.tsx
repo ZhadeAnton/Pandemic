@@ -7,9 +7,11 @@ import { MainPageProps } from '../../../Containers/MainContainer'
 import MatchItem from '../../Blocks/MatchItem/MatchItem'
 import CustomPagination from '../../Custom/Pagination/Pagination'
 import MatchFilter from '../../Custom/MatchFilter/MatchFilter'
+import Spinner from '../../Custom/Spinner/Spinner'
 
 interface Props {
   matches: MainPageProps['matches'],
+  isLoading: MainPageProps['isLoading'],
   disciplines: MainPageProps['disciplines'],
   currentPage: MainPageProps['currentPage'],
   matchesPerPage: MainPageProps['matchesPerPage'],
@@ -51,6 +53,10 @@ function LatestMatches(props: Props) {
 
         <ul className='latest-matches__list'>
           {
+            props.isLoading
+            ?
+              <Spinner />
+            :
             currentMatches.map((match: IMatch, idx: number) => {
               return (
                 <li key={idx} >
