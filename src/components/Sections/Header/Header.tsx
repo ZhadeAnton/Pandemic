@@ -7,7 +7,7 @@ import NavigationMenu from '../../Blocks/NavigationMenu/NavigationMenu'
 
 function Header() {
   return (
-    <header className='header'>
+    <header className='header sticky-top'>
       <div className='header__wrapper'>
         <BrandLogo />
 

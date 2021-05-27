@@ -1,0 +1,28 @@
+@import '../../../scss/variables';
+
+.brand-logo {
+  height: 100%;
+
+  @include media-breakpoint-down(md) {
+    margin-left: .5rem;
+    &__image {
+      width: 90%;
+      height: auto;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__image {
+      width: 80%;
+      height: auto;
+    }
+  }
+
+  @include media-breakpoint-down(vsm) {
+
+    &__image {
+      width: 70%;
+      height: auto;
+    }
+  }
+}
