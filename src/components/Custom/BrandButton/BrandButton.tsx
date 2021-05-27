@@ -11,7 +11,7 @@ interface Props {
 
 function BrandButton(props: Props) {
   return (
-    <button className={cn('brand-button fade-in-with-delay', props.className)}>
+    <button className={cn('brand-button', props.className)}>
       <a
         className='brand-button__link'
         href="/"

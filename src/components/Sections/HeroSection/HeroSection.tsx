@@ -1,4 +1,6 @@
 import React from 'react'
+const Slide = require('react-reveal/Slide')
+const Zoom = require('react-reveal/Zoom')
 
 import './heroSection.scss'
 import { ReactComponent as BottomShape } from '../../../assets/bottom-shape.svg'
@@ -12,16 +14,20 @@ const HeroSection = () => {
   return (
     <div className='hero'>
       <div className='hero__row'>
-        <img
-          className='hero__row--pandemic top-appear'
-          src={pandemic}
-          alt="pandemic"
-        />
+        <Slide top>
+          <img
+            className='hero__row--pandemic'
+            src={pandemic}
+            alt="pandemic"
+          />
+        </Slide>
 
-        <BrandButton className='hero__row--button'/>
+        <Zoom clear>
+          <BrandButton className='hero__row--button'/>
+        </Zoom>
       </div>
 
-      <div className="hero__background fade-in">
+      <div className="hero__background">
         <video
           className="hero__background--video"
           autoPlay
@@ -39,7 +45,7 @@ const HeroSection = () => {
       <BottomShape className='hero__shape'/>
 
       <img
-        className='hero__doctor d-none d-md-flex fade-in'
+        className='hero__doctor d-none d-md-flex'
         src={doctor}
         alt="pandemic doctor"
       />

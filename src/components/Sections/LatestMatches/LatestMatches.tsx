@@ -1,4 +1,6 @@
 import React from 'react'
+const Slide = require('react-reveal/Slide')
+
 
 import { IMatch } from '../../../interfaces'
 import { MainPageProps } from '../../../Containers/MainContainer'
@@ -29,28 +31,29 @@ function LatestMatches(props: Props) {
   return (
     <section className='latest-matches container'>
       <div className='latest-matches__wrapper'>
-        <div className='latest-matches__top-banner'>
-          <h2 className='latest-matches__top-banner--title'>
+        <Slide top>
+          <div className='latest-matches__top-banner'>
+            <h2 className='latest-matches__top-banner--title'>
             latest matches
-          </h2>
-          <h6 className='latest-matches__top-banner--sub-title'>
-            handpicked
-          </h6>
-          <span className='latest-matches__top-banner--line'></span>
-        </div>
+            </h2>
+            <h6 className='latest-matches__top-banner--sub-title'>
+              handpicked
+            </h6>
+            <span className='latest-matches__top-banner--line'></span>
+          </div>
+        </Slide>
 
-        <div className='latest-matches__list'>
+        <ul className='latest-matches__list'>
           {
             currentMatches.map((match: IMatch, idx: number) => {
               return (
-                <MatchItem
-                  key={idx}
-                  match={match}
-                />
+                <li key={idx} >
+                  <MatchItem match={match} />
+                </li>
               )
             })
           }
-        </div>
+        </ul>
       </div>
 
       {

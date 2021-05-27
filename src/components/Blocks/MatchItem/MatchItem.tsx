@@ -1,7 +1,7 @@
 import React from 'react'
-import { IMatch } from '../../../interfaces'
 import moment from 'moment'
 
+import { IMatch } from '../../../interfaces'
 import './matchItem.scss'
 
 interface Props {
