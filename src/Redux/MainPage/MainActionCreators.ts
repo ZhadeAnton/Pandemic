@@ -1,4 +1,4 @@
-import { IAnnounce } from '../../interfaces'
+import { IAnnounce, IDiscipline, IMatch } from '../../interfaces'
 import * as actions from './MainActionsTypes'
 
 export const getAnnounces = (): actions.GetAnnounces => ({
@@ -9,16 +9,6 @@ export const getAnnouncesSuccess = (
     announces: Array<IAnnounce>): actions.GetAnnouncesSuccess => ({
   type: actions.GET_ANNOUNCES_SUCCESS,
   payload: announces
-})
-
-export const getLatestMatches = (): actions.GetLatestMatches => ({
-  type: actions.GET_LATEST_MATCHES
-})
-
-export const getLatestMatchesSuccess = (
-    matches: Array<any>): actions.GetLatestMatchesSuccess => ({
-  type: actions.GET_LATEST_MATCHES_SUCCESS,
-  payload: matches
 })
 
 export const setPageNumber = (pageNum: number): actions.SetPageNumber => ({
@@ -48,7 +38,19 @@ export const getListOfDisciplines = (): actions.GetListOfDisciplines => ({
 })
 
 export const getListOfDisciplinesSuccess = (
-    disciplines: Array<string>): actions.GetListOfDisciplinesSuccess => ({
+    disciplines: Array<IDiscipline>): actions.GetListOfDisciplinesSuccess => ({
   type: actions.GET_LIST_OF_DISCIPLINES_SUCCESS,
   payload: disciplines
+})
+
+export const sortMatches = (
+    discipline: string): actions.SortMatches => ({
+  type: actions.SORT_MATCHES,
+  payload: discipline
+})
+
+export const sortMatchesSuccess = (
+    sortedMatches: Array<IMatch>): actions.SortMatchesSuccess => ({
+  type: actions.SORT_MATCHES_SUCCESS,
+  payload: sortedMatches
 })

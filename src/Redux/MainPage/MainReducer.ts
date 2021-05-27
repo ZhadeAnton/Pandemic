@@ -1,9 +1,9 @@
 import * as actions from './MainActionsTypes'
-import { IAnnounce, IMatch } from '../../interfaces';
+import { IAnnounce, IDiscipline, IMatch } from '../../interfaces';
 
 export interface MainState {
   announces: Array<IAnnounce> | [],
-  disciplines: Array<string> | [],
+  disciplines: Array<IDiscipline> | [],
   matches: Array<IMatch> | [],
   matchesLength: number | null,
   initialPage: number,
@@ -30,7 +30,7 @@ const mainReducer =
           announces: [...action.payload]
         }
 
-      case actions.GET_LATEST_MATCHES_SUCCESS:
+      case actions.SORT_MATCHES_SUCCESS:
         return {
           ...state,
           matches: action.payload
@@ -39,7 +39,7 @@ const mainReducer =
       case actions.GET_LIST_OF_DISCIPLINES_SUCCESS:
         return {
           ...state,
-          disciplines: action.payload
+          disciplines: [...action.payload]
         }
 
       case actions.SET_PAGE_NUMBER:

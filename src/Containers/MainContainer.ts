@@ -15,13 +15,13 @@ interface StateProps {
 }
 interface DispatchProps {
   getAnnounces: () => void,
-  getLatestMatches: () => void,
   getListOfDisciplines: () => void,
   setPageNumber: (pageNumber: number) => void,
   setLastPage: (lastPageNumber: number) => void,
   setNextPage: () => void,
   setPrevPage: () => void,
   setFirstPage: () => void,
+  sortMatches: (discipline: string) => void
 }
 
 const mapStateToProps = (state: RootState) => ({
@@ -35,12 +35,13 @@ const mapStateToProps = (state: RootState) => ({
 const mapDispatchToProps = (dispatch: Dispatch<Maintypes>) => ({
   getAnnounces: () => dispatch(actions.getAnnounces()),
   getListOfDisciplines: () => dispatch(actions.getListOfDisciplines()),
-  getLatestMatches: () => dispatch(actions.getLatestMatches()),
   setPageNumber: (pageNumber: number) => dispatch(actions.setPageNumber(pageNumber)),
   setNextPage: () => dispatch(actions.setNextPage()),
   setPrevPage: () => dispatch(actions.setPrevPage()),
   setFirstPage: () => dispatch(actions.setPrevPage()),
   setLastPage: (lastPageNumber: number) => dispatch(actions.setLastPage(lastPageNumber)),
+  sortMatches: (discipline: string) =>
+    dispatch(actions.sortMatches(discipline))
 })
 
 const MainPageContainer =

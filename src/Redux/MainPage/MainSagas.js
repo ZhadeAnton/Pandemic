@@ -12,15 +12,6 @@ function* getAnnounces() {
   }
 }
 
-function* getLatestMatches() {
-  try {
-    const matches = yield api.fetchLatestMatches()
-    yield put(actionCreators.getLatestMatchesSuccess(matches))
-  } catch (error) {
-    console.log(error)
-  }
-}
-
 function* getListOfDisciplines() {
   try {
     const listOfDisciplines = yield api.fetchListOfDiscipines()
@@ -30,22 +21,31 @@ function* getListOfDisciplines() {
   }
 }
 
-function* onGetAnnounces() {
-  yield takeLatest(actionTypes.GET_ANNOUNCES, getAnnounces)
+function* sortMatches({payload}) {
+  try {
+    const sortedMatches = yield api.fetchMatchesByDiscipline(payload)
+    yield put(actionCreators.sortMatchesSuccess(sortedMatches))
+  } catch (error) {
+    console.log(error)
+  }
 }
 
-function* onGetLatestMatches() {
-  yield takeLatest(actionTypes.GET_LATEST_MATCHES, getLatestMatches)
+function* onGetAnnounces() {
+  yield takeLatest(actionTypes.GET_ANNOUNCES, getAnnounces)
 }
 
 function* onGetListOfDisciplines() {
   yield takeLatest(actionTypes.GET_LIST_OF_DISCIPLINES, getListOfDisciplines)
 }
 
+function* onSortMatchesByDiscipline() {
+  yield takeLatest(actionTypes.SORT_MATCHES, sortMatches)
+}
+
 export default function* mainSagas() {
   yield all([
     call(onGetAnnounces),
-    call(onGetLatestMatches),
     call(onGetListOfDisciplines),
+    call(onSortMatchesByDiscipline),
   ])
 }

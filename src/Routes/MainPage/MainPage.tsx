@@ -11,8 +11,8 @@ import LatestMatches from '../../components/Sections/LatestMatches/LatestMatches
 function MainPage(props: MainPageProps) {
   useEffect(() => {
     props.getAnnounces()
-    props.getLatestMatches()
     props.getListOfDisciplines()
+    props.sortMatches('Overwatch')
   }, [])
 
   if (props.announces.length === 0) {
@@ -37,6 +37,7 @@ function MainPage(props: MainPageProps) {
             setNextPage={props.setNextPage}
             setPageNumber={props.setPageNumber}
             setPrevPage={props.setPrevPage}
+            sortMatches={props.sortMatches}
           />
         </div>
       </section>

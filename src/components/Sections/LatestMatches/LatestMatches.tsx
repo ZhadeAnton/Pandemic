@@ -17,7 +17,8 @@ interface Props {
   setLastPage: MainPageProps['setLastPage'],
   setNextPage: MainPageProps['setNextPage'],
   setPrevPage: MainPageProps['setPrevPage'],
-  setFirstPage: MainPageProps['setFirstPage']
+  setFirstPage: MainPageProps['setFirstPage'],
+  sortMatches: MainPageProps['sortMatches']
 }
 
 function LatestMatches(props: Props) {
@@ -43,7 +44,10 @@ function LatestMatches(props: Props) {
           </div>
         </Slide>
 
-        <MatchFilter disciplines={props.disciplines}/>
+        <MatchFilter
+          disciplines={props.disciplines}
+          sortMatches={props.sortMatches}
+        />
 
         <ul className='latest-matches__list'>
           {

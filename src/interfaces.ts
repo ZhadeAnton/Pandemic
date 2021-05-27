@@ -22,3 +22,7 @@ export interface IMatch {
   team1: ITeam,
   team2: ITeam
 }
+
+export interface IDiscipline {
+  name: string
+}

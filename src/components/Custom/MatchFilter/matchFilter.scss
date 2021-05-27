@@ -2,9 +2,38 @@
   color: white;
 
   &__list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
-    &--item {
-      padding: 2rem;
+  &__item {
+    cursor: pointer;
+    color: white;
+    margin-left: 2.5rem !important;
+    display: flex;
+    align-items: center;
+
+    &--title {
+      font-size: 1.5rem;
+    }
+
+    &:not(:last-child) {
+      position: relative;
+
+      &:after {
+        content: '/';
+        position: absolute;
+        right: -1.5rem;
+      }
+    }
+
+    &:hover {
+      color: var(--e-global-color-primary);
+
+      &:after {
+        color: white;
+      }
     }
   }
 }
