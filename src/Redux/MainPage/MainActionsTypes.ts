@@ -49,6 +49,18 @@ export interface SetLastPage {
   payload: number
 }
 
+export const GET_LIST_OF_DISCIPLINES = 'GET_LIST_OF_DISCIPLINES'
+export interface GetListOfDisciplines {
+  type: typeof GET_LIST_OF_DISCIPLINES
+}
+
+export const GET_LIST_OF_DISCIPLINES_SUCCESS = 'GET_LIST_OF_DISCIPLINES_SUCCESS'
+export interface GetListOfDisciplinesSuccess {
+  type: typeof GET_LIST_OF_DISCIPLINES_SUCCESS,
+  payload: Array<string>
+}
+
+
 export type Maintypes =
 |GetAnnounces
 |GetAnnouncesSuccess
@@ -59,3 +71,5 @@ export type Maintypes =
 |SetPrevPage
 |SetFirstPage
 |SetLastPage
+|GetListOfDisciplines
+|GetListOfDisciplinesSuccess

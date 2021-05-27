@@ -8,6 +8,7 @@ import { RootState } from '../Redux/Store/Store'
 import MainPage from '../Routes/MainPage/MainPage'
 interface StateProps {
   announces: MainState['announces'],
+  disciplines: MainState['disciplines'],
   matches: MainState['matches'],
   currentPage: MainState['currentPage'],
   matchesPerPage: MainState['matchesPerPage'],
@@ -15,6 +16,7 @@ interface StateProps {
 interface DispatchProps {
   getAnnounces: () => void,
   getLatestMatches: () => void,
+  getListOfDisciplines: () => void,
   setPageNumber: (pageNumber: number) => void,
   setLastPage: (lastPageNumber: number) => void,
   setNextPage: () => void,
@@ -24,6 +26,7 @@ interface DispatchProps {
 
 const mapStateToProps = (state: RootState) => ({
   announces: state.main.announces,
+  disciplines: state.main.disciplines,
   matches: state.main.matches,
   currentPage: state.main.currentPage,
   matchesPerPage: state.main.matchesPerPage
@@ -31,6 +34,7 @@ const mapStateToProps = (state: RootState) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch<Maintypes>) => ({
   getAnnounces: () => dispatch(actions.getAnnounces()),
+  getListOfDisciplines: () => dispatch(actions.getListOfDisciplines()),
   getLatestMatches: () => dispatch(actions.getLatestMatches()),
   setPageNumber: (pageNumber: number) => dispatch(actions.setPageNumber(pageNumber)),
   setNextPage: () => dispatch(actions.setNextPage()),

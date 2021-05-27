@@ -12,6 +12,7 @@ function MainPage(props: MainPageProps) {
   useEffect(() => {
     props.getAnnounces()
     props.getLatestMatches()
+    props.getListOfDisciplines()
   }, [])
 
   if (props.announces.length === 0) {
@@ -28,6 +29,7 @@ function MainPage(props: MainPageProps) {
 
           <LatestMatches
             matches={props.matches}
+            disciplines={props.disciplines}
             currentPage={props.currentPage}
             matchesPerPage={props.matchesPerPage}
             setFirstPage={props.setFirstPage}

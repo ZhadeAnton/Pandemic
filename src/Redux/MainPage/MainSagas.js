@@ -21,6 +21,15 @@ function* getLatestMatches() {
   }
 }
 
+function* getListOfDisciplines() {
+  try {
+    const listOfDisciplines = yield api.fetchListOfDiscipines()
+    yield put(actionCreators.getListOfDisciplinesSuccess(listOfDisciplines))
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 function* onGetAnnounces() {
   yield takeLatest(actionTypes.GET_ANNOUNCES, getAnnounces)
 }
@@ -29,9 +38,14 @@ function* onGetLatestMatches() {
   yield takeLatest(actionTypes.GET_LATEST_MATCHES, getLatestMatches)
 }
 
+function* onGetListOfDisciplines() {
+  yield takeLatest(actionTypes.GET_LIST_OF_DISCIPLINES, getListOfDisciplines)
+}
+
 export default function* mainSagas() {
   yield all([
     call(onGetAnnounces),
     call(onGetLatestMatches),
+    call(onGetListOfDisciplines),
   ])
 }

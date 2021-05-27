@@ -3,6 +3,7 @@ import { IAnnounce, IMatch } from '../../interfaces';
 
 export interface MainState {
   announces: Array<IAnnounce> | [],
+  disciplines: Array<string> | [],
   matches: Array<IMatch> | [],
   matchesLength: number | null,
   initialPage: number,
@@ -12,6 +13,7 @@ export interface MainState {
 
 const INITIAL_STATE: MainState = {
   announces: [],
+  disciplines: [],
   matches: [],
   matchesLength: null,
   initialPage: 1,
@@ -32,6 +34,12 @@ const mainReducer =
         return {
           ...state,
           matches: action.payload
+        }
+
+      case actions.GET_LIST_OF_DISCIPLINES_SUCCESS:
+        return {
+          ...state,
+          disciplines: action.payload
         }
 
       case actions.SET_PAGE_NUMBER:

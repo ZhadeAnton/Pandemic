@@ -1,16 +1,16 @@
 import React from 'react'
 const Slide = require('react-reveal/Slide')
 
-
+import './latestMatches.scss'
 import { IMatch } from '../../../interfaces'
 import { MainPageProps } from '../../../Containers/MainContainer'
 import MatchItem from '../../Blocks/MatchItem/MatchItem'
 import CustomPagination from '../../Custom/Pagination/Pagination'
-
-import './latestMatches.scss'
+import MatchFilter from '../../Custom/MatchFilter/MatchFilter'
 
 interface Props {
   matches: MainPageProps['matches'],
+  disciplines: MainPageProps['disciplines'],
   currentPage: MainPageProps['currentPage'],
   matchesPerPage: MainPageProps['matchesPerPage'],
   setPageNumber: MainPageProps['setPageNumber'],
@@ -42,6 +42,8 @@ function LatestMatches(props: Props) {
             <span className='latest-matches__top-banner--line'></span>
           </div>
         </Slide>
+
+        <MatchFilter disciplines={props.disciplines}/>
 
         <ul className='latest-matches__list'>
           {

@@ -42,3 +42,13 @@ export const setLastPage = (lastPageNumber: number): actions.SetLastPage => ({
   type: actions.SET_LAST_PAGE,
   payload: lastPageNumber
 })
+
+export const getListOfDisciplines = (): actions.GetListOfDisciplines => ({
+  type: actions.GET_LIST_OF_DISCIPLINES
+})
+
+export const getListOfDisciplinesSuccess = (
+    disciplines: Array<string>): actions.GetListOfDisciplinesSuccess => ({
+  type: actions.GET_LIST_OF_DISCIPLINES_SUCCESS,
+  payload: disciplines
+})

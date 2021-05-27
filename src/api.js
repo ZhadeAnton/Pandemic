@@ -31,3 +31,32 @@ export function fetchLatestMatches() {
         return Promise.all(matchesList)
       })
 }
+
+export function fetchListOfDiscipines() {
+  return db.collection('disciplines')
+      .get()
+      .then((res) => res.docs.map((item) => ({
+        ...item.data()
+      })))
+      .then((res) => {
+        const list = []
+        res.forEach((item) => {
+          list.push(item.list)
+        })
+
+        return list[0]
+      })
+}
+
+// export function fetchListOfDiscipines() {
+//   return db.collection('disciplines')
+//       .get()
+//       .then((res) => res.docs.map((item) => ({
+//         ...item.data()
+//       })))
+//       .then((res) => res.map((item) => {
+//         return item.list
+//       })).then((res) => ({
+//         ...res
+//       })).then((res) => Array.from(res[0]))
+// }
