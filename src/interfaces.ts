@@ -33,11 +33,20 @@ interface ITeam {
 
 export interface IMatch {
   id: string,
+  icon: string,
+  tournament: string,
+  background: string,
   discipline: string,
   score: string,
   date: any,
   team1: ITeam,
-  team2: ITeam
+  team2: ITeam,
+  stats: {
+    duration: number,
+    kills: number,
+    maps: number,
+    round: number,
+  }
 }
 
 export interface IDiscipline {
