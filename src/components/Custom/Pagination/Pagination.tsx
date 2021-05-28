@@ -28,44 +28,48 @@ function CustomPagination(props: Props) {
   const prevArrowDisable = props.currentPage === 1 ? true : false
 
   return (
-    <Pagination>
-      <Pagination.First
-        disabled={prevArrowDisable}
-        onClick={props.setFirstPage}
-      />
+    props.pagesLength > 1
+    ?
+      <Pagination>
+        <Pagination.First
+          disabled={prevArrowDisable}
+          onClick={props.setFirstPage}
+        />
 
-      <PageItem
-        disabled={prevArrowDisable}
-        onClick={props.setPrevPage}
-      >
-        Prev
-      </PageItem>
+        <PageItem
+          disabled={prevArrowDisable}
+          onClick={props.setPrevPage}
+        >
+          Prev
+        </PageItem>
 
-      {
-        pageNumbers.map((num: number, idx: number) => {
-          return (
-            <PageItem
-              key={idx}
-              active={props.currentPage === num}
-              onClick={() => props.setPageNumber(num)}
-            >
-              {num}
-            </PageItem>
-          )
-        })
-      }
+        {
+          pageNumbers.map((num: number, idx: number) => {
+            return (
+              <PageItem
+                key={idx}
+                active={props.currentPage === num}
+                onClick={() => props.setPageNumber(num)}
+              >
+                {num}
+              </PageItem>
+            )
+          })
+        }
 
-      <Pagination.Next
-        disabled={nextArrowDisable}
-        onClick={props.setNextPage}
-      >
-        Next
-      </Pagination.Next>
+        <Pagination.Next
+          disabled={nextArrowDisable}
+          onClick={props.setNextPage}
+        >
+          Next
+        </Pagination.Next>
 
-      <Pagination.Last
-        disabled={nextArrowDisable}
-        onClick={() => props.setLastPage(props.pagesLength)} />
-    </Pagination>
+        <Pagination.Last
+          disabled={nextArrowDisable}
+          onClick={() => props.setLastPage(props.pagesLength)} />
+      </Pagination>
+    :
+      null
   )
 }
 

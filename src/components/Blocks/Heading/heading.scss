@@ -1,0 +1,86 @@
+@import '../../../scss/variables';
+
+.brand-heading {
+  text-transform: uppercase;
+  position: relative;
+  padding: .3rem 0 0 2rem;
+  line-height: 1.2rem;
+
+  &--title {
+    font-size: 3.43rem;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  &--sub-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--e-global-color-text-dark);
+  }
+
+  &--line {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    height: 100%;
+    width: .3rem;
+    background-color: var(--e-global-color-primary);
+  }
+
+  @include media-breakpoint-down(xl) {
+    &--title {
+      font-size: 3rem;
+    }
+
+    &--sub-title {
+      font-size: 1rem;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    &--title {
+      font-size: 2.5rem;
+    }
+
+    &--sub-title {
+      font-size: .9rem;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    &--title {
+      font-size: 2.1rem;
+    }
+
+    &--sub-title {
+      font-size: .8rem;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    line-height: 1rem;
+    padding: .3rem 0 0 1rem;
+
+    &--title {
+      font-size: 1.9rem;
+    }
+
+    &--sub-title {
+      font-size: .7rem;
+    }
+
+    &--line {
+      width: .2rem;
+    }
+  }
+
+  @include media-breakpoint-down(vsm) {
+    &--title {
+      font-size: 1.8rem;
+    }
+
+    &--sub-title {
+      font-size: .6rem;
+    }
+  }
+}

@@ -5,7 +5,7 @@ import { IMatch } from '../../../interfaces'
 import './matchItem.scss'
 
 interface Props {
-  match: IMatch
+  match: IMatch,
 }
 
 function MatchItem(props: Props) {
