@@ -46,7 +46,7 @@
 
   &__list {
     padding: 3rem 0 !important;
-    min-height: 30rem;
+    min-height: 20rem;
     height: 100%;
     width: 100%;
     position: relative;
@@ -80,6 +80,10 @@
         font-size: .9rem;
       }
     }
+
+    &__sort-row {
+      margin-top: 4rem;
+    }
   }
 
   @include media-breakpoint-down(md) {
@@ -93,6 +97,10 @@
       &--sub-title {
         font-size: .8rem;
       }
+    }
+
+    &__sort-row {
+      margin-top: 3rem;
     }
   }
 
