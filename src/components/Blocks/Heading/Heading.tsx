@@ -3,15 +3,20 @@ const Slide = require('react-reveal/Slide')
 
 import './heading.scss'
 
-function Heading() {
+interface Props {
+  title: string,
+  subTitle: string
+}
+
+function Heading(props: Props) {
   return (
     <Slide top>
       <div className='brand-heading'>
         <h2 className='brand-heading--title'>
-        latest matches
+          {props.title}
         </h2>
         <h6 className='brand-heading--sub-title'>
-          handpicked
+          {props.subTitle}
         </h6>
         <span className='brand-heading--line'></span>
       </div>

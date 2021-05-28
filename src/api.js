@@ -30,6 +30,7 @@ export function fetchMatchesByDiscipline(discipline) {
 
 function mapDoc(snapShot) {
   return snapShot.docs.map((doc) => ({
+    id: doc.id,
     ...doc.data()
   }))
 }
@@ -43,6 +44,7 @@ function awaitMatchWithReferences(match) {
     await Promise.all(promises).then((teamData) => {
       match.team1 = teamData[0]
       match.team2 = teamData[1]
+      match.id = match.id
     })
 
     return match

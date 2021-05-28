@@ -6,6 +6,10 @@ import { Maintypes } from '../Redux/MainPage/MainActionsTypes'
 import { MainState } from '../Redux/MainPage/MainReducer'
 import { RootState } from '../Redux/Store/Store'
 import MainPage from '../Routes/MainPage/MainPage'
+import { RouteComponentProps } from 'react-router-dom'
+
+type OwnProps = RouteComponentProps
+
 interface StateProps {
   announces: MainState['announces'],
   disciplines: MainState['disciplines'],
@@ -52,5 +56,5 @@ connect<StateProps, DispatchProps, {}, RootState>(
     mapDispatchToProps
 )(MainPage)
 
-export type MainPageProps = StateProps & DispatchProps
+export type MainPageProps = StateProps & DispatchProps & OwnProps
 export default MainPageContainer

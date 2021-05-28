@@ -1,6 +1,7 @@
 import React from 'react'
 
 import './latestMatches.scss'
+import { IMatch } from '../../../interfaces'
 import { MainPageProps } from '../../../Containers/MainContainer'
 import CustomPagination from '../../Custom/Pagination/Pagination'
 import MatchFilter from '../../Custom/MatchFilter/MatchFilter'
@@ -8,7 +9,10 @@ import Heading from '../../Blocks/Heading/Heading'
 import MatchList from '../../Blocks/MatchList/MatchList'
 
 interface Props {
-  matches: MainPageProps['matches'],
+  totalMatches: number,
+  pagesLength: number,
+  history: MainPageProps['history'],
+  currentMatches: Array<IMatch>,
   isLoading: MainPageProps['isLoading'],
   disciplines: MainPageProps['disciplines'],
   currentPage: MainPageProps['currentPage'],
@@ -22,18 +26,14 @@ interface Props {
 }
 
 function LatestMatches(props: Props) {
-  const totalMatches = props.matches.length
-  const indexOfLastMatch =
-    props.currentPage * props.matchesPerPage
-  const indexOfFirstMatch = indexOfLastMatch - props.matchesPerPage
-  const currentMatches = props.matches.slice(indexOfFirstMatch, indexOfLastMatch)
-  const pagesLength = Math.ceil(totalMatches / props.matchesPerPage)
-
   return (
     <section className='latest-matches container'>
       <div className='latest-matches__wrapper'>
         <div className='latest-matches__heading'>
-          <Heading />
+          <Heading
+            title='latest matches'
+            subTitle='handpicked'
+          />
         </div>
 
         <div className='latest-matches__sort-row'>
@@ -45,7 +45,8 @@ function LatestMatches(props: Props) {
 
         <div className='latest-matches__list'>
           <MatchList
-            currentMatches={currentMatches}
+            history={props.history}
+            currentMatches={props.currentMatches}
             isLoading={props.isLoading}
           />
         </div>
@@ -55,8 +56,8 @@ function LatestMatches(props: Props) {
         <CustomPagination
           currentPage={props.currentPage}
           matchesPerPage={props.matchesPerPage}
-          totalMatches={totalMatches}
-          pagesLength={pagesLength}
+          totalMatches={props.totalMatches}
+          pagesLength={props.pagesLength}
           setPageNumber={props.setPageNumber}
           setNextPage={props.setNextPage}
           setPrevPage={props.setPrevPage}

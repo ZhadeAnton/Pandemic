@@ -1,3 +1,19 @@
+import * as H from 'history'
+
+export interface RouteComponentProps<P> {
+  match: match<P>;
+  location: H.Location;
+  history: H.History;
+  staticContext?: any;
+}
+
+export interface match<P> {
+  params: P;
+  isExact: boolean;
+  path: string;
+  url: string;
+}
+
 export interface IAnnounce {
   title: string,
   image: string
@@ -16,6 +32,7 @@ interface ITeam {
 }
 
 export interface IMatch {
+  id: string,
   discipline: string,
   score: string,
   date: any,
