@@ -28,7 +28,7 @@
     top: 50%;
     left: 50%;
     height: 100%;
-    width: inherit;
+    width: 100%;
     max-width: 87%;
     max-height: 8rem;
     border: thin solid black;
@@ -274,9 +274,8 @@
     }
 
     &__image-wrapper {
-      width: 2.9rem;
-      height: 2.9rem;
-      margin: 0 1rem;
+      width: 4rem;
+      height: 4rem;
     }
 
     &__team-info {
@@ -297,6 +296,25 @@
       &--separator {
         font-size: 1rem;
         margin: 0 .25rem;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(tiny) {
+    &__image-wrapper {
+      width: 3.2rem;
+      height: 3.2rem;
+      margin: 0 .3rem;
+    }
+
+    &__team-info {
+      &--tag {
+        font-size: .65rem;
+        line-height: .9rem;
+      }
+
+      &--discipline {
+        font-size: .37rem;
       }
     }
   }
