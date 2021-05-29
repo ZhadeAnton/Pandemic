@@ -1,5 +1,6 @@
 import React from 'react'
 import MatchItem from '../../components/Blocks/MatchItem/MatchItem'
+import MatchStats from '../../components/Blocks/MatchStats/MatchStats';
 
 import Header from '../../components/Sections/Header/Header'
 
@@ -40,34 +41,9 @@ function MatchInfo(props: Props) {
             />
           </div>
         </div>
-      </div>
 
-      <div className='latest-match-info__stats row container'>
-        <div className='latest-match-info__stats--item col-3'>
-          <h6>winner</h6>
-          <h3>{stats.winner}</h3>
-        </div>
-
-        <div className='latest-match-info__stats--item col-2'>
-          <h6>kills</h6>
-          <h3>{stats.kills}</h3>
-        </div>
-
-        <div className='latest-match-info__stats--item col-2'>
-          <h6>maps</h6>
-          <h3>{stats.maps}</h3>
-        </div>
-
-        <div className='latest-match-info__stats--item col-2'>
-          <h6>rounds</h6>
-          <h3>{stats.rounds}</h3>
-        </div>
-
-        <div className='latest-match-info__stats--item col-3'>
-          <h6>duration</h6>
-          <div>
-            <h3>{stats.duration}&nbsp;mins</h3>
-          </div>
+        <div className='latest-match-info__match-container--match-stats'>
+          <MatchStats stats={stats}/>
         </div>
       </div>
 

@@ -42,10 +42,11 @@ export interface IMatch {
   team1: ITeam,
   team2: ITeam,
   stats: {
+    winner: string,
     duration: number,
     kills: number,
     maps: number,
-    round: number,
+    rounds: number,
   }
 }
 

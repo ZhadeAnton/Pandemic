@@ -20,7 +20,6 @@
     display: flex;
     align-items: center;
     position: relative;
-    width: 100%;
     height: 100%;
   }
 
@@ -222,13 +221,13 @@
     margin: 0 1rem;
 
       &--separator {
+        font-size: 1.5rem;
         margin: 0 .4rem;
       }
     }
   }
 
   @include media-breakpoint-down(sm) {
-
     &__date {
       font-size: .47rem;
     }
@@ -265,25 +264,24 @@
   }
 
   @include media-breakpoint-down(vsm) {
-
     &__date {
       font-size: .44rem;
       bottom: -19%;
     }
 
     &__back {
-      max-height: 2.7rem;
+      max-height: 2.5rem;
     }
 
     &__image-wrapper {
-      width: 4rem;
-      height: 4rem;
+      width: 2.9rem;
+      height: 2.9rem;
       margin: 0 1rem;
     }
 
     &__team-info {
       &--tag {
-        font-size: .75rem;
+        font-size: .7rem;
         line-height: .9rem;
       }
 
@@ -293,11 +291,12 @@
     }
 
     &__score {
-    font-size: 1.6rem;
-    margin: 0 .7rem;
+    font-size: 1.2rem;
+    margin: 0 .53rem;
 
       &--separator {
-        margin: 0 .3rem;
+        font-size: 1rem;
+        margin: 0 .25rem;
       }
     }
   }
