@@ -1,10 +1,11 @@
 @import '../../../scss/variables';
+@import '../../../scss/mixins';
 
 .latest-matches {
   width: 100%;
   height: 100%;
-  padding: 5rem 0 2rem 0;
   overflow: hidden;
+  @include padding-top-xl;
 
   &__wrapper {
     height: 100%;
@@ -14,11 +15,11 @@
   &__heading {
     height: 100%;
     width: 100%;
-    margin: 1rem;
+    display: inline-block;
   }
 
   &__sort-row {
-    margin-top: 5rem;
+    @include padding-top-lg;
   }
 
   &__list {
@@ -30,36 +31,18 @@
   }
 
   &__pagination {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  @include media-breakpoint-down(lg) {
-    &__heading {
-      margin: 0.5rem;
-    }
-    
-    &__sort-row {
-      margin-top: 4rem;
-    }
+    @include flex-center;
   }
 
   @include media-breakpoint-down(md) {
-    &__sort-row {
-      margin-top: 3rem;
-    }
-
     &__list {
       min-height: 15rem;
     }
   }
 
   @include media-breakpoint-down(sm) {
-    padding: 4rem 0 2rem 0;
-
     &__heading {
-      margin: 0.4rem 0 0 1.5rem;
+      margin: 0.4rem 0 0 .8rem;
     }
 
     &__list {
@@ -69,8 +52,6 @@
   }
 
   @include media-breakpoint-down(vsm) {
-    padding: 3rem 0 2rem 0;
-
     &__list {
       padding: 1rem 0 !important;
     }

@@ -1,3 +1,5 @@
+@import './variables';
+
 @mixin transform-element($name, $direction, $transform-number) {
   .transform-element-#{$name} {
     transition: all .4s ease;
@@ -9,5 +11,182 @@
     @if $direction == right {
       transform: translateX($transform-number * 1px);
     }
+  }
+}
+
+%abs {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+}
+
+@mixin abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin abs-bottom {
+  @extend %abs;
+  bottom: 0;
+}
+
+@mixin abs-top {
+  @extend %abs;
+  top: 0;
+}
+
+@mixin flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-sb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin object-fit {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@mixin padding-top-xxl {
+  padding-top: 15rem;
+
+  @include media-breakpoint-down(xl) {
+    padding-top: 12rem;
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding-top: 10rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding-top: 9rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding-top: 7rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    padding-top: 6rem;
+  }
+
+  @include media-breakpoint-down(tiny) {
+    padding-top: 5rem;
+  }
+}
+
+@mixin padding-top-xl {
+  padding-top: 10rem;
+
+  @include media-breakpoint-down(xl) {
+    padding-top: 9rem;
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding-top: 8rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding-top: 7rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding-top: 6rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    padding-top: 5rem;
+  }
+
+  @include media-breakpoint-down(tiny) {
+    padding-top: 4rem;
+  }
+}
+
+@mixin padding-top-lg {
+  padding-top: 8rem;
+
+  @include media-breakpoint-down(xl) {
+    padding-top: 7rem;
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding-top: 6rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding-top: 5rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding-top: 4rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    padding-top: 3rem;
+  }
+
+  @include media-breakpoint-down(tiny) {
+    padding-top: 2rem;
+  }
+}
+
+@mixin padding-top-md {
+  padding-top: 6rem;
+
+  @include media-breakpoint-down(xl) {
+    padding-top: 5.5rem;
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding-top: 5rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding-top: 4rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding-top: 3rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    padding-top: 2rem;
+  }
+}
+
+@mixin padding-top-sm {
+  padding-top: 5rem;
+
+  @include media-breakpoint-down(xl) {
+    padding-top: 4.5rem;
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding-top: 4rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding-top: 3rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding-top: 2rem;
   }
 }

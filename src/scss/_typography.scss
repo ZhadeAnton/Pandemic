@@ -1,0 +1,225 @@
+@import './variables';
+
+%heading {
+  font-family: Oswald;
+  font-size: 4.43rem;
+  font-weight: 700;
+  font-style: normal;
+  color: #fff;
+  text-transform: uppercase;
+  word-wrap: wrap;
+  display: inline-block;
+
+  @include media-breakpoint-down(xl) {
+    font-size: 4rem;
+  }
+
+  @include media-breakpoint-down(xl) {
+    font-size: 3.8rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 3.5rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 3rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    font-size: 2.4rem;
+  }
+}
+
+%subtitle {
+  font-family: Oswald;
+  color: var(--e-global-color-primary);
+  line-height: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+@mixin link {
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: 1.55px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+@mixin heading-big {
+  @extend %heading;
+}
+
+@mixin heading-stats {
+  @extend %heading;
+  font-size: 1.5rem;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 1.4rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 1.25rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 1rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    font-size: .9rem;
+  }
+}
+
+@mixin heading-small {
+  @extend %heading;
+  font-size: 1.56rem;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 1.45rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 1.31rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 1.2rem;
+  }
+}
+
+@mixin heading-match {
+  @extend %heading;
+  font-size: 2rem;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 1.5rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 1.2rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    line-height: 1rem;
+    font-size: 1rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    font-size: .85rem;
+  }
+
+  @include media-breakpoint-down(tiny) {
+    font-size: .75rem;
+  }
+}
+
+@mixin subtitle-match {
+  @extend %subtitle;
+  font-size: .9rem;
+
+  @include media-breakpoint-down(lg) {
+    font-size: .7rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    line-height: .9rem;
+    font-size: .65rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: .6rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    line-height: .9rem;
+    font-size: .5rem;
+  }
+
+  @include media-breakpoint-down(tiny) {
+    line-height: .8rem;
+    font-size: .45rem;
+  }
+}
+
+@mixin subtitle-big {
+  @extend %subtitle;
+  font-size: .9rem;
+
+  @include media-breakpoint-down(lg) {
+    font-size: .8rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: .7rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: .6rem;
+  }
+}
+
+@mixin date {
+  color: #fff;
+  font-family: Montserrat, arial;
+  font-weight: 300;
+  font-size: .625rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  @include media-breakpoint-down(md) {
+    font-size: .47rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: .525rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    font-size: .44rem;
+  }
+}
+
+@mixin slider-number {
+  font-family: Oswald;
+  color: white;
+  font-size: .9rem;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+@mixin score {
+  line-height: 4.20rem;
+  font-size: 4.25rem;
+  font-weight: 600;
+  margin: 0 2.3rem;
+  z-index: 100;
+  color: var(--e-global-color-primary);
+
+  @include media-breakpoint-down(xl) {
+    font-size: 4rem;
+    margin: 0 2rem;
+  }
+
+  @include media-breakpoint-down(lg) {
+    font-size: 3rem;
+    margin: 0 1.1rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 2.3rem;
+    margin: 0 .9rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 1.8rem;
+    margin: 0 .7rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    font-size: 1.4rem;
+    margin: 0 .6rem;
+  }
+}

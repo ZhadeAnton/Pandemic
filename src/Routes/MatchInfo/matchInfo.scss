@@ -1,4 +1,6 @@
 @import '../../scss/variables';
+@import '../../scss/mixins';
+@import '../../scss/typography';
 
 .latest-match-info {
   width: 100%;
@@ -8,18 +10,12 @@
   background-color: var(--e-global-color-secondary);
 
   &__match-container {
-    padding-top: 8rem;
+    @include padding-top-xl;
     z-index: 10;
 
     &--title {
-      color: #ffffff;
+      @include heading-small;
       text-align: center;
-      text-transform: uppercase;
-      line-height: 1.375rem;
-      letter-spacing: 1px;
-      font-size: 1.1rem;
-      font-family: Oswald;
-      font-weight: 700;
     }
 
     &--icon-wrapper {
@@ -40,19 +36,21 @@
     }
 
     &--match-stats {
-      padding-top: 11rem;
+      @include padding-top-xxl;
     }
   }
 
   &__line-up {
-    margin: 2rem 0;
+    @include padding-top-xl;
+  }
+
+  &__team-line {
+    @include padding-top-sm;
   }
 
   &__teammates {
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    margin: 1rem 0 1.5rem 0;
   }
 
   &__image-wrapper {
@@ -81,100 +79,45 @@
     }
   }
 
-  @include media-breakpoint-down(xl) {
-    &__match-container {
-      padding-top: 7rem;
-
-      &--match-stats {
-        padding-top: 10rem;
-      }
-    }
-  }
-
   @include media-breakpoint-down(lg) {
     &__match-container {
-      padding-top: 7rem;
-
       &--icon-wrapper {
-        margin-top: 5rem;
-        position: relative;
+        margin-top: 4rem;
   
         &:after {
           top: 70%;
         }
-      }
-
-      &--match-stats {
-        padding-top: 10rem;
       }
     }
   }
 
   @include media-breakpoint-down(md) {
     &__match-container {
-      padding-top: 7rem;
-
-      &--title {
-        font-size: 1rem;
-      }
-
       &--icon-wrapper {
-        margin-top: 4rem;
-        position: relative;
-  
         &:after {
-          top: 20%;
+          height: 3rem;
         }
-      }
-
-      &--match-stats {
-        padding-top: 7rem;
       }
     }
   }
 
   @include media-breakpoint-down(sm) {
     &__match-container {
-      padding-top: 5rem;
-
-      &--title {
-        font-size: .9rem;
-      }
-
       &--icon-wrapper {
-        margin-top: 4rem;
-        position: relative;
-  
         &:after {
-          top: 20%;
+          top: 25%;
         }
-      }
-
-      &--match-stats {
-        padding-top: rem;
       }
     }
   }
 
   @include media-breakpoint-down(vsm) {
     &__match-container {
-      padding-top: 4rem;
-
-      &--title {
-        font-size: .8rem;
-      }
-
-      &--icon-wrapper {
-        margin-top: 3rem;
-        position: relative;
-  
+      &--icon-wrapper {  
         &:after {
           top: 20%;
+          width: 2px;
         }
-      }
-
-      &--match-stats {
-        padding-top: 5rem;
       }
     }
   }

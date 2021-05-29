@@ -1,16 +1,15 @@
 @import '../../../scss/variables';
+@import '../../../scss/mixins';
+@import '../../../scss/typography';
 
 .header {
-  display: flex;
-  align-items: center;
+  @include flex-align-center;
   height: 5.125rem;
-  z-index: 100;
-  background-color: var(--e-global-color-secondary);
   z-index: 1000;
+  background-color: var(--e-global-color-secondary);
 
   &__wrapper {
-    display: flex;
-    align-items: center;
+    @include flex-align-center;
     width: 95%;
     z-index: 100;
     margin: 0 auto;
@@ -22,12 +21,7 @@
 
   &__link {
     width: 100%;
-    color: white;
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.875rem;
-    letter-spacing: 1.55px;
-    font-weight: 600;
-    text-transform: uppercase;
+    @include link;
 
     &:hover {
       color: var(--e-global-color-primary);

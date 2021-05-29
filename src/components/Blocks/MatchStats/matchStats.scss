@@ -1,26 +1,17 @@
 @import '../../../scss/variables';
+@import '../../../scss/mixins';
+@import '../../../scss/typography';
 
 .match-stats {
-  color: #ffffff;
-  text-transform: uppercase;
   text-align: center;
-  font-family: Oswald;
-  margin-top: 4rem;
 
   &__item {
     &--subtitle {
-      color: var(--e-global-color-primary);
-      line-height: 1.56rem;
-      font-weight: 600;
-      font-size: .9rem;
+      @include subtitle-big;
     }
   
     &--info {
-      line-height: 2.8rem;
-      font-weight: 700;
-      font-style: normal;
-      color: #fff;
-      font-size: 2.19rem;
+      @include heading-stats;
     }
   
     &:not(:last-child) {
@@ -41,65 +32,11 @@
     }
   }
 
-  @include media-breakpoint-down(xl) {
-    &__item {
-      &--info {
-        font-size: 2rem;
-      }
-    }
-  }
-
-  @include media-breakpoint-down(lg) {
-    &__item {
-      &--info {
-        font-size: 1.9rem;
-      }
-    }
-  }
-
   @include media-breakpoint-down(md) {
     &__item {
-      &--subtitle {
-        font-size: .7rem;
-        line-height: 1.2rem;
-      }
-
-      &--info {
-        font-size: 1.5rem;
-        line-height: 2.3rem;
-      }
-
       &:not(:last-child) {
         &::after {
-          top: 50%;
-          right: 0;
-          content: '';
           height: 3.5rem;
-          transform: translateY(-50%) rotate(15deg);
-        }
-      }
-    }
-  }
-
-  @include media-breakpoint-down(sm) {
-    &__item {
-      &--subtitle {
-        font-size: .6rem;
-        line-height: 1rem;
-      }
-
-      &--info {
-        font-size: 1.1rem;
-        line-height: 2.3rem;
-      }
-
-      &:not(:last-child) {
-        &::after {
-          top: 50%;
-          right: 0;
-          content: '';
-          height: 3.5rem;
-          transform: translateY(-50%) rotate(15deg);
         }
       }
     }
@@ -107,21 +44,8 @@
 
   @include media-breakpoint-down(vsm) {
     &__item {
-      &--subtitle {
-        font-size: .6rem;
-        line-height: .6rem;
-      }
-
-      &--info {
-        font-size: .8rem;
-        line-height: 1.9rem;
-      }
-
       &:not(:last-child) {
         &::after {
-          top: 50%;
-          right: 0;
-          content: '';
           height: 2.1rem;
           transform: translateY(-50%) rotate(0);
         }
