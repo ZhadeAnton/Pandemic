@@ -5,7 +5,7 @@ import './heading.scss'
 
 interface Props {
   title: string,
-  subTitle: string
+  subTitle?: string
 }
 
 function Heading(props: Props) {
@@ -15,9 +15,15 @@ function Heading(props: Props) {
         <h2 className='brand-heading--title'>
           {props.title}
         </h2>
-        <h6 className='brand-heading--sub-title'>
-          {props.subTitle}
-        </h6>
+        {
+          props.subTitle
+          ?
+            <h6 className='brand-heading--sub-title'>
+              {props.subTitle}
+            </h6>
+          :
+          null
+        }
         <span className='brand-heading--line'></span>
       </div>
     </Slide>

@@ -19,15 +19,16 @@ export interface IAnnounce {
   image: string
 }
 
-interface ITeam {
+export interface IPlayer {
+  nickname: string,
+  role: string,
+  photo: string
+}
+
+export interface ITeam {
   discipline: string,
   logo: string,
-  players: [
-    {
-      nickname: string,
-      role: string
-    }
-  ],
+  players: Array<IPlayer>,
   tag: string
 }
 
