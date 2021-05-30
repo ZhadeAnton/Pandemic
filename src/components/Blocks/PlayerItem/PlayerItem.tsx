@@ -4,7 +4,7 @@ import './playersItem.scss'
 import { IPlayer } from '../../../interfaces'
 
 interface Props {
-  player: IPlayer
+  player: IPlayer,
 }
 
 function PlayerItem(props: Props) {

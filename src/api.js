@@ -36,7 +36,10 @@ function mapDocsWithId(snapShot) {
 }
 
 function getDoc(doc) {
-  return doc.get().then((res) => res.data())
+  return doc.get().then((res) => ({
+    id: res.id,
+    ...res.data()
+  }))
 }
 
 function awaitMatchWithReferences(match) {

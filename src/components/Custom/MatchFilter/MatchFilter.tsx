@@ -2,18 +2,17 @@ import React, { useState } from 'react'
 
 import './matchFilter.scss'
 import { IDiscipline } from '../../../interfaces'
-import { MainPageProps } from '../../../Containers/MainContainer'
+import { useAppDispatch, useAppSelector } from '../../../PreTypedHooks'
+import { sortMatches } from '../../../Redux/MainPage/MainActionCreators'
 
-interface Props {
-  disciplines: MainPageProps['disciplines'],
-  sortMatches: MainPageProps['sortMatches']
-}
+export default function MatchFilter() {
+  const disciplines = useAppSelector((state) => state.main.disciplines)
+  const dispatch = useAppDispatch()
 
-function MatchFilter(props: Props) {
   const [active, setActive] = useState('Overwatch')
 
-  function handleSetActive(discipline: string) {
-    props.sortMatches(discipline)
+  function handleActiveItem(discipline: string) {
+    dispatch(sortMatches(discipline))
     setActive(discipline)
   }
 
@@ -21,13 +20,13 @@ function MatchFilter(props: Props) {
     <nav className='match-filter'>
       <ul className='match-filter__list'>
         {
-          props.disciplines.map((discipline: IDiscipline, idx: number) => {
+          disciplines.map((discipline: IDiscipline, idx: number) => {
             return (
               <li
                 className={active === discipline.name
                   ? 'match-filter__item--active': 'match-filter__item'}
                 key={idx}
-                onClick={() => handleSetActive(discipline.name)}
+                onClick={() => handleActiveItem(discipline.name)}
               >
                 <h3 className='match-filter__item--title'>
                   {discipline.name}
@@ -40,5 +39,3 @@ function MatchFilter(props: Props) {
     </nav>
   )
 }
-
-export default MatchFilter

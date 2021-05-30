@@ -1,4 +1,4 @@
-import { IAnnounce, IDiscipline, IMatch } from './../../interfaces';
+import { IAnnounce, IDiscipline, IMatch } from '../../interfaces';
 
 export const SET_LOADING_TRUE = 'SET_LOADING_TRUE'
 export interface SetLoadingTrue {

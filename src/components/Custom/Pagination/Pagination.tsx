@@ -1,23 +1,27 @@
 import React from 'react'
 import { Pagination } from 'react-bootstrap'
-import PageItem from 'react-bootstrap/PageItem'
 
 import './pagination..scss'
-import { MainPageProps } from '../../../Containers/MainContainer'
+import { useAppDispatch } from '../../../PreTypedHooks'
+import {
+  setPageNumber,
+  setFirstPage,
+  setPrevPage,
+  setNextPage,
+  setLastPage
+} from '../../../Redux/MainPage/MainActionCreators'
+
+import PageItem from 'react-bootstrap/PageItem'
 
 interface Props {
-  setPageNumber: MainPageProps['setPageNumber'],
-  setLastPage: MainPageProps['setLastPage'],
-  setNextPage: MainPageProps['setNextPage'],
-  setPrevPage: MainPageProps['setPrevPage'],
-  setFirstPage: MainPageProps['setFirstPage'],
+  matchesPerPage: number,
   currentPage: number,
-  totalMatches: number,
-  matchesPerPage: number
   pagesLength: number
 }
 
 function CustomPagination(props: Props) {
+  const dispatch = useAppDispatch()
+
   const pageNumbers = []
 
   for (let i = 1; i <= props.pagesLength; i++) {
@@ -33,12 +37,12 @@ function CustomPagination(props: Props) {
       <Pagination>
         <Pagination.First
           disabled={prevArrowDisable}
-          onClick={props.setFirstPage}
+          onClick={() =>dispatch(setFirstPage())}
         />
 
         <PageItem
           disabled={prevArrowDisable}
-          onClick={props.setPrevPage}
+          onClick={() =>dispatch(setPrevPage())}
         >
           Prev
         </PageItem>
@@ -49,7 +53,7 @@ function CustomPagination(props: Props) {
               <PageItem
                 key={idx}
                 active={props.currentPage === num}
-                onClick={() => props.setPageNumber(num)}
+                onClick={() => dispatch(setPageNumber(num))}
               >
                 {num}
               </PageItem>
@@ -59,14 +63,14 @@ function CustomPagination(props: Props) {
 
         <Pagination.Next
           disabled={nextArrowDisable}
-          onClick={props.setNextPage}
+          onClick={() => dispatch(setNextPage())}
         >
           Next
         </Pagination.Next>
 
         <Pagination.Last
           disabled={nextArrowDisable}
-          onClick={() => props.setLastPage(props.pagesLength)} />
+          onClick={() => dispatch(setLastPage(props.pagesLength))} />
       </Pagination>
     :
       null

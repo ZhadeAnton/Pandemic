@@ -1,20 +1,25 @@
 import React from 'react'
+import { History } from 'history';
 
 import { IMatch } from '../../../interfaces'
-import { MainPageProps } from '../../../Containers/MainContainer'
 import Spinner from '../../Custom/Spinner/Spinner'
 import MatchItem from '../MatchItem/MatchItem'
 import NotFoundMatches from '../NotFoundMatches/NotFoundMatches'
+import { useAppSelector } from '../../../PreTypedHooks'
 
 interface Props {
-  history: MainPageProps['history']
-  isLoading: MainPageProps['isLoading'],
   currentMatches: Array<IMatch>
+  matchesPerPage: number,
+  currentPage: number,
+  history? : History
 }
 
 function MatchList(props: Props) {
+  const isLoading = useAppSelector((state) => state.main.isLoading)
+
+
   const handleSelectMatch = (match: IMatch) => {
-    props.history.push({
+    props.history!.push({
       pathname: `match/${match.id}`,
       state: match
     });
@@ -23,7 +28,7 @@ function MatchList(props: Props) {
   return (
     <ul className='match-list'>
       {
-        props.isLoading
+        isLoading
         ?
           <Spinner />
         :

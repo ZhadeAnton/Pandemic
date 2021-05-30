@@ -17,10 +17,10 @@ const INITIAL_STATE: MainState = {
   disciplines: [],
   matches: [],
   matchesLength: null,
+  isLoading: false,
   initialPage: 1,
   currentPage: 1,
   matchesPerPage: 3,
-  isLoading: false
 }
 
 const mainReducer =

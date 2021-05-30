@@ -20,6 +20,7 @@ export interface IAnnounce {
 }
 
 export interface IPlayer {
+  id: string,
   nickname: string,
   role: string,
   photo: string,
@@ -30,6 +31,7 @@ export interface IPlayer {
   prize: number,
   winration: number,
   matches: number,
+  logo: string,
   capitan?: boolean
 }
 

@@ -1,31 +1,23 @@
 import React from 'react'
 
 import './latestMatches.scss'
-import { IMatch } from '../../../interfaces'
-import { MainPageProps } from '../../../Containers/MainContainer'
+import { useAppSelector } from '../../../PreTypedHooks'
+
 import CustomPagination from '../../Custom/Pagination/Pagination'
 import MatchFilter from '../../Custom/MatchFilter/MatchFilter'
 import Heading from '../../Blocks/Heading/Heading'
 import MatchList from '../../Blocks/MatchList/MatchList'
 
-interface Props {
-  totalMatches: number,
-  pagesLength: number,
-  history: MainPageProps['history'],
-  currentMatches: Array<IMatch>,
-  isLoading: MainPageProps['isLoading'],
-  disciplines: MainPageProps['disciplines'],
-  currentPage: MainPageProps['currentPage'],
-  matchesPerPage: MainPageProps['matchesPerPage'],
-  setPageNumber: MainPageProps['setPageNumber'],
-  setLastPage: MainPageProps['setLastPage'],
-  setNextPage: MainPageProps['setNextPage'],
-  setPrevPage: MainPageProps['setPrevPage'],
-  setFirstPage: MainPageProps['setFirstPage'],
-  sortMatches: MainPageProps['sortMatches']
-}
+function LatestMatches() {
+  const matchesPerPage = useAppSelector((state) => state.main.matchesPerPage)
+  const currentPage = useAppSelector((state) => state.main.currentPage)
+  const matchesLength = useAppSelector((state) => state.main.matches.slice.length)
+  const indexOfLastMatch = currentPage * matchesPerPage
+  const indexOfFirstMatch = indexOfLastMatch - matchesPerPage
+  const currentMatches = useAppSelector((state) => state.main.matches
+      .slice(indexOfFirstMatch, indexOfLastMatch))
+  const pagesLength = Math.ceil(matchesLength / matchesPerPage)
 
-function LatestMatches(props: Props) {
   return (
     <section className='latest-matches container'>
       <div className='latest-matches__wrapper'>
@@ -37,32 +29,23 @@ function LatestMatches(props: Props) {
         </div>
 
         <div className='latest-matches__sort-row'>
-          <MatchFilter
-            disciplines={props.disciplines}
-            sortMatches={props.sortMatches}
-          />
+          <MatchFilter />
         </div>
 
         <div className='latest-matches__list'>
           <MatchList
-            history={props.history}
-            currentMatches={props.currentMatches}
-            isLoading={props.isLoading}
+            matchesPerPage={matchesPerPage}
+            currentPage={currentPage}
+            currentMatches={currentMatches}
           />
         </div>
       </div>
 
       <div className='latest-matches__pagination'>
         <CustomPagination
-          currentPage={props.currentPage}
-          matchesPerPage={props.matchesPerPage}
-          totalMatches={props.totalMatches}
-          pagesLength={props.pagesLength}
-          setPageNumber={props.setPageNumber}
-          setNextPage={props.setNextPage}
-          setPrevPage={props.setPrevPage}
-          setFirstPage={props.setFirstPage}
-          setLastPage={props.setLastPage}
+          matchesPerPage={matchesPerPage}
+          currentPage={currentPage}
+          pagesLength={pagesLength}
         />
       </div>
     </section>

@@ -13,7 +13,12 @@ function PlayersList(props: Props) {
     <div className='players-list'>
       {
         props.players.map((player, idx: number) => {
-          return <PlayerItem key={idx} player={player}/>
+          return (
+            <PlayerItem
+              key={idx}
+              player={player}
+            />
+          )
         })
       }
     </div>

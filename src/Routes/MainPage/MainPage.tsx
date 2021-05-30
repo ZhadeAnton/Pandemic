@@ -9,13 +9,6 @@ import Preloader from '../../components/Custom/CubePreloader/CubePreloader'
 import LatestMatches from '../../components/Sections/LatestMatches/LatestMatches'
 
 function MainPage(props: MainPageProps) {
-  const totalMatches = props.matches.length
-  const indexOfLastMatch =
-    props.currentPage * props.matchesPerPage
-  const indexOfFirstMatch = indexOfLastMatch - props.matchesPerPage
-  const currentMatches = props.matches.slice(indexOfFirstMatch, indexOfLastMatch)
-  const pagesLength = Math.ceil(totalMatches / props.matchesPerPage)
-
   useEffect(() => {
     props.getAnnounces()
     props.getListOfDisciplines()
@@ -34,22 +27,7 @@ function MainPage(props: MainPageProps) {
             announces={props.announces}
           />
 
-          <LatestMatches
-            currentMatches={currentMatches}
-            history={props.history}
-            pagesLength={pagesLength}
-            totalMatches={totalMatches}
-            isLoading={props.isLoading}
-            disciplines={props.disciplines}
-            currentPage={props.currentPage}
-            matchesPerPage={props.matchesPerPage}
-            setFirstPage={props.setFirstPage}
-            setLastPage={props.setLastPage}
-            setNextPage={props.setNextPage}
-            setPageNumber={props.setPageNumber}
-            setPrevPage={props.setPrevPage}
-            sortMatches={props.sortMatches}
-          />
+          <LatestMatches />
         </div>
       </section>
     )
