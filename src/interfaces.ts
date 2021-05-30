@@ -22,7 +22,15 @@ export interface IAnnounce {
 export interface IPlayer {
   nickname: string,
   role: string,
-  photo: string
+  photo: string,
+  age: string,
+  country: string,
+  team: string,
+  discipline: string,
+  prize: number,
+  winration: number,
+  matches: number,
+  capitan?: boolean
 }
 
 export interface ITeam {
