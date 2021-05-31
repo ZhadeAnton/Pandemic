@@ -21,7 +21,6 @@ interface Props {
 
 function CustomPagination(props: Props) {
   const dispatch = useAppDispatch()
-
   const pageNumbers = []
 
   for (let i = 1; i <= props.pagesLength; i++) {

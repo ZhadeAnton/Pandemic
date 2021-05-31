@@ -7,9 +7,10 @@ import { sortMatches } from '../../../Redux/MainPage/MainActionCreators'
 
 export default function MatchFilter() {
   const disciplines = useAppSelector((state) => state.main.disciplines)
+  const initialLatestmatches = useAppSelector((state) => state.main.initialLatestmatches)
   const dispatch = useAppDispatch()
 
-  const [active, setActive] = useState('Overwatch')
+  const [active, setActive] = useState(initialLatestmatches)
 
   function handleActiveItem(discipline: string) {
     dispatch(sortMatches(discipline))

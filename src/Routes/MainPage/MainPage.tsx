@@ -1,21 +1,31 @@
 import React, { useEffect } from 'react'
 
 import './mainPage.scss'
-import { MainPageProps } from '../../Containers/MainContainer'
+import { useAppDispatch, useAppSelector } from '../../PreTypedHooks'
 import Header from '../../components/Sections/Header/Header'
+import {
+  getAnnounces,
+  getListOfDisciplines,
+  sortMatches
+} from '../../Redux/MainPage/MainActionCreators'
+
 import HeroSection from '../../components/Sections/HeroSection/HeroSection'
 import AnnounceSlider from '../../components/Sections/AnnounceSlider/AnnounceSlider'
 import Preloader from '../../components/Custom/CubePreloader/CubePreloader'
 import LatestMatches from '../../components/Sections/LatestMatches/LatestMatches'
 
-function MainPage(props: MainPageProps) {
+function MainPage() {
+  const announces = useAppSelector((state) => state.main.announces)
+  const initialLatestmatches = useAppSelector((state) => state.main.initialLatestmatches)
+  const dispatch = useAppDispatch()
+
   useEffect(() => {
-    props.getAnnounces()
-    props.getListOfDisciplines()
-    props.sortMatches('Overwatch')
+    dispatch(getAnnounces())
+    dispatch(getListOfDisciplines())
+    dispatch(sortMatches(initialLatestmatches))
   }, [])
 
-  if (props.announces.length === 0) {
+  if (announces.length === 0) {
     return <Preloader />
   } else {
     return (
@@ -24,7 +34,7 @@ function MainPage(props: MainPageProps) {
         <HeroSection />
         <div className='main-content'>
           <AnnounceSlider
-            announces={props.announces}
+            announces={announces}
           />
 
           <LatestMatches />

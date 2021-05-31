@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { ProgressBar } from 'react-bootstrap';
 import Slider from 'react-slick';
-import { MainPageProps } from '../../../Containers/MainContainer';
-import { IAnnounce } from '../../../interfaces';
 
 import './announceSlider.scss'
+import { IAnnounce } from '../../../interfaces';
+import { MainState } from '../../../Redux/MainPage/MainReducer';
 
 interface Props {
-  announces: MainPageProps['announces']
+  announces: MainState['announces']
 }
 
 function AnnounceSlider(props: Props) {
