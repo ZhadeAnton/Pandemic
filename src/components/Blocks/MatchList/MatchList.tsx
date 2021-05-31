@@ -1,5 +1,5 @@
 import React from 'react'
-import { History } from 'history';
+import { useHistory } from 'react-router';
 
 import { IMatch } from '../../../interfaces'
 import Spinner from '../../Custom/Spinner/Spinner'
@@ -11,15 +11,14 @@ interface Props {
   currentMatches: Array<IMatch>
   matchesPerPage: number,
   currentPage: number,
-  history? : History
 }
 
-function MatchList(props: Props) {
+export default function MatchList(props: Props) {
+  const history = useHistory()
   const isLoading = useAppSelector((state) => state.main.isLoading)
 
-
   const handleSelectMatch = (match: IMatch) => {
-    props.history!.push({
+    history.push({
       pathname: `match/${match.id}`,
       state: match
     });
@@ -51,4 +50,3 @@ function MatchList(props: Props) {
   )
 }
 
-export default MatchList

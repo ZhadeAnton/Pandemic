@@ -2,33 +2,63 @@ import React from 'react'
 
 import './playerInfo.scss'
 
-function PlayerInfo() {
+interface Props {
+  location: any
+}
+
+function PlayerInfo(props: Props) {
+  const {
+    photo,
+    nickname,
+    role
+  } = (props.location && props.location.state) || {}
+
+  const socialList = [
+    {title: 'facebook'},
+    {title: 'twitter'},
+    {title: 'youtube'},
+    {title: 'instagram'},
+    {title: 'twitch'},
+    {title: 'discord'}
+  ]
+
   return (
     <section className='player-page'>
-      <div className='player-page__wrapper'>
+      <div className='player-page__wrapper container'>
         <div className='player-page__stats-row'>
           <div className='player-page__player-image-wrapper'>
             <img
               className='player-page__player-image-wrapper--image'
-              src="/"
-              alt="/"
+              src={photo}
+              alt={nickname}
             />
           </div>
 
           <div className='player-page__player-info'>
             <h3 className='player-page__player-info--nickname'>
-
+              {nickname}
             </h3>
 
             <h4 className='player-page__player-info--role'>
-
+              {role}
             </h4>
-          </div>
 
-          <div className='player-page__player-social'>
-            <ul className='player-page__player-social--list'>
-
-            </ul>
+            <div className='player-page__player-info--social'>
+              <ul className='player-page__player-info--list'>
+                {
+                  socialList.map((link, idx: number) => {
+                    return (
+                      <li
+                        className='player-page__player-info--list-item'
+                        key={idx}
+                      >
+                        <i className={`bi bi-${link.title}`}></i>
+                      </li>
+                    )
+                  })
+                }
+              </ul>
+            </div>
           </div>
         </div>
       </div>

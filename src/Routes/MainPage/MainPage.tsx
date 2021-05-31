@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 
 import './mainPage.scss'
 import { useAppDispatch, useAppSelector } from '../../PreTypedHooks'
-import Header from '../../components/Sections/Header/Header'
 import {
   getAnnounces,
   getListOfDisciplines,
@@ -30,7 +29,6 @@ function MainPage() {
   } else {
     return (
       <section className='mainPage'>
-        <Header />
         <HeroSection />
         <div className='main-content'>
           <AnnounceSlider

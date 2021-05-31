@@ -8,7 +8,6 @@
   color: #fff;
   text-transform: uppercase;
   word-wrap: wrap;
-  display: inline-block;
 
   @include media-breakpoint-down(xl) {
     font-size: 4rem;

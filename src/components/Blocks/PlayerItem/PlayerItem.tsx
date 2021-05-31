@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router';
 
 import './playersItem.scss'
 import { IPlayer } from '../../../interfaces'
@@ -7,9 +8,21 @@ interface Props {
   player: IPlayer,
 }
 
-function PlayerItem(props: Props) {
+export default function PlayerItem(props: Props) {
+  const history = useHistory()
+
+  const handleSelectPlayer = (player: IPlayer) => {
+    history.push({
+      pathname: `/player/${player.id}`,
+      state: player
+    });
+  };
+
   return (
-    <div className='player'>
+    <div
+      className='player'
+      onClick={() => handleSelectPlayer(props.player)}
+    >
       <div className='player__wrapper'>
         <div className='player__image-wrapper'>
           <img
@@ -32,5 +45,3 @@ function PlayerItem(props: Props) {
     </div>
   )
 }
-
-export default PlayerItem

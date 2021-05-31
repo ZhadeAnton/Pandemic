@@ -5,11 +5,10 @@ import Heading from '../../components/Blocks/Heading/Heading';
 import MatchItem from '../../components/Blocks/MatchItem/MatchItem'
 import MatchStats from '../../components/Blocks/MatchStats/MatchStats';
 import PlayersList from '../../components/Blocks/PlayersList/PlayersList';
-import Header from '../../components/Sections/Header/Header'
 import TeamLine from '../../components/Blocks/TeamLine/TeamLine';
 
 interface Props {
-  [x: string]: any;
+  location: any,
 }
 
 function MatchInfo(props: Props) {
@@ -21,12 +20,11 @@ function MatchInfo(props: Props) {
     stats,
     team1,
     team2
-  } = (props.location && props.location.state) || {};
-  const match = (props.location && props.location.state) || {};
+  } = (props.location && props.location.state) || {}
+  const match = (props.location && props.location.state) || {}
+
   return (
     <section className='latest-match-info'>
-      <Header />
-
       <div className='latest-match-info__wrapper container'>
         <div className='latest-match-info__match-container'>
           <h4 className='latest-match-info__match-container--title'>
