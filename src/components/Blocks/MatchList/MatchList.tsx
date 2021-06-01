@@ -19,7 +19,7 @@ export default function MatchList(props: Props) {
 
   const handleSelectMatch = (match: IMatch) => {
     history.push({
-      pathname: `match/${match.id}`,
+      pathname: `/match/${match.id}`,
       state: match
     });
   };

@@ -3,7 +3,7 @@ import React from 'react'
 import './matchInfo.scss'
 import Heading from '../../components/Blocks/Heading/Heading';
 import MatchItem from '../../components/Blocks/MatchItem/MatchItem'
-import MatchStats from '../../components/Blocks/MatchStats/MatchStats';
+import StatsLine from '../../components/Blocks/StatsLine/StatsLine';
 import PlayersList from '../../components/Blocks/PlayersList/PlayersList';
 import TeamLine from '../../components/Blocks/TeamLine/TeamLine';
 
@@ -45,7 +45,7 @@ function MatchInfo(props: Props) {
         </div>
 
         <div className='latest-match-info__match-container--match-stats'>
-          <MatchStats stats={stats}/>
+          <StatsLine stats={stats}/>
         </div>
 
         <div className='latest-match-info__line-up'>

@@ -36,28 +36,26 @@
     }
   }
 
-  &__stats-row {
+  &__top-row {
     display: flex;
     align-items: center;
     @include padding-top-lg;
   }
 
   &__player-info {
+    text-align: end;
 
     &--nickname {
       @include heading-big;
       font-size: 3.43rem;
-      text-align: end;
     }
 
     &--role {
       @include subtitle-big;
-      text-align: end;
     }
 
     &--social {
       display: flex;
-      flex-direction: column;
       margin-top: 3rem;
     }
 
@@ -81,36 +79,30 @@
     }
   }
 
-  @include media-breakpoint-down(xl) {
+  &__stats-row {
+    @include padding-top-sm;
+    width: 100%;
   }
 
   @include media-breakpoint-down(md) {
-    &__stats-row {
+    &__top-row {
       display: flex;
       align-items: center;
       flex-direction: column;
-      flex-wrap: wrap
+      flex-wrap: wrap;
     }
 
     &__player-info {
       width: 100%;
       flex: 1;
+      text-align: center;
       @include padding-top-sm;
 
       &--nickname {
         font-size: 3.43rem;
-        text-align: center;
       }
-
-      &--role {
-        text-align: center;
-      }
-  
       &--social {
         margin-top: 2rem;
-      }
-
-      &--list {
         justify-content: center;
       }
     }

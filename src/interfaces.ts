@@ -26,13 +26,15 @@ export interface IPlayer {
   photo: string,
   age: string,
   country: string,
-  team: string,
   discipline: string,
-  prize: number,
-  winration: number,
-  matches: number,
   logo: string,
   capitan?: boolean
+  stats: [
+    title: string,
+    value: number | string,
+    icon: boolean,
+    info: string
+  ]
 }
 
 export interface ITeam {
