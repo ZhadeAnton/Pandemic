@@ -1,0 +1,77 @@
+@import '../../../scss/variables';
+
+.player-brand-avatar {
+  flex: 1;
+  position: relative;
+
+  &__image {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    margin-top: .7rem;
+    margin-left: .7rem;
+    border-radius: 0 2.9rem;
+    max-width: 15rem;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    border-radius: 0 3.125rem;
+    width: 9.8rem;
+    background-color: var(--e-global-color-primary);
+    height: calc(100% + .7rem);
+  }
+
+  @include media-breakpoint-down(lg) {
+    &__image {
+      margin-top: 0.62rem;
+      margin-left: 0.62rem;
+      max-width: 13.75rem;
+    }
+  
+    &:before {
+      width: 9.375rem;
+      height: calc(100% + 0.62rem);
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__image {
+      margin-top: .49rem;
+      margin-left: .49rem;
+      max-width: 12.5rem;
+    }
+  
+    &:before {
+      width: 9rem;
+      height: calc(100% + .49rem);
+    }
+  }
+
+  @include media-breakpoint-down(vsm) {
+    &__image {
+      margin-top: .45rem;
+      margin-left: .45rem;
+      max-width: 11.25rem;
+    }
+  
+    &:before {
+      width: 8rem;
+      height: calc(100% + .45rem);
+    }
+  }
+
+  @include media-breakpoint-down(tiny) {
+    &__image {
+      margin-top: .355rem;
+      margin-left: .355rem;
+      max-width: 9.375rem;
+    }
+  
+    &:before {
+      width: 7.3rem;
+      height: calc(100% + .355rem);
+    }
+  }
+}
