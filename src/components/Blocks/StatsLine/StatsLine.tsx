@@ -1,13 +1,15 @@
 import React from 'react'
+import cn from 'classnames'
 
 import './statsLine.scss'
 
 interface Props {
+  valueStyle: 'big' | 'medium' | 'small',
   stats: Array<{
     title: string,
     value: string,
     icon?: boolean,
-    info?: string
+    info?: string,
   }>,
 }
 
@@ -19,39 +21,54 @@ export default function StatsLine(props: Props) {
           props.stats.map((item, idx: number) => {
             return (
               <li
-                className='line-stats__item'
+                className={cn(
+                    `line-stats__item${item.icon ? '-extended' : ''}`)}
                 key={idx}
               >
                 {
                   item.icon
                   ?
-                  <div className='line-stats__item-extended'>
                     <img
-                      className='line-stats__item-extended--image'
+                      className={cn(
+                          `line-stats__item${item.icon ? '-extended' : ''}--image`)}
                       src={item.value}
                       alt={item.title}
                     />
-                    <div className='line-stats__item-extended--content'>
-                      <h6 className='line-stats__item-extended--title'>
-                        {item.title}
-                      </h6>
-
-                      <h3 className='line-stats__item-extended--info'>
-                        {item.info}
-                      </h3>
-                    </div>
-                  </div>
                   :
-                  <>
-                    <h6 className='line-stats__item--title'>
-                      {item.title}
-                    </h6>
+                    null
+                }
+                <div className={
+                  cn(`line-stats__item${item.icon ? '-extended' : ''}--content`)
+                }>
+                  <h6 className={
+                    cn(`line-stats__item${item.icon ? '-extended' : ''}--title`)
+                  }>
+                    {item.title}
+                  </h6>
 
-                    <h3 className='line-stats__item--info'>
+                  {
+                    item.icon
+                    ?
+                    <h3 className={cn(
+                        `line-stats__item${item.icon ? '-extended' : ''}--info`,
+                      props.valueStyle === 'big'
+                        ? 'line-stats__item-extended--info-big' : '' ||
+                        props.valueStyle === 'medium'
+                        ? 'line-stats__item-extended--info-medium' : ''
+                    )}>
+                      {item.info}
+                    </h3>
+                    :
+                    <h3 className={cn('line-stats__item--info',
+                      props.valueStyle === 'big'
+                        ? 'line-stats__item-extended--info-big' : null ||
+                        props.valueStyle === 'medium'
+                        ? 'line-stats__item-extended--info-medium' : null
+                    )}>
                       {item.value}
                     </h3>
-                  </>
-                }
+                  }
+                </div>
               </li>
             )
           })

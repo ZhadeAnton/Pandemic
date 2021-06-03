@@ -8,6 +8,49 @@
   color: #fff;
   text-transform: uppercase;
   word-wrap: wrap;
+}
+
+%subtitle {
+  font-family: Oswald;
+  color: var(--e-global-color-primary);
+  line-height: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+%text-plain {
+  color: #adb0bc;
+  font-family: "Montserrat",Sans-serif;
+  font-size: 1.065rem;
+  font-weight: 400;
+  line-height: 2.5rem;
+}
+
+@mixin text-plain {
+  @extend %text-plain;
+
+  @include media-breakpoint-down(sm) {
+    line-height: 2.1rem;
+    font-size: .92rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    line-height: 28px;
+    font-size: .9rem;
+  }
+}
+
+@mixin link {
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: 1.55px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+@mixin heading-big {
+  @extend %heading;
 
   @include media-breakpoint-down(xl) {
     font-size: 4rem;
@@ -30,45 +73,28 @@
   }
 }
 
-%subtitle {
-  font-family: Oswald;
-  color: var(--e-global-color-primary);
-  line-height: 1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-@mixin link {
-  color: white;
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.875rem;
-  letter-spacing: 1.55px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-@mixin heading-big {
+@mixin heading-section {
   @extend %heading;
-}
+  font-size: 3.4375rem;
 
-@mixin heading-stats {
-  @extend %heading;
-  font-size: 1.5rem;
+  @include media-breakpoint-down(xl) {
+    font-size: 3.2rem;
+  }
 
-  @include media-breakpoint-down(lg) {
-    font-size: 1.4rem;
+  @include media-breakpoint-down(xl) {
+    font-size: 3rem;
   }
 
   @include media-breakpoint-down(md) {
-    font-size: 1.25rem;
+    font-size: 2.8rem;
   }
 
   @include media-breakpoint-down(sm) {
-    font-size: 1rem;
+    font-size: 2.6rem;
   }
 
   @include media-breakpoint-down(vsm) {
-    font-size: .9rem;
+    font-size: 2.5rem;
   }
 }
 
@@ -220,5 +246,83 @@
   @include media-breakpoint-down(vsm) {
     font-size: 1.4rem;
     margin: 0 .6rem;
+  }
+}
+
+@mixin heading-stats {
+  @extend %heading;
+  font-size: 1.5rem;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 1.4rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 1.25rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 1rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    font-size: .9rem;
+  }
+}
+
+@mixin font-stats-info-big {
+  font-family: "Archivo Black", Sans-serif;
+  color: #ffffff;
+  font-size: 2.8rem;
+  font-weight: 600;
+  line-height: 3.375rem;
+  letter-spacing: 2px;
+  
+  @include media-breakpoint-down(lg) {
+    font-size: 2.6rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    line-height: 2.75rem;
+    font-size: 2.2rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    line-height: 2.125rem;
+    letter-spacing: 1px;
+    font-size: 1.8rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    font-size: 1.4rem;
+  }
+}
+
+@mixin font-stats-info-medium {
+  font-family: Oswald;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+
+  @include media-breakpoint-down(lg) {
+    line-height: 2.3rem;
+    font-size: 1.4rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    line-height: 2.21rem;
+    font-size: 1.25rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    line-height: 1.8rem;
+    font-size: 1rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    line-height: 1.3rem;
+    font-size: .9rem;
   }
 }

@@ -7,6 +7,10 @@ import PlayerAvatar from '../../components/Blocks/PlayerAvatar/PlayerAvatar'
 import PlayerSocial from '../../components/Blocks/PlayerSocial/PlayerSocial'
 import StatsLine from '../../components/Blocks/StatsLine/StatsLine'
 import VerticalLine from '../../components/Custom/VerticalLine/VerticalLine'
+import Heading from '../../components/Blocks/Heading/Heading'
+import PlainText from '../../components/Blocks/PlainText/PlainText'
+import Devider from '../../components/Custom/Devider/Devider'
+// import AnimatedNumber from '../../components/Custom/AnimateNumber/AnimateNumber'
 
 interface Props {
   location: any
@@ -17,7 +21,9 @@ function PlayerInfo(props: Props) {
     photo,
     nickname,
     role,
-    stats
+    stats,
+    measures,
+    about
   } = (props.location && props.location.state) || {}
 
   return (
@@ -47,8 +53,32 @@ function PlayerInfo(props: Props) {
         </div>
       </div>
 
-      <div className='player-page__stats-row container'>
-        <StatsLine stats={stats} />
+      <div className='player-page__stats-row-top container'>
+        <StatsLine valueStyle='medium' stats={stats} />
+      </div>
+
+      <Devider />
+
+      <div className='player-page__bottom-wrapper container'>
+        <div className='player-page__heading'>
+          <Heading title='About' />
+        </div>
+
+        <div className='player-page__about container'>
+          <div className='player-page__about--text'>
+            <PlainText text={about} />
+          </div>
+        </div>
+
+        <div className='player-page__stats-row-bottom container'>
+          <StatsLine stats={measures} valueStyle='big' />
+        </div>
+
+        <Devider />
+
+        <div className='player-page__heading'>
+          <Heading title='Follow' />
+        </div>
       </div>
     </section>
   )

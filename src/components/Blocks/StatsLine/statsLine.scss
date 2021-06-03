@@ -19,9 +19,8 @@
       top: 50%;
       right: 0;
       height: 5rem;
-      width: 1px;
-      opacity: .8;
-      background-color: grey;
+      width: 2px;
+      background-color: var(--e-global-color-11b58b5);
       transform: translate(50%, -50%) rotate(15deg);
     }
   }
@@ -30,7 +29,6 @@
 .line-stats {
   width: 100%;
   height: 100%;
-  border-bottom: 3px solid var(--e-global-color-11b58b5);
 
   &__list {
     display: flex;
@@ -46,19 +44,19 @@
     &--title {
       @include subtitle-big;
     }
-  
-    &--info {
-      @include heading-stats;
+
+    &--content {
+      min-width: 130px;
     }
   }
 
   &__item-extended {
+    @extend %statsLineItem;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     text-align: left;
     min-width: 150px;
-
 
     &--content {
       margin-left: 1rem;
@@ -70,7 +68,13 @@
     }
 
     &--info {
-      @include heading-stats;
+      &-medium {
+        @include font-stats-info-medium;
+      }
+
+      &-big {
+        @include font-stats-info-big;
+      }
     }
     
     &--image {

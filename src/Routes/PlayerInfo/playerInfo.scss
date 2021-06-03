@@ -71,9 +71,22 @@
     }
   }
 
-  &__stats-row {
+  &__about {
+    &--text {
+      @include margin-top-sm;
+    }
+  }
+
+  &__heading {
     @include margin-top-lg;
-    width: 100%;
+  }
+
+  &__stats-row-top {
+    @include margin-top-lg;
+  }
+
+  &__stats-row-bottom {
+    @include margin-top-md;
   }
 
   @include media-breakpoint-down(xl) {
