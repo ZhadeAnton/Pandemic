@@ -28,11 +28,9 @@
 
 @mixin abs-center {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 100%;
-  width: 100%;
-  transform: translate(-50%, -50%);
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
 }
 
 @mixin abs-bottom {
@@ -148,50 +146,6 @@
   }
 
   @include media-breakpoint-down(tiny) {
-    padding-top: 2rem;
-  }
-}
-
-@mixin padding-top-md {
-  padding-top: 6rem;
-
-  @include media-breakpoint-down(xl) {
-    padding-top: 5.5rem;
-  }
-
-  @include media-breakpoint-down(lg) {
-    padding-top: 5rem;
-  }
-
-  @include media-breakpoint-down(md) {
-    padding-top: 4rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    padding-top: 3rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    padding-top: 2rem;
-  }
-}
-
-@mixin padding-top-sm {
-  padding-top: 5rem;
-
-  @include media-breakpoint-down(xl) {
-    padding-top: 4.5rem;
-  }
-
-  @include media-breakpoint-down(lg) {
-    padding-top: 4rem;
-  }
-
-  @include media-breakpoint-down(md) {
-    padding-top: 3rem;
-  }
-
-  @include media-breakpoint-down(sm) {
     padding-top: 2rem;
   }
 }

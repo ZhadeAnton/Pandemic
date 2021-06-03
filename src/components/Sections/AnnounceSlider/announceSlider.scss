@@ -57,7 +57,7 @@
 
   &__progress-bar {
     width: 100%;
-    @include padding-top-sm;
+    @include margin-top-sm;
 
     &--wrapper {
       max-width: 1300px;

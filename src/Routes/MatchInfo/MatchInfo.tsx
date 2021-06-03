@@ -49,7 +49,7 @@ function MatchInfo(props: Props) {
           </div>
 
           <div className='latest-match-page__match-info--match-stats'>
-            <StatsLine stats={stats}/>
+            <StatsLine stats={stats} valueStyle='medium' />
           </div>
 
           <div className='latest-match-page__match-info--image-wrapper'>

@@ -15,7 +15,7 @@ interface Props {
 
 export default function StatsLine(props: Props) {
   return (
-    <div className='line-stats'>
+    <nav className='line-stats'>
       <ul className='line-stats__list'>
         {
           props.stats.map((item, idx: number) => {
@@ -74,6 +74,6 @@ export default function StatsLine(props: Props) {
           })
         }
       </ul>
-    </div>
+    </nav>
   )
 }

@@ -49,12 +49,13 @@
     text-align: end;
 
     &--nickname {
-      @include heading-big;
-      font-size: 3.43rem;
+      @include oswald-xl;
+      margin-bottom: var(--space-sm) !important;
     }
 
     &--role {
-      @include subtitle-big;
+      @include oswald-medium;
+      color: var(--e-global-color-primary);
     }
 
     &--social {
@@ -89,6 +90,10 @@
     @include margin-top-md;
   }
 
+  &__follow {
+    @include margin-top-lg;
+  }
+
   @include media-breakpoint-down(xl) {
     &__top-row {
       padding-bottom: 7rem;
@@ -107,11 +112,8 @@
       width: 100%;
       flex: 1;
       text-align: center;
-      @include padding-top-sm;
+      @include margin-top-sm;
 
-      &--nickname {
-        font-size: 3.43rem;
-      }
       &--social {
         margin-top: 2rem;
         justify-content: center;
@@ -145,7 +147,7 @@
 
     &__player-info {
       &--nickname {
-        font-size: 2.8rem;
+        margin-bottom: var(--space-vsm) !important;
       }
     }
 

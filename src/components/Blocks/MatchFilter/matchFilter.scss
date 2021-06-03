@@ -1,23 +1,22 @@
+@import '../../../scss/mixins';
+@import '../../../scss/typography';
 @import '../../../scss/variables';
 
 .match-filter {
-  color: white;
+  color: #ffffff;
 
   &__list {
     width: 100%;
-    display: flex;
+    @include flex-center;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
     padding: 0 1rem !important;
   }
 
   &__item {
     cursor: pointer;
-    color: white;
+    color: #ffffff;
     margin-right: 2.5rem !important;
-    display: flex;
-    align-items: center;
+    @include flex-align-center;
     transition: all .2s ease;
     margin-bottom: .8rem !important;
 
@@ -27,7 +26,7 @@
       position: relative;
 
       &:after {
-        color: white;
+        color: #ffffff;
       }
 
       &::before {
@@ -43,7 +42,7 @@
     }
 
     &--title {
-      font-size: 1.5rem;
+      @include archivo-small;
     }
 
     &:not(:last-child) {
@@ -60,7 +59,7 @@
       color: var(--e-global-color-primary);
 
       &:after {
-        color: white;
+        color: #ffffff;
       }
     }
   }
@@ -69,9 +68,6 @@
     &__item {
       margin-right: 2rem !important;
 
-      &--title {
-        font-size: 1.2rem;
-      }
 
       &:not(:last-child) {
         &:after {
@@ -91,10 +87,6 @@
     &__item {
       margin-right: 1.5rem !important;
 
-      &--title {
-        font-size: 1rem;
-      }
-
       &:not(:last-child) {
         &:after {
           right: -.9rem;
@@ -106,10 +98,6 @@
   @include media-breakpoint-down(sm) {
     &__item {
       margin-right: 1rem !important;
-
-      &--title {
-        font-size: .8rem;
-      }
 
       &:not(:last-child) {
         &:after {
@@ -127,10 +115,6 @@
   @include media-breakpoint-down(vsm) {
     &__item {
       margin-right: .8rem !important;
-
-      &--title {
-        font-size: .8rem;
-      }
 
       &:not(:last-child) {
         &:after {
