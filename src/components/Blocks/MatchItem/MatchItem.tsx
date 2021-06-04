@@ -1,5 +1,6 @@
 import React from 'react'
 import moment from 'moment'
+import firebase from 'firebase'
 
 import { IMatch } from '../../../interfaces'
 import './matchItem.scss'
@@ -12,7 +13,7 @@ function MatchItem(props: Props) {
   const indOfSeparator = props.match.score.indexOf(':')
   const leftScore = props.match.score.slice(0, indOfSeparator)
   const rightScore = props.match.score.slice(indOfSeparator + 1)
-  const timeStamp = props.match.date.toDate()
+  const timestamp = firebase.firestore.Timestamp.fromMillis(props.match.date.toDate())
 
   return (
     <div className='match-item'>
@@ -67,7 +68,7 @@ function MatchItem(props: Props) {
       </div>
 
       <div className='match-item__date'>
-        {moment(timeStamp).format('MMM D YYYY, h:mm a')}
+        {moment(timestamp.toDate()).format('MMM D YYYY, h:mm a')}
       </div>
     </div>
   )
