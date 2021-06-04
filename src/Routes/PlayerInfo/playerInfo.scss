@@ -93,6 +93,9 @@
   &__follow {
     @include margin-top-lg;
   }
+  &__related-teammates {
+    padding-top: var(--space-lg);
+  }
 
   @include media-breakpoint-down(xl) {
     &__top-row {

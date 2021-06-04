@@ -7,40 +7,32 @@ import StatsLine from '../../components/Blocks/StatsLine/StatsLine';
 import PlayersList from '../../components/Blocks/PlayersList/PlayersList';
 import TeamLine from '../../components/Blocks/TeamLine/TeamLine';
 import VerticalLine from '../../components/Custom/VerticalLine/VerticalLine';
+import { useAppSelector } from '../../PreTypedHooks';
 
 interface Props {
   location: any,
 }
 
 function MatchInfo(props: Props) {
-  const {
-    background,
-    discipline,
-    tournament,
-    icon,
-    stats,
-    team1,
-    team2
-  } = (props.location && props.location.state) || {}
-  const match = (props.location && props.location.state) || {}
+  const currentMatch = useAppSelector((state) => state.main.currentMatch)
 
   return (
     <section className='latest-match-page'>
       <div className='latest-match-page__wrapper container'>
         <div className='latest-match-page__match-info'>
           <h4 className='latest-match-page__match-info--title'>
-            {tournament}
+            {currentMatch!.tournament}
           </h4>
 
           <div className='latest-match-page__match-info--match'>
-            <MatchItem match={match} />
+            <MatchItem match={currentMatch!} />
           </div>
 
           <div className='latest-match-page__match-info--icon-wrapper'>
             <img
               className='latest-match-page__match-info--icon'
-              src={icon}
-              alt={discipline}
+              src={currentMatch!.icon}
+              alt={currentMatch!.discipline}
             />
           </div>
 
@@ -49,14 +41,14 @@ function MatchInfo(props: Props) {
           </div>
 
           <div className='latest-match-page__match-info--match-stats'>
-            <StatsLine stats={stats} valueStyle='medium' />
+            <StatsLine stats={currentMatch!.stats} valueStyle='medium' />
           </div>
 
           <div className='latest-match-page__match-info--image-wrapper'>
             <img
               className='latest-match-page__match-info--image'
-              src={background}
-              alt={discipline}
+              src={currentMatch!.background}
+              alt={currentMatch!.discipline}
             />
           </div>
         </div>
@@ -66,15 +58,15 @@ function MatchInfo(props: Props) {
         </div>
 
         <div className='latest-match-page__team-line'>
-          <TeamLine tag={team1.tag} teamLogo={team1.logo}/>
+          <TeamLine tag={currentMatch!.team1.tag} teamLogo={currentMatch!.team1.logo}/>
         </div>
         <div className='latest-match-page__teammates'>
-          <PlayersList players={team1.players}/>
+          <PlayersList players={currentMatch!.team1.players}/>
         </div>
 
-        <TeamLine tag={team2.tag} teamLogo={team2.logo}/>
+        <TeamLine tag={currentMatch!.team2.tag} teamLogo={currentMatch!.team2.logo}/>
         <div className='latest-match-page__teammates'>
-          <PlayersList players={team2.players}/>
+          <PlayersList players={currentMatch!.team2.players}/>
         </div>
       </div>
     </section>

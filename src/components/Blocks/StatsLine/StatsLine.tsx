@@ -5,12 +5,7 @@ import './statsLine.scss'
 
 interface Props {
   valueStyle: 'big' | 'medium' | 'small',
-  stats: Array<{
-    title: string,
-    value: string,
-    icon?: boolean,
-    info?: string,
-  }>,
+  stats: any,
 }
 
 export default function StatsLine(props: Props) {
@@ -18,7 +13,7 @@ export default function StatsLine(props: Props) {
     <nav className='line-stats'>
       <ul className='line-stats__list'>
         {
-          props.stats.map((item, idx: number) => {
+          props.stats.map((item: any, idx: number) => {
             return (
               <li
                 className={cn(

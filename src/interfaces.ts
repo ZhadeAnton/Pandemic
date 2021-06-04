@@ -19,6 +19,13 @@ export interface IAnnounce {
   image: string
 }
 
+export interface IPlayerStats {
+  title: string,
+  value: number | string,
+  icon: boolean,
+  info: string
+}
+
 export interface IPlayer {
   id: string,
   nickname: string,
@@ -29,11 +36,14 @@ export interface IPlayer {
   discipline: string,
   logo: string,
   capitan?: boolean
-  stats: [
-    title: string,
-    value: number | string,
-    icon: boolean,
-    info: string
+  about: string,
+  stats: IPlayerStats,
+  team: string,
+  measures: [
+    {
+      title: string,
+      value: string
+    }
   ]
 }
 
@@ -42,6 +52,13 @@ export interface ITeam {
   logo: string,
   players: Array<IPlayer>,
   tag: string
+}
+
+export interface IMatchStats {
+  title: string,
+  value: string,
+  icon?: boolean,
+  info?: string | number
 }
 
 export interface IMatch {
@@ -54,13 +71,7 @@ export interface IMatch {
   date: any,
   team1: ITeam,
   team2: ITeam,
-  stats: {
-    winner: string,
-    duration: number,
-    kills: number,
-    maps: number,
-    rounds: number,
-  }
+  stats: Array<IMatchStats>
 }
 
 export interface IDiscipline {

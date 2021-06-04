@@ -15,7 +15,7 @@ import LatestMatches from '../../components/Sections/LatestMatches/LatestMatches
 
 function MainPage() {
   const announces = useAppSelector((state) => state.main.announces)
-  const initialLatestmatches = useAppSelector((state) => state.main.initialLatestmatches)
+  const initialLatestmatches = useAppSelector((state) => state.main.initialLatestMatches)
   const dispatch = useAppDispatch()
 
   useEffect(() => {

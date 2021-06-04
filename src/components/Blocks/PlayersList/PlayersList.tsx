@@ -5,14 +5,14 @@ import { IPlayer } from '../../../interfaces'
 import PlayerItem from '../PlayerItem/PlayerItem'
 
 interface Props {
-  players: Array<IPlayer>
+  players: Array<IPlayer> | undefined
 }
 
 function PlayersList(props: Props) {
   return (
     <div className='players-list'>
       {
-        props.players.map((player, idx: number) => {
+        props.players?.map((player, idx: number) => {
           return (
             <PlayerItem
               key={idx}

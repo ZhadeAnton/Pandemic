@@ -28,6 +28,14 @@ export function fetchMatchesByDiscipline(discipline) {
       .then(awaitMatchWithReferences)
 }
 
+export function fetchTeammatesByTag(tag) {
+  return db.collection('teams')
+      .where('tag', '==', `${tag}`)
+      .get()
+      .then(mapDocsWithId)
+      .then((res) => awaitPlayers(res[0]))
+}
+
 function mapDocsWithId(snapShot) {
   return snapShot.docs.map((doc) => ({
     id: doc.id,
@@ -35,7 +43,7 @@ function mapDocsWithId(snapShot) {
   }))
 }
 
-function getDoc(doc) {
+function getDocWithId(doc) {
   return doc.get().then((res) => ({
     id: res.id,
     ...res.data()
@@ -60,18 +68,20 @@ function awaitMatchWithReferences(match) {
   return Promise.all(matchesList)
 }
 
+async function awaitPlayers(parsedTeam) {
+  const promises = []
+  parsedTeam.players.map((player) => {
+    promises.push(getDocWithId(player))
+  })
+
+  await Promise.all(promises).then((parsedPlayers) => {
+    parsedTeam.players = parsedPlayers
+  })
+
+  return parsedTeam
+}
+
 function awaitPlayersOfTeam(team) {
-  return getDoc(team)
-      .then(async (parsedTeam) => {
-        const promises = []
-        parsedTeam.players.map((player) => {
-          promises.push(getDoc(player))
-        })
-
-        await Promise.all(promises).then((parsedPlayers) => {
-          parsedTeam.players = parsedPlayers
-        })
-
-        return parsedTeam
-      })
+  return getDocWithId(team)
+      .then(awaitPlayers)
 }

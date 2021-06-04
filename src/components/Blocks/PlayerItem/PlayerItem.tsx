@@ -3,6 +3,8 @@ import { useHistory } from 'react-router';
 
 import './playersItem.scss'
 import { IPlayer } from '../../../interfaces'
+import { setCurrentPlayer } from '../../../Redux/MainPage/MainActionCreators';
+import { useAppDispatch } from '../../../PreTypedHooks';
 
 interface Props {
   player: IPlayer,
@@ -10,12 +12,15 @@ interface Props {
 
 export default function PlayerItem(props: Props) {
   const history = useHistory()
+  const dispacth = useAppDispatch()
 
   const handleSelectPlayer = (player: IPlayer) => {
     history.push({
       pathname: `/player/${player.id}`,
       state: player
     });
+
+    dispacth(setCurrentPlayer(player))
   };
 
   return (
