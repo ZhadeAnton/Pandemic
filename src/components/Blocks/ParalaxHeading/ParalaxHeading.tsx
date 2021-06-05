@@ -2,7 +2,7 @@ import React from 'react'
 
 import './paralaxHeading.scss'
 import BrandButton from '../../Custom/BrandButton/BrandButton'
-import {ReactComponent as ShapeSecond} from '../../../assets/shape-second.svg'
+import {ReactComponent as ShapeSecond} from '../../../Assets/SVG/shape-second.svg'
 
 export default function ParalaxHeading() {
   return (

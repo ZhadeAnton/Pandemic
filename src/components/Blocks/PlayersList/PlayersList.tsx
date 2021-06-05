@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './playersList.scss'
-import { IPlayer } from '../../../interfaces'
+import { IPlayer } from '../../../Interfaces/MainInterfaces'
 import PlayerItem from '../PlayerItem/PlayerItem'
 
 interface Props {

@@ -1,6 +1,6 @@
-import { IPlayer } from './../../interfaces';
+import { IPlayer } from '../../Interfaces/MainInterfaces';
 import * as actions from './MainActionsTypes'
-import { IAnnounce, IDiscipline, IMatch } from '../../interfaces';
+import { IAnnounce, IDiscipline, IMatch } from '../../Interfaces/MainInterfaces';
 
 export interface MainState {
   announces: Array<IAnnounce> | [],

@@ -1,8 +1,8 @@
 import React from 'react'
 import { useHistory } from 'react-router';
 
-import { IMatch } from '../../../interfaces'
-import { useAppDispatch, useAppSelector } from '../../../PreTypedHooks'
+import { IMatch } from '../../../Interfaces/MainInterfaces'
+import { useAppDispatch, useAppSelector } from '../../../Hooks/PreTypedHooks'
 import { setCurrentMatch } from '../../../Redux/MainPage/MainActionCreators';
 
 import Spinner from '../../Custom/Spinner/Spinner'

@@ -3,7 +3,7 @@ import { ProgressBar } from 'react-bootstrap';
 import Slider from 'react-slick';
 
 import './announceSlider.scss'
-import { IAnnounce } from '../../../interfaces';
+import { IAnnounce } from '../../../Interfaces/MainInterfaces';
 import { MainState } from '../../../Redux/MainPage/MainReducer';
 
 interface Props {

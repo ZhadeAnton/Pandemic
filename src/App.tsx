@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import MatchInfo from './Routes/MatchInfo/MatchInfo';
 import PlayerInfo from './Routes/PlayerInfo/PlayerInfo';
 import MainPage from './Routes/MainPage/MainPage';
-import Header from './components/Sections/Header/Header';
+import Header from './Components/Sections/Header/Header';
 
 function App() {
   return (

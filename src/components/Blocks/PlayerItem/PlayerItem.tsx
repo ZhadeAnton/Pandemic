@@ -2,9 +2,9 @@ import React from 'react'
 import { useHistory } from 'react-router';
 
 import './playersItem.scss'
-import { IPlayer } from '../../../interfaces'
+import { IPlayer } from '../../../Interfaces/MainInterfaces'
 import { setCurrentPlayer } from '../../../Redux/MainPage/MainActionCreators';
-import { useAppDispatch } from '../../../PreTypedHooks';
+import { useAppDispatch } from '../../../Hooks/PreTypedHooks';
 
 interface Props {
   player: IPlayer,

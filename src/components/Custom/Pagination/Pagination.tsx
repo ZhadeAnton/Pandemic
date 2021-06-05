@@ -2,7 +2,7 @@ import React from 'react'
 import { Pagination } from 'react-bootstrap'
 
 import './pagination..scss'
-import { useAppDispatch } from '../../../PreTypedHooks'
+import { useAppDispatch } from '../../../Hooks/PreTypedHooks'
 import {
   setPageNumber,
   setFirstPage,

@@ -2,7 +2,7 @@ import React from 'react'
 import moment from 'moment'
 import firebase from 'firebase'
 
-import { IMatch } from '../../../interfaces'
+import { IMatch } from '../../../Interfaces/MainInterfaces'
 import './matchItem.scss'
 
 interface Props {

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './latestMatches.scss'
-import { useAppSelector } from '../../../PreTypedHooks'
+import { useAppSelector } from '../../../Hooks/PreTypedHooks'
 
 import CustomPagination from '../../Custom/Pagination/Pagination'
 import MatchFilter from '../../Blocks/MatchFilter/MatchFilter'

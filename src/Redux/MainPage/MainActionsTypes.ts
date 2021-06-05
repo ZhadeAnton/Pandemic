@@ -1,5 +1,5 @@
-import { IPlayer } from './../../interfaces';
-import { IAnnounce, IDiscipline, IMatch } from '../../interfaces';
+import { IPlayer } from '../../Interfaces/MainInterfaces';
+import { IAnnounce, IDiscipline, IMatch } from '../../Interfaces/MainInterfaces';
 
 export const SET_LOADING_TRUE = 'SET_LOADING_TRUE'
 export interface SetLoadingTrue {

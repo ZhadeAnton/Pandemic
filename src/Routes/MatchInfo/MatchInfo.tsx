@@ -1,13 +1,13 @@
 import React from 'react'
 
 import './matchInfo.scss'
-import Heading from '../../components/Blocks/Heading/Heading';
-import MatchItem from '../../components/Blocks/MatchItem/MatchItem'
-import StatsLine from '../../components/Blocks/StatsLine/StatsLine';
-import PlayersList from '../../components/Blocks/PlayersList/PlayersList';
-import TeamLine from '../../components/Blocks/TeamLine/TeamLine';
-import VerticalLine from '../../components/Custom/VerticalLine/VerticalLine';
-import { useAppSelector } from '../../PreTypedHooks';
+import Heading from '../../Components/Blocks/Heading/Heading';
+import MatchItem from '../../Components/Blocks/MatchItem/MatchItem'
+import StatsLine from '../../Components/Blocks/StatsLine/StatsLine';
+import PlayersList from '../../Components/Blocks/PlayersList/PlayersList';
+import TeamLine from '../../Components/Blocks/TeamLine/TeamLine';
+import VerticalLine from '../../Components/Custom/VerticalLine/VerticalLine';
+import { useAppSelector } from '../../Hooks/PreTypedHooks';
 
 interface Props {
   location: any,

@@ -1,7 +1,7 @@
 import {takeLatest, put, all, call} from 'redux-saga/effects'
 import * as actionCreators from './MainActionCreators'
 import * as actionTypes from './MainActionsTypes'
-import * as api from '../../API'
+import * as api from '../../API/MatchAPI/MatchAPI'
 
 function* getAnnounces() {
   try {

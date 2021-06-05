@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react'
 
 import './mainPage.scss'
-import { useAppDispatch, useAppSelector } from '../../PreTypedHooks'
+import { useAppDispatch, useAppSelector } from '../../Hooks/PreTypedHooks'
 import {
   getAnnounces,
   getListOfDisciplines,
   sortMatches
 } from '../../Redux/MainPage/MainActionCreators'
 
-import HeroSection from '../../components/Sections/HeroSection/HeroSection'
-import AnnounceSlider from '../../components/Sections/AnnounceSlider/AnnounceSlider'
-import Preloader from '../../components/Custom/CubePreloader/CubePreloader'
-import LatestMatches from '../../components/Sections/LatestMatches/LatestMatches'
+import HeroSection from '../../Components/Sections/HeroSection/HeroSection'
+import AnnounceSlider from '../../Components/Sections/AnnounceSlider/AnnounceSlider'
+import Preloader from '../../Components/Custom/CubePreloader/CubePreloader'
+import LatestMatches from '../../Components/Sections/LatestMatches/LatestMatches'
 
 function MainPage() {
   const announces = useAppSelector((state) => state.main.announces)

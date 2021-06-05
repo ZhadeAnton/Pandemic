@@ -1,5 +1,5 @@
-import { IPlayer } from './../../interfaces';
-import { IAnnounce, IDiscipline, IMatch } from '../../interfaces'
+import { IPlayer } from '../../Interfaces/MainInterfaces';
+import { IAnnounce, IDiscipline, IMatch } from '../../Interfaces/MainInterfaces'
 import * as actions from './MainActionsTypes'
 
 export const setLoadingTrue = (): actions.SetLoadingTrue => ({

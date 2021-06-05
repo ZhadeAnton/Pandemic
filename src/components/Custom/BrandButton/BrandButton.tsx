@@ -1,7 +1,7 @@
 import React from 'react'
+import cn from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGem } from '@fortawesome/free-solid-svg-icons'
-import cn from 'classnames'
 
 import './brandButton.scss'
 

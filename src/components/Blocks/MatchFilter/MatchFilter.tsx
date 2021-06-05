@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
 import './matchFilter.scss'
-import { IDiscipline } from '../../../interfaces'
-import { useAppDispatch, useAppSelector } from '../../../PreTypedHooks'
+import { IDiscipline } from '../../../Interfaces/MainInterfaces'
+import { useAppDispatch, useAppSelector } from '../../../Hooks/PreTypedHooks'
 import { sortMatches } from '../../../Redux/MainPage/MainActionCreators'
 
 export default function MatchFilter() {
