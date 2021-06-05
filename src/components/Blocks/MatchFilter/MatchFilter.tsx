@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 
 import './matchFilter.scss'
-import { IDiscipline } from '../../../interfaces'
-import { useAppDispatch, useAppSelector } from '../../../PreTypedHooks'
+import { IDiscipline } from '../../../Interfaces/MainInterfaces'
+import { useAppDispatch, useAppSelector } from '../../../Hooks/PreTypedHooks'
 import { sortMatches } from '../../../Redux/MainPage/MainActionCreators'
 
 export default function MatchFilter() {
   const disciplines = useAppSelector((state) => state.main.disciplines)
-  const initialLatestmatches = useAppSelector((state) => state.main.initialLatestmatches)
+  const initialLatestmatches = useAppSelector((state) => state.main.initialLatestMatches)
   const dispatch = useAppDispatch()
 
   const [active, setActive] = useState(initialLatestmatches)

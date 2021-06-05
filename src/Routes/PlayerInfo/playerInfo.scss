@@ -1,0 +1,186 @@
+@import '../../scss/variables';
+@import '../../scss/typography';
+@import '../../scss/mixins';
+
+.player-page {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--e-global-color-secondary);
+
+  &__top-row-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-image: url(../../Assets/JPG/bluebg.jpg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+
+    &:after {
+      content: '';
+      width: 100%;
+      height: 5rem;
+      @include abs-position(auto, auto, -1px, 50%);
+      transform: translate(-50%, 0);
+      background-image: url(../../Assets/SVG/bottom-shape-round.svg);
+    }
+
+    &--overlay {
+      @include abs-full;
+      opacity: 1;
+      z-index: -1;
+      background-color: var(--e-global-color-11131c85);
+    }
+  }
+
+  &__top-row {
+    @include flex-align-center;
+    @include padding-top-lg;
+    padding-bottom: 10rem;
+  }
+
+  &__player-info {
+    z-index: 10;
+    text-align: end;
+
+    &--nickname {
+      @include oswald-xl;
+      margin-bottom: var(--space-sm) !important;
+    }
+
+    &--role {
+      @include oswald-medium;
+      color: var(--e-global-color-primary);
+    }
+
+    &--social {
+      margin-top: 3rem;
+    }
+
+    &--vertical-line {
+      @include abs-position(auto, auto, -2rem, 0);
+      width: 100%;
+      height: inherit;
+      z-index: 100;
+    }
+  }
+
+  &__about {
+    &--text {
+      @include margin-top-sm;
+    }
+  }
+
+  &__heading {
+    @include margin-top-lg;
+  }
+
+  &__stats-row-top {
+    @include margin-top-lg;
+  }
+
+  &__stats-row-bottom {
+    @include margin-top-md;
+  }
+
+  &__follow {
+    &--list {
+      @include margin-top-lg;
+    }
+  }
+
+  &__related-teammates {
+    padding-top: var(--space-lg);
+    background-image: url(../../Assets/JPG/portal-bg.jpg);
+    @include cover-background;
+    @include padding-top-lg;
+    padding-bottom: 5rem;
+
+    &--list {
+      @include margin-top-md;
+    }
+  }
+
+  @include media-breakpoint-down(xl) {
+    &__top-row {
+      padding-bottom: 7rem;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    &__top-row {
+      @include flex-align-center;
+      flex-direction: column;
+      flex-wrap: wrap;
+      padding-bottom: 4rem;
+    }
+
+    &__player-info {
+      width: 100%;
+      flex: 1;
+      text-align: center;
+      @include margin-top-sm;
+
+      &--social {
+        margin-top: 2rem;
+        justify-content: center;
+      }
+    }
+
+    &__player-image-wrapper {
+      &--image {
+        max-width: 13.75rem;
+        margin-top: .625rem;
+        margin-left: .625rem;
+      }
+  
+      &:before {
+        background-color: var(--e-global-color-primary);
+        height: calc(100% + .8125rem);
+      }
+    }
+  }
+
+  @include media-breakpoint-down(vsm) {
+    &__top-row-wrapper {
+      &:after {
+        width: 130%;
+      }
+    }
+
+    &__top-row {
+      padding-bottom: 3rem;
+    }
+
+    &__player-info {
+      &--nickname {
+        margin-bottom: var(--space-vsm) !important;
+      }
+    }
+
+    &__player-image-wrapper {
+      &--image {
+        max-width: 12.5rem;
+        margin-top: .5rem;
+        margin-left: .5rem;
+      }
+  
+      &:before {
+        background-color: var(--e-global-color-primary);
+        width: 120px;
+        height: calc(100% + .625rem);
+      }
+    }
+  }
+
+  @include media-breakpoint-down(tiny) {
+    &__top-row-wrapper {
+      &:after {
+        width: 140%;
+      }
+    }
+  }
+}

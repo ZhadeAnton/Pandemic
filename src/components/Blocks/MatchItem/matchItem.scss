@@ -24,6 +24,8 @@
 
   &__back {
     @include abs-center;
+    width: 100%;
+    height: 100%;
     max-width: 87%;
     max-height: 8rem;
     opacity: .8;

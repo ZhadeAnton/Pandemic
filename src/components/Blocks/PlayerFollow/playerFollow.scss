@@ -1,0 +1,105 @@
+@import '../../../scss/mixins';
+@import '../../../scss/variables';
+@import '../../../scss/typography';
+
+.player-follow {
+  width: 100%;
+
+  &__list {
+    width: 100%;
+    @include flex-align-center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+
+    &:after {
+      content: 'stream';
+      @include abs-center;
+      @include archivo-xxl;
+      z-index: -1;
+    }
+  }
+
+  &__item {
+    flex: 1;
+    @include flex-align-center;
+    flex-direction: column;
+    min-width: 10rem;
+    margin-bottom: var(--space-lg);
+    cursor: pointer;
+
+    &--icon {
+      font-size: 5rem;
+      color: var(--e-global-color-primary);
+      margin-bottom: var(--space-md);
+      transition: color .3s ease;
+    }
+
+    &--title {
+      @include archivo-medium;
+      margin-bottom: var(--space-sm);
+    }
+
+    &--status {
+      @include archivo-tiny;
+      color: grey;
+      opacity: .8;
+
+      &-active {
+        @include archivo-tiny;
+        color: var(--e-global-color-primary);
+        opacity: 1;
+      }
+    }
+
+    &:hover {
+      .player-follow__item--icon {
+        color: white;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    &__item {
+      &--title {
+        @include archivo-medium;
+        margin-bottom: var(--space-vsm);
+      }
+
+      &--icon {
+        font-size: 4rem;
+        margin-bottom: var(--space-sm);
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__list {
+      &:after {
+        content: 'stream';
+        @include abs-center;
+        @include archivo-xxl;
+        z-index: -1;
+        transform: translate(-50%, -50%) rotate(90deg) !important; 
+      }
+    }
+
+    &__item {
+      min-width: 100%;
+      margin-bottom: var(--space-lg) !important;
+
+      &--icon {
+        font-size: 3.5rem;
+        margin-bottom: var(--space-vsm);
+      }
+    }
+  }
+
+  @include media-breakpoint-down(vsm) {
+    &__item {
+      margin-bottom: var(--space-md) !important;
+    }
+  }
+}

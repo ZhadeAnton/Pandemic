@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 import './brandLogo.scss'
-import brandLogo from '../../../assets/pandemic-logo.png'
+import brandLogo from '../../../Assets/PNG/pandemic-logo.png'
 
 function BrandLogo() {
   return (

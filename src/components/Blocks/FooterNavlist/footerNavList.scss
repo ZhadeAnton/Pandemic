@@ -1,0 +1,36 @@
+@import '../../../scss/typography';
+@import '../../../scss/variables';
+
+.footer-list-navigation {
+  width: 100%;
+  height: 100%;
+
+  &__list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    display: block;
+    margin-bottom: 18px !important;
+    border-radius: 0 10px;
+    border: 2px solid transparent;
+    transition: all .5s;
+    background-color: #ffffff0a;
+    cursor: pointer;
+
+    &--link {
+      @include oswald-sm;
+      width: 100%;
+      height: 100%;
+      display: block;
+      padding: 15px 20px !important;
+
+      &:hover {
+        color: var(--e-global-color-primary);
+      }
+    }
+  }
+}

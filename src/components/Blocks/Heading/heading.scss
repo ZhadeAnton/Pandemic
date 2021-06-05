@@ -8,11 +8,12 @@
   padding: .3rem 0 0 2rem;
 
   &--title {
-    @include heading-big;
+    @include archivo-xl;
   }
 
   &--sub-title {
-    @include subtitle-big;
+    @include archivo-medium;
+    color: var(--e-global-color-text-dark);
   }
 
   &--line {
@@ -28,7 +29,11 @@
     padding: .3rem 0 0 1.6rem;
   }
 
-  @include media-breakpoint-down(vsm) {
+  @include media-breakpoint-down(sm) {
     padding: .3rem 0 0 1.2rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    padding: .3rem 0 0 1rem;
   }
 }

@@ -21,13 +21,30 @@
   left: 0;
 }
 
+@mixin cover-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin abs-position ($top, $right, $bottom, $left) {
+  position: absolute; 
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin abs-full {
+  @extend %abs;
+  top: 0;
+}
+
 @mixin abs-center {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 100%;
-  width: 100%;
-  transform: translate(-50%, -50%);
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
 }
 
 @mixin abs-bottom {
@@ -147,46 +164,62 @@
   }
 }
 
-@mixin padding-top-md {
-  padding-top: 6rem;
-
-  @include media-breakpoint-down(xl) {
-    padding-top: 5.5rem;
-  }
+@mixin margin-top-lg {
+  margin-top: 6rem;
 
   @include media-breakpoint-down(lg) {
-    padding-top: 5rem;
+    margin-top: 5.5rem;
   }
 
   @include media-breakpoint-down(md) {
-    padding-top: 4rem;
+    margin-top: 5rem;
   }
 
   @include media-breakpoint-down(sm) {
-    padding-top: 3rem;
+    margin-top: 4.5rem;
   }
 
   @include media-breakpoint-down(vsm) {
-    padding-top: 2rem;
+    margin-top: 4rem;
   }
 }
 
-@mixin padding-top-sm {
-  padding-top: 5rem;
-
-  @include media-breakpoint-down(xl) {
-    padding-top: 4.5rem;
-  }
+@mixin margin-top-md {
+  margin-top: 4rem;
 
   @include media-breakpoint-down(lg) {
-    padding-top: 4rem;
+    margin-top: 3.5rem;
   }
 
   @include media-breakpoint-down(md) {
-    padding-top: 3rem;
+    margin-top: 3rem;
   }
 
   @include media-breakpoint-down(sm) {
-    padding-top: 2rem;
+    margin-top: 2.5rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    margin-top: 2rem;
+  }
+}
+
+@mixin margin-top-sm {
+  margin-top: 3rem;
+
+  @include media-breakpoint-down(lg) {
+    margin-top: 2.5rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    margin-top: 2rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    margin-top: 1.5rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    margin-top: 1rem;
   }
 }

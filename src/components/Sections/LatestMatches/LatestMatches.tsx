@@ -1,10 +1,10 @@
 import React from 'react'
 
 import './latestMatches.scss'
-import { useAppSelector } from '../../../PreTypedHooks'
+import { useAppSelector } from '../../../Hooks/PreTypedHooks'
 
 import CustomPagination from '../../Custom/Pagination/Pagination'
-import MatchFilter from '../../Custom/MatchFilter/MatchFilter'
+import MatchFilter from '../../Blocks/MatchFilter/MatchFilter'
 import Heading from '../../Blocks/Heading/Heading'
 import MatchList from '../../Blocks/MatchList/MatchList'
 

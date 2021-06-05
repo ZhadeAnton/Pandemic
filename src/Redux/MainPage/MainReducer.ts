@@ -1,11 +1,14 @@
+import { IPlayer } from '../../Interfaces/MainInterfaces';
 import * as actions from './MainActionsTypes'
-import { IAnnounce, IDiscipline, IMatch } from '../../interfaces';
+import { IAnnounce, IDiscipline, IMatch } from '../../Interfaces/MainInterfaces';
 
 export interface MainState {
   announces: Array<IAnnounce> | [],
   disciplines: Array<IDiscipline> | [],
   matches: Array<IMatch> | [],
-  initialLatestmatches: string,
+  currentMatch: IMatch | null,
+  currentPlayer: IPlayer | null,
+  initialLatestMatches: string,
   initialPage: number,
   currentPage: number,
   matchesPerPage: number,
@@ -16,8 +19,10 @@ const INITIAL_STATE: MainState = {
   announces: [],
   disciplines: [],
   matches: [],
+  currentMatch: null,
+  currentPlayer: null,
   isLoading: false,
-  initialLatestmatches: 'CS:GO',
+  initialLatestMatches: 'CS:GO',
   initialPage: 1,
   currentPage: 1,
   matchesPerPage: 3,
@@ -79,6 +84,18 @@ const mainReducer =
         return {
           ...state,
           currentPage: state.currentPage = action.payload
+        }
+
+      case actions.SET_CURRENT_MATCH:
+        return {
+          ...state,
+          currentMatch: action.payload
+        }
+
+      case actions.SET_CURRENT_PLAYER:
+        return {
+          ...state,
+          currentPlayer: action.payload
         }
 
       default:

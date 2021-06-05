@@ -19,7 +19,7 @@
   }
 
   &__sort-row {
-    @include padding-top-lg;
+    @include margin-top-lg;
   }
 
   &__list {
@@ -41,10 +41,6 @@
   }
 
   @include media-breakpoint-down(sm) {
-    &__heading {
-      margin: 0.4rem 0 0 .8rem;
-    }
-
     &__list {
       min-height: 10rem;
       padding: 1.5rem 0 !important;

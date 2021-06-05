@@ -17,6 +17,7 @@
     "@types/react-dom": "^17.0.4",
     "@types/redux": "^3.6.0",
     "@types/reveal": "^4.1.0",
+    "bootstrap-icons": "^1.5.0",
     "firebase": "^8.6.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -69,8 +70,10 @@
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-slick": "^0.28.1",
+    "react-spring": "^9.2.1",
     "redux": "^4.1.0",
     "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
     "redux-saga": "^1.1.3"
   }
 }

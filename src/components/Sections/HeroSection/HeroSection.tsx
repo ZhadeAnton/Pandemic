@@ -3,9 +3,9 @@ const Slide = require('react-reveal/Slide')
 const Zoom = require('react-reveal/Zoom')
 
 import './heroSection.scss'
-import { ReactComponent as BottomShape } from '../../../assets/bottom-shape.svg'
-import pandemic from '../../../assets/landing-logo.png'
-import doctor from '../../../assets/pdoctor.png'
+import { ReactComponent as BottomShape } from '../../../Assets/SVG/bottom-shape.svg'
+import pandemic from '../../../Assets/PNG/pandemic-title.png'
+import doctor from '../../../Assets/PNG/pandemic-doctor.png'
 import BrandButton from '../../Custom/BrandButton/BrandButton'
 
 const HeroSection = () => {

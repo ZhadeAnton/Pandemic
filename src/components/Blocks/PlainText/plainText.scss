@@ -1,0 +1,7 @@
+@import '../../../scss/typography';
+@import '../../../scss/mixins';
+
+.plain-text {
+  width: 100%;
+  @include text-plain;
+}

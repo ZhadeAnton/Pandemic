@@ -1,0 +1,22 @@
+@import '../../../scss/variables';
+
+.social-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__item {
+    cursor: pointer;
+    color: white;
+    font-size: 1.3rem;
+    transition: $main-transition;
+
+    &:not(:last-child) {
+      padding-right: 1.3rem !important;
+    }
+
+    &:hover {
+      color: var(--e-global-color-primary);
+    }
+  }
+}
