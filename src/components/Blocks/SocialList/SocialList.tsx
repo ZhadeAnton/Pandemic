@@ -3,14 +3,25 @@ import React from 'react'
 import './socialList.scss'
 
 interface Props {
-  socialList: Array<string>
+  socialList?: Array<string>
 }
 
+const defaultList = [
+  'facebook',
+  'twitter',
+  'youtube',
+  'instagram',
+  'twitch',
+  'discord'
+]
+
 export default function SocialList(props: Props) {
+  const list = props.socialList ? props.socialList : defaultList
+
   return (
     <ul className='social-list'>
       {
-        props.socialList.map((link, idx: number) => {
+        list.map((link, idx: number) => {
           return (
             <li
               className='social-list__item'

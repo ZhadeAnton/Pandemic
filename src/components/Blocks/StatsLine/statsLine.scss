@@ -39,6 +39,7 @@
 
   &__item {
     @extend %statsLineItem;
+    width: 100%;
 
     &--title {
       @include archivo-small;
@@ -105,6 +106,10 @@
   }
 
   @include media-breakpoint-down(sm) {
+    &__item {
+      min-width: 200px;
+    }
+
     &__item-extended {
       &--content {
         margin-left: .6rem;

@@ -22,15 +22,6 @@ function PlayerInfo() {
   const teammates = relatedMatch?.team1.tag === playerTag
     ? relatedMatch?.team1.players : relatedMatch?.team2.players
 
-  const socialList = [
-    'facebook',
-    'twitter',
-    'youtube',
-    'instagram',
-    'twitch',
-    'discord'
-  ]
-
   return (
     <main className='player-page'>
       <section className='player-page__top-row-wrapper'>
@@ -47,7 +38,7 @@ function PlayerInfo() {
             </h4>
 
             <div className='player-page__player-info--social'>
-              <SocialList socialList={socialList}/>
+              <SocialList />
             </div>
           </div>
         </div>
