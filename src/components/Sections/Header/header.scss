@@ -22,7 +22,7 @@
 
   &__link {
     width: 100%;
-    @include link;
+    @include oswald-sm;
 
     &:hover {
       color: var(--e-global-color-primary);

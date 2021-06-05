@@ -40,14 +40,7 @@
   }
 }
 
-@mixin link {
-  color: white;
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.875rem;
-  letter-spacing: 1.55px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
+
 
 @mixin heading-big {
   @extend %heading;
@@ -453,6 +446,20 @@
     font-size: 1.35rem;
     line-height: 1.5rem;
   }
+
+  @include media-breakpoint-down(vsm) {
+    font-size: 1.2rem;
+    line-height: 1.3rem;
+  }
+}
+
+@mixin oswald-sm {
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: 1.55px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 @mixin roboto-medium {

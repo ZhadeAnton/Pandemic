@@ -100,19 +100,13 @@
   &__related-teammates {
     padding-top: var(--space-lg);
     background-image: url(../../assets/aboutbg2.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    @include cover-background;
     @include padding-top-lg;
     padding-bottom: 5rem;
 
     &--list {
       @include margin-top-md;
     }
-  }
-
-  footer {
-    padding: 10rem 0;
   }
 
   @include media-breakpoint-down(xl) {

@@ -1,18 +1,18 @@
 import React from 'react'
 
 import './playerInfo.scss'
-
+import { useAppSelector } from '../../PreTypedHooks'
 import PlayerAvatar from '../../components/Blocks/PlayerAvatar/PlayerAvatar'
-import PlayerSocial from '../../components/Blocks/PlayerSocial/PlayerSocial'
+import SocialList from '../../components/Blocks/SocialList/SocialList'
 import StatsLine from '../../components/Blocks/StatsLine/StatsLine'
 import VerticalLine from '../../components/Custom/VerticalLine/VerticalLine'
 import Heading from '../../components/Blocks/Heading/Heading'
 import PlainText from '../../components/Blocks/PlainText/PlainText'
 import Devider from '../../components/Custom/Devider/Devider'
 import PlayerFollow from '../../components/Blocks/PlayerFollow/PlayerFollow'
-import { useAppSelector } from '../../PreTypedHooks'
 import PlayersList from '../../components/Blocks/PlayersList/PlayersList'
 import ParalaxHeading from '../../components/Blocks/ParalaxHeading/ParalaxHeading'
+import Footer from '../../components/Sections/Footer/Footer'
 
 function PlayerInfo() {
   const currentPlayer = useAppSelector((state) => state.main.currentPlayer)
@@ -21,6 +21,15 @@ function PlayerInfo() {
   const playerTag = currentPlayer?.team
   const teammates = relatedMatch?.team1.tag === playerTag
     ? relatedMatch?.team1.players : relatedMatch?.team2.players
+
+  const socialList = [
+    'facebook',
+    'twitter',
+    'youtube',
+    'instagram',
+    'twitch',
+    'discord'
+  ]
 
   return (
     <main className='player-page'>
@@ -38,7 +47,7 @@ function PlayerInfo() {
             </h4>
 
             <div className='player-page__player-info--social'>
-              <PlayerSocial />
+              <SocialList socialList={socialList}/>
             </div>
           </div>
         </div>
@@ -100,7 +109,7 @@ function PlayerInfo() {
         <ParalaxHeading />
       </section>
 
-      <footer></footer>
+      <Footer />
     </main>
   )
 }

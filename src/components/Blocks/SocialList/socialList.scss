@@ -1,9 +1,8 @@
 @import '../../../scss/variables';
 
-.player-social-list {
+.social-list {
   display: flex;
   align-items: center;
-  justify-content: center;
 
   &__item {
     cursor: pointer;

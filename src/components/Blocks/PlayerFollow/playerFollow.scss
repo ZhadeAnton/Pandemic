@@ -26,14 +26,15 @@
     flex: 1;
     @include flex-align-center;
     flex-direction: column;
-    min-width: 160px;
+    min-width: 10rem;
     margin-bottom: var(--space-lg);
+    cursor: pointer;
 
     &--icon {
       font-size: 5rem;
       color: var(--e-global-color-primary);
       margin-bottom: var(--space-md);
-      cursor: pointer;
+      transition: color .3s ease;
     }
 
     &--title {
@@ -50,6 +51,12 @@
         @include archivo-tiny;
         color: var(--e-global-color-primary);
         opacity: 1;
+      }
+    }
+
+    &:hover {
+      .player-follow__item--icon {
+        color: white;
       }
     }
   }
@@ -90,7 +97,7 @@
     }
   }
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(vsm) {
     &__item {
       margin-bottom: var(--space-md) !important;
     }
