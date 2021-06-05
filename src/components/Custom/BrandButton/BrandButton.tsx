@@ -6,7 +6,7 @@ import cn from 'classnames'
 import './brandButton.scss'
 
 interface Props {
-  className: string
+  className?: string
 }
 
 function BrandButton(props: Props) {

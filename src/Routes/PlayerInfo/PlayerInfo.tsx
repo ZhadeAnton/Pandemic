@@ -12,6 +12,7 @@ import Devider from '../../components/Custom/Devider/Devider'
 import PlayerFollow from '../../components/Blocks/PlayerFollow/PlayerFollow'
 import { useAppSelector } from '../../PreTypedHooks'
 import PlayersList from '../../components/Blocks/PlayersList/PlayersList'
+import ParalaxHeading from '../../components/Blocks/ParalaxHeading/ParalaxHeading'
 
 function PlayerInfo() {
   const currentPlayer = useAppSelector((state) => state.main.currentPlayer)
@@ -73,23 +74,33 @@ function PlayerInfo() {
 
       <Devider />
 
-      <section className='player-page__section-follow container'>
-        <div className='player-page__heading'>
+      <section className='player-page__follow container'>
+        <div className='player-page__follow--heading player-page__heading'>
           <Heading title='Follow' />
         </div>
 
-        <div className='player-page__follow'>
+        <div className='player-page__follow--list'>
           <PlayerFollow />
         </div>
+      </section>
 
-        <section className='player-page__related-teammates'>
-          <div className='player-page__heading'>
+      <section className='player-page__related-teammates'>
+        <div className='player-page__related-teammates--wrapper container'>
+          <div className='player-page__related-teammates--heading'>
             <Heading title='Related teammates' />
           </div>
 
-          <PlayersList players={teammates}/>
-        </section>
+          <div className='player-page__related-teammates--list'>
+            <PlayersList players={teammates}/>
+          </div>
+        </div>
       </section>
+
+      <section>
+        <ParalaxHeading />
+      </section>
+
+      <footer></footer>
     </main>
   )
 }
