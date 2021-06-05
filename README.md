@@ -1,2 +1,0 @@
-# Pandemic
-Esports Gaming Site
