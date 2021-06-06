@@ -4,14 +4,14 @@ import './playerInfo.scss'
 import { useAppSelector } from '../../Hooks/PreTypedHooks'
 import PlayerAvatar from '../../Components/Blocks/PlayerAvatar/PlayerAvatar'
 import SocialList from '../../Components/Blocks/SocialList/SocialList'
-import StatsLine from '../../Components/Blocks/StatsLine/StatsLine'
+import StatsList from '../../Components/Blocks/StatsList/StatsList'
 import VerticalLine from '../../Components/Custom/VerticalLine/VerticalLine'
 import Heading from '../../Components/Blocks/Heading/Heading'
 import PlainText from '../../Components/Blocks/PlainText/PlainText'
 import Devider from '../../Components/Custom/Devider/Devider'
 import PlayerFollow from '../../Components/Blocks/PlayerFollow/PlayerFollow'
 import PlayersList from '../../Components/Blocks/PlayersList/PlayersList'
-import ParalaxHeading from '../../Components/Blocks/ParalaxHeading/ParalaxHeading'
+import ParalaxHeading from '../../Components/Sections/ParalaxHeading/ParalaxHeading'
 import Footer from '../../Components/Sections/Footer/Footer'
 
 function PlayerInfo() {
@@ -51,7 +51,7 @@ function PlayerInfo() {
       </section>
 
       <section className='player-page__stats-row-top'>
-        <StatsLine valueStyle='medium' stats={currentPlayer!.stats} />
+        <StatsList valueStyle='medium' stats={currentPlayer!.stats} />
       </section>
 
       <Devider />
@@ -68,7 +68,7 @@ function PlayerInfo() {
         </div>
 
         <div className='player-page__stats-row-bottom'>
-          <StatsLine stats={currentPlayer!.measures} valueStyle='big' />
+          <StatsList stats={currentPlayer!.measures} valueStyle='big' />
         </div>
       </section>
 

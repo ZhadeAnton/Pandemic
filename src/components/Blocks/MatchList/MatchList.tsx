@@ -1,9 +1,7 @@
 import React from 'react'
-import { useHistory } from 'react-router';
 
 import { IMatch } from '../../../Interfaces/MainInterfaces'
-import { useAppDispatch, useAppSelector } from '../../../Hooks/PreTypedHooks'
-import { setCurrentMatch } from '../../../Redux/MainPage/MainActionCreators';
+import { useAppSelector } from '../../../Hooks/PreTypedHooks'
 
 import Spinner from '../../Custom/Spinner/Spinner'
 import MatchItem from '../MatchItem/MatchItem'
@@ -16,17 +14,7 @@ interface Props {
 }
 
 export default function MatchList(props: Props) {
-  const history = useHistory()
   const isLoading = useAppSelector((state) => state.main.isLoading)
-  const dispatch = useAppDispatch()
-
-  const handleSelectMatch = (match: IMatch) => {
-    history.push({
-      pathname: `/match/${match.id}`
-    });
-
-    dispatch(setCurrentMatch(match))
-  };
 
   return (
     <ul className='match-list'>
@@ -41,9 +29,10 @@ export default function MatchList(props: Props) {
             return (
               <li
                 key={idx}
-                onClick={() => handleSelectMatch(match)}
               >
-                <MatchItem match={match} />
+                <MatchItem
+                  match={match}
+                />
               </li>
             )
           })

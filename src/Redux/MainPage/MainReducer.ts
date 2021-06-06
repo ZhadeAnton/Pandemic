@@ -1,5 +1,5 @@
-import { IPlayer } from '../../Interfaces/MainInterfaces';
 import * as actions from './MainActionsTypes'
+import { IPlayer, ITeam } from '../../Interfaces/MainInterfaces';
 import { IAnnounce, IDiscipline, IMatch } from '../../Interfaces/MainInterfaces';
 
 export interface MainState {
@@ -8,6 +8,7 @@ export interface MainState {
   matches: Array<IMatch> | [],
   currentMatch: IMatch | null,
   currentPlayer: IPlayer | null,
+  currentTeam: ITeam | null,
   initialLatestMatches: string,
   initialPage: number,
   currentPage: number,
@@ -21,6 +22,7 @@ const INITIAL_STATE: MainState = {
   matches: [],
   currentMatch: null,
   currentPlayer: null,
+  currentTeam: null,
   isLoading: false,
   initialLatestMatches: 'CS:GO',
   initialPage: 1,
@@ -96,6 +98,12 @@ const mainReducer =
         return {
           ...state,
           currentPlayer: action.payload
+        }
+
+      case actions.SET_CURRENT_TEAM:
+        return {
+          ...state,
+          currentTeam: action.payload
         }
 
       default:

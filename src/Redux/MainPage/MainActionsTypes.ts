@@ -1,4 +1,4 @@
-import { IPlayer } from '../../Interfaces/MainInterfaces';
+import { IPlayer, ITeam } from '../../Interfaces/MainInterfaces';
 import { IAnnounce, IDiscipline, IMatch } from '../../Interfaces/MainInterfaces';
 
 export const SET_LOADING_TRUE = 'SET_LOADING_TRUE'
@@ -84,6 +84,12 @@ export interface SetCurrentPlayer {
   payload: IPlayer
 }
 
+export const SET_CURRENT_TEAM = 'SET_CURRENT_TEAM'
+export interface SetCurrentTeam {
+  type: typeof SET_CURRENT_TEAM,
+  payload: ITeam
+}
+
 export type Maintypes =
 |SetLoadingTrue
 |SetLoadingFalse
@@ -100,3 +106,4 @@ export type Maintypes =
 |SortMatchesSuccess
 |SetCurrentMatch
 |SetCurrentPlayer
+|SetCurrentTeam

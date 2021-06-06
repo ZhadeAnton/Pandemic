@@ -1,14 +1,14 @@
 import React from 'react'
 import cn from 'classnames'
 
-import './statsLine.scss'
+import './statsList.scss'
 
 interface Props {
   valueStyle: 'big' | 'medium' | 'small',
   stats: any,
 }
 
-export default function StatsLine(props: Props) {
+export default function StatsList(props: Props) {
   return (
     <nav className='line-stats'>
       <ul className='line-stats__list'>

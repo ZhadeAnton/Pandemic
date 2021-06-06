@@ -1,0 +1,45 @@
+@import '../../../Scss/mixins';
+@import '../../../Scss/typography';
+
+.match-score {
+  @include flex-align-center;
+  @include score;
+  z-index: 5;
+  
+  &__separator {
+    margin: 0 .6rem;
+    font-size: 2rem;
+  }
+
+  @include media-breakpoint-down(xl) {
+    &__separator {
+      margin: 0 .6rem;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    &__separator {
+      margin: 0 .4rem;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    &__separator {
+      font-size: 1.5rem;
+      margin: 0 .4rem;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__separator {
+      margin: 0 .4rem;
+    }
+  }
+
+  @include media-breakpoint-down(vsm) {
+    &__separator {
+      font-size: 1rem;
+      margin: 0 .25rem
+    }
+  }
+}

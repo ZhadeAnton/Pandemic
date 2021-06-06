@@ -1,4 +1,4 @@
-import { IPlayer } from '../../Interfaces/MainInterfaces';
+import { IPlayer, ITeam } from '../../Interfaces/MainInterfaces';
 import { IAnnounce, IDiscipline, IMatch } from '../../Interfaces/MainInterfaces'
 import * as actions from './MainActionsTypes'
 
@@ -72,4 +72,9 @@ export const setCurrentMatch = (currentMatch: IMatch): actions.SetCurrentMatch =
 export const setCurrentPlayer = (player: IPlayer): actions.SetCurrentPlayer => ({
   type: actions.SET_CURRENT_PLAYER,
   payload: player
+})
+
+export const setCurrentTeam = (team: ITeam): actions.SetCurrentTeam => ({
+  type: actions.SET_CURRENT_TEAM,
+  payload: team
 })
