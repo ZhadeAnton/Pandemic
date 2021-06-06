@@ -21,8 +21,8 @@ function AnnounceSlider(props: Props) {
     centerMode: true,
     variableWidth: true,
     arrows: true,
-    prevArrow: <button type="button"><span>Previous</span></button>,
-    nextArrow: <button type="button"><span>Next</span></button>,
+    prevArrow: <button data-slide-button><span>Prev</span></button>,
+    nextArrow: <button data-slide-button><span>Next</span></button>,
     beforeChange: (_: any, next: number) => setActiveSlide(next + 1),
     responsive: [
       {

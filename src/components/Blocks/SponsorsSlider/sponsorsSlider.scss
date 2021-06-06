@@ -1,0 +1,71 @@
+@import '../../../Scss/variables';
+@import '../../../Scss/elements';
+@import '../../../Scss/mixins';
+
+.sponsor-slider {
+  position: relative;
+
+  &__item {
+    display: flex !important;
+    justify-content: center;
+
+    &--image {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  [data-slide-button] {
+    @include slick-arrow;
+    span {
+      display: none;
+    }
+  }
+
+  .slick-prev {
+    left: -9%;
+
+    &:before {
+      content: '\2039';
+    }
+  }
+  
+  .slick-next {
+    right: -9%;
+
+    &:before {
+      content: '';
+      display: none;
+    }
+  
+    &:after {
+      content: '\203A' !important;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    .slick-prev {
+      left: -12%;
+    }
+
+    .slick-next {
+      right: -12%;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .slick-prev {
+      left: -20%;
+    }
+
+    .slick-next {
+      right: -20%;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    .slick-prev, .slick-next {
+      display: none !important;
+    }
+  }
+}

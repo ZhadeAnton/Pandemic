@@ -53,6 +53,7 @@ export interface ITeam {
   logo: string,
   players: Array<IPlayer>,
   tag: string,
+  sponsors: Array<string>,
   about: {
     description: string
   }

@@ -14,9 +14,7 @@
     width: 100%;
     height: auto;
     background-image: url(../../Assets/JPG/bluebg.jpg);
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    @include cover-background;
     z-index: 1;
 
     &:after {
