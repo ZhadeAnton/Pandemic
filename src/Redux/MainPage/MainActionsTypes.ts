@@ -1,5 +1,4 @@
-import { IPlayer, ITeam } from '../../Interfaces/MainInterfaces';
-import { IAnnounce, IDiscipline, IMatch } from '../../Interfaces/MainInterfaces';
+import { IAnnounce, IDiscipline } from '../../Interfaces/MainInterfaces';
 
 export const SET_LOADING_TRUE = 'SET_LOADING_TRUE'
 export interface SetLoadingTrue {
@@ -60,37 +59,7 @@ export interface GetListOfDisciplinesSuccess {
   payload: Array<IDiscipline>
 }
 
-export const SORT_MATCHES = 'SORT_MATCHES'
-export interface SortMatches {
-  type: typeof SORT_MATCHES,
-  payload: string
-}
-
-export const SORT_MATCHES_SUCCESS = 'SORT_MATCHES_SUCCESS'
-export interface SortMatchesSuccess {
-  type: typeof SORT_MATCHES_SUCCESS,
-  payload: Array<IMatch>
-}
-
-export const SET_CURRENT_MATCH = 'SET_CURRENT_MATCH'
-export interface SetCurrentMatch {
-  type: typeof SET_CURRENT_MATCH,
-  payload: IMatch
-}
-
-export const SET_CURRENT_PLAYER = 'SET_CURRENT_PLAYER'
-export interface SetCurrentPlayer {
-  type: typeof SET_CURRENT_PLAYER,
-  payload: IPlayer
-}
-
-export const SET_CURRENT_TEAM = 'SET_CURRENT_TEAM'
-export interface SetCurrentTeam {
-  type: typeof SET_CURRENT_TEAM,
-  payload: ITeam
-}
-
-export type Maintypes =
+export type MatchTypes =
 |SetLoadingTrue
 |SetLoadingFalse
 |GetAnnounces
@@ -102,8 +71,3 @@ export type Maintypes =
 |SetLastPage
 |GetListOfDisciplines
 |GetListOfDisciplinesSuccess
-|SortMatches
-|SortMatchesSuccess
-|SetCurrentMatch
-|SetCurrentPlayer
-|SetCurrentTeam

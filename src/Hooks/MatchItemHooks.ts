@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router';
 import { IMatch, ITeam } from '../Interfaces/MainInterfaces';
-import { setCurrentMatch, setCurrentTeam } from '../Redux/MainPage/MainActionCreators';
+import { setCurrentMatch, setCurrentTeam } from '../Redux/Match/MatchActionCreators';
 import { useAppDispatch } from './PreTypedHooks';
 
 export default function useSelectMatch() {

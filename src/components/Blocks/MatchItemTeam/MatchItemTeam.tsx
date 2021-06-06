@@ -32,7 +32,8 @@ export default function MatchItemTeam(props: Props) {
           {props.team.tag}
         </h3>
 
-        <small className='match-team__team-info--discipline text-end'>
+        <small className={cn('match-team__team-info--discipline',
+            `${props.reverse ? '' : 'text-end'}`)}>
           {props.discipline}
         </small>
       </div>

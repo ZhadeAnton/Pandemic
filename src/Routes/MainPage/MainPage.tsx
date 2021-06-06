@@ -5,8 +5,8 @@ import { useAppDispatch, useAppSelector } from '../../Hooks/PreTypedHooks'
 import {
   getAnnounces,
   getListOfDisciplines,
-  sortMatches
 } from '../../Redux/MainPage/MainActionCreators'
+import { sortMatches } from '../../Redux/Match/MatchActionCreators'
 
 import HeroSection from '../../Components/Sections/HeroSection/HeroSection'
 import AnnounceSlider from '../../Components/Sections/AnnounceSlider/AnnounceSlider'
@@ -15,7 +15,7 @@ import LatestMatches from '../../Components/Sections/LatestMatches/LatestMatches
 
 function MainPage() {
   const announces = useAppSelector((state) => state.main.announces)
-  const initialLatestmatches = useAppSelector((state) => state.main.initialLatestMatches)
+  const initialLatestmatches = useAppSelector((state) => state.match.initialLatestMatches)
   const dispatch = useAppDispatch()
 
   useEffect(() => {

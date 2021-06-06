@@ -11,12 +11,12 @@ import PlainText from '../../Components/Blocks/PlainText/PlainText'
 import Devider from '../../Components/Custom/Devider/Devider'
 import PlayerFollow from '../../Components/Blocks/PlayerFollow/PlayerFollow'
 import PlayersList from '../../Components/Blocks/PlayersList/PlayersList'
-import ParalaxHeading from '../../Components/Sections/ParalaxHeading/ParalaxHeading'
+import ParallaxHeading from '../../Components/Sections/ParallaxHeading/ParallaxHeading'
 import Footer from '../../Components/Sections/Footer/Footer'
 
 function PlayerInfo() {
-  const currentPlayer = useAppSelector((state) => state.main.currentPlayer)
-  const relatedMatch = useAppSelector((state) => state.main.currentMatch)
+  const currentPlayer = useAppSelector((state) => state.match.currentPlayer)
+  const relatedMatch = useAppSelector((state) => state.match.currentMatch)
 
   const playerTag = currentPlayer?.team
   const teammates = relatedMatch?.team1.tag === playerTag
@@ -97,7 +97,7 @@ function PlayerInfo() {
       </section>
 
       <section>
-        <ParalaxHeading />
+        <ParallaxHeading />
       </section>
 
       <Footer />

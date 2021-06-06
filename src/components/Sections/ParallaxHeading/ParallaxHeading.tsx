@@ -1,10 +1,10 @@
 import React from 'react'
 
-import './paralaxHeading.scss'
+import './parallaxHeading.scss'
 import BrandButton from '../../Custom/BrandButton/BrandButton'
 import {ReactComponent as ShapeSecond} from '../../../Assets/SVG/shape-second.svg'
 
-export default function ParalaxHeading() {
+export default function ParallaxHeading() {
   return (
     <section className='paralax-row'>
       <div className='paralax-row__overlay'></div>
