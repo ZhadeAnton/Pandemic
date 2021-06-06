@@ -40,8 +40,6 @@
   }
 }
 
-
-
 @mixin heading-big {
   @extend %heading;
 
@@ -471,31 +469,63 @@
 
   @include media-breakpoint-down(xl) {
     font-size: 2.5rem;
-    line-height: 3.9rem;
+    line-height: 3.5rem;
   }
 
   @include media-breakpoint-down(lg) {
+    font-size: 2.2rem;
+    line-height: 2.7rem;
+  }
+
+  @include media-breakpoint-down(md) {
     font-size: 2rem;
-    line-height: 3.1rem;
-  }
-
-  @include media-breakpoint-down(lg) {
-    font-size: 1.6rem;
-    line-height: 2.8rem;
+    line-height: 2.5rem;
   }
 
   @include media-breakpoint-down(sm) {
-    font-size: 1.3rem;
-    line-height: 2.4rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    font-size: 1.1rem;
+    font-size: 1.7rem;
     line-height: 2.1rem;
   }
 
-  @include media-breakpoint-down(tiny) {
+  @include media-breakpoint-down(vsm) {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+  }
+}
+
+@mixin roboto-small {
+  font-family: var(--e-global-typography-primary-font-family);
+  font-style: normal;
+  font-size: 1.5625rem;
+  line-height: 2.343rem;
+  font-weight: 400;
+  color: #ffffff;
+
+  @include media-breakpoint-down(xl) {
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+  }
+
+  @include media-breakpoint-down(lg) {
+    font-size: 1.2rem;
+    line-height: 1.89rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 1rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
     font-size: .9rem;
-    line-height: 1.7rem;
+    line-height: 1.5rem;
+  }
+
+  @include media-breakpoint-down(tiny) {
+    font-size: .8rem;
   }
 }

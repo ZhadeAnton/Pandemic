@@ -52,7 +52,10 @@ export interface ITeam {
   discipline: string,
   logo: string,
   players: Array<IPlayer>,
-  tag: string
+  tag: string,
+  about: {
+    description: string
+  }
 }
 
 export interface IMatchStats {

@@ -1,3 +1,75 @@
+@import '../../Scss/typography';
+@import '../../Scss/mixins';
+@import '../../Scss/variables';
+
 .team-page {
+  background-color: var(--e-global-color-secondary);
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  &__main-info {
+    @include flex-align-center;
+    @include padding-top-lg;
+
+    &--wrapper {
+      flex: 65%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &--title {
+      @include roboto-medium;
+      margin-bottom: var(--space-sm) !important;
+
+      &-green {
+        color: var(--e-global-color-primary);
+      }
+    }
+
+    &--desc {
+      @include roboto-small;
+      color: #adb0bc;
+      margin: 0;
+      padding: 0;
+    }
+
+    &--image-wrapper {
+      flex: 35%;
+      width: 100%;
+      max-width: 25rem;
+    }
+
+    &--image {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    &__main-info {
+      flex-wrap: wrap;
+      flex-direction: column;
   
+      &--wrapper {
+        flex: 1;
+        width: 100%;
+        padding: .3rem;
+        margin-bottom: var(--space-md);
+      }
+
+      &--image-wrapper {
+        flex: 1;
+        max-width: 18.75rem;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__main-info {
+      &--image-wrapper {
+        max-width: 16.25rem;
+      }
+    }
+  }
 }
