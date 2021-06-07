@@ -4,7 +4,7 @@
 @import '../../../scss/elements';
 
 .announce-slider {
-  @include padding-top-lg;
+  padding-top: var(--space-xl);
   overflow: hidden;
 
   &__item {
@@ -58,7 +58,7 @@
 
   &__progress-bar {
     width: 100%;
-    @include margin-top-sm;
+    margin-top: var(--space-xl);
 
     &--wrapper {
       max-width: 1300px;

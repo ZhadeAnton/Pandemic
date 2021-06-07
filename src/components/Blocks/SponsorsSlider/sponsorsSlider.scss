@@ -6,12 +6,12 @@
   position: relative;
 
   &__item {
-    display: flex !important;
-    justify-content: center;
+    outline: none;
 
     &--image {
       width: 100%;
       height: 100%;
+      transform: scale(.9);
     }
   }
 
@@ -56,10 +56,12 @@
   @include media-breakpoint-down(md) {
     .slick-prev {
       left: -20%;
+      margin-left: .7rem;
     }
 
     .slick-next {
       right: -20%;
+      margin-right: .7rem;
     }
   }
 

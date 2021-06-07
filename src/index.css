@@ -63,6 +63,8 @@ code {
   --space-md: var(--baseline);
   --space-lg: calc(var(--baseline)*2);
   --space-xl: calc(var(--baseline)*3);
+  --space-xxl: calc(var(--baseline)*4);
+  --space-huge: calc(var(--baseline)*6);
 }
 
 .transform-element-left {

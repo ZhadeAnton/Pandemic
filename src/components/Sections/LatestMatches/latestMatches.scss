@@ -5,7 +5,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  @include padding-top-xl;
+  padding-top: var(--space-xl);
 
   &__wrapper {
     height: 100%;
@@ -19,7 +19,7 @@
   }
 
   &__sort-row {
-    @include margin-top-lg;
+    padding-top: var(--space-xl);
   }
 
   &__list {

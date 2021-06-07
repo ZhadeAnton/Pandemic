@@ -11,7 +11,7 @@
   background-color: var(--e-global-color-secondary);
 
   &__match-info {
-    @include padding-top-xl;
+    padding-top: var(-space-lg);
     padding-bottom: 1rem;
     z-index: 10;
 
@@ -22,15 +22,15 @@
 
     &--icon-wrapper {
       text-align: center;
-      @include margin-top-md;
+      margin-top: var(--space-xl);
     }
 
     &--vertical-line-top {
-      @include margin-top-md;
+      margin-top: var(--space-xl);
     }
 
     &--match-stats {
-      @include margin-top-md;
+      margin-top: var(--space-xl);
     }
 
     &--image-wrapper {
@@ -61,11 +61,11 @@
   }
 
   &__heading {
-    @include margin-top-lg;
+    margin-top: var(--space-xl);
   }
 
   &__team-line {
-    @include margin-top-sm;
+    margin-top: var(--space-sm);
   }
 
   &__teammates {
@@ -74,13 +74,13 @@
   }
 
   &__parallax {
-    @include margin-top-sm;
+    margin-top: var(--space-sm);
   }
 
   @include media-breakpoint-down(lg) {
     &__match-container {
       &--icon-wrapper {
-        margin-top: 4rem;
+        margin-top: var(--space-lg);
   
         &:after {
           top: 70%;

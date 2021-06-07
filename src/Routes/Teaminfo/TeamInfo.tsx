@@ -1,11 +1,13 @@
 import React from 'react'
 
+import './teamInfo.scss'
 import { useAppSelector } from '../../Hooks/PreTypedHooks'
 
-import './teamInfo.scss'
 import SponsorsSlider from '../../Components/Blocks/SponsorsSlider/SponsorsSlider'
-import Footer from '../../Components/Sections/Footer/Footer'
 import ParallaxHeading from '../../Components/Sections/ParallaxHeading/ParallaxHeading'
+import PlayersList from '../../Components/Blocks/PlayersList/PlayersList'
+import Footer from '../../Components/Sections/Footer/Footer'
+import Heading from '../../Components/Blocks/Heading/Heading'
 
 export default function TeamInfo() {
   const currentTeam = useAppSelector((state) => state.match.currentTeam)
@@ -37,6 +39,18 @@ export default function TeamInfo() {
 
         <div className='team-page__main-info--sponsors container'>
           <SponsorsSlider sponsors={currentTeam!.sponsors}/>
+        </div>
+      </section>
+
+      <section className='team-page__team'>
+        <div className='team-page__team--wrapper container'>
+          <div className='team-page__team--heading'>
+            <Heading title='our team'/>
+          </div>
+
+          <div className='team-page__team--list'>
+            <PlayersList players={currentTeam?.players}/>
+          </div>
         </div>
       </section>
 
