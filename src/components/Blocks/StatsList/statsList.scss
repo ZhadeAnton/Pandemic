@@ -106,8 +106,14 @@
   }
 
   @include media-breakpoint-down(sm) {
+    &__list {
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+
     &__item {
-      min-width: 200px;
+      margin-bottom: 2rem !important;
     }
 
     &__item-extended {

@@ -15,6 +15,7 @@
     height: auto;
     background-image: url(../../Assets/JPG/bluebg.jpg);
     @include cover-background;
+    background-position: top;
     z-index: 1;
 
     &:after {
@@ -36,7 +37,7 @@
 
   &__top-row {
     @include flex-align-center;
-    padding-top: var(--space-xl);
+    padding-top: var(--space-huge);
     padding-bottom: var(--space-huge);
   }
 
@@ -66,7 +67,15 @@
     }
   }
 
+  &__stats-row-top {
+    margin-top: var(--space-huge);
+    margin-bottom: var(--space-xl);
+  }
+
   &__about {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-lg);
+
     &--text {
       margin-top: var(--space-md);
     }
@@ -76,15 +85,14 @@
    margin-top: var(--space-xl);
   }
 
-  &__stats-row-top {
-    margin-top: var(--space-xl);
-  }
-
   &__stats-row-bottom {
     margin-top: var(--space-lg);
   }
 
   &__follow {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-lg);
+
     &--list {
       margin-top: var(--space-xl);
     }
@@ -103,7 +111,7 @@
 
   @include media-breakpoint-down(xl) {
     &__top-row {
-      padding-bottom: var(--space-xl);
+      padding-top: var(--space-xl);
     }
   }
 
@@ -112,14 +120,15 @@
       @include flex-align-center;
       flex-direction: column;
       flex-wrap: wrap;
-      padding-bottom: var(--space-xl);
+      padding-bottom: var(--space-md);
     }
 
     &__player-info {
       width: 100%;
       flex: 1;
       text-align: center;
-      margin-top: var(--space-xl);
+      margin-top: var(--space-md);
+      margin-bottom: var(--space-md);
 
       &--social {
         margin-top: var(--space-md);
@@ -138,6 +147,23 @@
         background-color: var(--e-global-color-primary);
         height: calc(100% + .8125rem);
       }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__stats-row-top {
+      margin-top: var(--space-xxl);
+      margin-bottom: 2rem;
+    }
+
+    &__about {
+      padding-top: var(--space-lg);
+      padding-bottom: var(--space-md);
+    }
+
+    &__follow {
+      padding-top: var(--space-lg);
+      padding-bottom: var(--space-md);
     }
   }
 

@@ -11,7 +11,7 @@
   background-color: var(--e-global-color-secondary);
 
   &__match-info {
-    padding-top: var(-space-lg);
+    padding-top: var(--space-xxl);
     padding-bottom: 1rem;
     z-index: 10;
 
@@ -22,11 +22,11 @@
 
     &--icon-wrapper {
       text-align: center;
-      margin-top: var(--space-xl);
+      margin-top: var(--space-lg);
     }
 
     &--vertical-line-top {
-      margin-top: var(--space-xl);
+      margin-top: var(--space-lg);
     }
 
     &--match-stats {
@@ -60,12 +60,13 @@
     }
   }
 
-  &__heading {
-    margin-top: var(--space-xl);
+  &__line-up {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
   }
 
   &__team-line {
-    margin-top: var(--space-sm);
+    margin-top: var(--space-lg);
   }
 
   &__teammates {
@@ -78,6 +79,10 @@
   }
 
   @include media-breakpoint-down(lg) {
+    &__match-info {
+      padding-top: var(--space-xl);
+    }  
+
     &__match-container {
       &--icon-wrapper {
         margin-top: var(--space-lg);
@@ -90,6 +95,15 @@
   }
 
   @include media-breakpoint-down(md) {
+    &__line-up {
+      padding-top: var(--space-md);
+      padding-bottom: var(--space-md);
+    }
+
+    &__team-line {
+      margin-top: var(--space-md);
+    }
+
     &__match-container {
       &--icon-wrapper {
         &:after {
@@ -100,6 +114,14 @@
   }
 
   @include media-breakpoint-down(sm) {
+    &__match-info {
+      padding-top: var(--space-lg);
+
+      &--match-stats {
+        margin-top: var(--space-lg);
+      }
+    }
+
     &__match-container {
       &--icon-wrapper {
         &:after {

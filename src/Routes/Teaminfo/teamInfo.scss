@@ -82,9 +82,6 @@
     }
   }
 
-  &__parallax {
-  }
-
   @include media-breakpoint-down(md) {
     &__main-info {
       padding: var(--space-xl) 0;
@@ -104,6 +101,16 @@
       &--image-wrapper {
         flex: 1;
         max-width: 18.75rem;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    &__team {
+      padding: var(--space-lg) 0;
+  
+      &--list {
+        margin-top: var(--space-lg);
       }
     }
   }

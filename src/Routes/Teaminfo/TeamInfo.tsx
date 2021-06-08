@@ -54,9 +54,7 @@ export default function TeamInfo() {
         </div>
       </section>
 
-      <div className='team-page__parallax'>
-        <ParallaxHeading />
-      </div>
+      <ParallaxHeading />
       <Footer />
     </main>
   )

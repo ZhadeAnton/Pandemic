@@ -8,8 +8,8 @@ import { sortMatches } from '../../../Redux/Match/MatchActionCreators'
 export default function MatchFilter() {
   const disciplines = useAppSelector((state) => state.main.disciplines)
   const initialLatestmatches = useAppSelector((state) => state.match.initialLatestMatches)
-  const dispatch = useAppDispatch()
 
+  const dispatch = useAppDispatch()
   const [active, setActive] = useState(initialLatestmatches)
 
   function handleActiveItem(discipline: string) {

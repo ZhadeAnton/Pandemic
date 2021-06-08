@@ -64,6 +64,7 @@ code {
   --space-lg: calc(var(--baseline)*2);
   --space-xl: calc(var(--baseline)*3);
   --space-xxl: calc(var(--baseline)*4);
+  --space-xxxl: calc(var(--baseline)*5);
   --space-huge: calc(var(--baseline)*6);
 }
 

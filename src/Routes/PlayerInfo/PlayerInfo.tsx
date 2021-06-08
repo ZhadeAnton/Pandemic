@@ -56,12 +56,10 @@ function PlayerInfo() {
 
       <Devider />
 
-      <section className='player-page__section-about container'>
-        <div className='player-page__heading'>
-          <Heading title='About' />
-        </div>
+      <section className='player-page__about container'>
+        <Heading title='About' />
 
-        <div className='player-page__about'>
+        <div className='player-page__about--content'>
           <article className='player-page__about--text'>
             <PlainText text={currentPlayer!.about} />
           </article>
@@ -75,9 +73,7 @@ function PlayerInfo() {
       <Devider />
 
       <section className='player-page__follow container'>
-        <div className='player-page__follow--heading player-page__heading'>
-          <Heading title='Follow' />
-        </div>
+        <Heading title='Follow' />
 
         <div className='player-page__follow--list'>
           <PlayerFollow />

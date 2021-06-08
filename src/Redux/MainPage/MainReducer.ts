@@ -3,14 +3,12 @@ import { IAnnounce, IDiscipline } from '../../Interfaces/MainInterfaces';
 
 export interface MainState {
   announces: Array<IAnnounce> | [],
-  disciplines: Array<IDiscipline> | [],
-  isLoading: boolean
+  disciplines: Array<IDiscipline> | []
 }
 
 const INITIAL_STATE: MainState = {
   announces: [],
   disciplines: [],
-  isLoading: false
 }
 
 const mainReducer =

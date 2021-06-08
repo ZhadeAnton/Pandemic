@@ -14,7 +14,7 @@ interface Props {
 }
 
 export default function MatchList(props: Props) {
-  const isLoading = useAppSelector((state) => state.main.isLoading)
+  const isLoading = useAppSelector((state) => state.match.isLoading)
 
   return (
     <ul className='match-list'>

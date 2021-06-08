@@ -54,10 +54,8 @@ function MatchInfo(props: Props) {
         </div>
       </section>
 
-      <section className='latest-match-page__team-guide container'>
-        <div className='latest-match-page__heading'>
-          <Heading title='line ups'/>
-        </div>
+      <section className='latest-match-page__line-up container'>
+        <Heading title='line ups'/>
 
         <div className='latest-match-page__team-line'>
           <TeamLine tag={currentMatch!.team1.tag} teamLogo={currentMatch!.team1.logo}/>
