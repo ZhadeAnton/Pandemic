@@ -4,19 +4,19 @@ import './playerInfo.scss'
 import { useAppSelector } from '../../Hooks/PreTypedHooks'
 import PlayerAvatar from '../../Components/Blocks/PlayerAvatar/PlayerAvatar'
 import SocialList from '../../Components/Blocks/SocialList/SocialList'
-import StatsLine from '../../Components/Blocks/StatsLine/StatsLine'
+import StatsList from '../../Components/Blocks/StatsList/StatsList'
 import VerticalLine from '../../Components/Custom/VerticalLine/VerticalLine'
 import Heading from '../../Components/Blocks/Heading/Heading'
 import PlainText from '../../Components/Blocks/PlainText/PlainText'
 import Devider from '../../Components/Custom/Devider/Devider'
 import PlayerFollow from '../../Components/Blocks/PlayerFollow/PlayerFollow'
 import PlayersList from '../../Components/Blocks/PlayersList/PlayersList'
-import ParalaxHeading from '../../Components/Blocks/ParalaxHeading/ParalaxHeading'
+import ParallaxHeading from '../../Components/Sections/ParallaxHeading/ParallaxHeading'
 import Footer from '../../Components/Sections/Footer/Footer'
 
 function PlayerInfo() {
-  const currentPlayer = useAppSelector((state) => state.main.currentPlayer)
-  const relatedMatch = useAppSelector((state) => state.main.currentMatch)
+  const currentPlayer = useAppSelector((state) => state.match.currentPlayer)
+  const relatedMatch = useAppSelector((state) => state.match.currentMatch)
 
   const playerTag = currentPlayer?.team
   const teammates = relatedMatch?.team1.tag === playerTag
@@ -51,33 +51,29 @@ function PlayerInfo() {
       </section>
 
       <section className='player-page__stats-row-top'>
-        <StatsLine valueStyle='medium' stats={currentPlayer!.stats} />
+        <StatsList valueStyle='medium' stats={currentPlayer!.stats} />
       </section>
 
       <Devider />
 
-      <section className='player-page__section-about container'>
-        <div className='player-page__heading'>
-          <Heading title='About' />
-        </div>
+      <section className='player-page__about container'>
+        <Heading title='About' />
 
-        <div className='player-page__about'>
+        <div className='player-page__about--content'>
           <article className='player-page__about--text'>
             <PlainText text={currentPlayer!.about} />
           </article>
         </div>
 
         <div className='player-page__stats-row-bottom'>
-          <StatsLine stats={currentPlayer!.measures} valueStyle='big' />
+          <StatsList stats={currentPlayer!.measures} valueStyle='big' />
         </div>
       </section>
 
       <Devider />
 
       <section className='player-page__follow container'>
-        <div className='player-page__follow--heading player-page__heading'>
-          <Heading title='Follow' />
-        </div>
+        <Heading title='Follow' />
 
         <div className='player-page__follow--list'>
           <PlayerFollow />
@@ -97,7 +93,7 @@ function PlayerInfo() {
       </section>
 
       <section>
-        <ParalaxHeading />
+        <ParallaxHeading />
       </section>
 
       <Footer />

@@ -1,0 +1,80 @@
+@import '../../../Scss/mixins';
+@import '../../../Scss/typography';
+@import '../../../Scss/variables';
+
+.match-team {
+  @include flex-sb;
+  width: 100%;
+  z-index: 5;
+
+  &__image-wrapper {
+    display: block;
+    width: 12.5rem;
+    height: 12.5rem;
+    position: relative;
+  
+    &--image {
+      @include abs-top;
+      @include object-fit;
+      position: relative;
+      z-index: 200;
+    }
+  }
+  
+  &__team-info {
+    display: flex;
+    flex-direction: column;
+  
+    &--tag {
+      @include heading-match;
+    }
+  
+    &--discipline {
+      @include subtitle-match;
+    }
+  }
+
+  @include media-breakpoint-down(xl) {
+    &__image-wrapper {
+      width: 11rem;
+      height: 11rem;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    &__image-wrapper {
+      width: 8.8rem;
+      height: 8.8rem;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    &__image-wrapper {
+      width: 7rem;
+      height: 7rem;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__image-wrapper {
+      width: 5rem;
+      height: 5rem;
+      margin: 0 1rem;
+    }
+  }
+
+  @include media-breakpoint-down(vsm) {
+    &__image-wrapper {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+
+  @include media-breakpoint-down(tiny) {
+    &__image-wrapper {
+      width: 3.2rem;
+      height: 3.2rem;
+      margin: 0 .3rem;
+    }
+  }
+}

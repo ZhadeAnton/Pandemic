@@ -14,9 +14,8 @@
     width: 100%;
     height: auto;
     background-image: url(../../Assets/JPG/bluebg.jpg);
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    @include cover-background;
+    background-position: top;
     z-index: 1;
 
     &:after {
@@ -38,8 +37,8 @@
 
   &__top-row {
     @include flex-align-center;
-    @include padding-top-lg;
-    padding-bottom: 10rem;
+    padding-top: var(--space-huge);
+    padding-bottom: var(--space-huge);
   }
 
   &__player-info {
@@ -57,7 +56,7 @@
     }
 
     &--social {
-      margin-top: 3rem;
+      margin-top: var(--space-md);
     }
 
     &--vertical-line {
@@ -68,27 +67,34 @@
     }
   }
 
+  &__stats-row-top {
+    margin-top: var(--space-huge);
+    margin-bottom: var(--space-xl);
+  }
+
   &__about {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-lg);
+
     &--text {
-      @include margin-top-sm;
+      margin-top: var(--space-md);
     }
   }
 
   &__heading {
-    @include margin-top-lg;
-  }
-
-  &__stats-row-top {
-    @include margin-top-lg;
+   margin-top: var(--space-xl);
   }
 
   &__stats-row-bottom {
-    @include margin-top-md;
+    margin-top: var(--space-lg);
   }
 
   &__follow {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-lg);
+
     &--list {
-      @include margin-top-lg;
+      margin-top: var(--space-xl);
     }
   }
 
@@ -96,17 +102,16 @@
     padding-top: var(--space-lg);
     background-image: url(../../Assets/JPG/portal-bg.jpg);
     @include cover-background;
-    @include padding-top-lg;
     padding-bottom: 5rem;
 
     &--list {
-      @include margin-top-md;
+      padding-top: var(--space-lg);
     }
   }
 
   @include media-breakpoint-down(xl) {
     &__top-row {
-      padding-bottom: 7rem;
+      padding-top: var(--space-xl);
     }
   }
 
@@ -115,17 +120,18 @@
       @include flex-align-center;
       flex-direction: column;
       flex-wrap: wrap;
-      padding-bottom: 4rem;
+      padding-bottom: var(--space-md);
     }
 
     &__player-info {
       width: 100%;
       flex: 1;
       text-align: center;
-      @include margin-top-sm;
+      margin-top: var(--space-md);
+      margin-bottom: var(--space-md);
 
       &--social {
-        margin-top: 2rem;
+        margin-top: var(--space-md);
         justify-content: center;
       }
     }
@@ -144,6 +150,23 @@
     }
   }
 
+  @include media-breakpoint-down(sm) {
+    &__stats-row-top {
+      margin-top: var(--space-xxl);
+      margin-bottom: 2rem;
+    }
+
+    &__about {
+      padding-top: var(--space-lg);
+      padding-bottom: var(--space-md);
+    }
+
+    &__follow {
+      padding-top: var(--space-lg);
+      padding-bottom: var(--space-md);
+    }
+  }
+
   @include media-breakpoint-down(vsm) {
     &__top-row-wrapper {
       &:after {
@@ -152,7 +175,7 @@
     }
 
     &__top-row {
-      padding-bottom: 3rem;
+      padding-bottom: var(--space-md);
     }
 
     &__player-info {
@@ -170,7 +193,7 @@
   
       &:before {
         background-color: var(--e-global-color-primary);
-        width: 120px;
+        width: 7.5rem;
         height: calc(100% + .625rem);
       }
     }

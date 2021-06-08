@@ -9,12 +9,12 @@ import Heading from '../../Blocks/Heading/Heading'
 import MatchList from '../../Blocks/MatchList/MatchList'
 
 function LatestMatches() {
-  const matchesPerPage = useAppSelector((state) => state.main.matchesPerPage)
-  const currentPage = useAppSelector((state) => state.main.currentPage)
-  const matchesLength = useAppSelector((state) => state.main.matches.slice.length)
+  const matchesPerPage = useAppSelector((state) => state.match.matchesPerPage)
+  const currentPage = useAppSelector((state) => state.match.currentPage)
+  const matchesLength = useAppSelector((state) => state.match.matches.slice.length)
   const indexOfLastMatch = currentPage * matchesPerPage
   const indexOfFirstMatch = indexOfLastMatch - matchesPerPage
-  const currentMatches = useAppSelector((state) => state.main.matches
+  const currentMatches = useAppSelector((state) => state.match.matches
       .slice(indexOfFirstMatch, indexOfLastMatch))
   const pagesLength = Math.ceil(matchesLength / matchesPerPage)
 

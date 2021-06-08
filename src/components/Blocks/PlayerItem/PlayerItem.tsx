@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 
 import './playersItem.scss'
 import { IPlayer } from '../../../Interfaces/MainInterfaces'
-import { setCurrentPlayer } from '../../../Redux/MainPage/MainActionCreators';
+import { setCurrentPlayer } from '../../../Redux/Match/MatchActionCreators';
 import { useAppDispatch } from '../../../Hooks/PreTypedHooks';
 
 interface Props {

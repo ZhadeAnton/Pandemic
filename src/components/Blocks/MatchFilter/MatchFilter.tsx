@@ -3,13 +3,13 @@ import React, { useState } from 'react'
 import './matchFilter.scss'
 import { IDiscipline } from '../../../Interfaces/MainInterfaces'
 import { useAppDispatch, useAppSelector } from '../../../Hooks/PreTypedHooks'
-import { sortMatches } from '../../../Redux/MainPage/MainActionCreators'
+import { sortMatches } from '../../../Redux/Match/MatchActionCreators'
 
 export default function MatchFilter() {
   const disciplines = useAppSelector((state) => state.main.disciplines)
-  const initialLatestmatches = useAppSelector((state) => state.main.initialLatestMatches)
-  const dispatch = useAppDispatch()
+  const initialLatestmatches = useAppSelector((state) => state.match.initialLatestMatches)
 
+  const dispatch = useAppDispatch()
   const [active, setActive] = useState(initialLatestmatches)
 
   function handleActiveItem(discipline: string) {

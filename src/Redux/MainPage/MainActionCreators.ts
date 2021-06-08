@@ -1,5 +1,4 @@
-import { IPlayer } from '../../Interfaces/MainInterfaces';
-import { IAnnounce, IDiscipline, IMatch } from '../../Interfaces/MainInterfaces'
+import { IAnnounce, IDiscipline } from '../../Interfaces/MainInterfaces'
 import * as actions from './MainActionsTypes'
 
 export const setLoadingTrue = (): actions.SetLoadingTrue => ({
@@ -50,26 +49,4 @@ export const getListOfDisciplinesSuccess = (
     disciplines: Array<IDiscipline>): actions.GetListOfDisciplinesSuccess => ({
   type: actions.GET_LIST_OF_DISCIPLINES_SUCCESS,
   payload: disciplines
-})
-
-export const sortMatches = (
-    discipline: string): actions.SortMatches => ({
-  type: actions.SORT_MATCHES,
-  payload: discipline
-})
-
-export const sortMatchesSuccess = (
-    sortedMatches: Array<IMatch>): actions.SortMatchesSuccess => ({
-  type: actions.SORT_MATCHES_SUCCESS,
-  payload: sortedMatches
-})
-
-export const setCurrentMatch = (currentMatch: IMatch): actions.SetCurrentMatch => ({
-  type: actions.SET_CURRENT_MATCH,
-  payload: currentMatch
-})
-
-export const setCurrentPlayer = (player: IPlayer): actions.SetCurrentPlayer => ({
-  type: actions.SET_CURRENT_PLAYER,
-  payload: player
 })

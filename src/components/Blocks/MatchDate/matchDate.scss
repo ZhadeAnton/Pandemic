@@ -1,0 +1,41 @@
+@import '../../../Scss/variables';
+@import '../../../Scss/mixins';
+@import '../../../Scss/typography';
+
+.match__date {
+  @include flex-center;
+  @include date;
+  @include abs-position(auto, auto, -2%, 50%);
+  transform: translate(-50%, 0);
+  width: 13.75rem;
+  height: 2.5rem;
+  opacity: .8;
+  border-radius: 0 0 1.25rem 1.25rem;
+  background-color: var(--e-global-color-secondary);
+
+  @include media-breakpoint-down(xl) {
+    bottom: -5%;
+  }
+
+  @include media-breakpoint-down(lg) {
+    bottom: -12%;
+  }
+
+  @include media-breakpoint-down(md) {
+    bottom: -8%;
+    width: 12.75rem;
+    height: 1.5rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    bottom: -19%;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    bottom: -20%;
+  }
+
+  @include media-breakpoint-down(tiny) {
+    bottom: -21%;
+  }
+}
