@@ -7,6 +7,7 @@ import MainPage from './Routes/MainPage/MainPage';
 import PlayerInfo from './Routes/PlayerInfo/PlayerInfo';
 import TeamInfo from './Routes/Teaminfo/TeamInfo';
 import MatchInfo from './Routes/MatchInfo/MatchInfo';
+import ShopPage from './Routes/ShopPage/ShopPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/player/:playerId' component={PlayerInfo} />
         <Route path='/team/:teamId' component={TeamInfo} />
         <Route path='/match/:matchId' component={MatchInfo} />
+        <Route exact path='/shop' component={ShopPage} />
       </Switch>
     </>
   )

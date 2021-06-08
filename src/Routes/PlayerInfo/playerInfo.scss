@@ -94,12 +94,13 @@
     padding-bottom: var(--space-lg);
 
     &--list {
-      margin-top: var(--space-xl);
+      margin-top: var(--space-xxl);
     }
   }
 
   &__related-teammates {
-    padding-top: var(--space-lg);
+    padding-top: var(--space-huge);
+    padding-bottom: var(--space-huge);
     background-image: url(../../Assets/JPG/portal-bg.jpg);
     @include cover-background;
     padding-bottom: 5rem;
@@ -164,6 +165,13 @@
     &__follow {
       padding-top: var(--space-lg);
       padding-bottom: var(--space-md);
+    }
+
+    &__related-teammates {
+      padding-top: var(--space-lg);
+      padding-bottom: var(--space-lg);
+      background-image: url(../../Assets/JPG/portal-bg.jpg);
+      @include cover-background;
     }
   }
 

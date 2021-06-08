@@ -1,0 +1,36 @@
+@import '../../../Scss/typography';
+
+.breadcrumbs {
+  width: 100%;
+  height: auto;
+
+  &__list {
+    display: flex;
+
+    &--item {
+      position: relative;
+
+      &:not(:last-child) {
+    
+        &::after {
+          content: '\00bb';
+          position: absolute;
+          top: 0;
+          left: 80%;
+          height: 100%;
+          color: var(--e-global-color-primary);
+        }
+      }
+    }
+
+    &--link {
+      margin-right: 1rem;
+      color: #c1c1c1;
+      @include montserat-medium;
+
+      &-active {
+        color: var(--e-global-color-primary);
+      }
+    }
+  }
+}
