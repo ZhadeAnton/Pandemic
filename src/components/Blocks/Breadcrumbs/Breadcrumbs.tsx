@@ -10,7 +10,7 @@ interface Props {
 
 export default function Breadcrumbs(props: Props) {
   const location = useLocation()
-  const currentLoc = location.pathname.slice(1)
+  const currentLocation = location.pathname.slice(1)
 
   return (
     <nav className='breadcrumbs'>
@@ -26,8 +26,8 @@ export default function Breadcrumbs(props: Props) {
               >
                 <NavLink
                   className={cn('breadcrumbs__list--link',
-                    currentLoc === crumb ? 'breadcrumbs__list--link-active' : '')}
-                  to={`${item}`}
+                    currentLocation === crumb ? 'breadcrumbs__list--link-active' : '')}
+                  to={`${item === 'Home' ? '/' : item}`}
                 >
                   {item}
                 </NavLink>

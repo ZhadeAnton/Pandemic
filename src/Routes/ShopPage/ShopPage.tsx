@@ -7,6 +7,7 @@ import { getShopItems } from '../../Redux/Shop/ShopActionCreators'
 import Heading from '../../Components/Blocks/Heading/Heading'
 import Breadcrumbs from '../../Components/Blocks/Breadcrumbs/Breadcrumbs'
 import Preloader from '../../Components/Custom/CubePreloader/CubePreloader'
+import ShopItemsList from '../../Components/Blocks/ShopItemsList/ShopItemsList'
 
 export default function ShopPage() {
   const isLoading = useAppSelector((state) => state.shop.isLoading)
@@ -35,18 +36,8 @@ export default function ShopPage() {
           </div>
         </section>
 
-        <section className='shop__section-list'>
-          <ul>
-            {
-              shopItems.map((item, idx: number) => {
-                return (
-                  <li key={idx}>
-                    {item.title}
-                  </li>
-                )
-              })
-            }
-          </ul>
+        <section className='shop__section-list container'>
+          <ShopItemsList shopItems={shopItems}/>
         </section>
       </main>
     )

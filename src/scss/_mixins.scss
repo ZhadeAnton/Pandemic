@@ -21,6 +21,11 @@
   left: 0;
 }
 
+@mixin full-size {
+  height: 100%;
+  width: 100%;
+}
+
 @mixin cover-background {
   background-repeat: no-repeat;
   background-size: cover;
@@ -60,6 +65,11 @@
 @mixin flex-align-center {
   display: flex;
   align-items: center;
+}
+
+@mixin flex-justify-center {
+  display: flex;
+  justify-content: center;
 }
 
 @mixin flex-center {
