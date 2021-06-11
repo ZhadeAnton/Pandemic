@@ -3,6 +3,7 @@ import { useSprings, animated } from 'react-spring'
 
 import './shopItemsList.scss'
 import { ShopState } from '../../../Redux/Shop/ShopReducer'
+
 import Badge from '../../Custom/Badge/Badge'
 
 interface Props {

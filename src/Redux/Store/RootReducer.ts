@@ -1,7 +1,8 @@
 import {combineReducers} from 'redux';
-import mainReducer from '../MainPage/MainReducer';
-import storage from 'redux-persist/lib/storage'
 import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'
+
+import mainReducer from '../MainPage/MainReducer';
 import matchReducer from '../Match/MatchReduces';
 import shopReducer from '../Shop/ShopReducer';
 

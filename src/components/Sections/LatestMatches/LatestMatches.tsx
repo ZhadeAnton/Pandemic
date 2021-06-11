@@ -34,8 +34,6 @@ function LatestMatches() {
 
         <div className='latest-matches__list'>
           <MatchList
-            matchesPerPage={matchesPerPage}
-            currentPage={currentPage}
             currentMatches={currentMatches}
           />
         </div>
@@ -43,7 +41,7 @@ function LatestMatches() {
 
       <div className='latest-matches__pagination'>
         <CustomPagination
-          matchesPerPage={matchesPerPage}
+          itemsPerPage={matchesPerPage}
           currentPage={currentPage}
           pagesLength={pagesLength}
         />

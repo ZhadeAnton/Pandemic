@@ -7,11 +7,10 @@ import { getShopItems } from '../../Redux/Shop/ShopActionCreators'
 import Heading from '../../Components/Blocks/Heading/Heading'
 import Breadcrumbs from '../../Components/Blocks/Breadcrumbs/Breadcrumbs'
 import Preloader from '../../Components/Custom/CubePreloader/CubePreloader'
-import ShopItemsList from '../../Components/Blocks/ShopItemsList/ShopItemsList'
+import ShopProducts from '../../Components/Sections/ShopListSection/ShopListSection'
 
 export default function ShopPage() {
   const isLoading = useAppSelector((state) => state.shop.isLoading)
-  const shopItems = useAppSelector((state) => state.shop.shopItems)
   const dispatch = useAppDispatch()
 
   useEffect(() => {
@@ -37,7 +36,7 @@ export default function ShopPage() {
         </section>
 
         <section className='shop__section-list container'>
-          <ShopItemsList shopItems={shopItems}/>
+          <ShopProducts />
         </section>
       </main>
     )
