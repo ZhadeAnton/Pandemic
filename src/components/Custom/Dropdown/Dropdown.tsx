@@ -1,17 +1,26 @@
 import React from 'react'
 import { Dropdown } from 'react-bootstrap'
 
-export default function CustomDropdow() {
+interface Props {
+  flterTitle: string,
+  onFilterItems: (filtering :string) => void
+}
+
+export default function FilterDropdown(props: Props) {
   return (
     <Dropdown>
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
-      Dropdown Button
+      <Dropdown.Toggle variant="success">
+        Filter by: {props.flterTitle}
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+        <Dropdown.Item onClick={() => props.onFilterItems('Default')}>
+          Default
+        </Dropdown.Item>
+
+        <Dropdown.Item onClick={() => props.onFilterItems('Sale')}>
+          Sale
+        </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   )

@@ -21,15 +21,15 @@ const matchPersistConfig = {
   storage: storage
 }
 
-const shopPersistConfig = {
-  key: 'shop',
-  storage: storage
-}
+// const shopPersistConfig = {
+//   key: 'shop',
+//   storage: storage
+// }
 
 const rootReducer = combineReducers({
   main: persistReducer(mainPersistConfig, mainReducer),
   match: persistReducer(matchPersistConfig, matchReducer),
-  shop: persistReducer(shopPersistConfig, shopReducer),
+  shop: shopReducer,
 })
 
 export default persistReducer(rootPersistConfig, rootReducer)
