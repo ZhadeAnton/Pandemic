@@ -23,6 +23,7 @@
   &__link {
     width: 100%;
     @include oswald-sm;
+    color: var(--e-global-color-accent);
 
     &:hover {
       color: var(--e-global-color-primary);

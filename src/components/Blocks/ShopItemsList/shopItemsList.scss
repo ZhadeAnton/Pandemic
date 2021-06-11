@@ -2,6 +2,11 @@
 @import '../../../Scss/variables';
 @import '../../../Scss/typography';
 
+%shop-item-price {
+  @include oswald-sm;
+  color: var(--e-global-color-accent);
+}
+
 .shop-items-list {
   @include full-size;
   @include flex-justify-center;
@@ -29,6 +34,13 @@
     @include full-size;
   }
 
+  &__badge {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    z-index: 100;
+  }
+
   &__image {
     @include full-size;
     @include abs-position(0, auto, auto, 0);
@@ -47,6 +59,10 @@
     background-color: var(--e-global-color-dark-deep);
     border: 1px solid var(--e-global-color-light-border);
 
+    &--sale-wrapper {
+      @include flex-justify-center;
+    }
+
     &--title {
       @include oswald-medium;
       margin-bottom: var(--space-vsm) !important;
@@ -54,8 +70,18 @@
     }
 
     &--price {
-      @include oswald-sm;
-      color: var(--e-global-color-accent);
+      @extend %shop-item-price;
+
+      &-old {
+        @extend %shop-item-price;
+        margin-right: .4rem !important;
+        text-decoration: line-through;
+        color: var(--e-global-color-text);
+      }
+
+      &-new {
+        @extend %shop-item-price;
+      }
     }
 
     &--button {

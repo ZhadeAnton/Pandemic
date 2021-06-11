@@ -3,6 +3,7 @@ import { useSprings, animated } from 'react-spring'
 
 import './shopItemsList.scss'
 import { ShopState } from '../../../Redux/Shop/ShopReducer'
+import Badge from '../../Custom/Badge/Badge'
 
 interface Props {
   shopItems: ShopState['shopItems']
@@ -61,6 +62,16 @@ export default function ShopItemsList(props: Props) {
                 alt={props.shopItems[i].title}
               />
 
+              {
+                props.shopItems[i].sale
+                ?
+                  <div className='shop-item__badge'>
+                    <Badge title='Sale'/>
+                  </div>
+                :
+                  null
+              }
+
               <animated.div
                 className='shop-item__content'
                 style={{height: style.contentHeigth}}
@@ -70,9 +81,23 @@ export default function ShopItemsList(props: Props) {
                     {props.shopItems[i].title}
                   </h3>
 
-                  <h6 className='shop-item__content--price'>
-                    {props.shopItems[i].price}
-                  </h6>
+                  {
+                    props.shopItems[i].sale
+                    ?
+                      <div className='shop-item__content--sale-wrapper'>
+                        <h6 className='shop-item__content--price-old'>
+                          {props.shopItems[i].price}
+                        </h6>
+
+                        <h6 className='shop-item__content--price-new'>
+                          {props.shopItems[i].newPrice}
+                        </h6>
+                      </div>
+                    :
+                      <h6 className='shop-item__content--price'>
+                        {props.shopItems[i].price}
+                      </h6>
+                  }
                 </animated.div>
 
                 <animated.button
