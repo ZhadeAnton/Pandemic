@@ -33,6 +33,7 @@
 
   @include media-breakpoint-down(sm) {
     &__top-row {
+      padding: 0 0 2rem 0;
       @include flex-align-center;
       flex-wrap: wrap;
       text-align: center;
@@ -56,6 +57,10 @@
       & > * {
         margin-left: 1rem;
       }
+    }
+
+    &__pagination {
+      padding-top: var(--space-md);
     }
   }
 }

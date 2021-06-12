@@ -8,6 +8,7 @@ import Heading from '../../Components/Blocks/Heading/Heading'
 import Breadcrumbs from '../../Components/Blocks/Breadcrumbs/Breadcrumbs'
 import Preloader from '../../Components/Custom/CubePreloader/CubePreloader'
 import ShopProducts from '../../Components/Sections/ShopListSection/ShopListSection'
+import Footer from '../../Components/Sections/Footer/Footer'
 
 export default function ShopPage() {
   const isLoading = useAppSelector((state) => state.shop.isLoading)
@@ -38,6 +39,8 @@ export default function ShopPage() {
         <section className='shop__section-list container'>
           <ShopProducts />
         </section>
+
+        <Footer />
       </main>
     )
   }

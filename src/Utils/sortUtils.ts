@@ -14,5 +14,8 @@ export const getShopItemsByFilter: IFilterShopItems = ({
 })
 
 export const shopItemsSortFn: IShopItemsSort = {
-  Price: (a, b) => a.price.slice(1, 3) - b.price.slice(1, 3),
+  ['Price: low to high']: (a, b) => a.price.slice(1, 3) - b.price.slice(1, 3),
+  ['Price: high to low']: (a, b) => b.price.slice(1, 3) - a.price.slice(1, 3),
+  ['Name']: (a, b) => a.title.localeCompare(b.title),
+  ['Popularity']: (a, b) => a.popularity - b.popularity
 }

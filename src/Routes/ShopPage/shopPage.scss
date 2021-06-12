@@ -17,7 +17,7 @@
     position: relative;
 
     &--overlay {
-      background: linear-gradient(0deg,#0c0d13 10%,rgba(11, 12, 14, 0.5) 100%);
+      background: rgba(14,16,23,.65);
       position: absolute;
       top: 0;
       left: 0;
@@ -52,6 +52,10 @@
     }
   }
 
+  &__section-list {
+    padding: var(--space-md) 0;
+  }
+
   @include media-breakpoint-down(xl) {
     &__section-banner {
       &--wrapper {
@@ -65,11 +69,25 @@
 
   @include media-breakpoint-down(lg) {
     &__section-banner {
+      padding: var(--space-xxxl) 0;
+
       &--wrapper {
         &:after {
           display: none;
         }
       }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    &__section-banner {
+      padding: var(--space-xxl) 0;
+    }
+  }
+
+  @include media-breakpoint-down(vsm) {
+    &__section-banner {
+      padding: var(--space-xl) 0;
     }
   }
 }

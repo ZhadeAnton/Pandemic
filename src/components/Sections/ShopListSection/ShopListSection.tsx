@@ -12,7 +12,6 @@ export default function ShopProducts() {
   const [filterBy, setFilterBy] = useState('Default')
   const [sortedBy, setSortedBy] = useState('Default')
 
-  const itemsLength = useAppSelector((state) => state.shop.shopItems.length)
   const allItems = useAppSelector((state) => state.shop.shopItems)
 
   // Initial values of page's sizing
@@ -35,6 +34,16 @@ export default function ShopProducts() {
   const sortedItems = sortedBy !== 'Default'
     ? slicedItems.slice().sort(shopItemsSortFn[sortedBy]) : slicedItems
 
+  const sortNames = [
+    'Default',
+    'Price: low to high',
+    'Price: high to low',
+    'Name',
+    'Popularity'
+  ]
+
+  const filterNames = ['Default', 'Sale']
+
   const handleFilterItems = (filter: string) => {
     setFilterBy(filter)
   }
@@ -47,7 +56,7 @@ export default function ShopProducts() {
     <div className='shop-products'>
       <section className='shop-products__top-row'>
         <h4 className='shop-products__top-row--title'>
-          SHOWING ALL <span>{itemsLength}</span> RESULTS
+          SHOWING ALL <span>{slicedItems.length}</span> RESULTS
         </h4>
 
         <div className='shop-products__filters'>
@@ -55,14 +64,14 @@ export default function ShopProducts() {
             filter
             activeElement={filterBy}
             sortFn={handleFilterItems}
-            sortingNames={['Default', 'Sale']}
+            sortingNames={filterNames}
           />
 
           <CustomDropdown
             sort
             activeElement={sortedBy}
             sortFn={handleSortItems}
-            sortingNames={['Default', 'Price']}
+            sortingNames={sortNames}
           />
         </div>
       </section>
