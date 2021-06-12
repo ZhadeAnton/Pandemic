@@ -1,4 +1,5 @@
 export interface IShopItem {
+  id: string,
   image: string,
   title: string,
   price: string,

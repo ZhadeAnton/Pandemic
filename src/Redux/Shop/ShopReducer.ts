@@ -5,6 +5,7 @@ import { GeneralTypes } from '../General/GeneralActionTypes';
 
 export interface ShopState {
   shopItems: Array<IShopItem> | [],
+  currentShopItem: IShopItem | null,
   initialPage: number,
   currentPage: number,
   itemsPerPage: number,
@@ -13,6 +14,7 @@ export interface ShopState {
 
 const INITIAL_STATE: ShopState = {
   shopItems: [],
+  currentShopItem: null,
   initialPage: 1,
   currentPage: 1,
   itemsPerPage: 8,
@@ -35,6 +37,12 @@ const shopReducer =
           ...state,
           shopItems: action.payload,
           isLoading: false
+        }
+
+      case shopActions.SET_CURRENT_SHOP_ITEM:
+        return {
+          ...state,
+          currentShopItem: action.payload,
         }
 
       case generalActions.SET_PAGE_NUMBER:

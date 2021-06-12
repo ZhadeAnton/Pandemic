@@ -1,32 +1,20 @@
 import React from 'react'
-import { useHistory } from 'react-router';
 
 import './playersItem.scss'
 import { IPlayer } from '../../../Interfaces/MainInterfaces'
-import { setCurrentPlayer } from '../../../Redux/Match/MatchActionCreators';
-import { useAppDispatch } from '../../../Hooks/PreTypedHooks';
+import useSelectPlayer from '../../../Hooks/PlayerProfileHooks';
 
 interface Props {
   player: IPlayer,
 }
 
 export default function PlayerItem(props: Props) {
-  const history = useHistory()
-  const dispacth = useAppDispatch()
-
-  const handleSelectPlayer = (player: IPlayer) => {
-    history.push({
-      pathname: `/player/${player.id}`,
-      state: player
-    });
-
-    dispacth(setCurrentPlayer(player))
-  };
+  const playerHook = useSelectPlayer()
 
   return (
     <div
       className='player'
-      onClick={() => handleSelectPlayer(props.player)}
+      onClick={() => playerHook.handleSelectPlayer(props.player)}
     >
       <div className='player__wrapper'>
         <div className='player__image-wrapper'>
