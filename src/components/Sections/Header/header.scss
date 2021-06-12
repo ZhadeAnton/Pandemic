@@ -23,6 +23,8 @@
   &__link {
     width: 100%;
     @include oswald-sm;
+    text-transform: uppercase;
+    color: var(--e-global-color-accent);
 
     &:hover {
       color: var(--e-global-color-primary);

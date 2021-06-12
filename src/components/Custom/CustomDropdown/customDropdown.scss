@@ -1,0 +1,45 @@
+@import '../../../Scss/typography';
+
+.dropdown-custom,
+.dropdown-custom:focus,
+.dropdown-custom:active {
+  background-color: var(--e-global-color-dark-deep);
+  border: thin solid var(--e-global-color-primary);
+  outline: none;
+  border-radius: 0 12px;
+  padding: .5 1rem;
+
+  &:hover {
+    background-color: var(--e-global-color-secondary);
+    border: thin solid var(--e-global-color-primary);
+  }
+}
+
+.dropdown-custom__item.active {
+  @include archivo-small;
+  background-color: var(--e-global-color-light-border);
+
+  &:hover {
+    background-color: var(--e-global-color-light-border);
+  }
+}
+
+.dropdown-custom__item,
+.dropdown-custom__item:focus,
+.dropdown-custom__item:active {
+  @include archivo-small;
+  color: white;
+  padding: .8rem;
+
+  &:hover {
+    color: white;
+    background-color: var(--e-global-color-light-border-dark);
+  }
+}
+
+.dropdown-custom-menu {
+  margin-top: .3rem !important;
+  padding: 0;
+  border: 2px solid var(--e-global-color-primary);
+  background-color: var(--e-global-color-secondary);
+}

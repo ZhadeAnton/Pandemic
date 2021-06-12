@@ -1,11 +1,12 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
 import cn from 'classnames'
 
 import './navigationMenu.scss'
 
 const navigationMenu = [
-  {title: 'homepage',
+  {title: 'homepage', link: '/',
     ul:
     [
       'home esports',
@@ -27,7 +28,7 @@ const navigationMenu = [
       'player'
     ]},
   { title: 'blogs' },
-  { title: 'shop' },
+  { title: 'shop', link: '/shop' },
   { title: 'landing' }
 ]
 
@@ -50,14 +51,14 @@ function NavigationMenu(props: Props) {
               as='li'
               key={idx}
             >
-              <Nav.Link
+              <NavLink
                 className={`${props.classNameLinks}`}
-                as='a'
-                href="/"
+                to={`${menuItem.link}`}
               >
                 {menuItem.title}
+              </NavLink>
 
-                {
+              {
                   menuItem.ul
                   ?
                     <Nav
@@ -85,8 +86,7 @@ function NavigationMenu(props: Props) {
                     </Nav>
                   :
                     null
-                }
-              </Nav.Link>
+              }
             </Nav.Item>
           )
         })

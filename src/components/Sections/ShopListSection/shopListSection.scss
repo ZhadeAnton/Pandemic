@@ -1,0 +1,66 @@
+@import '../../../Scss/mixins';
+@import '../../../Scss/typography';
+@import '../../../Scss/variables';
+
+.shop-products {
+  &__top-row {
+    @include flex-align-center;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+
+    &--title {
+      @include montserat-medium;
+      color: var(--e-global-color-accent);
+
+      span {
+        color:  var(--e-global-color-primary);
+      }
+    }
+  }
+
+  &__filters {
+    @include flex-center;
+    
+    & > * {
+      margin-left: 1rem;
+    }
+  }
+
+  &__pagination {
+    @include flex-center;
+    padding: var(--space-lg) 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__top-row {
+      padding: 0 0 2rem 0;
+      @include flex-align-center;
+      flex-wrap: wrap;
+      text-align: center;
+
+      &--title {
+        display: block;
+        width: 100%;
+
+        margin-bottom: 1rem !important;
+  
+        span {
+          color:  var(--e-global-color-primary);
+        }
+      }
+    }
+
+    &__filters {
+      width: 100%;
+      flex: 1;
+      
+      & > * {
+        margin-left: 1rem;
+      }
+    }
+
+    &__pagination {
+      padding-top: var(--space-md);
+    }
+  }
+}

@@ -1,32 +1,33 @@
 @import '../../../scss/typography';
 @import '../../../scss/variables';
+@import '../../../scss/mixins';
 
 .footer-list-navigation {
-  width: 100%;
-  height: 100%;
+  @include full-size;
 
   &__list {
-    width: 100%;
-    height: 100%;
+    @include full-size;
     display: flex;
     flex-direction: column;
   }
 
   &__item {
     display: block;
-    margin-bottom: 18px !important;
+    transition: all .5s;
+    cursor: pointer;
+    margin-bottom: var(--space-md) !important;
     border-radius: 0 10px;
     border: 2px solid transparent;
-    transition: all .5s;
     background-color: #ffffff0a;
-    cursor: pointer;
 
     &--link {
-      @include oswald-sm;
       width: 100%;
       height: 100%;
       display: block;
       padding: 15px 20px !important;
+      @include oswald-sm;
+      text-transform: uppercase;
+      color: var(--e-global-color-accent);
 
       &:hover {
         color: var(--e-global-color-primary);

@@ -1,0 +1,18 @@
+@import '../../../Scss/typography';
+@import '../../../Scss/variables';
+
+.badge {
+  padding: .3rem 1rem;
+  z-index: 100;
+  background-color: var(--e-global-color-primary);
+
+  &--title {
+    @include oswald-sm;
+    text-transform: uppercase;
+    color: var(--e-global-color-secondary);
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: .25rem .8rem;
+  }
+}

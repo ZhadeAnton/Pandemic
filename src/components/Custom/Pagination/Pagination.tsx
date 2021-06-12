@@ -3,18 +3,12 @@ import { Pagination } from 'react-bootstrap'
 
 import './pagination..scss'
 import { useAppDispatch } from '../../../Hooks/PreTypedHooks'
-import {
-  setPageNumber,
-  setFirstPage,
-  setPrevPage,
-  setNextPage,
-  setLastPage
-} from '../../../Redux/MainPage/MainActionCreators'
+import * as actionCreators from '../../../Redux/General/GeneralActionCreators'
 
 import PageItem from 'react-bootstrap/PageItem'
 
 interface Props {
-  matchesPerPage: number,
+  itemsPerPage: number,
   currentPage: number,
   pagesLength: number
 }
@@ -36,12 +30,12 @@ function CustomPagination(props: Props) {
       <Pagination>
         <Pagination.First
           disabled={prevArrowDisable}
-          onClick={() =>dispatch(setFirstPage())}
+          onClick={() =>dispatch(actionCreators.setFirstPage())}
         />
 
         <PageItem
           disabled={prevArrowDisable}
-          onClick={() =>dispatch(setPrevPage())}
+          onClick={() =>dispatch(actionCreators.setPrevPage())}
         >
           Prev
         </PageItem>
@@ -52,7 +46,7 @@ function CustomPagination(props: Props) {
               <PageItem
                 key={idx}
                 active={props.currentPage === num}
-                onClick={() => dispatch(setPageNumber(num))}
+                onClick={() => dispatch(actionCreators.setPageNumber(num))}
               >
                 {num}
               </PageItem>
@@ -62,14 +56,14 @@ function CustomPagination(props: Props) {
 
         <Pagination.Next
           disabled={nextArrowDisable}
-          onClick={() => dispatch(setNextPage())}
+          onClick={() => dispatch(actionCreators.setNextPage())}
         >
           Next
         </Pagination.Next>
 
         <Pagination.Last
           disabled={nextArrowDisable}
-          onClick={() => dispatch(setLastPage(props.pagesLength))} />
+          onClick={() => dispatch(actionCreators.setLastPage(props.pagesLength))} />
       </Pagination>
     :
       null

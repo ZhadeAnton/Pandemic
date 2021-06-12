@@ -357,7 +357,6 @@
   font-family: var(--e-global-typography-secondary-font-family);
   font-size: .9375rem;
   font-weight: 600;
-  text-transform: uppercase;
   line-height: 1.125rem;
   color: #ffffff;
   font-style: normal;
@@ -440,23 +439,43 @@
   }
 
   @include media-breakpoint-down(md) {
-    font-size: 1.35rem;
+    font-size: 1.2rem;
     line-height: 1.5rem;
   }
 
   @include media-breakpoint-down(vsm) {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    line-height: 1.3rem;
+  }
+
+  @include media-breakpoint-down(tiny) {
+    font-size: .9rem;
     line-height: 1.3rem;
   }
 }
 
 @mixin oswald-sm {
-  color: white;
   font-family: 'Oswald', sans-serif;
   font-size: 0.875rem;
   letter-spacing: 1.55px;
   font-weight: 600;
-  text-transform: uppercase;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 0.7rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    font-size: 0.65rem;
+  }
+
+  @include media-breakpoint-down(tiny) {
+    font-size: 0.6rem;
+  }
 }
 
 @mixin roboto-medium {
@@ -528,4 +547,12 @@
   @include media-breakpoint-down(tiny) {
     font-size: .8rem;
   }
+}
+
+@mixin montserat-medium {
+  font-family: Montserrat;
+  line-height: 24px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
 }

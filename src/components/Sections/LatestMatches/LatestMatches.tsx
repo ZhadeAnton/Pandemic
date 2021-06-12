@@ -12,10 +12,15 @@ function LatestMatches() {
   const matchesPerPage = useAppSelector((state) => state.match.matchesPerPage)
   const currentPage = useAppSelector((state) => state.match.currentPage)
   const matchesLength = useAppSelector((state) => state.match.matches.slice.length)
+
+  // Indexes of first and last items
   const indexOfLastMatch = currentPage * matchesPerPage
   const indexOfFirstMatch = indexOfLastMatch - matchesPerPage
-  const currentMatches = useAppSelector((state) => state.match.matches
+
+  // Slicing items by indexes of first and last items
+  const slicedMatches = useAppSelector((state) => state.match.matches
       .slice(indexOfFirstMatch, indexOfLastMatch))
+
   const pagesLength = Math.ceil(matchesLength / matchesPerPage)
 
   return (
@@ -34,16 +39,14 @@ function LatestMatches() {
 
         <div className='latest-matches__list'>
           <MatchList
-            matchesPerPage={matchesPerPage}
-            currentPage={currentPage}
-            currentMatches={currentMatches}
+            currentMatches={slicedMatches}
           />
         </div>
       </div>
 
       <div className='latest-matches__pagination'>
         <CustomPagination
-          matchesPerPage={matchesPerPage}
+          itemsPerPage={matchesPerPage}
           currentPage={currentPage}
           pagesLength={pagesLength}
         />

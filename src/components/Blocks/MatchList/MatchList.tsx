@@ -9,8 +9,6 @@ import NotFoundMatches from '../NotFoundMatches/NotFoundMatches'
 
 interface Props {
   currentMatches: Array<IMatch>
-  matchesPerPage: number,
-  currentPage: number,
 }
 
 export default function MatchList(props: Props) {

@@ -1,29 +1,29 @@
 import { IMatch, IPlayer, ITeam } from '../../Interfaces/MainInterfaces'
-import * as actions from './MatchActionTypes'
+import * as types from './MatchActionTypes'
 
 export const sortMatches = (
-    discipline: string): actions.SortMatches => ({
-  type: actions.SORT_MATCHES,
+    discipline: string): types.SortMatches => ({
+  type: types.SORT_MATCHES,
   payload: discipline
 })
 
 export const sortMatchesSuccess = (
-    sortedMatches: Array<IMatch>): actions.SortMatchesSuccess => ({
-  type: actions.SORT_MATCHES_SUCCESS,
+    sortedMatches: Array<IMatch>): types.SortMatchesSuccess => ({
+  type: types.SORT_MATCHES_SUCCESS,
   payload: sortedMatches
 })
 
-export const setCurrentMatch = (currentMatch: IMatch): actions.SetCurrentMatch => ({
-  type: actions.SET_CURRENT_MATCH,
+export const setCurrentMatch = (currentMatch: IMatch): types.SetCurrentMatch => ({
+  type: types.SET_CURRENT_MATCH,
   payload: currentMatch
 })
 
-export const setCurrentPlayer = (player: IPlayer): actions.SetCurrentPlayer => ({
-  type: actions.SET_CURRENT_PLAYER,
+export const setCurrentPlayer = (player: IPlayer): types.SetCurrentPlayer => ({
+  type: types.SET_CURRENT_PLAYER,
   payload: player
 })
 
-export const setCurrentTeam = (team: ITeam): actions.SetCurrentTeam => ({
-  type: actions.SET_CURRENT_TEAM,
+export const setCurrentTeam = (team: ITeam): types.SetCurrentTeam => ({
+  type: types.SET_CURRENT_TEAM,
   payload: team
 })
