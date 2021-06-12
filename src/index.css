@@ -42,8 +42,9 @@ code {
   --e-global-color-secondary: #11131c;
   --e-global-color-dark-deep: #0f1014;
   --e-global-color-light-border: #ffffff21;
+  --e-global-color-light-border-dark: #91919121;
   --e-global-color-text: #adb0bc;
-  --e-global-color-text-dark: #aeb1bcc2;
+  --e-global-color-text-dark: #0f1013c2;
   --e-global-color-accent: #fff;
   --e-global-color-11b58b5: #2d313c;
   --e-global-color-161A25: #161A25;

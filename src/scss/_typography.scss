@@ -357,7 +357,6 @@
   font-family: var(--e-global-typography-secondary-font-family);
   font-size: .9375rem;
   font-weight: 600;
-  text-transform: uppercase;
   line-height: 1.125rem;
   color: #ffffff;
   font-style: normal;
@@ -460,7 +459,6 @@
   font-size: 0.875rem;
   letter-spacing: 1.55px;
   font-weight: 600;
-  text-transform: uppercase;
 
   @include media-breakpoint-down(lg) {
     font-size: 0.8rem;

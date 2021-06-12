@@ -14,5 +14,5 @@ export const getShopItemsByFilter: IFilterShopItems = ({
 })
 
 export const shopItemsSortFn: IShopItemsSort = {
-  price: (a, b) => a.price - b.price,
+  Price: (a, b) => a.price.slice(1, 3) - b.price.slice(1, 3),
 }
