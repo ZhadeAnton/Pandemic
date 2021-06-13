@@ -34,7 +34,10 @@ export default function ShopItemInfo(props: Props) {
           <ShopItemDetails
             categories={props.currentItem!.categories}
             description={props.currentItem!.description}
+            popularity={props.currentItem!.popularity}
             price={props.currentItem!.price}
+            newPrice={props.currentItem!.newPrice}
+            sale={props.currentItem!.sale}
           />
         </div>
       </div>

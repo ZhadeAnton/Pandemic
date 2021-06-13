@@ -18,7 +18,7 @@
     &--image-wrapper {
       flex: 1;
       max-width: 638px;
-      min-width: 600px;
+      min-width: 550px;
       height: 327px;
       overflow: hidden;
     }
@@ -47,7 +47,7 @@
   
       &--description {
         flex: 1;
-        padding-left: var(--space-md);
+        padding-left: 0;
       }
     }
   }
