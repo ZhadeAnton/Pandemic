@@ -23,20 +23,20 @@
   font-family: "Montserrat",Sans-serif;
   font-size: 1.065rem;
   font-weight: 400;
-  line-height: 2.5rem;
+  line-height: 2.3rem;
 }
 
 @mixin text-plain {
   @extend %text-plain;
 
   @include media-breakpoint-down(sm) {
-    line-height: 2.1rem;
     font-size: .92rem;
+    line-height: 2.1rem;
   }
 
   @include media-breakpoint-down(vsm) {
-    line-height: 28px;
     font-size: .9rem;
+    line-height: 1.8rem;
   }
 }
 
@@ -401,7 +401,6 @@
   font-size: 3.4375rem;
   line-height: 4.125rem;
   font-weight: 700;
-  color: #fff;
   font-style: normal;
 
   @include media-breakpoint-down(lg) {
@@ -423,6 +422,14 @@
     font-size: 2.7rem;
     line-height: 3rem;
   }
+}
+
+@mixin oswald-lg {
+  font-family: Oswald;
+  font-size: 2.125rem;
+  font-weight: 700;
+  line-height: 70px;
+  font-style: normal;
 }
 
 @mixin oswald-medium {

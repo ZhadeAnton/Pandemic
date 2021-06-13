@@ -1,0 +1,23 @@
+@import '../../../Scss/mixins';
+@import '../../../Scss/variables';
+
+.zoom {
+  @include full-size;
+  background-repeat: no-repeat;
+  cursor: crosshair;
+  z-index: 10;
+
+  &__image {
+    @include full-size;
+    display: block;
+    
+    &:hover {
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    pointer-events: none;
+  }
+}

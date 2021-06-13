@@ -25,7 +25,7 @@ export default function ShopPage() {
       <main className='shop'>
         <section className='shop__section-banner'>
           <div className='shop__section-banner--overlay'></div>
-          <div className='shop__section-banner--wrapper container'>
+          <div className='shop__section-banner--wrapper'>
             <div className='shop__section-banner--content'>
               <Heading title='shop'/>
 

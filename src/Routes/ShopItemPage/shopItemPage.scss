@@ -1,0 +1,13 @@
+@import '../../Scss/typography';
+@import '../../Scss/mixins';
+
+.shop-item-page {
+  @include full-size;
+  overflow: hidden;
+  background-color: var(--e-global-color-secondary);
+
+  &__section-item-info {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+}

@@ -9,8 +9,7 @@ export default function useSelectPlayer() {
 
   const handleSelectPlayer = (player: IPlayer) => {
     history.push({
-      pathname: `/player/${player.id}`,
-      state: player
+      pathname: `/player/${player.id}`
     });
 
     dispatch(setCurrentPlayer(player))

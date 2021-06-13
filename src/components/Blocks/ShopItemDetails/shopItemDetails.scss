@@ -1,0 +1,16 @@
+@import '../../../Scss/typography';
+
+.shop-item-details {
+  &--price {
+    @include oswald-lg;
+    color: var(--e-global-color-primary);
+  }
+
+  &--description {
+
+  }
+
+  &__categories {
+
+  }
+}

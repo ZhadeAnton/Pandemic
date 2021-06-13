@@ -1,0 +1,35 @@
+@import '../../../Scss/typography';
+@import '../../../Scss/mixins';
+
+.categories {
+  display: flex;
+
+  &__title {
+    margin-right: var(--space-sm) !important;
+    @include montserat-medium;
+    color: var(--e-global-color-text);
+  }
+
+  &__list {
+    @include flex-center;
+
+    &--item {
+      &:not(:last-child) {
+        margin-right: var(--space-vsm) !important;
+      }
+    }
+
+    &--title {
+      @include montserat-medium;
+      opacity: .9;
+      cursor: pointer;
+      transition: color .15s linear;
+      text-transform: capitalize;
+      color: var(--e-global-color-accent);
+
+      &:hover {
+        color: var(--e-global-color-primary);
+      }
+    }
+  }
+}

@@ -9,8 +9,7 @@ export default function useSelectShopItem() {
 
   const handleSelectShopItem = (shopItem: IShopItem) => {
     history.push({
-      pathname: `/shop/${shopItem.id}`,
-      state: shopItem
+      pathname: `/shop/${shopItem.id}`
     });
 
     dispatch(setCurrentShopItem(shopItem))
