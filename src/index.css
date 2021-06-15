@@ -44,12 +44,12 @@ code {
 :root {
   --e-global-color-primary: #68fe9a;
   --e-global-color-secondary: #11131c;
+  --e-global-color-accent: #fff;
   --e-global-color-dark-deep: #0f1014;
   --e-global-color-light-border: #ffffff21;
   --e-global-color-light-border-dark: #91919121;
   --e-global-color-text: #adb0bc;
   --e-global-color-text-dark: #0f1013c2;
-  --e-global-color-accent: #fff;
   --e-global-color-11b58b5: #2d313c;
   --e-global-color-161A25: #161A25;
   --e-global-color-11131c85: #11131c85;

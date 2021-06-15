@@ -1,0 +1,12 @@
+@import '../../../Scss/typography';
+
+.related-items {
+  text-align: center;
+  
+  &__title {
+    @include oswald-lg;
+    margin-bottom: var(--space-md) !important;
+    text-transform: uppercase;
+    color: var(--e-global-color-accent);
+  }
+}

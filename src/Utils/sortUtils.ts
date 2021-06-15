@@ -8,6 +8,10 @@ interface IShopItemsSort {
   [key: string]: (a: any, b:any) => number
 }
 
+interface IRelatedShopItems {
+  (shopItems: Array<IShopItem>, category: Array<string>): Array<IShopItem>
+}
+
 export const getShopItemsByFilter: IFilterShopItems = ({
   'Default': (shopItems) => shopItems,
   'Sale': (shopItems) => shopItems.filter((item) => item.sale)
@@ -18,4 +22,12 @@ export const shopItemsSortFn: IShopItemsSort = {
   ['Price: high to low']: (a, b) => b.price.slice(1, 3) - a.price.slice(1, 3),
   ['Name']: (a, b) => a.title.localeCompare(b.title),
   ['Popularity']: (a, b) => a.popularity - b.popularity
+}
+
+export const getRelatedShopItems: IRelatedShopItems = (shopItems, category) => {
+  const relatedItems = shopItems.map((item) => {
+    return item.categories.some((c) => category.includes(c)) ? item : null
+  })
+
+  return relatedItems.filter((item) => item !== null) as Array<IShopItem>
 }
