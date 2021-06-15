@@ -6,6 +6,7 @@
   background-repeat: no-repeat;
   cursor: crosshair;
   z-index: 10;
+  position: relative;
 
   &__image {
     @include full-size;
@@ -15,6 +16,12 @@
       opacity: 0;
       z-index: -1;
     }
+  }
+
+  &__badge {
+    position: absolute;
+    top: 2%;
+    left: 2%;
   }
 
   @include media-breakpoint-down(lg) {

@@ -6,12 +6,14 @@ import { IShopItem } from '../../../Interfaces/ShopInterfaces'
 import CategoriesList from '../CategoriesList/CategoriesList'
 import PlainText from '../PlainText/PlainText'
 import Stars from '../../Custom/Stars/Stars'
+import ShopButton from '../../Custom/ShopButton/ShopButton'
 
 interface Props {
   price: IShopItem['price'],
   description: IShopItem['description'],
+  details: IShopItem['details'],
   categories: IShopItem['categories'],
-  popularity: IShopItem['popularity']
+  popularity: IShopItem['popularity'],
   sale: IShopItem['sale'],
   newPrice: IShopItem['newPrice']
 }
@@ -43,9 +45,9 @@ export default function ShopItemDetails(props: Props) {
           </div>
       }
 
-      <PlainText text={props.description}/>
+      <PlainText text={props.details}/>
 
-      <div>Section number 111</div>
+      <ShopButton />
 
       <div className='shop-item-details__categories'>
         <CategoriesList categories={props.categories}/>

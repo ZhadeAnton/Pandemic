@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
+import { IShopItem } from '../../../Interfaces/ShopInterfaces'
+import Badge from '../Badge/Badge'
 
 import './zoom.scss'
 
 interface Props {
-  image: string
+  image: IShopItem['imageFull'],
+  sale: IShopItem['sale']
 }
 
 export default function Zoom(props: Props) {
@@ -26,6 +29,16 @@ export default function Zoom(props: Props) {
         className='zoom__image'
         src={props.image}
       />
+
+      {
+        props.sale
+        ?
+         <div className='zoom__badge'>
+           <Badge title='Sale'/>
+         </div>
+        :
+         null
+      }
     </figure>
   )
 }

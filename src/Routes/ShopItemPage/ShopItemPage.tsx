@@ -5,6 +5,8 @@ import { useAppSelector } from '../../Hooks/PreTypedHooks'
 
 import ShopItemInfo from '../../Components/Sections/ShopItemInfo/ShopItemInfo'
 import Footer from '../../Components/Sections/Footer/Footer'
+import ShopItemDescription
+  from '../../Components/Sections/ShopItemDescription/ShopItemDescription'
 
 export default function ShopItemPage() {
   const currentItem = useAppSelector((state) => state.shop.currentShopItem)
@@ -13,6 +15,14 @@ export default function ShopItemPage() {
     <main className='shop-item-page'>
       <section className='shop-item-page__section-item-info'>
         <ShopItemInfo currentItem={currentItem}/>
+      </section>
+
+      <section className='container'>
+        <ShopItemDescription
+          itemName={currentItem!.title}
+          description={currentItem!.description}
+          reviews={currentItem!.reviews}
+        />
       </section>
 
       <Footer />
