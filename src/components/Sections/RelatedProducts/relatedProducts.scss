@@ -1,12 +1,19 @@
 @import '../../../Scss/typography';
+@import '../../../Scss/mixins';
 
 .related-items {
   text-align: center;
+  margin-bottom: var(--space-xxl);
   
   &__title {
     @include oswald-lg;
     margin-bottom: var(--space-md) !important;
     text-transform: uppercase;
     color: var(--e-global-color-accent);
+  }
+
+  &__pagination {
+    @include flex-center;
+    margin-top: var(--space-md);
   }
 }
