@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
-import { IShopItem } from '../../../Interfaces/ShopInterfaces'
-import Badge from '../Badge/Badge'
+import React, { useState, useEffect } from 'react'
 
 import './zoom.scss'
+import { IShopItem } from '../../../Interfaces/ShopInterfaces'
+
+import Badge from '../Badge/Badge'
 
 interface Props {
   image: IShopItem['imageFull'],
@@ -10,7 +11,12 @@ interface Props {
 }
 
 export default function Zoom(props: Props) {
-  const [backgroundImage] = useState(`url(${props.image})`)
+  useEffect(() => {
+    setBackgroundImage(`url(${props.image})`)
+    setBackgroundPosition('0% 0%')
+  }, [props.image])
+
+  const [backgroundImage, setBackgroundImage] = useState(`url(${props.image})`)
   const [backgroundPosition, setBackgroundPosition] = useState('0% 0%')
 
   const handleMouseMove: React.MouseEventHandler<HTMLElement> = (e) => {
@@ -22,8 +28,9 @@ export default function Zoom(props: Props) {
 
   return (
     <figure
-      onMouseMove={handleMouseMove}
       className='zoom'
+      onMouseMove={handleMouseMove}
+      onMouseLeave={() => setBackgroundPosition('0% 0%')}
       style={{backgroundImage, backgroundPosition}}>
       <img
         className='zoom__image'

@@ -5,12 +5,14 @@
   @include full-size;
   background-repeat: no-repeat;
   cursor: crosshair;
-  z-index: 10;
   position: relative;
+  overflow: hidden;
+  z-index: 10;
 
   &__image {
     @include full-size;
     display: block;
+    object-fit: cover;
     
     &:hover {
       opacity: 0;
