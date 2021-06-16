@@ -5,6 +5,7 @@
 .shop {
   height: 100%;
   width: 100%;
+  overflow: hidden;
   background-color: var(--e-global-color-secondary);
 
   &__section-banner {

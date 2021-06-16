@@ -23,20 +23,19 @@
   font-family: "Montserrat",Sans-serif;
   font-size: 1.065rem;
   font-weight: 400;
-  line-height: 2.5rem;
+  line-height: 2.3rem;
 }
 
 @mixin text-plain {
   @extend %text-plain;
 
   @include media-breakpoint-down(sm) {
-    line-height: 2.1rem;
     font-size: .92rem;
+    line-height: 1.4rem;
   }
 
   @include media-breakpoint-down(vsm) {
-    line-height: 28px;
-    font-size: .9rem;
+    font-size: .8rem;
   }
 }
 
@@ -401,7 +400,6 @@
   font-size: 3.4375rem;
   line-height: 4.125rem;
   font-weight: 700;
-  color: #fff;
   font-style: normal;
 
   @include media-breakpoint-down(lg) {
@@ -425,6 +423,34 @@
   }
 }
 
+@mixin oswald-lg {
+  font-family: Oswald;
+  font-size: 2.125rem;
+  line-height: 4.375rem;
+  font-weight: 700;
+  font-style: normal;
+
+  @include media-breakpoint-down(md) {
+    font-size: 1.9rem;
+    line-height: 4rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 1.7rem;
+    line-height: 3.5rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    font-size: 1.6rem;
+    line-height: 3rem;
+  }
+
+  @include media-breakpoint-down(tiny) {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+  }
+}
+
 @mixin oswald-medium {
   font-family: Oswald;
   font-size: 1.4375rem;
@@ -445,11 +471,6 @@
 
   @include media-breakpoint-down(vsm) {
     font-size: 1rem;
-    line-height: 1.3rem;
-  }
-
-  @include media-breakpoint-down(tiny) {
-    font-size: .9rem;
     line-height: 1.3rem;
   }
 }

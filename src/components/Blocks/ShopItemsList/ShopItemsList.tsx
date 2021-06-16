@@ -5,6 +5,7 @@ import './shopItemsList.scss'
 import { ShopState } from '../../../Redux/Shop/ShopReducer'
 
 import Badge from '../../Custom/Badge/Badge'
+import useSelectShopItem from '../../../Hooks/ShopItemHooks'
 
 interface Props {
   shopItems: ShopState['shopItems']
@@ -12,7 +13,9 @@ interface Props {
 
 export default function ShopItemsList(props: Props) {
   const [index, setIndex] = useState<number | null>(null)
-  const [isDelayed, setIsDelayd] = useState(true);
+  const [isDelayed, setIsDelayd] = useState(true)
+
+  const shopItemHook = useSelectShopItem()
 
   const spring = useSprings(props.shopItems.length, props.shopItems.map((_, i) => ({
     delay: isDelayed ? 150 * i : 0,
@@ -49,6 +52,7 @@ export default function ShopItemsList(props: Props) {
             style={{transform: style.transform, opacity: style.opacity}}
             onMouseEnter={() => handleItemHover(i)}
             onMouseLeave={() => setIndex(null)}
+            onClick={() => shopItemHook.handleSelectShopItem(props.shopItems[i])}
           >
             <div className='shop-item__wrapper'>
               <animated.div

@@ -1,0 +1,32 @@
+@import '../../../Scss/mixins';
+@import '../../../Scss/variables';
+
+.zoom {
+  @include full-size;
+  background-repeat: no-repeat;
+  cursor: crosshair;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+
+  &__image {
+    @include full-size;
+    display: block;
+    object-fit: cover;
+    
+    &:hover {
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+  }
+
+  @include media-breakpoint-down(lg) {
+    pointer-events: none;
+  }
+}

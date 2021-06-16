@@ -1,0 +1,61 @@
+@import '../../../Scss/typography';
+@import '../../../Scss/variables';
+
+.review {
+  display: flex;
+  margin-bottom: var(--space-lg);
+
+  &__icon-wrapper {
+    width: 2rem;
+    height: 2rem;
+
+    &--icon {
+      font-size: 2rem;
+      color: var(--e-global-color-accent);
+    }
+  }
+  
+  &__content {
+    display: flex;
+    flex-direction: column;
+    margin-left: var(--space-md);
+
+    &--user-name {
+      color: var(--e-global-color-text);
+    }
+
+    &--text {
+      margin-bottom: .2rem !important;
+      @include text-plain;
+      color: var(--e-global-color-accent);
+    }
+  }
+
+  &__likes-list {
+    display: flex;
+
+    &--item {
+      cursor: pointer;
+      color: var(--e-global-color-text);
+
+      &:not(:last-child) {
+        margin-right: var(--space-sm) !important;
+      }
+    }
+
+    &--icon {
+      margin-left: .2rem;
+      color: var(--e-global-color-text);
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    margin-bottom: var(--space-md);
+
+    &__icon-wrapper {
+      &--icon {
+        font-size: 1.85rem;
+      }
+    }
+  }
+}

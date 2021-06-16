@@ -10,3 +10,9 @@ export const getShopItemsSuccess = (
   type: types.GET_SHOP_ITEMS_SUCCESS,
   payload: items
 })
+
+export const setCurrentShopItem = (
+    shopItem: IShopItem): types.SetCurrentShopItem => ({
+  type: types.SET_CURRENT_SHOP_ITEM,
+  payload: shopItem
+})
