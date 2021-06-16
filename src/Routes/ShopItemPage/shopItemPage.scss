@@ -9,10 +9,22 @@
   &__section-item-info {
     padding-top: var(--space-xl);
     padding-bottom: var(--space-xl);
+    background-image: url(../../Assets/JPG/portal-bg.jpg);
+    @include cover-background;
   }
 
   &__section-review {
     padding-top: var(--space-xl);
     padding-bottom: var(--space-xl);
+  }
+
+  @include media-breakpoint-down(md) {
+    &__section-item-info {
+      padding-top: var(--space-md);
+    }
+  
+    &__section-review {
+      padding-top: var(--space-md);
+    }
   }
 }
