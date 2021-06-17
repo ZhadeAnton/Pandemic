@@ -1,0 +1,22 @@
+@import '../../../Scss/typography';
+
+.login-button {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  color: var(--e-global-color-accent);
+  transition: color .2s ease;
+
+  &:hover {
+    color: var(--e-global-color-primary) !important;
+  }
+
+  &__icon {
+    margin-right: .5rem;
+  }
+
+  &__title {
+    display: inline-block;
+    @include oswald-sm;
+  }
+}

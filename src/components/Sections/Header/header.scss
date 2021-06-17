@@ -31,8 +31,13 @@
     }
   }
 
-  &__hamburger-menu {
+  &__aside {
+    @include flex-align-center;
     margin-left: auto;
+
+    &--hamburger-menu {
+      margin-left: 2.2rem;
+    }
   }
 
   @include media-breakpoint-down(xl) {

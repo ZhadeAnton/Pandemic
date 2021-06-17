@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { useSprings, animated } from 'react-spring'
 
 import './shopItemsList.scss'
-import { ShopState } from '../../../Redux/Shop/ShopReducer'
+import { IShopState } from '../../../Redux/Shop/ShopReducer'
 
 import Badge from '../../Custom/Badge/Badge'
 import useSelectShopItem from '../../../Hooks/ShopItemHooks'
 
 interface Props {
-  shopItems: ShopState['shopItems']
+  shopItems: IShopState['shopItems']
 }
 
 export default function ShopItemsList(props: Props) {

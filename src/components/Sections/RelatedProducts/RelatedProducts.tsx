@@ -2,7 +2,7 @@ import React from 'react'
 
 import './relatedProducts.scss'
 import { IShopItem } from '../../../Interfaces/ShopInterfaces'
-import { ShopState } from '../../../Redux/Shop/ShopReducer'
+import { IShopState } from '../../../Redux/Shop/ShopReducer'
 import { getRelatedShopItems } from '../../../Utils/sortUtils'
 import useShopPaginationHook from '../../../Hooks/ShopPaginationHook'
 
@@ -10,7 +10,7 @@ import ShopItemsList from '../../Blocks/ShopItemsList/ShopItemsList'
 import CustomPagination from '../../Custom/Pagination/Pagination'
 
 interface Props {
-  shopItems: ShopState['shopItems'],
+  shopItems: IShopState['shopItems'],
   categories: IShopItem['categories']
 }
 
