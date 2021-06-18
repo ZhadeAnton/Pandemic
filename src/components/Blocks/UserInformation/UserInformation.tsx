@@ -29,11 +29,21 @@ export default function UserInformation(props: Props) {
       />
 
       <div className='user-information__header'>
-        <img
-          className='user-information__header--image'
-          src={props.image}
-          alt="User image"
-        />
+        {
+          props.image
+          ?
+            <img
+              className='user-information__header--image'
+              src={props.image}
+              alt="User image"
+            />
+          :
+            <img
+              className='user-information__header--image'
+              src='https://i.ibb.co/Bfhrxx7/user-1.png'
+              alt="User image"
+            />
+        }
 
         <h3 className='user-information__header--name'>
           {props.name}

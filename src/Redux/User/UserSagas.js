@@ -27,12 +27,41 @@ function* signInWithGoogle() {
   }
 }
 
+function* signUpWithEmail({payload: {email, password, displayName}}) {
+  try {
+    const {user} = yield auth.createUserWithEmailAndPassword(email, password)
+    yield getSnapshotFromUserAuth(user, {displayName})
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export function* signInWithEmail({payload: {email, password}}) {
+  try {
+    yield console.log(email, password)
+    const {user} = yield auth.signInWithEmailAndPassword(email, password)
+    yield getSnapshotFromUserAuth(user)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 function* onSignInWithGoogle() {
   yield takeLatest(userTypes.GOOGLE_SIGN_IN_START, signInWithGoogle)
 }
 
+function* onSignUpWithEmail() {
+  yield takeLatest(userTypes.SIGN_UP_WITH_EMAIL, signUpWithEmail)
+}
+
+function* onSigInWithEmail() {
+  yield takeLatest(userTypes.SIGN_IN_WITH_EMAIL, signInWithEmail)
+}
+
 export default function* userSagas() {
   yield all([
-    call(onSignInWithGoogle)
+    call(onSignInWithGoogle),
+    call(onSignUpWithEmail),
+    call(onSigInWithEmail),
   ])
 }
