@@ -6,7 +6,7 @@ import { useAppSelector } from '../../../Hooks/PreTypedHooks'
 
 import UserAvatar from '../UserAvatar/UserAvatar'
 import UserInformation from '../UserInformation/UserInformation'
-import LoginButton from '../../Custom/LoginButton/LoginButton'
+import LoginButton from '../../Custom/LoginLink/LoginLink'
 
 export default function UserProfile() {
   const [isVisible, setIsVisible] = useState(false)

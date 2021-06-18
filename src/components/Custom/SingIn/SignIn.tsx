@@ -4,6 +4,7 @@ import { Form } from 'react-bootstrap'
 import './signIn.scss'
 import { useAppDispatch } from '../../../Hooks/PreTypedHooks'
 import { signInWithEmail } from '../../../Redux/User/UserActionCreators'
+import LoginButton from '../LoginButton/LoginButton'
 
 export default function SignIn() {
   const dispatch = useAppDispatch()
@@ -36,8 +37,12 @@ export default function SignIn() {
 
   return (
     <Form className='sign-in'>
-      <Form.Group controlId="formBasicEmail">
+      <Form.Group
+        className='sign-in__group'
+        controlId="formBasicEmail"
+      >
         <Form.Label>Email address</Form.Label>
+
         <Form.Control
           name="email"
           type="email"
@@ -47,7 +52,11 @@ export default function SignIn() {
         />
       </Form.Group>
 
-      <Form.Group controlId="formBasicPassword">
+      <Form.Group
+        className='sign-in__group'
+        controlId="formBasicPassword"
+      >
+        <Form.Label>Password</Form.Label>
         <Form.Control
           name="password"
           type="password"
@@ -57,12 +66,11 @@ export default function SignIn() {
         />
       </Form.Group>
 
-      <button
-        type="submit"
+      <LoginButton
         onClick={handleSubmit}
       >
-        Submit
-      </button>
+        Sign In
+      </LoginButton>
     </Form>
   )
 }

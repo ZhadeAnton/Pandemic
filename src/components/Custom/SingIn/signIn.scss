@@ -1,15 +1,12 @@
+@import '../../../Scss/typography';
+@import '../../../Scss/mixins';
+
 .sign-in {
-  width: 100%;
-  height: 100%;
+  @include full-size;
+  @include slider-number;
+  color: var(--e-global-color-accent);
 
-  &__input {
-
-    &-email {
-
-    }
-
-    &-password {
-      
-    }
+  &__group {
+    margin-bottom: 1rem;
   }
 }

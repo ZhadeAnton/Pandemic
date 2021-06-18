@@ -4,6 +4,7 @@ import { Form } from 'react-bootstrap'
 import './signUp.scss'
 import { useAppDispatch } from '../../../Hooks/PreTypedHooks'
 import { signUpWithEmail } from '../../../Redux/User/UserActionCreators'
+import LoginButton from '../LoginButton/LoginButton'
 
 export default function SignUp() {
   const dispatch = useAppDispatch()
@@ -28,12 +29,10 @@ export default function SignUp() {
     event.preventDefault()
 
     if (password !== confirmPassword) {
-      alert('Password does not match!')
       return
     }
 
     dispatch(signUpWithEmail({email, password, displayName}))
-
     clear()
   }
 
@@ -97,12 +96,11 @@ export default function SignUp() {
         />
       </Form.Group>
 
-      <button
-        type="submit"
+      <LoginButton
         onClick={handleSubmit}
       >
-        Submit
-      </button>
+        Sign Up
+      </LoginButton>
     </Form>
   )
 }

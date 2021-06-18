@@ -71,6 +71,8 @@ code {
   --space-xxl: calc(var(--baseline)*4);
   --space-xxxl: calc(var(--baseline)*5);
   --space-huge: calc(var(--baseline)*6);
+
+  --header-height: 5.125rem;
 }
 
 .transform-element-left {
