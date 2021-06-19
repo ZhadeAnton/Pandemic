@@ -5,6 +5,11 @@ export interface GoogleSignInStart {
   type: typeof GOOGLE_SIGN_IN_START
 }
 
+export const FACEBOOK_SIGN_IN_START = 'FACEBOOK_SIGN_IN_START'
+export interface FacebookSignInStart {
+  type: typeof FACEBOOK_SIGN_IN_START
+}
+
 export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS'
 export interface SignInSuccess {
   type: typeof SIGN_IN_SUCCESS,
@@ -30,6 +35,7 @@ export interface SignInWithEmail {
 
 export type UserTypes =
 | GoogleSignInStart
+| FacebookSignInStart
 | SignInSuccess
 | SignUpWithEmail
 | SignInWithEmail

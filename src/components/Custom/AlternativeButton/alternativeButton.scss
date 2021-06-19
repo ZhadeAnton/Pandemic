@@ -5,9 +5,12 @@
   width: 100%;
   @include flex-center;
   padding: .7rem 1rem;
-  transition: all .2s ease;
+  margin-bottom: .8rem;
   outline: none;
+  border: none;
   text-transform: uppercase;
+  cursor: pointer;
+  transition: all .2s ease;
   color: var(--e-global-color-secondary);
 
   &:hover {

@@ -43,6 +43,7 @@ export default function LoginPage() {
             </aside>
 
             <section className='login-page__main'>
+              <div className='login-page__main--overlay'></div>
               <div className='login-page__main--content'>
                 <Nav
                   className="login-page__main--tabs"

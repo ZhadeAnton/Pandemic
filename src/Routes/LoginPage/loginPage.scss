@@ -37,7 +37,7 @@
     &__overlay {
       @include full-size;
       @include abs-position (0, 0, 0, 0);
-      background-color: black;
+      background-color: var(--e-global-color-secondary);
       opacity: .4;
     }
 
@@ -76,9 +76,16 @@
   &__main {
     flex: 70%;
     height: 100%;
-    position: relative;
     @include flex-center;
-    background-color: var(--e-global-color-secondary);
+    position: relative;
+    z-index: 10;
+
+    &--overlay {
+      @include full-size;
+      @include abs-position (0, 0, 0, 0);
+      background-color: var(--e-global-color-secondary);
+      z-index: 1;
+    }
 
     &--tabs {
       display: none;
@@ -92,6 +99,7 @@
     &--content {
       width: 45%;
       min-width: 23rem;
+      z-index: 10;
     }
   }
 
@@ -101,7 +109,7 @@
     }
 
     &__wrapper {
-      padding: 3rem 1rem;
+      padding: 1rem;
     }
 
     &__aside {
@@ -109,12 +117,17 @@
   }
 
     &__main {
+      align-items: start;
       flex: 100%;
+
+      &--title {
+        display: none;
+      }
 
       &--tabs {
         display: flex;
-        @include abs-position (0, 0, auto, 0);
         border: none;
+        margin-bottom: 6rem;
       }
 
       &--tab {
@@ -145,8 +158,26 @@
       }
 
       &--content {
-        width: 80%;
+        width: 85%;
         min-width: auto;
+        height: 100%;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__wrapper {
+      padding: 1rem .5rem;
+    }
+
+    &__main {
+      flex: 100%;
+      align-items: start;
+
+      &--tabs {
+        display: flex;
+        border: none;
+        margin-bottom: 2rem;
       }
     }
   }

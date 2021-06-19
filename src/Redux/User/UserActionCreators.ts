@@ -1,8 +1,12 @@
 import * as userInterfaces from '../../Interfaces/UserInterfaces'
 import * as userActions from './UserActionTypes'
 
-export const googleSignInStart = (): userActions.GoogleSignInStart => ({
+export const signInWithGoogle = (): userActions.GoogleSignInStart => ({
   type: userActions.GOOGLE_SIGN_IN_START
+})
+
+export const signInWithFacebook = (): userActions.FacebookSignInStart => ({
+  type: userActions.FACEBOOK_SIGN_IN_START
 })
 
 export const signInSuccess = (user: userInterfaces.IUser): userActions.SignInSuccess => ({
