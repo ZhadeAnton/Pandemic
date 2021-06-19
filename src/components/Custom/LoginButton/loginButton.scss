@@ -9,4 +9,9 @@
   text-transform: uppercase;
   background-color: var(--e-global-color-primary);
   color: var(--e-global-color-secondary);
+  transition: opacity .2s ease;
+
+  &:hover {
+    opacity: .85;
+  }
 }

@@ -11,7 +11,11 @@ export default function LoginPage() {
     <main className='login-page'>
       <section className='login-page__wrapper'>
         <div className='login-page__content'>
-          <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+          <Tab.Container
+            mountOnEnter
+            unmountOnExit
+            defaultActiveKey="first"
+          >
             <aside className='login-page__aside'>
               <div className='login-page__aside__overlay'></div>
               <Nav
@@ -62,7 +66,10 @@ export default function LoginPage() {
                 </Nav>
 
                 <div className='login-page__main--title'>
-                  <Heading title='Pandemic' subTitle='E-Sports'/>
+                  <Heading
+                    title='Pandemic'
+                    subTitle='E-Sports'
+                  />
                 </div>
                 <Tab.Content>
                   <Tab.Pane eventKey="first">

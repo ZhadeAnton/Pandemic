@@ -1,0 +1,59 @@
+@import '../../../Scss/mixins';
+@import '../../../Scss/typography';
+
+.alternative-button {
+  width: 100%;
+  @include flex-center;
+  padding: .7rem 1rem;
+  transition: all .2s ease;
+  outline: none;
+  text-transform: uppercase;
+  color: var(--e-global-color-secondary);
+
+  &:hover {
+    color: var(--e-global-color-accent);
+
+    &__icon {
+      color: var(--e-global-color-accent) !important;
+    }
+  }
+
+  &__title {
+    @include oswald-sm;
+    font-weight: 600;
+  }
+
+  &__icon {
+    @include flex-center;
+    font-size: 1.3rem;
+    margin-right: 1rem;
+  }
+
+  &__facebook {
+    &--icon {
+      color: var(--e-global-color-facebook);
+    }
+
+    &:hover {
+      background-color: var(--e-global-color-facebook);
+      
+      i {
+        color: var(--e-global-color-accnet); 
+      }
+    }
+  }
+
+  &__google {
+    &--icon {
+      color: var(--e-global-color-google);
+    }
+
+    &:hover {
+      background-color: var(--e-global-color-google);
+
+      i {
+        color: var(--e-global-color-accnet);
+      }
+    }
+  }
+}

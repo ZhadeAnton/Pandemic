@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Form } from 'react-bootstrap'
 
 import './signUp.scss'
 import { useAppDispatch } from '../../../Hooks/PreTypedHooks'
 import { signUpWithEmail } from '../../../Redux/User/UserActionCreators'
+
 import LoginButton from '../LoginButton/LoginButton'
 
 export default function SignUp() {
   const dispatch = useAppDispatch()
+  const inputRef = useRef<HTMLInputElement | null>(null)
 
   const [userData, setUserData] = useState({
     displayName: '',
@@ -15,6 +17,12 @@ export default function SignUp() {
     password: '',
     confirmPassword: '',
   })
+
+  useEffect(() => {
+    if (inputRef !== null) {
+      inputRef.current?.focus()
+    }
+  }, [])
 
   const {displayName, email, password, confirmPassword} = userData
 
@@ -56,6 +64,7 @@ export default function SignUp() {
           placeholder="Name"
           onChange={handleChange}
           value={displayName}
+          ref={inputRef}
           autoComplete="name"
         />
       </Form.Group>
@@ -78,9 +87,11 @@ export default function SignUp() {
           name="password"
           type="password"
           placeholder="Password"
-          onChange={handleChange}
           value={password}
-          autoComplete="new-password"
+          onChange={handleChange}
+          isInvalid={password !== confirmPassword ? true : false}
+          isValid={password === confirmPassword ? true : false}
+          autoComplete="current-password"
         />
       </Form.Group>
 
@@ -90,9 +101,11 @@ export default function SignUp() {
           name="confirmPassword"
           type="password"
           placeholder="Confirm Password"
-          onChange={handleChange}
           value={confirmPassword}
-          autoComplete="new-password"
+          onChange={handleChange}
+          isInvalid={password !== confirmPassword ? true : false}
+          isValid={password === confirmPassword}
+          autoComplete="current-password"
         />
       </Form.Group>
 
