@@ -6,35 +6,40 @@ import { UserTypes } from './UserActionTypes'
 export interface IUserState {
   currentUser: IUser | null,
   isLoading: boolean,
-  userError: string | null
+  authenticationError: string | null
 }
 
 const INITIAL_STATE: IUserState = {
   currentUser: null,
   isLoading: false,
-  userError: null
+  authenticationError: null
 }
 
 const userReducer = (state = INITIAL_STATE, action: UserTypes) => {
   switch (action.type) {
-    case userTypes.GOOGLE_SIGN_IN_START:
-      return {
-        ...state,
-        isLoading: true,
-        userError: null,
-      }
-
     case userTypes.SIGN_IN_SUCCESS:
       return {
         ...state,
         currentUser: action.payload,
-        isLoading: false,
+        isLoading: false
       }
 
     case userTypes.SIGN_OUT:
       return {
         ...state,
         currentUser: null,
+      }
+
+    case userTypes.AUTHENTICATION_ERROR:
+      return {
+        ...state,
+        authenticationError: action.payload
+      }
+
+    case userTypes.RESET_AUTHENTICATION_ERROR:
+      return {
+        ...state,
+        authenticationError: null
       }
 
     default:

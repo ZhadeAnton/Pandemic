@@ -12,31 +12,16 @@ const rootPersistConfig = {
   storage: storage
 }
 
-const mainPersistConfig = {
-  key: 'main',
-  storage: storage
-}
-
-const matchPersistConfig = {
-  key: 'match',
-  storage: storage
-}
-
-const shopPersistConfig = {
-  key: 'shop',
-  storage: storage
-}
-
 const userPersistConfig = {
   key: 'user',
   storage: storage,
-  blacklist: ['currentUser']
+  whitelist: ['currentUser']
 }
 
 const rootReducer = combineReducers({
-  main: persistReducer(mainPersistConfig, mainReducer),
-  match: persistReducer(matchPersistConfig, matchReducer),
-  shop: persistReducer(shopPersistConfig, shopReducer),
+  main: mainReducer,
+  match: matchReducer,
+  shop: shopReducer,
   user: persistReducer(userPersistConfig, userReducer),
 })
 

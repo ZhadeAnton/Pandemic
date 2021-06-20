@@ -1,14 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Nav, Tab } from 'react-bootstrap'
 
 import './loginPage.scss'
+import { useAppDispatch, useAppSelector } from '../../Hooks/PreTypedHooks'
+import { resetAuthenticationError } from '../../Redux/User/UserActionCreators'
+
 import SignIn from '../../Components/Custom/SingIn/SignIn'
 import SignUp from '../../Components/Custom/SignUp/SignUp'
 import Heading from '../../Components/Blocks/Heading/Heading'
+import CustomToast from '../../Components/Custom/CustomToast/CustomToast'
 
 export default function LoginPage() {
+  const authenticationError = useAppSelector((state) => state.user.authenticationError!)
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    return () => {
+      dispatch(resetAuthenticationError())
+    }
+  }, [])
+
   return (
     <main className='login-page'>
+      <CustomToast
+        error={authenticationError}
+        typeError="Authentication"
+        resetError={resetAuthenticationError}
+      />
       <section className='login-page__wrapper'>
         <div className='login-page__content'>
           <Tab.Container

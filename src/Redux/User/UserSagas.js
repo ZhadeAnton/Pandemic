@@ -1,8 +1,8 @@
 import {takeLatest, put, all, call} from 'redux-saga/effects'
+
 import * as userTypes from './UserActionTypes'
 import * as userActions from './UserActionCreators.ts'
 import * as utils from './utils.ts'
-
 import {auth, googleProvider, facebookProvider} from '../../Firebase/firebase.config'
 
 function* getSnapshotFromUserAuth(userAuth, additionalData) {
@@ -14,7 +14,7 @@ function* getSnapshotFromUserAuth(userAuth, additionalData) {
       id: userSnapshot.id, ...userSnapshot.data()
     }))
   } catch (error) {
-    console.log(error)
+    yield put(userActions.authenticationError(error.message))
   }
 }
 
@@ -23,7 +23,7 @@ function* signInWithGoogle() {
     const {user} = yield auth.signInWithPopup(googleProvider)
     yield getSnapshotFromUserAuth(user)
   } catch (error) {
-    console.log(error)
+    yield put(userActions.authenticationError(error.message))
   }
 }
 
@@ -32,7 +32,7 @@ function* signInWithFacebook() {
     const {user} = yield auth.signInWithPopup(facebookProvider)
     yield getSnapshotFromUserAuth(user)
   } catch (error) {
-    console.log(error)
+    yield put(userActions.authenticationError(error.message))
   }
 }
 
@@ -41,17 +41,25 @@ function* signUpWithEmail({payload: {email, password, displayName}}) {
     const {user} = yield auth.createUserWithEmailAndPassword(email, password)
     yield getSnapshotFromUserAuth(user, {displayName})
   } catch (error) {
-    console.log(error)
+    yield put(userActions.authenticationError(error.message))
   }
 }
 
 export function* signInWithEmail({payload: {email, password}}) {
   try {
-    yield console.log(email, password)
     const {user} = yield auth.signInWithEmailAndPassword(email, password)
     yield getSnapshotFromUserAuth(user)
   } catch (error) {
-    console.log(error)
+    yield put(userActions.authenticationError(error.message))
+  }
+}
+
+export function* signOut() {
+  try {
+    yield auth.signOut()
+    yield put(userActions.signOutSuccess())
+  } catch (error) {
+    yield put(userActions.authenticationError(error.message))
   }
 }
 
@@ -71,11 +79,16 @@ function* onSigInWithEmail() {
   yield takeLatest(userTypes.SIGN_IN_WITH_EMAIL, signInWithEmail)
 }
 
+function* onSignOut() {
+  yield takeLatest(userTypes.SIGN_OUT, signOut)
+}
+
 export default function* userSagas() {
   yield all([
     call(onSignInWithGoogle),
     call(onSignInWithFacebook),
     call(onSignUpWithEmail),
-    call(onSigInWithEmail)
+    call(onSigInWithEmail),
+    call(onSignOut)
   ])
 }
