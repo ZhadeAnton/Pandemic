@@ -49,10 +49,15 @@ code {
   --e-global-color-light-border: #ffffff21;
   --e-global-color-light-border-dark: #91919121;
   --e-global-color-text: #adb0bc;
+  --e-global-color-text-light: #f7f7f7;
   --e-global-color-text-dark: #0f1013c2;
   --e-global-color-11b58b5: #2d313c;
   --e-global-color-161A25: #161A25;
   --e-global-color-11131c85: #11131c85;
+  --e-global-color-error: #ff0033;
+
+  --e-global-color-google: #dd4b39;
+  --e-global-color-facebook: #4267B2;
   --e-global-typography-primary-font-family: "Roboto";
   --e-global-typography-secondary-font-family: "Archivo Black";
   --e-global-typography-text-font-family: "Montserrat";
@@ -70,6 +75,8 @@ code {
   --space-xxl: calc(var(--baseline)*4);
   --space-xxxl: calc(var(--baseline)*5);
   --space-huge: calc(var(--baseline)*6);
+
+  --header-height: 5.125rem;
 }
 
 .transform-element-left {

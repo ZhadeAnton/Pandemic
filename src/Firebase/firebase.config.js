@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyA3x0mkUqDUWcTc2-6VRf0s3j18sregOu0',
@@ -13,3 +14,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 export const db = firebase.firestore()
+export const auth = firebase.auth()
+
+export const googleProvider = new firebase.auth.GoogleAuthProvider()
+export const facebookProvider = new firebase.auth.FacebookAuthProvider()
+googleProvider.setCustomParameters({prompt: 'select_account'})

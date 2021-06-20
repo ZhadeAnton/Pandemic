@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './shopItemInfo.scss'
-import { ShopState } from '../../../Redux/Shop/ShopReducer'
+import { IShopState } from '../../../Redux/Shop/ShopReducer'
 
 import Breadcrumbs from '../../Blocks/Breadcrumbs/Breadcrumbs'
 import Heading from '../../Blocks/Heading/Heading'
@@ -9,7 +9,7 @@ import ShopItemDetails from '../../Blocks/ShopItemDetails/ShopItemDetails'
 import Zoom from '../../Custom/Zoom/Zoom'
 
 interface Props {
-  currentItem: ShopState['currentShopItem']
+  currentItem: IShopState['currentShopItem']
 }
 
 export default function ShopItemInfo(props: Props) {

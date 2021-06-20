@@ -1,0 +1,12 @@
+@import '../../../Scss/typography';
+@import '../../../Scss/mixins';
+
+.sign-up {
+  @include full-size;
+  @include slider-number;
+  color: var(--e-global-color-accent);
+
+   &__form-group {
+     margin-bottom: 1rem;
+   }
+}

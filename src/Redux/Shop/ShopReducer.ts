@@ -3,7 +3,7 @@ import * as generalActions from '../General/GeneralActionTypes'
 import { IShopItem } from './../../Interfaces/ShopInterfaces';
 import { GeneralTypes } from '../General/GeneralActionTypes';
 
-export interface ShopState {
+export interface IShopState {
   shopItems: Array<IShopItem> | [],
   currentShopItem: IShopItem | null,
   initialPage: number,
@@ -12,7 +12,7 @@ export interface ShopState {
   isLoading: boolean
 }
 
-const INITIAL_STATE: ShopState = {
+const INITIAL_STATE: IShopState = {
   shopItems: [],
   currentShopItem: null,
   initialPage: 1,
@@ -24,7 +24,7 @@ const INITIAL_STATE: ShopState = {
 type reduserTypes = shopActions.ShopTypes | GeneralTypes
 
 const shopReducer =
-  (state = INITIAL_STATE, action: reduserTypes): ShopState => {
+  (state = INITIAL_STATE, action: reduserTypes): IShopState => {
     switch (action.type) {
       case shopActions.GET_SHOP_ITEMS:
         return {
