@@ -42,7 +42,22 @@ export default function useSignUp() {
     })
   }
 
+  const isValid = () => {
+    return password === confirmPassword && password.length !== 0 ? true : false
+  }
+
+  const isInValid = () => {
+    return password !== confirmPassword ? true : false
+  }
+
   return {
-    handleChange, handleSubmit, displayName, email, password, confirmPassword
+    handleChange,
+    handleSubmit,
+    isValid,
+    isInValid,
+    displayName,
+    email,
+    password,
+    confirmPassword
   }
 }

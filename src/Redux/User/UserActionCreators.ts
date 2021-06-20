@@ -26,6 +26,10 @@ export const signInWithEmail = ({email, password} : userInterfaces.ISignInWithEm
   payload: {email, password}
 })
 
+export const signUpSucess = (): userActions.SignUpSucess => ({
+  type: userActions.SIGN_UP_SUCCESS
+})
+
 export const signOut = (): userActions.SignOut => ({
   type: userActions.SIGN_OUT
 })
@@ -39,6 +43,6 @@ export const authenticationError = (error: string): userActions.AuthenticationEr
   payload: error
 })
 
-export const resetAuthenticationError = (): userActions.ResetAuthenticationError => ({
-  type: userActions.RESET_AUTHENTICATION_ERROR
+export const resetAuthenticationMessage = (): userActions.ResetAuthenticationMessage => ({
+  type: userActions.RESET_AUTHENTICATION_MESSAGE
 })

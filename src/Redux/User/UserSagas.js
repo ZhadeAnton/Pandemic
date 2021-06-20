@@ -40,6 +40,7 @@ function* signUpWithEmail({payload: {email, password, displayName}}) {
   try {
     const {user} = yield auth.createUserWithEmailAndPassword(email, password)
     yield getSnapshotFromUserAuth(user, {displayName})
+    yield put(userActions.signUpSucess())
   } catch (error) {
     yield put(userActions.authenticationError(error.message))
   }

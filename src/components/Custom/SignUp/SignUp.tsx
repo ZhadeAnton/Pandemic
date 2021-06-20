@@ -8,6 +8,7 @@ import LoginButton from '../LoginButton/LoginButton'
 
 export default function SignUp() {
   const inputRef = useRef<HTMLInputElement | null>(null)
+
   const signUpHook = useSignUp()
   const {displayName, email, password, confirmPassword} = signUpHook
 
@@ -53,8 +54,8 @@ export default function SignUp() {
           placeholder="Password"
           value={password}
           onChange={signUpHook.handleChange}
-          isInvalid={password !== confirmPassword ? true : false}
-          isValid={password === confirmPassword ? true : false}
+          isInvalid={signUpHook.isInValid()}
+          isValid={signUpHook.isValid()}
           autoComplete="current-password"
         />
       </Form.Group>
@@ -67,8 +68,8 @@ export default function SignUp() {
           placeholder="Confirm Password"
           value={confirmPassword}
           onChange={signUpHook.handleChange}
-          isInvalid={password !== confirmPassword ? true : false}
-          isValid={password === confirmPassword}
+          isInvalid={signUpHook.isInValid()}
+          isValid={signUpHook.isValid()}
           autoComplete="current-password"
         />
       </Form.Group>

@@ -5,14 +5,18 @@ import { UserTypes } from './UserActionTypes'
 
 export interface IUserState {
   currentUser: IUser | null,
-  isLoading: boolean,
   authenticationError: string | null
+  isSignUp: boolean,
+  isSignIn: boolean,
+  isLoading: boolean,
 }
 
 const INITIAL_STATE: IUserState = {
   currentUser: null,
+  authenticationError: null,
+  isSignUp: false,
+  isSignIn: false,
   isLoading: false,
-  authenticationError: null
 }
 
 const userReducer = (state = INITIAL_STATE, action: UserTypes) => {
@@ -21,7 +25,13 @@ const userReducer = (state = INITIAL_STATE, action: UserTypes) => {
       return {
         ...state,
         currentUser: action.payload,
-        isLoading: false
+        isSignIn: true
+      }
+
+    case userTypes.SIGN_UP_SUCCESS:
+      return {
+        ...state,
+        isSignUp: true
       }
 
     case userTypes.SIGN_OUT:
@@ -36,10 +46,12 @@ const userReducer = (state = INITIAL_STATE, action: UserTypes) => {
         authenticationError: action.payload
       }
 
-    case userTypes.RESET_AUTHENTICATION_ERROR:
+    case userTypes.RESET_AUTHENTICATION_MESSAGE:
       return {
         ...state,
-        authenticationError: null
+        authenticationError: null,
+        isSignUp: false,
+        isSignIn: false
       }
 
     default:

@@ -26,6 +26,11 @@ export interface SignOutSucess {
   type: typeof SIGN_OUT_SUCCESS
 }
 
+export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS'
+export interface SignUpSucess {
+  type: typeof SIGN_UP_SUCCESS
+}
+
 export const SIGN_UP_WITH_EMAIL = 'SIGN_UP_WITH_EMAIL'
 export interface SignUpWithEmail {
   type: typeof SIGN_UP_WITH_EMAIL,
@@ -44,18 +49,19 @@ export interface AuthenticationError {
   payload: string
 }
 
-export const RESET_AUTHENTICATION_ERROR = 'RESET_AUTHENTICATION_ERROR'
-export interface ResetAuthenticationError {
-  type: typeof RESET_AUTHENTICATION_ERROR
+export const RESET_AUTHENTICATION_MESSAGE = 'RESET_AUTHENTICATION_MESSAGE'
+export interface ResetAuthenticationMessage {
+  type: typeof RESET_AUTHENTICATION_MESSAGE
 }
 
 export type UserTypes =
 | GoogleSignInStart
 | FacebookSignInStart
+| SignUpSucess
 | SignInSuccess
 | SignUpWithEmail
 | SignInWithEmail
 | SignOut
 | SignOutSucess
 | AuthenticationError
-| ResetAuthenticationError
+| ResetAuthenticationMessage
