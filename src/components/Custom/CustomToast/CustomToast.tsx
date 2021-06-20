@@ -3,6 +3,7 @@ import { Toast } from 'react-bootstrap'
 
 import './customToast.scss'
 import { useAppDispatch } from '../../../Hooks/PreTypedHooks';
+import { resetAuthenticationError } from '../../../Redux/User/UserActionCreators';
 
 interface Props {
   error: string,
@@ -22,6 +23,12 @@ export default function CustomToast(props: Props) {
     setShow(false)
     setTimeout(() => dispatch(props.resetError()), 150)
   }
+
+  useEffect(() => {
+    return () => {
+      dispatch(resetAuthenticationError())
+    }
+  }, [])
 
   return (
     <div

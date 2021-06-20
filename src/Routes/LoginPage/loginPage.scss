@@ -22,7 +22,7 @@
     display: flex;
     overflow: hidden;
     border-radius: 10px;
-    border: 2px solid var(--e-global-color-secondary);
+    box-shadow: 6px 5px 22px 2px rgba(0,0,0,0.62);
   }
 
   &__aside {
@@ -32,7 +32,6 @@
     overflow: hidden;
     background-image: url(../../Assets/JPG/bluebg.jpg);
     @include cover-background;
-    border-right: 2px solid var(--e-global-color-dark-deep);
     background-color: var(--e-global-color-primary);
 
     &__overlay {
@@ -44,7 +43,7 @@
 
     &--tabs {
       border: none;
-      @include abs-position (40%, -1%, auto, auto);
+      @include abs-position (40%, 0, auto, auto);
       transform: translateY(-40%);
     }
 

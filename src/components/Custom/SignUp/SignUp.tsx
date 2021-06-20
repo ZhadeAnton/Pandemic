@@ -1,57 +1,21 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Form } from 'react-bootstrap'
 
 import './signUp.scss'
-import { useAppDispatch } from '../../../Hooks/PreTypedHooks'
-import { signUpWithEmail } from '../../../Redux/User/UserActionCreators'
+import useSignUp from '../../../Hooks/SignUpHooks'
 
 import LoginButton from '../LoginButton/LoginButton'
 
 export default function SignUp() {
-  const dispatch = useAppDispatch()
   const inputRef = useRef<HTMLInputElement | null>(null)
-
-  const [userData, setUserData] = useState({
-    displayName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-  })
+  const signUpHook = useSignUp()
+  const {displayName, email, password, confirmPassword} = signUpHook
 
   useEffect(() => {
     if (inputRef !== null) {
       inputRef.current?.focus()
     }
   }, [])
-
-  const {displayName, email, password, confirmPassword} = userData
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const {name, value} = event.target
-
-    setUserData({...userData, [name]: value})
-  }
-
-  const handleSubmit =
-  async (event: React.FormEvent) => {
-    event.preventDefault()
-
-    if (password !== confirmPassword) {
-      return
-    }
-
-    dispatch(signUpWithEmail({email, password, displayName}))
-    clear()
-  }
-
-  const clear = () => {
-    setUserData({
-      displayName: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-    })
-  }
 
   return (
     <Form className='sign-up'>
@@ -62,7 +26,7 @@ export default function SignUp() {
         <Form.Control
           name="displayName"
           placeholder="Name"
-          onChange={handleChange}
+          onChange={signUpHook.handleChange}
           value={displayName}
           ref={inputRef}
           autoComplete="name"
@@ -75,7 +39,7 @@ export default function SignUp() {
           name="email"
           type="email"
           placeholder="Enter email"
-          onChange={handleChange}
+          onChange={signUpHook.handleChange}
           value={email}
           autoComplete="email"
         />
@@ -88,7 +52,7 @@ export default function SignUp() {
           type="password"
           placeholder="Password"
           value={password}
-          onChange={handleChange}
+          onChange={signUpHook.handleChange}
           isInvalid={password !== confirmPassword ? true : false}
           isValid={password === confirmPassword ? true : false}
           autoComplete="current-password"
@@ -102,7 +66,7 @@ export default function SignUp() {
           type="password"
           placeholder="Confirm Password"
           value={confirmPassword}
-          onChange={handleChange}
+          onChange={signUpHook.handleChange}
           isInvalid={password !== confirmPassword ? true : false}
           isValid={password === confirmPassword}
           autoComplete="current-password"
@@ -110,7 +74,7 @@ export default function SignUp() {
       </Form.Group>
 
       <LoginButton
-        onClick={handleSubmit}
+        onClick={signUpHook.handleSubmit}
       >
         Sign Up
       </LoginButton>

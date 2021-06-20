@@ -26,7 +26,6 @@ export interface SignOutSucess {
   type: typeof SIGN_OUT_SUCCESS
 }
 
-
 export const SIGN_UP_WITH_EMAIL = 'SIGN_UP_WITH_EMAIL'
 export interface SignUpWithEmail {
   type: typeof SIGN_UP_WITH_EMAIL,
