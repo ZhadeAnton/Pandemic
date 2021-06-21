@@ -1,8 +1,10 @@
 import {takeLatest, put, all, call} from 'redux-saga/effects'
+import firebase from 'firebase'
 
 import * as userTypes from './UserActionTypes'
 import * as userActions from './UserActionCreators.ts'
-import * as utils from './utils.ts'
+import * as utils from '../../Utils/UserUtils.ts'
+import * as API from '../../API/UserAPI/UserAPI'
 import {auth, googleProvider, facebookProvider} from '../../Firebase/firebase.config'
 
 function* getSnapshotFromUserAuth(userAuth, additionalData) {
@@ -11,7 +13,9 @@ function* getSnapshotFromUserAuth(userAuth, additionalData) {
     yield call(utils.creacteUserProfileDocument, userAuth, additionalData)
     const userSnapshot = yield userRef.get()
     yield put(userActions.signInSuccess({
-      id: userSnapshot.id, ...userSnapshot.data()
+      id: userSnapshot.id,
+      cart: [],
+      ...userSnapshot.data()
     }))
   } catch (error) {
     yield put(userActions.authenticationError(error.message))
@@ -64,6 +68,16 @@ function* signOut() {
   }
 }
 
+function* addShopItemToCart({payload: {uid, shopItem}}) {
+  try {
+    yield API.addShopItemToUserCart(uid, {
+      cart: firebase.firestore.FieldValue.arrayUnion(shopItem)
+    })
+  } catch (erorr) {
+    yield put(userActions.authenticationError(error.message))
+  }
+}
+
 function* onSignInWithGoogle() {
   yield takeLatest(userTypes.GOOGLE_SIGN_IN_START, signInWithGoogle)
 }
@@ -84,12 +98,17 @@ function* onSignOut() {
   yield takeLatest(userTypes.SIGN_OUT, signOut)
 }
 
+function* onAddShopItemToCart() {
+  yield takeLatest(userTypes.ADD_SHOP_ITEM_TO_CART, addShopItemToCart)
+}
+
 export default function* userSagas() {
   yield all([
     call(onSignInWithGoogle),
     call(onSignInWithFacebook),
     call(onSignUpWithEmail),
     call(onSigInWithEmail),
-    call(onSignOut)
+    call(onSignOut),
+    call(onAddShopItemToCart)
   ])
 }

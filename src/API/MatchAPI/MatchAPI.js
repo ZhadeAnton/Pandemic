@@ -2,7 +2,7 @@ import { db } from '../../Firebase/firebase.config';
 import {
   mapDocsWithId,
   awaitMatchWithReferences
-} from '../utils'
+} from '../../Utils/APIUtils'
 
 export function fetchAnnounces() {
   return db.collection('announces')

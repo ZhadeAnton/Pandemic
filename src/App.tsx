@@ -10,6 +10,7 @@ import TeamInfo from './Routes/Teaminfo/TeamInfo';
 import MatchInfo from './Routes/MatchInfo/MatchInfo';
 import ShopPage from './Routes/ShopPage/ShopPage';
 import ShopItemPage from './Routes/ShopItemPage/ShopItemPage';
+import CartPage from './Routes/CartPage/CartPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='/match/:matchId' component={MatchInfo} />
         <Route exact path='/shop' component={ShopPage} />
         <Route path='/shop/:itemId' component={ShopItemPage} />
+        <Route path='/cart' component={CartPage} />
       </Switch>
     </>
   )

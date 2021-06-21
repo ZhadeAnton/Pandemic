@@ -12,17 +12,11 @@ const rootPersistConfig = {
   storage: storage
 }
 
-const userPersistConfig = {
-  key: 'user',
-  storage: storage,
-  whitelist: ['currentUser']
-}
-
 const rootReducer = combineReducers({
   main: mainReducer,
   match: matchReducer,
   shop: shopReducer,
-  user: persistReducer(userPersistConfig, userReducer),
+  user: userReducer,
 })
 
 export default persistReducer(rootPersistConfig, rootReducer)

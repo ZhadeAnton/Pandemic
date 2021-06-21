@@ -1,6 +1,5 @@
 import * as userTypes from './UserActionTypes'
-
-import { IUser } from '../../Interfaces/UserInterfaces'
+import { IUser } from './../../Interfaces/UserInterfaces';
 import { UserTypes } from './UserActionTypes'
 
 export interface IUserState {

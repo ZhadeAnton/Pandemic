@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import './shopListSection.scss'
-import * as sortUtils from '../../../Utils/sortUtils'
+import * as sortUtils from '../../../Utils/SortUtils'
 import { useAppSelector } from '../../../Hooks/PreTypedHooks'
 import useShopPaginationHook from '../../../Hooks/ShopPaginationHook'
 
