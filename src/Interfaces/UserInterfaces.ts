@@ -1,11 +1,11 @@
-// import { IShopItem } from './ShopInterfaces';
+import { IShopItem } from './ShopInterfaces';
 
 export interface IUser {
   uid: string,
   email: string,
   displayName: string,
   createAt: {[key: string]: string},
-  cart: any,
+  cart: Array<IShopItem['id']>,
   photoURL?: string | undefined,
   data?: any
 }

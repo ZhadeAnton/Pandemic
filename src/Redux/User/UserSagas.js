@@ -4,7 +4,7 @@ import firebase from 'firebase'
 import * as userTypes from './UserActionTypes'
 import * as userActions from './UserActionCreators.ts'
 import * as utils from '../../Utils/UserUtils.ts'
-import * as API from '../../API/UserAPI/UserAPI'
+import * as userAPI from '../../API/UserAPI/UserAPI'
 import {auth, googleProvider, facebookProvider} from '../../Firebase/firebase.config'
 
 function* getSnapshotFromUserAuth(userAuth, additionalData) {
@@ -68,10 +68,20 @@ function* signOut() {
   }
 }
 
-function* addShopItemToCart({payload: {uid, shopItem}}) {
+function* addItemToCart({payload: {userUid, shopItemId}}) {
   try {
-    yield API.addShopItemToUserCart(uid, {
-      cart: firebase.firestore.FieldValue.arrayUnion(shopItem)
+    yield userAPI.updateUserCart(userUid, {
+      cart: firebase.firestore.FieldValue.arrayUnion(shopItemId)
+    })
+  } catch (erorr) {
+    yield put(userActions.authenticationError(error.message))
+  }
+}
+
+function* removeItemFromCart({payload: {userUid, shopItemId}}) {
+  try {
+    yield userAPI.updateUserCart(userUid, {
+      cart: firebase.firestore.FieldValue.arrayRemove(shopItemId)
     })
   } catch (erorr) {
     yield put(userActions.authenticationError(error.message))
@@ -99,7 +109,11 @@ function* onSignOut() {
 }
 
 function* onAddShopItemToCart() {
-  yield takeLatest(userTypes.ADD_SHOP_ITEM_TO_CART, addShopItemToCart)
+  yield takeLatest(userTypes.ADD_ITEM_TO_CART, addItemToCart)
+}
+
+function* onRemoveShopItemFromCart() {
+  yield takeLatest(userTypes.REMOVE_ITEM_FROM_CART, removeItemFromCart)
 }
 
 export default function* userSagas() {
@@ -109,6 +123,7 @@ export default function* userSagas() {
     call(onSignUpWithEmail),
     call(onSigInWithEmail),
     call(onSignOut),
-    call(onAddShopItemToCart)
+    call(onAddShopItemToCart),
+    call(onRemoveShopItemFromCart)
   ])
 }

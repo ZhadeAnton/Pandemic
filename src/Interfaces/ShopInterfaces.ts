@@ -1,3 +1,5 @@
+import { IUser } from './UserInterfaces';
+
 export interface IShopItem {
   id: string,
   image: string,
@@ -11,4 +13,9 @@ export interface IShopItem {
   categories: Array<string>,
   sale?: boolean,
   newPrice?: string
+}
+
+export type IAddShopItem = {
+  userUid: IUser['uid'],
+  shopItemId: IShopItem['id']
 }

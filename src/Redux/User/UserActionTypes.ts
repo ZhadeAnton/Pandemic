@@ -45,12 +45,21 @@ export interface SignInWithEmail {
   payload: userInterfaces.ISignInWithEmail
 }
 
-export const ADD_SHOP_ITEM_TO_CART = 'ADD_SHOP_ITEM_TO_CART'
-export interface AddShopItemToCart {
-  type: typeof ADD_SHOP_ITEM_TO_CART,
+export const ADD_ITEM_TO_CART = 'ADD_ITEM_TO_CART'
+export interface AddItemToCart {
+  type: typeof ADD_ITEM_TO_CART,
   payload: {
-    uid: IUser['uid'],
-    shopItem: IShopItem['id']
+    userUid: IUser['uid'],
+    shopItemId: IShopItem['id']
+  }
+}
+
+export const REMOVE_ITEM_FROM_CART = 'REMOVE_ITEM_FROM_CART'
+export interface RemoveItemFromCart {
+  type: typeof REMOVE_ITEM_FROM_CART,
+  payload: {
+    userUid: IUser['uid'],
+    shopItemId: IShopItem['id']
   }
 }
 
@@ -74,6 +83,7 @@ export type UserTypes =
 | SignInWithEmail
 | SignOut
 | SignOutSucess
-| AddShopItemToCart
+| AddItemToCart
+| RemoveItemFromCart
 | AuthenticationError
 | ResetAuthenticationMessage

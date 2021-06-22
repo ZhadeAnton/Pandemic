@@ -4,7 +4,7 @@ import { UserTypes } from './UserActionTypes'
 
 export interface IUserState {
   currentUser: IUser | null,
-  authenticationError: string | null
+  authenticationError: string | null,
   isSignUp: boolean,
   isSignIn: boolean,
   isLoading: boolean,
@@ -52,6 +52,27 @@ const userReducer = (state = INITIAL_STATE, action: UserTypes) => {
         isSignUp: false,
         isSignIn: false
       }
+
+    case userTypes.ADD_ITEM_TO_CART:
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          cart: state.currentUser?.cart.includes(action.payload.shopItemId)
+            ? state.currentUser?.cart
+            : state.currentUser?.cart.concat(action.payload.shopItemId)
+        }
+      } as IUserState
+
+    case userTypes.REMOVE_ITEM_FROM_CART:
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          cart: state.currentUser?.cart.filter(
+              (item) => item !== action.payload.shopItemId)
+        }
+      } as IUserState
 
     default:
       return state

@@ -5,7 +5,7 @@ import * as api from '../../API/ShopAPI/ShopAPI'
 
 function* getShopItems() {
   try {
-    const shopItems = yield api.fetchShopItems()
+    const shopItems = yield api.getShopItems()
     yield put(actionCreators.getShopItemsSuccess(shopItems))
   } catch (error) {
     console.log(error)

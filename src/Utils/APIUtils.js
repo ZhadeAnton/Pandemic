@@ -11,9 +11,14 @@ export function mapDocs(snapShot) {
   }))
 }
 
-export function getDocWithId(doc) {
+export function mapDocs(snapShot) {
+  return snapShot.docs.map((doc) => ({
+    ...doc.data()
+  }))
+}
+
+export function getDoc(doc) {
   return doc.get().then((res) => ({
-    id: res.id,
     ...res.data()
   }))
 }
