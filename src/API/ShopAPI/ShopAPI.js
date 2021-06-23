@@ -1,6 +1,5 @@
 import { db } from '../../Firebase/firebase.config';
-import { IUser } from '../../Interfaces/UserInterfaces';
-import { mapDocs, mapDocsWithId } from '../../Utils/APIUtils'
+import { getReferences, mapDocs, mapDocsWithId } from '../../Utils/APIUtils'
 
 export function getShopItems() {
   return db.collection('shop')
@@ -8,9 +7,12 @@ export function getShopItems() {
       .then(mapDocsWithId)
 }
 
-export default function getShopItemsFromUserCart(userUid: IUser['uid']) {
+export function getShopItemsFromUserCart(userUid) {
   return db.collection('users')
       .where('uid', '==', `${userUid}`)
       .get()
       .then(mapDocs)
+      .then((userDoc) => userDoc[0].cart)
+      .then(getReferences)
+      .catch((error) => console.error(error))
 }

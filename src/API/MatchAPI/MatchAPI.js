@@ -37,5 +37,5 @@ export function fetchTeammatesByTag(tag) {
       .where('tag', '==', `${tag}`)
       .get()
       .then(mapDocsWithId)
-      .then((res) => awaitPlayers(res[0]))
+      .then((res) => awaitItems(res[0]))
 }

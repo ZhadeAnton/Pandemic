@@ -11,9 +11,10 @@ export function mapDocs(snapShot) {
   }))
 }
 
-export function mapDocs(snapShot) {
-  return snapShot.docs.map((doc) => ({
-    ...doc.data()
+export function getDocWithId(doc) {
+  return doc.get().then((res) => ({
+    id: res.id,
+    ...res.data()
   }))
 }
 
@@ -21,6 +22,19 @@ export function getDoc(doc) {
   return doc.get().then((res) => ({
     ...res.data()
   }))
+}
+
+export async function getReferences(array) {
+  const promises = []
+  array.map((item) => {
+    promises.push(getDoc(item))
+  })
+
+  await Promise.all(promises).then((parsedItems) => {
+    array = parsedItems
+  })
+
+  return array
 }
 
 export function awaitMatchWithReferences(match) {
@@ -41,20 +55,12 @@ export function awaitMatchWithReferences(match) {
   return Promise.all(matchesList)
 }
 
-export async function awaitPlayers(parsedTeam) {
-  const promises = []
-  parsedTeam.players.map((player) => {
-    promises.push(getDocWithId(player))
-  })
-
-  await Promise.all(promises).then((parsedPlayers) => {
-    parsedTeam.players = parsedPlayers
-  })
-
+async function awaitPlayers(parsedTeam) {
+  parsedTeam.players = await getReferences(parsedTeam.players)
   return parsedTeam
 }
 
-export function awaitPlayersOfTeam(team) {
+function awaitPlayersOfTeam(team) {
   return getDocWithId(team)
       .then(awaitPlayers)
 }

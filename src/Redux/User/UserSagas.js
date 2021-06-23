@@ -1,10 +1,11 @@
 import {takeLatest, put, all, call} from 'redux-saga/effects'
-import firebase from 'firebase'
 
 import * as userTypes from './UserActionTypes'
+import * as shopTypes from '../Shop/ShopActionTypes'
 import * as userActions from './UserActionCreators.ts'
 import * as utils from '../../Utils/UserUtils.ts'
 import * as userAPI from '../../API/UserAPI/UserAPI'
+import * as shopAPI from '../../API/ShopAPI/ShopAPI'
 import {auth, googleProvider, facebookProvider} from '../../Firebase/firebase.config'
 
 function* getSnapshotFromUserAuth(userAuth, additionalData) {
@@ -70,9 +71,7 @@ function* signOut() {
 
 function* addItemToCart({payload: {userUid, shopItemId}}) {
   try {
-    yield userAPI.updateUserCart(userUid, {
-      cart: firebase.firestore.FieldValue.arrayUnion(shopItemId)
-    })
+    yield userAPI.addItemToUserCart(userUid, shopItemId)
   } catch (erorr) {
     yield put(userActions.authenticationError(error.message))
   }
@@ -80,9 +79,15 @@ function* addItemToCart({payload: {userUid, shopItemId}}) {
 
 function* removeItemFromCart({payload: {userUid, shopItemId}}) {
   try {
-    yield userAPI.updateUserCart(userUid, {
-      cart: firebase.firestore.FieldValue.arrayRemove(shopItemId)
-    })
+    yield userAPI.removeItemFromUserCart(userUid, shopItemId)
+  } catch (erorr) {
+    yield put(userActions.authenticationError(error.message))
+  }
+}
+
+function* getItemsFromCart({payload: userUid}) {
+  try {
+    yield shopAPI.getShopItemsFromUserCart(userUid)
   } catch (erorr) {
     yield put(userActions.authenticationError(error.message))
   }
@@ -116,6 +121,10 @@ function* onRemoveShopItemFromCart() {
   yield takeLatest(userTypes.REMOVE_ITEM_FROM_CART, removeItemFromCart)
 }
 
+function* onGetShopItemFromCart() {
+  yield takeLatest(shopTypes.GET_SHOP_ITEMS_FROM_USER_CART, getItemsFromCart)
+}
+
 export default function* userSagas() {
   yield all([
     call(onSignInWithGoogle),
@@ -124,6 +133,7 @@ export default function* userSagas() {
     call(onSigInWithEmail),
     call(onSignOut),
     call(onAddShopItemToCart),
-    call(onRemoveShopItemFromCart)
+    call(onRemoveShopItemFromCart),
+    call(onGetShopItemFromCart)
   ])
 }
