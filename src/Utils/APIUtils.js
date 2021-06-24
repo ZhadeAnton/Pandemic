@@ -27,7 +27,7 @@ export function getDoc(doc) {
 export async function getReferences(array) {
   const promises = []
   array.map((item) => {
-    promises.push(getDoc(item))
+    promises.push(getDocWithId(item))
   })
 
   await Promise.all(promises).then((parsedItems) => {

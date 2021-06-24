@@ -6,6 +6,7 @@ import mainReducer from '../MainPage/MainReducer';
 import matchReducer from '../Match/MatchReduces';
 import shopReducer from '../Shop/ShopReducer';
 import userReducer from '../User/UserReducer';
+import cartReducer from '../Cart/CartReducer';
 
 const rootPersistConfig = {
   key: 'root',
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   match: matchReducer,
   shop: shopReducer,
   user: userReducer,
+  cart: cartReducer,
 })
 
 export default persistReducer(rootPersistConfig, rootReducer)

@@ -1,5 +1,3 @@
-import { IUser } from './../../Interfaces/UserInterfaces';
-import { IShopItem } from '../../Interfaces/ShopInterfaces'
 import * as userInterfaces from '../../Interfaces/UserInterfaces'
 
 export const GOOGLE_SIGN_IN_START = 'GOOGLE_SIGN_IN_START'
@@ -45,24 +43,6 @@ export interface SignInWithEmail {
   payload: userInterfaces.ISignInWithEmail
 }
 
-export const ADD_ITEM_TO_CART = 'ADD_ITEM_TO_CART'
-export interface AddItemToCart {
-  type: typeof ADD_ITEM_TO_CART,
-  payload: {
-    userUid: IUser['uid'],
-    shopItemId: IShopItem['id']
-  }
-}
-
-export const REMOVE_ITEM_FROM_CART = 'REMOVE_ITEM_FROM_CART'
-export interface RemoveItemFromCart {
-  type: typeof REMOVE_ITEM_FROM_CART,
-  payload: {
-    userUid: IUser['uid'],
-    shopItemId: IShopItem['id']
-  }
-}
-
 export const AUTHENTICATION_ERROR = 'AUTHENTICATION_ERROR'
 export interface AuthenticationError {
   type: typeof AUTHENTICATION_ERROR,
@@ -83,7 +63,5 @@ export type UserTypes =
 | SignInWithEmail
 | SignOut
 | SignOutSucess
-| AddItemToCart
-| RemoveItemFromCart
 | AuthenticationError
 | ResetAuthenticationMessage

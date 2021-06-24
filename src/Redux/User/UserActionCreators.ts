@@ -1,6 +1,5 @@
 import * as userInterfaces from '../../Interfaces/UserInterfaces'
 import * as userActions from './UserActionTypes'
-import { IAddShopItem } from '../../Interfaces/ShopInterfaces';
 
 export const signInWithGoogle = (): userActions.GoogleSignInStart => ({
   type: userActions.GOOGLE_SIGN_IN_START
@@ -37,18 +36,6 @@ export const signOut = (): userActions.SignOut => ({
 
 export const signOutSuccess = (): userActions.SignOutSucess => ({
   type: userActions.SIGN_OUT_SUCCESS
-})
-
-export const addShopItemToCart = (
-    {userUid, shopItemId}: IAddShopItem): userActions.AddItemToCart => ({
-  type: userActions.ADD_ITEM_TO_CART,
-  payload: {userUid, shopItemId}
-})
-
-export const removeShopItemFromCart = (
-    {userUid, shopItemId}: IAddShopItem): userActions.RemoveItemFromCart => ({
-  type: userActions.REMOVE_ITEM_FROM_CART,
-  payload: {userUid, shopItemId}
 })
 
 export const authenticationError = (error: string): userActions.AuthenticationError => ({

@@ -1,5 +1,4 @@
 import { IShopItem } from '../../Interfaces/ShopInterfaces'
-import { IUser } from '../../Interfaces/UserInterfaces'
 
 export const GET_SHOP_ITEMS = 'GET_SHOP_ITEMS'
 export interface GetShopItems {
@@ -18,14 +17,7 @@ export interface SetCurrentShopItem {
   payload: IShopItem
 }
 
-export const GET_SHOP_ITEMS_FROM_USER_CART = 'GET_SHOP_ITEMS_FROM_USER_CART'
-export interface GetShopItemsFromCart {
-  type: typeof GET_SHOP_ITEMS_FROM_USER_CART,
-  payload: IUser['uid']
-}
-
 export type ShopTypes =
 |GetShopItems
 |GetShopItemsSuccess
 |SetCurrentShopItem
-|GetShopItemsFromCart

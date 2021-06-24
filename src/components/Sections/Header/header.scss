@@ -33,11 +33,9 @@
 
   &__aside {
     @include flex-align-center;
+    justify-content: space-between;
+    width: 14rem;
     margin-left: auto;
-
-    &--hamburger-menu {
-      margin-left: 2.2rem;
-    }
   }
 
   @include media-breakpoint-down(xl) {

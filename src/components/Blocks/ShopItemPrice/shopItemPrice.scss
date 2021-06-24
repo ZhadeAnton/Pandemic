@@ -1,0 +1,26 @@
+@import '../../../Scss/mixins';
+@import '../../../Scss/typography';
+
+%shop-item-details-price {
+  @include oswald-lg;
+  color: var(--e-global-color-primary);
+}
+
+.shop-item-price {
+  @include flex-align-center;
+
+  &__default {
+    @extend %shop-item-details-price;
+  }
+
+  &__old {
+    @extend %shop-item-details-price;
+    margin-right: 1rem !important;
+    text-decoration: line-through;
+    color: var(--e-global-color-text);
+  }
+
+  &__new {
+    @extend %shop-item-details-price;
+  }
+}

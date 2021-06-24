@@ -1,14 +1,15 @@
 import React from 'react'
 
 import './shopItemDetails.scss'
+import { useAppDispatch, useAppSelector } from '../../../Hooks/PreTypedHooks'
+import { addShopItemToCart } from '../../../Redux/Cart/CartActionCreators'
 import { IShopState } from '../../../Redux/Shop/ShopReducer'
 
 import CategoriesList from '../CategoriesList/CategoriesList'
 import PlainText from '../PlainText/PlainText'
 import Stars from '../../Custom/Stars/Stars'
 import ShopButton from '../../Custom/ShopButton/ShopButton'
-import { useAppDispatch, useAppSelector } from '../../../Hooks/PreTypedHooks'
-import { addShopItemToCart } from '../../../Redux/User/UserActionCreators'
+import ShopItemPrice from '../ShopItemPrice/ShopItemPrice'
 
 interface Props {
   currentItem: IShopState['currentShopItem']
@@ -30,25 +31,11 @@ export default function ShopItemDetails(props: Props) {
         <Stars starsCount={currentItem.popularity}/>
       </div>
 
-      {
-        currentItem.sale
-        ?
-          <div className='shop-item-details__price-wrapper'>
-            <h4 className='shop-item-details__price-wrapper--price-old'>
-              {currentItem.price}
-            </h4>
-
-            <h4 className='shop-item-details__price-wrapper--price-new'>
-              {currentItem.newPrice}
-            </h4>
-          </div>
-        :
-          <div className='shop-item-details__price-wrapper'>
-            <h4 className='shop-item-details__price-wrapper--price'>
-              {currentItem.price}
-            </h4>
-          </div>
-      }
+      <ShopItemPrice
+        sale={props.currentItem!.sale}
+        oldPrice={props.currentItem!.price}
+        newPrice={props.currentItem!.newPrice}
+      />
 
       <PlainText text={currentItem.details}/>
 
