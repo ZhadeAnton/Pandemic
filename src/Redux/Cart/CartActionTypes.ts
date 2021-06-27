@@ -1,5 +1,5 @@
 import {
-  ArrayIShopItemWithQuantity,
+  ArrayOfIShopItemWithQuantity,
   IShopItemWithQuantity } from '../../Interfaces/ShopInterfaces'
 import { IUser } from '../../Interfaces/UserInterfaces'
 
@@ -31,7 +31,7 @@ export interface GetShopItemsFromCart {
 export const GET_SHOP_ITEMS_FROM_CART_SUCCESS = 'GET_SHOP_ITEMS_FROM_CART_SUCCESS'
 export interface GetShopItemsFromCartSuccess {
   type: typeof GET_SHOP_ITEMS_FROM_CART_SUCCESS,
-  payload: ArrayIShopItemWithQuantity
+  payload: ArrayOfIShopItemWithQuantity
 }
 
 export const INCREASE_QUANTITY = 'INCREASE_QUANTITY'

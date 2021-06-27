@@ -12,8 +12,8 @@ import Preloader from '../../Components/Custom/CubePreloader/CubePreloader'
 export default function CartPage() {
   const currentUser = useAppSelector((state) => state.user.currentUser!)
   const cartItems = useAppSelector((state) => state.cart.cartItems)
-  const userUid = currentUser!.uid
   const isLoading = useAppSelector((state) => state.cart.isLoading)
+  const userUid = currentUser!.uid
 
   const dispatch = useAppDispatch()
   const cartPagehook = useCartPage()

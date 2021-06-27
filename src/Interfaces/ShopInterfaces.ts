@@ -28,7 +28,8 @@ export interface IShopItemWithQuantity extends IShopItem {
   quantity: number
 }
 
-export type ArrayIShopItemWithQuantity = Array<IShopItemWithQuantity>
+export type ArrayOfIShopItemWithQuantity = Array<IShopItemWithQuantity>
+export type ArrayOfShopItems = Array<IShopItem>
 
 export interface IFnRemoveItem {
   (userUid: IUser['uid'],
@@ -45,7 +46,7 @@ export interface IFnDecreaseQuantity {
 }
 
 export interface IFnGetShopItemsFromCartSucces {
-  (shopItems: ArrayIShopItemWithQuantity): void
+  (shopItems: ArrayOfIShopItemWithQuantity): void
 }
 
 export interface IFnGetShopItemsFromCart {
@@ -58,4 +59,8 @@ export interface IFnRemoveShopItem {
 
 export interface IFnRemoveItemFromCart {
   ({userUid, shopItemId, quantity}: IRemoveShopItem): any
+}
+
+export interface IFnAddShopItemToCart {
+  (userUid: IUser['uid'], shopItemId: IShopItem['id']): void
 }
