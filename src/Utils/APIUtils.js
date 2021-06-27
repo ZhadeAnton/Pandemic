@@ -18,16 +18,37 @@ export function getDocWithId(doc) {
   }))
 }
 
+export function getDocWithQuantity(doc, quantity) {
+  return doc.get().then((res) => ({
+    id: res.id,
+    quantity: quantity,
+    ...res.data()
+  }))
+}
+
 export function getDoc(doc) {
   return doc.get().then((res) => ({
     ...res.data()
   }))
 }
 
+export async function getReferencesFromCart(array) {
+  const promises = []
+  array.map((cartItem) => {
+    promises.push(getDocWithQuantity(cartItem.item, cartItem.quantity))
+  })
+
+  await Promise.all(promises).then((parsedItems) => {
+    array = parsedItems
+  })
+
+  return array
+}
+
 export async function getReferences(array) {
   const promises = []
   array.map((item) => {
-    promises.push(getDocWithId(item))
+    promises.push(getDocWithQuantity(item, item.quantity))
   })
 
   await Promise.all(promises).then((parsedItems) => {

@@ -17,5 +17,13 @@ export interface IShopItem {
 
 export type IAddShopItem = {
   userUid: IUser['uid'],
-  shopItemId: IShopItem['id']
+  shopItemId: IShopItem['id'],
+}
+
+export interface IRemoveShopItem extends IAddShopItem {
+  quantity: IShopItemWithQuantity['quantity']
+}
+
+export interface IShopItemWithQuantity extends IShopItem {
+  quantity: number
 }
