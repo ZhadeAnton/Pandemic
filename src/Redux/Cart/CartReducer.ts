@@ -5,19 +5,28 @@ import { increaseQuantityFromItem,
   decreaseQuantityFromItem } from '../../Utils/CartUtils';
 
 export interface ICartState {
-  cartItems: Array<IShopItemWithQuantity> | []
+  cartItems: Array<IShopItemWithQuantity> | [],
+  isLoading: boolean
 }
 
 const INITIAL_STATE: ICartState = {
-  cartItems: []
+  cartItems: [],
+  isLoading: false
 }
 
 const cartReducer = (state = INITIAL_STATE, action: CartTypes): ICartState => {
   switch (action.type) {
+    case cartTypes.GET_SHOP_ITEMS_FROM_USER_CART:
+      return {
+        ...state,
+        isLoading: true
+      }
+
     case cartTypes.GET_SHOP_ITEMS_FROM_CART_SUCCESS:
       return {
         ...state,
-        cartItems: [...action.payload]
+        cartItems: [...action.payload],
+        isLoading: false
       }
 
     case cartTypes.REMOVE_ITEM_FROM_CART:

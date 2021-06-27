@@ -5,7 +5,7 @@ import './shopItemsList.scss'
 import { IShopState } from '../../../Redux/Shop/ShopReducer'
 
 import Badge from '../../Custom/Badge/Badge'
-import useSelectShopItem from '../../../Hooks/ShopItemHooks'
+import useHistoryPush from '../../../Hooks/HistoryHook'
 
 interface Props {
   shopItems: IShopState['shopItems']
@@ -15,7 +15,7 @@ export default function ShopItemsList(props: Props) {
   const [index, setIndex] = useState<number | null>(null)
   const [isDelayed, setIsDelayd] = useState(true)
 
-  const shopItemHook = useSelectShopItem()
+  const historyHook = useHistoryPush()
 
   const spring = useSprings(props.shopItems.length, props.shopItems.map((_, i) => ({
     delay: isDelayed ? 150 * i : 0,
@@ -52,7 +52,7 @@ export default function ShopItemsList(props: Props) {
             style={{transform: style.transform, opacity: style.opacity}}
             onMouseEnter={() => handleItemHover(i)}
             onMouseLeave={() => setIndex(null)}
-            onClick={() => shopItemHook.handleSelectShopItem(props.shopItems[i])}
+            onClick={() => historyHook(`/shop/${props.shopItems[i].id}`)}
           >
             <div className='shop-item__wrapper'>
               <animated.div

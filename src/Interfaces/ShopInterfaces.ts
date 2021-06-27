@@ -27,3 +27,35 @@ export interface IRemoveShopItem extends IAddShopItem {
 export interface IShopItemWithQuantity extends IShopItem {
   quantity: number
 }
+
+export type ArrayIShopItemWithQuantity = Array<IShopItemWithQuantity>
+
+export interface IFnRemoveItem {
+  (userUid: IUser['uid'],
+  hopItemId: IShopItemWithQuantity['id'],
+  quantity: IShopItemWithQuantity['quantity']): any
+}
+
+export interface IFnIncreaseQuantity {
+  (shopItem: IShopItemWithQuantity): any
+}
+
+export interface IFnDecreaseQuantity {
+  (shopItem: IShopItemWithQuantity): any
+}
+
+export interface IFnGetShopItemsFromCartSucces {
+  (shopItems: ArrayIShopItemWithQuantity): void
+}
+
+export interface IFnGetShopItemsFromCart {
+  (userUid: IUser['uid']): any
+}
+
+export interface IFnRemoveShopItem {
+  ({userUid, shopItemId}: IAddShopItem): any
+}
+
+export interface IFnRemoveItemFromCart {
+  ({userUid, shopItemId, quantity}: IRemoveShopItem): any
+}

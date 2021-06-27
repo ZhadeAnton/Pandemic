@@ -28,8 +28,8 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    padding: .5rem 4%;
     position: relative;
-    padding: .5rem 5%;
 
     &--top-row {
       display: flex;
@@ -38,6 +38,8 @@
 
     &--bottom-row {
       @include flex-sb;
+      padding-right: var(--space-md);
+      padding-bottom: 1rem;
     }
 
     &--title {

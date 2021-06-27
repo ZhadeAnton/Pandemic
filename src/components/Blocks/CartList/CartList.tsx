@@ -2,14 +2,21 @@ import React from 'react'
 
 import './cartList.scss'
 import { ICartState } from '../../../Redux/Cart/CartReducer'
+import {
+  IFnRemoveItem,
+  IFnIncreaseQuantity,
+  IFnDecreaseQuantity
+} from '../../../Interfaces/ShopInterfaces'
 
 import CartItem from '../CartItem/CartItem'
+import { IUser } from '../../../Interfaces/UserInterfaces'
 
 interface Props {
+  userUid: IUser['uid'],
   cartItems: ICartState['cartItems'],
-  onRemoveItem: any,
-  onIncreaseQuantity: any,
-  onDecreaseQuantity: any
+  handleRemoveItem: IFnRemoveItem,
+  handleIncreaseQuantity: IFnIncreaseQuantity,
+  handleDecreaseQuantity: IFnDecreaseQuantity
 }
 
 export default function CartList(props: Props) {
@@ -20,10 +27,11 @@ export default function CartList(props: Props) {
           return (
             <CartItem
               key={item.id}
+              userUid={props.userUid}
               cartItem={item}
-              onRemoveItem={props.onRemoveItem}
-              onIncreaseQuantity={props.onIncreaseQuantity}
-              onDecreaseQuantity={props.onDecreaseQuantity}
+              handleRemoveItem={props.handleRemoveItem}
+              handleIncreaseQuantity={props.handleIncreaseQuantity}
+              handleDecreaseQuantity={props.handleDecreaseQuantity}
             />
           )
         })

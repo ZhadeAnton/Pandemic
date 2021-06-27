@@ -1,0 +1,21 @@
+@import '../../../Scss/mixins';
+
+.cart-item-quantity {
+  @include flex-align-center;
+
+  &__icon {
+    cursor: pointer;
+    transition: color .2s ease;
+    color: var(--e-global-color-accent);
+
+    &:hover {
+      color: var(--e-global-color-primary);
+    }
+  }
+
+  &__number {
+    width: 2.2rem;
+    text-align: center;
+    color: var(--e-global-color-accent);
+  }
+}

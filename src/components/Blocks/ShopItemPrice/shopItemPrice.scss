@@ -8,6 +8,7 @@
 
 .shop-item-price {
   @include flex-align-center;
+  line-height: 1rem;
 
   &__default {
     @extend %shop-item-details-price;

@@ -1,22 +1,32 @@
 import React from 'react'
 
 import './cartItem.scss'
-import { IShopItem, IShopItemWithQuantity } from '../../../Interfaces/ShopInterfaces'
 
 import Stars from '../../Custom/Stars/Stars'
 import CategoriesList from '../CategoriesList/CategoriesList'
 import ShopItemPrice from '../ShopItemPrice/ShopItemPrice'
+import CartItemQuantitny from '../CartItemQuantitny/CartItemQuantitny'
+import { IUser } from '../../../Interfaces/UserInterfaces'
+import {
+  IFnRemoveItem,
+  IShopItemWithQuantity,
+  IFnIncreaseQuantity,
+  IFnDecreaseQuantity
+} from '../../../Interfaces/ShopInterfaces'
 
 interface Props {
+  userUid: IUser['uid'],
   cartItem: IShopItemWithQuantity,
-  onRemoveItem: (
-    shopItemId: IShopItem['id'], quantity: IShopItemWithQuantity['quantity']) => void,
-    onIncreaseQuantity: any,
-    onDecreaseQuantity: any
-
+  handleRemoveItem: IFnRemoveItem,
+  handleIncreaseQuantity: IFnIncreaseQuantity,
+  handleDecreaseQuantity: IFnDecreaseQuantity
 }
 
 export default function CartItem(props: Props) {
+  const handleRemoveItem = () => {
+    props.handleRemoveItem(props.userUid, props.cartItem.id, props.cartItem.quantity)
+  }
+
   return (
     <li className='cart-item'>
       <div className='cart-item__image-wrapper'>
@@ -47,24 +57,17 @@ export default function CartItem(props: Props) {
         <div className='cart-item__info--bottom-row'>
           <CategoriesList categories={props.cartItem.categories}/>
 
-          <h3>{props.cartItem.quantity}</h3>
-          <i
-            style={{color: 'red'}}
-            className="bi bi-plus-lg"
-            onClick={() => props.onIncreaseQuantity(props.cartItem)}
-          />
-
-          <i
-            style={{color: 'red'}}
-            className="bi bi-dash-lg"
-            onClick={() => props.onDecreaseQuantity(props.cartItem)}
+          <CartItemQuantitny
+            cartItem={props.cartItem}
+            onIncreaseQuantity={props.handleIncreaseQuantity}
+            onDecreaseQuantity={props.handleDecreaseQuantity}
           />
 
         </div>
 
         <i
           className="bi bi-x cart-item__info--icon"
-          onClick={() => props.onRemoveItem(props.cartItem.id, props.cartItem.quantity)}
+          onClick={handleRemoveItem}
         />
       </div>
     </li>
