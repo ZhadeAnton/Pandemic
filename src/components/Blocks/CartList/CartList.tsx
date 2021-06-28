@@ -14,9 +14,9 @@ import { IUser } from '../../../Interfaces/UserInterfaces'
 interface Props {
   userUid: IUser['uid'],
   cartItems: ICartState['cartItems'],
-  handleRemoveItem: IFnRemoveItem,
-  handleIncreaseQuantity: IFnIncreaseQuantity,
-  handleDecreaseQuantity: IFnDecreaseQuantity
+  onRemoveCartItem: IFnRemoveItem,
+  onIncreaseQuantity: IFnIncreaseQuantity,
+  onDecreaseQuantity: IFnDecreaseQuantity
 }
 
 export default function CartList(props: Props) {
@@ -29,9 +29,9 @@ export default function CartList(props: Props) {
               key={item.id}
               userUid={props.userUid}
               cartItem={item}
-              handleRemoveItem={props.handleRemoveItem}
-              handleIncreaseQuantity={props.handleIncreaseQuantity}
-              handleDecreaseQuantity={props.handleDecreaseQuantity}
+              onRemoveCartItem={props.onRemoveCartItem}
+              onIncreaseQuantity={props.onIncreaseQuantity}
+              onDecreaseQuantity={props.onDecreaseQuantity}
             />
           )
         })

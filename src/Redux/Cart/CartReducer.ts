@@ -5,7 +5,7 @@ import { increaseQuantityFromItem,
   decreaseQuantityFromItem } from '../../Utils/CartUtils';
 
 export interface ICartState {
-  cartItems: Array<IShopItemWithQuantity> | [],
+  cartItems: Array<IShopItemWithQuantity>,
   isLoading: boolean
 }
 

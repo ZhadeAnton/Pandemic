@@ -17,14 +17,14 @@ import {
 interface Props {
   userUid: IUser['uid'],
   cartItem: IShopItemWithQuantity,
-  handleRemoveItem: IFnRemoveItem,
-  handleIncreaseQuantity: IFnIncreaseQuantity,
-  handleDecreaseQuantity: IFnDecreaseQuantity
+  onRemoveCartItem: IFnRemoveItem,
+  onIncreaseQuantity: IFnIncreaseQuantity,
+  onDecreaseQuantity: IFnDecreaseQuantity
 }
 
 export default function CartItem(props: Props) {
   const handleRemoveItem = () => {
-    props.handleRemoveItem(props.userUid, props.cartItem.id, props.cartItem.quantity)
+    props.onRemoveCartItem(props.userUid, props.cartItem.id, props.cartItem.quantity)
   }
 
   return (
@@ -59,8 +59,8 @@ export default function CartItem(props: Props) {
 
           <CartItemQuantitny
             cartItem={props.cartItem}
-            onIncreaseQuantity={props.handleIncreaseQuantity}
-            onDecreaseQuantity={props.handleDecreaseQuantity}
+            onIncreaseQuantity={props.onIncreaseQuantity}
+            onDecreaseQuantity={props.onDecreaseQuantity}
           />
 
         </div>

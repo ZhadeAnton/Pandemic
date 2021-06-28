@@ -6,6 +6,14 @@
   overflow: hidden;
   background-color: var(--e-global-color-secondary);
 
+  &__heading {
+    margin: var(--space-lg) auto;
+  }
+
+  &__total-price {
+    margin: var(--space-lg) auto;
+  }
+
   &__list {
     margin: var(--space-md) 0;
     width: 100%;
