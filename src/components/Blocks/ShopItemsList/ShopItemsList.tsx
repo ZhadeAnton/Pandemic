@@ -3,10 +3,11 @@ import React from 'react'
 import './shopItemsList.scss'
 import { IShopState } from '../../../Redux/Shop/ShopReducer'
 import { useAppSelector } from '../../../Hooks/PreTypedHooks'
+import { IShopItem } from '../../../Interfaces/ShopInterfaces'
+import useShopItemsList from '../../../Hooks/ShopItemsListHooks'
+import useShopToast from '../../../Hooks/ShopToastHook'
 
 import Badge from '../../Custom/Badge/Badge'
-import useShopItemsList from '../../../Hooks/ShopItemsListHooks'
-import { IShopItem } from '../../../Interfaces/ShopInterfaces'
 
 interface Props {
   shopItems: IShopState['shopItems']
@@ -19,9 +20,11 @@ export default function ShopItemsList(props: Props) {
   const animated = shopHook.animated
   const springAnimation = shopHook.shopItemsAnimation(props.shopItems)
 
-  const handleButtonClick = (shopItemId: IShopItem['id']) => {
-    shopHook.handleAddShopItemToCart(userUid, shopItemId)
-  }
+  const handleButtonClick =
+    (shopItemId: IShopItem['id'], shopItemName: IShopItem['title']) => {
+      shopHook.handleAddShopItemToCart(userUid, shopItemId)
+      useShopToast(shopItemName)
+    }
 
   return (
     <ul className='shop-items-list'>
@@ -89,7 +92,8 @@ export default function ShopItemsList(props: Props) {
                 <animated.button
                   className='shop-item__content--button'
                   style={{transform: style.buttonTransform}}
-                  onClick={() => handleButtonClick(props.shopItems[i].id)}
+                  onClick={() =>
+                    handleButtonClick(props.shopItems[i].id, props.shopItems[i].title)}
                 >
                   Add to cart
                 </animated.button>

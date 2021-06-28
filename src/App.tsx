@@ -1,4 +1,5 @@
 import React from 'react';
+import { Toaster } from 'react-hot-toast';
 import { Switch, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -15,6 +16,14 @@ import CartPage from './Routes/CartPage/CartPage';
 function App() {
   return (
     <>
+      <Toaster
+        position='bottom-left'
+        toastOptions={{
+          success: {
+            duration: 4000
+          }
+        }}
+      />
       <Header />
       <Switch>
         <Route exact path='/' component={MainPage} />

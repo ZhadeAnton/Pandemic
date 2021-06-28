@@ -1,20 +1,47 @@
 @import '../../../Scss/variables';
+@import '../../../Scss/typography';
 @import '../../../Scss/mixins';
 
 .shop-button {
   @include flex-center;
-  width: 210px;
-  padding: 19px;
-  font-size: 12px;
+  padding: 1rem 2.2rem;
   border-radius: 0 13px;
   background-color: var(--e-global-color-primary);
 
   &__icon {
     margin-right: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   &__title {
+    @include oswald-medium;
+    color: var(--e-global-color-secondary);
     text-transform: uppercase;
+  }
+
+  &:hover {
+    opacity: .9;
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding: .9rem 2rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: .8rem 1.8rem;
+
+    &__icon {
+      margin-right: .9rem;
+      font-size: 1.3rem;
+    }
+  }
+
+  @include media-breakpoint-down(vsm) {
+    padding: .7rem 1.6rem;
+
+    &__icon {
+      margin-right: .8rem;
+      font-size: 1.1rem;
+    }
   }
 }

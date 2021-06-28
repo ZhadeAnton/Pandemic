@@ -9,11 +9,11 @@ interface Props {
 export default function ShopButton(props: Props) {
   return (
     <button className='shop-button' onClick={props.onClick}>
-      <i className="bi bi-cart3 shop-button__icon" />
+      <i className="bi bi-plus-lg shop-button__icon"></i>
 
-      <h6 className='shop-button__title'>
+      <h5 className='shop-button__title'>
         Add to cart
-      </h6>
+      </h5>
     </button>
   )
 }
