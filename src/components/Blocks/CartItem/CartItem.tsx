@@ -8,15 +8,15 @@ import ShopItemPrice from '../ShopItemPrice/ShopItemPrice'
 import CartItemQuantitny from '../CartItemQuantitny/CartItemQuantitny'
 import { IUser } from '../../../Interfaces/UserInterfaces'
 import {
-  IFnRemoveItem,
-  IShopItemWithQuantity,
+  ICartItem,
   IFnIncreaseQuantity,
   IFnDecreaseQuantity
-} from '../../../Interfaces/ShopInterfaces'
+} from '../../../Interfaces/CartInterfaces'
+import { IFnRemoveItem } from '../../../Interfaces/ShopInterfaces'
 
 interface Props {
   userUid: IUser['uid'],
-  cartItem: IShopItemWithQuantity,
+  cartItem: ICartItem,
   onRemoveCartItem: IFnRemoveItem,
   onIncreaseQuantity: IFnIncreaseQuantity,
   onDecreaseQuantity: IFnDecreaseQuantity

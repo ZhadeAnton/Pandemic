@@ -1,10 +1,10 @@
 import React from 'react'
 
 import './cartItemQuantitny.scss'
-import { IShopItemWithQuantity } from '../../../Interfaces/ShopInterfaces'
+import { ICartItem } from '../../../Interfaces/CartInterfaces'
 
 interface Props {
-  cartItem: IShopItemWithQuantity,
+  cartItem: ICartItem,
   onIncreaseQuantity: any,
   onDecreaseQuantity: any
 }

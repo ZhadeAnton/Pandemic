@@ -1,11 +1,11 @@
 import * as cartTypes from './CartActionTypes'
 import { CartTypes } from './CartActionTypes';
-import { IShopItemWithQuantity } from '../../Interfaces/ShopInterfaces';
-import { increaseQuantityFromItem,
-  decreaseQuantityFromItem } from '../../Utils/CartUtils';
+import { ArrayICartItems } from '../../Interfaces/CartInterfaces';
+import { increaseItemQuantity,
+  decreaseItemQuantity } from '../../Utils/CartUtils';
 
 export interface ICartState {
-  cartItems: Array<IShopItemWithQuantity>,
+  cartItems: ArrayICartItems,
   isLoading: boolean
 }
 
@@ -39,13 +39,13 @@ const cartReducer = (state = INITIAL_STATE, action: CartTypes): ICartState => {
     case cartTypes.INCREASE_QUANTITY:
       return {
         ...state,
-        cartItems: increaseQuantityFromItem(state.cartItems, action.payload)
+        cartItems: increaseItemQuantity(state.cartItems, action.payload)
       }
 
     case cartTypes.DECREASE_QUANTITY:
       return {
         ...state,
-        cartItems: decreaseQuantityFromItem(state.cartItems, action.payload)
+        cartItems: decreaseItemQuantity(state.cartItems, action.payload)
       }
 
     default:

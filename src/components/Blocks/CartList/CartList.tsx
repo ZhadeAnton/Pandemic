@@ -2,11 +2,11 @@ import React from 'react'
 
 import './cartList.scss'
 import { ICartState } from '../../../Redux/Cart/CartReducer'
+import { IFnRemoveItem } from '../../../Interfaces/ShopInterfaces'
 import {
-  IFnRemoveItem,
   IFnIncreaseQuantity,
   IFnDecreaseQuantity
-} from '../../../Interfaces/ShopInterfaces'
+} from '../../../Interfaces/CartInterfaces'
 
 import CartItem from '../CartItem/CartItem'
 import { IUser } from '../../../Interfaces/UserInterfaces'

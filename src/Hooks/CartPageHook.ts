@@ -2,11 +2,10 @@ import { useEffect } from 'react'
 
 import * as cartActions from '../Redux/Cart/CartActionCreators'
 import { useAppDispatch, useAppSelector } from './PreTypedHooks'
+import { IFnRemoveItem } from '../Interfaces/ShopInterfaces'
 import {
   IFnDecreaseQuantity,
-  IFnIncreaseQuantity,
-  IFnRemoveItem
-} from '../Interfaces/ShopInterfaces'
+  IFnIncreaseQuantity } from '../Interfaces/CartInterfaces'
 import { totalPriceItemsSelector } from '../Redux/Cart/CartSelectors'
 
 export default function useCartPage() {
@@ -15,10 +14,9 @@ export default function useCartPage() {
   const currentUserUid = state.user.currentUser!.uid
   const cartItems = state.cart.cartItems
   const isLoading = state.cart.isLoading
+  const totalPrice = totalPriceItemsSelector(state)
 
   const dispatch = useAppDispatch()
-
-  const totalPrice = totalPriceItemsSelector(state)
 
   useEffect(() => {
     dispatch(cartActions.getShopItemsFromCart(currentUserUid))

@@ -1,3 +1,4 @@
+import { ICartItem } from './CartInterfaces';
 import { IUser } from './UserInterfaces';
 
 export interface IShopItem {
@@ -15,52 +16,23 @@ export interface IShopItem {
   newPrice?: string
 }
 
+export type ArrayOfShopItems = Array<IShopItem>
+
 export type IAddShopItem = {
   userUid: IUser['uid'],
   shopItemId: IShopItem['id'],
 }
 
 export interface IRemoveShopItem extends IAddShopItem {
-  quantity: IShopItemWithQuantity['quantity']
+  quantity: ICartItem['quantity']
 }
-
-export interface IShopItemWithQuantity extends IShopItem {
-  quantity: number
-}
-
-export type ArrayOfIShopItemWithQuantity = Array<IShopItemWithQuantity>
-export type ArrayOfShopItems = Array<IShopItem>
 
 export interface IFnRemoveItem {
   (userUid: IUser['uid'],
-  hopItemId: IShopItemWithQuantity['id'],
-  quantity: IShopItemWithQuantity['quantity']): any
-}
-
-export interface IFnIncreaseQuantity {
-  (shopItem: IShopItemWithQuantity): any
-}
-
-export interface IFnDecreaseQuantity {
-  (shopItem: IShopItemWithQuantity): any
-}
-
-export interface IFnGetShopItemsFromCartSucces {
-  (shopItems: ArrayOfIShopItemWithQuantity): void
-}
-
-export interface IFnGetShopItemsFromCart {
-  (userUid: IUser['uid']): any
+  hopItemId: ICartItem['id'],
+  quantity: ICartItem['quantity']): any
 }
 
 export interface IFnRemoveShopItem {
   ({userUid, shopItemId}: IAddShopItem): any
-}
-
-export interface IFnRemoveItemFromCart {
-  ({userUid, shopItemId, quantity}: IRemoveShopItem): any
-}
-
-export interface IFnAddShopItemToCart {
-  (userUid: IUser['uid'], shopItemId: IShopItem['id']): void
 }

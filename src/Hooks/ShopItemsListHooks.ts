@@ -5,10 +5,8 @@ import useHistoryPush from './HistoryHook'
 import { useAppDispatch } from './PreTypedHooks'
 import { setCurrentShopItem } from '../Redux/Shop/ShopActionCreators'
 import { addShopItemToCart } from '../Redux/Cart/CartActionCreators'
-import {
-  ArrayOfShopItems,
-  IFnAddShopItemToCart,
-  IShopItem } from '../Interfaces/ShopInterfaces'
+import { ArrayOfShopItems, IShopItem } from '../Interfaces/ShopInterfaces'
+import { IFnAddShopItemToCart } from '../Interfaces/CartInterfaces'
 
 export default function useShopItemsList() {
   const [index, setIndex] = useState<number | null>(null)

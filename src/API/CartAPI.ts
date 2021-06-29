@@ -2,11 +2,11 @@ import { db } from '../Firebase/firebase.config';
 import firebase from 'firebase'
 
 import { IUser } from '../Interfaces/UserInterfaces';
+import { ICartItem } from '../Interfaces/CartInterfaces';
 import { getReferencesFromCart, mapDocs } from '../Utils/APIUtils';
-import { IShopItemWithQuantity } from '../Interfaces/ShopInterfaces';
 
 export function addItemToUserCart(
-    uid: IUser['uid'], shopItemId: IShopItemWithQuantity['id']) {
+    uid: IUser['uid'], shopItemId: ICartItem['id']) {
   return db.collection('users')
       .doc(uid)
       .update({
@@ -19,7 +19,7 @@ export function addItemToUserCart(
 }
 
 export function removeItemFromUserCart(
-    uid: IUser['uid'], shopItemId: string, quantity: IShopItemWithQuantity['quantity']) {
+    uid: IUser['uid'], shopItemId: string, quantity: ICartItem['quantity']) {
   return db.collection('users')
       .doc(uid)
       .update({
