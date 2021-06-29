@@ -54,8 +54,10 @@ export default function CartItem(props: Props) {
           <Stars starsCount={props.cartItem.popularity}/>
         </div>
 
-        <div className='cart-item__info--bottom-row'>
-          <CategoriesList categories={props.cartItem.categories}/>
+        <div className='cart-item__bottom-row'>
+          <div className='cart-item__bottom-row--category-list'>
+            <CategoriesList categories={props.cartItem.categories}/>
+          </div>
 
           <CartItemQuantitny
             cartItem={props.cartItem}

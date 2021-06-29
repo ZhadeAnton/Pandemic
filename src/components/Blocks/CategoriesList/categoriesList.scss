@@ -1,8 +1,10 @@
 @import '../../../Scss/typography';
 @import '../../../Scss/mixins';
+@import '../../../Scss/variables';
 
 .categories {
   display: flex;
+  flex-wrap: wrap;
 
   &__title {
     margin-right: var(--space-sm) !important;
@@ -12,6 +14,7 @@
 
   &__list {
     @include flex-center;
+    flex-wrap: wrap;
 
     &--item {
       &:not(:last-child) {
@@ -29,6 +32,16 @@
 
       &:hover {
         color: var(--e-global-color-primary);
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__list {
+      &--item {
+        &:not(:last-child) {
+          margin-right: var(--space-vsm) !important;
+        }
       }
     }
   }

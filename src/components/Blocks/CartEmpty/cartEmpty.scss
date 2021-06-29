@@ -1,0 +1,26 @@
+@import '../../../Scss/typography';
+@import '../../../Scss/mixins';
+
+.cart-empty {
+  @include roboto-medium;
+  @include flex-center;
+  flex-direction: column;
+
+  &__top-row {
+    @include flex-center;
+    margin-bottom: var(--space-md);
+    text-align: center;
+
+    &--title {
+      color: var(--e-global-color-text);
+    }
+  }
+
+  &__link {
+    @include flex-align-center;
+    
+    &--title {
+      margin-right: var(--space-sm) !important;
+    }
+  }
+}

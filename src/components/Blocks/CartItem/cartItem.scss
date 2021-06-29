@@ -1,5 +1,6 @@
 @import '../../../Scss/typography';
 @import '../../../Scss/mixins';
+@import '../../../Scss/variables';
 
 .cart-item {
   @include full-size;
@@ -11,6 +12,7 @@
   &__image-wrapper {
     @include full-size;
     flex: 30%;
+    min-width: 21rem;
     display: block;
     position: relative;
 
@@ -36,16 +38,15 @@
       flex-direction: column;
     }
 
-    &--bottom-row {
-      @include flex-sb;
-      padding-right: var(--space-md);
-      padding-bottom: 1rem;
-    }
-
     &--title {
       margin-bottom: .1rem !important;
       @include oswald-lg;
       color: var(--e-global-color-primary);
+    }
+
+    &--price {
+      color: var(--e-global-color-primary);
+      @include oswald-lg;
     }
 
     &--icon {
@@ -53,6 +54,107 @@
       cursor: pointer;
       font-size: 2rem;
       color: var(--e-global-color-accent);
+    }
+  }
+
+  &__bottom-row {
+    @include flex-sb;
+    padding-right: var(--space-md);
+    padding-bottom: 1rem;
+  }
+
+  @include media-breakpoint-down(lg) {
+    height: 14.5rem;
+
+    &__image-wrapper {
+      min-width: 16rem;
+    }
+
+    &__info {
+      &--title {
+        @include oswald-medium;
+      }
+
+      &--price {
+        @include oswald-medium;
+        line-height: 2.5rem !important;
+      }
+    }
+
+    &__bottom-row {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-right: 0;
+      padding-bottom: .5rem;
+  
+      &--category-list {
+        margin-bottom: .4rem;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    height: 12rem;
+
+    &__image-wrapper {
+      flex: 30%;
+      min-width: 12rem;
+    }
+
+    &__info {
+      &--price {
+        line-height: 2rem !important;
+      }
+    }
+
+    &__bottom-row {
+      padding-bottom: .3rem;
+  
+      &--category-list {
+        margin-bottom: .2rem;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    height: 11rem;
+
+    &__image-wrapper {
+      min-width: 10rem;
+    }
+
+    &__info {
+      &--price {
+        line-height: 2rem !important;
+      }
+    }
+
+    &__bottom-row {
+      padding-bottom: .3rem;
+  
+      &--category-list {
+        margin-bottom: .2rem;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(vsm) {
+    height: 10rem;
+
+    &__image-wrapper {
+      min-width: 6rem;
+    }
+
+    &__info {
+      padding: .3rem 3%;
+
+      &--price {
+        line-height: 1.8rem !important;
+      }
+    }
+
+    &__bottom-row {
+      padding-bottom: .1rem;
     }
   }
 }
