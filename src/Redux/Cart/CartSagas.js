@@ -29,6 +29,14 @@ function* getItemsFromCart({payload: userUid}) {
   }
 }
 
+function* clearCart({payload: userUid}) {
+  try {
+    yield cartAPI.clearUserCart(userUid)
+  } catch (erorr) {
+    console.log(error)
+  }
+}
+
 function* onAddItemToCart() {
   yield takeLatest(cartTypes.ADD_ITEM_TO_CART, addItemToCart)
 }
@@ -41,10 +49,15 @@ function* onGetShopItemFromCart() {
   yield takeLatest(cartTypes.GET_SHOP_ITEMS_FROM_USER_CART, getItemsFromCart)
 }
 
+function* onClearCart() {
+  yield takeLatest(cartTypes.CLEAR_CART, clearCart)
+}
+
 export default function* cartSagas() {
   yield all([
     call(onAddItemToCart),
     call(onRemoveItemFromCart),
-    call(onGetShopItemFromCart)
+    call(onGetShopItemFromCart),
+    call(onClearCart)
   ])
 }

@@ -30,3 +30,7 @@ export interface IFnIncreaseQuantity {
 export interface IFnDecreaseQuantity {
   (shopItem: ICartItem): any
 }
+
+export interface IFnClearCart {
+  (userUid: IUser['uid']): any
+}

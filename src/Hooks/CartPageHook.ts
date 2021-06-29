@@ -5,7 +5,8 @@ import { useAppDispatch, useAppSelector } from './PreTypedHooks'
 import { IFnRemoveItem } from '../Interfaces/ShopInterfaces'
 import {
   IFnDecreaseQuantity,
-  IFnIncreaseQuantity } from '../Interfaces/CartInterfaces'
+  IFnIncreaseQuantity,
+  IFnClearCart } from '../Interfaces/CartInterfaces'
 import { totalPriceItemsSelector } from '../Redux/Cart/CartSelectors'
 
 export default function useCartPage() {
@@ -34,6 +35,9 @@ export default function useCartPage() {
     dispatch(cartActions.decreaseQuantity(shopItem))
   }
 
+  const handleClearCart: IFnClearCart = () => {
+    dispatch(cartActions.clearCart(currentUserUid))
+  }
 
   return {
     currentUserUid,
@@ -42,6 +46,7 @@ export default function useCartPage() {
     totalPrice,
     handleRemoveItem,
     handleIncreaseQuantity,
-    handleDecreaseQuantity
+    handleDecreaseQuantity,
+    handleClearCart
   }
 }

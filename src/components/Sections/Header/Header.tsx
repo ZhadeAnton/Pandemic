@@ -10,6 +10,7 @@ import { useAppSelector } from '../../../Hooks/PreTypedHooks'
 
 function Header() {
   const cartItemsLength = useAppSelector((state) => state.user.currentUser?.cart.length)
+  console.log(cartItemsLength)
 
   return (
     <header className='header sticky-top'>

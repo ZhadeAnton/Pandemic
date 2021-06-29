@@ -31,6 +31,13 @@ export function removeItemFromUserCart(
       .catch((error) => console.error(error))
 }
 
+export function clearUserCart(uid: IUser['uid']) {
+  return db.collection('users')
+      .doc(uid)
+      .update({cart: []})
+      .catch((error) => console.error(error))
+}
+
 export function getShopItemsFromUserCart(userUid: IUser['uid']) {
   return db.collection('users')
       .where('uid', '==', `${userUid}`)

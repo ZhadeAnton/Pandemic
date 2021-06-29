@@ -78,6 +78,15 @@ const userReducer = (state = INITIAL_STATE, action: UserReducer) => {
         }
       } as IUserState
 
+    case cartTypes.CLEAR_CART:
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          cart: []
+        }
+      } as IUserState
+
     default:
       return state
   }

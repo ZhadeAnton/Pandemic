@@ -37,3 +37,8 @@ export const decreaseQuantity: CartInterfaces.IFnDecreaseQuantity =
     type: cartTypes.DECREASE_QUANTITY,
     payload: shopItem
   })
+
+export const clearCart: CartInterfaces.IFnClearCart = (userUid) => ({
+  type: cartTypes.CLEAR_CART,
+  payload: userUid
+})

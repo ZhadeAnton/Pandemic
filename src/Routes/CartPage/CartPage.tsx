@@ -8,6 +8,8 @@ import Footer from '../../Components/Sections/Footer/Footer'
 import Preloader from '../../Components/Custom/CubePreloader/CubePreloader'
 import CartTotalPrice from '../../Components/Blocks/CartTotalPrice/CartTotalPrice'
 import Heading from '../../Components/Blocks/Heading/Heading'
+import ButtonSecondary from '../../Components/Sections/ButtonSecondary/ButtonSecondary'
+import Devider from '../../Components/Custom/Devider/Devider'
 
 export default function CartPage() {
   const cartPageHook = useCartPage()
@@ -22,9 +24,17 @@ export default function CartPage() {
             <Heading title='cart'/>
           </div>
 
-          <div className='cart-page__total-price'>
-            <CartTotalPrice totalPrice={cartPageHook.totalPrice}/>
-          </div>
+          <section className='cart-page__top-row'>
+            <div className='cart-page__top-row--total-price'>
+              <CartTotalPrice totalPrice={cartPageHook.totalPrice}/>
+            </div>
+
+            <ButtonSecondary onClick={cartPageHook.handleClearCart}>
+              Clear cart
+            </ButtonSecondary>
+          </section>
+
+          <Devider />
 
           <div className='cart-page__list'>
             <CartList

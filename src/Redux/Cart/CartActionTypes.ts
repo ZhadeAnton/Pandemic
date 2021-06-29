@@ -44,6 +44,12 @@ export interface DecreaseQuantity {
   payload: ICartItem
 }
 
+export const CLEAR_CART = 'CLEAR_CART'
+export interface ClearCart {
+  type: typeof CLEAR_CART,
+  payload: IUser['uid']
+}
+
 export type CartTypes =
 |AddItemToCart
 |RemoveItemFromCart
@@ -51,3 +57,4 @@ export type CartTypes =
 |GetShopItemsFromCartSuccess
 |IncreaseQuantity
 |DecreaseQuantity
+|ClearCart

@@ -1,18 +1,19 @@
 import React from 'react'
 
-import './buttonSignOut.scss'
+import './buttonSecondary.scss'
 
 interface Props {
+  children: string,
   onClick?: any
 }
 
-export default function ButtonSignOut(props: Props) {
+export default function ButtonSecondary(props: Props) {
   return (
     <button
       className='button-sign-out'
       onClick={props.onClick}
     >
-      Sign out
+      {props.children}
     </button>
   )
 }

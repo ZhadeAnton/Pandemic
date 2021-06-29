@@ -3,7 +3,9 @@
   outline: none;
   background-color: transparent;
   border: 1px solid var(--e-global-color-text);
+  border-radius: 6px;
   transition: background-color .2s ease;
+  color: var(--e-global-color-accent);
 
   &:hover {
     background-color: var(--e-global-color-text-light);

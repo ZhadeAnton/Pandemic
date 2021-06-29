@@ -1,3 +1,5 @@
+@import '../../Scss/mixins';
+
 .cart-page {
   width: 100%;
   height: 100%;
@@ -10,8 +12,14 @@
     margin: var(--space-lg) auto;
   }
 
-  &__total-price {
+  &__top-row {
+    @include flex-align-center;
+    justify-content: flex-end;
     margin: var(--space-lg) auto;
+
+    &--total-price {
+      margin-right: 1rem;
+    }
   }
 
   &__list {
