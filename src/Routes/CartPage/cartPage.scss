@@ -12,7 +12,7 @@
 
   &__top-row {
     @include flex-align-center;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin: var(--space-lg) auto;
 
     &--total-price {
@@ -21,8 +21,8 @@
   }
 
   &__list {
-    margin: var(--space-lg) auto;
     width: 100%;
+    margin: var(--space-lg) auto;
   }
 
   &__empty {

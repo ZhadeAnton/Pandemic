@@ -20,9 +20,11 @@ export default function CartLink(props: Props) {
       {
         props.itemsLength !== 0
         ?
-          <span className='cart-link__badge'>
-            {props.itemsLength}
-          </span>
+          <div className='cart-link__badge-wrapper'>
+            <span className='cart-link__badge-wrapper--count'>
+              {props.itemsLength}
+            </span>
+          </div>
         :
           null
       }

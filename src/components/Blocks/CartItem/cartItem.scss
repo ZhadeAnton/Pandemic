@@ -94,7 +94,7 @@
   }
 
   @include media-breakpoint-down(md) {
-    height: 12rem;
+    height: 11rem;
     margin-bottom: var(--space-md) !important;
 
     &__image-wrapper {
@@ -118,7 +118,7 @@
   }
 
   @include media-breakpoint-down(sm) {
-    height: 11rem;
+    height: 10rem;
 
     &__image-wrapper {
       min-width: 10rem;
@@ -140,7 +140,7 @@
   }
 
   @include media-breakpoint-down(vsm) {
-    height: 10rem;
+    height: 9rem;
 
     &__image-wrapper {
       min-width: 6rem;
