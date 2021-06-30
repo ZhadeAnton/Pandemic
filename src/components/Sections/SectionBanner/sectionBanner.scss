@@ -1,0 +1,101 @@
+@import '../../../Scss/variables';
+@import '../../../Scss/mixins';
+@import '../../../Scss/typography';
+
+.section-banner {
+  width: 100%;
+  height: 100%;
+  padding: var(--space-huge) 0;
+  background-image: url(../../../Assets/JPG/team-bg.jpg);
+  @include cover-background;
+  background-position: top center;
+  position: relative;
+
+  &__overlay {
+    background: rgba(14,16,23,.65);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  [data-banner]::after {
+    content: attr(data-banner)
+  }
+
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    &:after {
+      @include abs-full;
+      top: -90%;
+      left: 5%;
+      @include archivo-xxl;
+      z-index: 1;
+    }
+  }
+  
+  &__content {
+    z-index: 10;
+    position: relative;
+    height: 100%;
+  }
+
+  &__breadcrumbs {
+    margin-top: var(--space-md);
+  }
+
+  @include media-breakpoint-down(xl) {
+    &__wrapper {
+      &:after {
+        top: -60%;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding: var(--space-xxxl) 0;
+
+    &__wrapper {
+      &:after {
+        top: -55%;
+        left: 10%;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: var(--space-xxl) 0;
+
+    &__wrapper {
+      &:after {
+        top: - 56%;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: var(--space-xl) 0;
+
+    &__wrapper {
+      &:after {
+        top: - 50%;
+        left: 2%;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(vsm) {
+    padding: var(--space-xl) 0;
+
+    &__wrapper {
+      &:after {
+        top: - 35%;
+      }
+    }
+  }
+}

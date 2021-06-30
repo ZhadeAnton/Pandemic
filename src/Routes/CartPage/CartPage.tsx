@@ -7,11 +7,10 @@ import CartList from '../../Components/Blocks/CartList/CartList'
 import Footer from '../../Components/Sections/Footer/Footer'
 import Preloader from '../../Components/Custom/CubePreloader/CubePreloader'
 import CartTotalPrice from '../../Components/Blocks/CartTotalPrice/CartTotalPrice'
-import Heading from '../../Components/Blocks/Heading/Heading'
 import ButtonSecondary from '../../Components/Sections/ButtonSecondary/ButtonSecondary'
-import Devider from '../../Components/Custom/Devider/Devider'
 import CartEmpty from '../../Components/Blocks/CartEmpty/CartEmpty'
 import ParallaxHeading from '../../Components/Sections/ParallaxHeading/ParallaxHeading'
+import SectionBanner from '../../Components/Sections/SectionBanner/SectionBanner'
 
 export default function CartPage() {
   const cartPageHook = useCartPage()
@@ -21,16 +20,14 @@ export default function CartPage() {
   } else {
     return (
       <main className='cart-page'>
-        <section className='cart-page__wrapper container'>
-          <div className='cart-page__heading'>
-            <Heading title='cart'/>
-          </div>
+        <div className='cart-page__wrapper'>
+          <SectionBanner sectionName='Cart' />
 
           {
             cartPageHook.cartItems.length !== 0
             ?
               <>
-                <section className='cart-page__top-row'>
+                <section className='cart-page__top-row container'>
                   <div className='cart-page__top-row--total-price'>
                     <CartTotalPrice totalPrice={cartPageHook.totalPrice}/>
                   </div>
@@ -40,9 +37,7 @@ export default function CartPage() {
                   </ButtonSecondary>
                 </section>
 
-                <Devider />
-
-                <div className='cart-page__list'>
+                <div className='cart-page__list container'>
                   <CartList
                     userUid={cartPageHook.currentUserUid}
                     cartItems={cartPageHook.cartItems}
@@ -57,7 +52,7 @@ export default function CartPage() {
                 <CartEmpty />
               </div>
           }
-        </section>
+        </div>
 
         <ParallaxHeading />
         <Footer />

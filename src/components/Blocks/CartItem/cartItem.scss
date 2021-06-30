@@ -95,6 +95,7 @@
 
   @include media-breakpoint-down(md) {
     height: 12rem;
+    margin-bottom: var(--space-md) !important;
 
     &__image-wrapper {
       flex: 30%;

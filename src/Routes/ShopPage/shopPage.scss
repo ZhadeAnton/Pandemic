@@ -1,5 +1,4 @@
 @import '../../Scss/mixins';
-@import '../../Scss/variables';
 @import '../../Scss/typography';
 
 .shop {
@@ -8,87 +7,7 @@
   overflow: hidden;
   background-color: var(--e-global-color-secondary);
 
-  &__section-banner {
-    width: 100%;
-    height: 100%;
-    padding: var(--space-huge) 0;
-    background-image: url(../../Assets/JPG/shop-bg.jpg);
-    @include cover-background;
-    background-position: center center;
-    position: relative;
-
-    &--overlay {
-      background: rgba(14,16,23,.65);
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    &--wrapper {
-      position: relative;
-      width: 100%;
-      height: 100%;
-
-      &:after {
-        content: 'shop';
-        @include abs-full;
-        top: -120%;
-        left: 0%;
-        @include archivo-xxl;
-        z-index: 1;
-      }
-    }
-    
-    &--content {
-      z-index: 10;
-      position: relative;
-      height: 100%;
-    }
-
-    &--breadcrumbs {
-      margin-top: var(--space-md);
-    }
-  }
-
   &__section-list {
     padding: var(--space-md) 0;
-  }
-
-  @include media-breakpoint-down(xl) {
-    &__section-banner {
-      &--wrapper {
-        &:after {
-          top: -100%;
-          left: 0%;
-        }
-      }
-    }
-  }
-
-  @include media-breakpoint-down(lg) {
-    &__section-banner {
-      padding: var(--space-xxxl) 0;
-
-      &--wrapper {
-        &:after {
-          display: none;
-        }
-      }
-    }
-  }
-
-  @include media-breakpoint-down(md) {
-    &__section-banner {
-      padding: var(--space-xxl) 0;
-    }
-  }
-
-  @include media-breakpoint-down(vsm) {
-    &__section-banner {
-      padding: var(--space-xl) 0;
-    }
   }
 }

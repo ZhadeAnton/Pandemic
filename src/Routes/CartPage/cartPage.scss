@@ -1,4 +1,5 @@
 @import '../../Scss/mixins';
+@import '../../Scss/variables';
 
 .cart-page {
   @include full-size;
@@ -15,16 +16,32 @@
     margin: var(--space-lg) auto;
 
     &--total-price {
-      margin-right: var(--space-lg);
+      margin-right: var(--space-md);
     }
   }
 
   &__list {
-    margin: var(--space-lg) 0;
+    margin: var(--space-lg) auto;
     width: 100%;
   }
 
   &__empty {
-    margin: var(--space-xxl) 0;
+    margin: var(--space-xxl) auto;
+  }
+
+  @include media-breakpoint-down(lg) {
+    &__top-row {
+      margin: var(--space-md) auto;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__top-row {
+      margin: var(--space-vsm) auto;
+    }
+
+    &__list {
+      margin: var(--space-md) 0;
+    }
   }
 }

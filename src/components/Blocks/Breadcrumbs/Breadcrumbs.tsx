@@ -27,7 +27,7 @@ export default function Breadcrumbs(props: Props) {
                 <NavLink
                   className={cn('breadcrumbs__list--link',
                     currentLocation === crumb ? 'breadcrumbs__list--link-active' : '')}
-                  to={`${item === 'Home' ? '/' : item}`}
+                  to={`${item === 'Home' ? '/' : item.toLocaleLowerCase()}`}
                 >
                   {item}
                 </NavLink>
