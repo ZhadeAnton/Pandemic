@@ -26,6 +26,36 @@
   line-height: 2.3rem;
 }
 
+@mixin main-heading {
+  font-family: var(--e-global-typography-secondary-font-family);
+  font-size: 6rem;
+  line-height: 6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-style: normal;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 5.5rem;
+    line-height: 5.5rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+  }
+}
+
 @mixin text-plain {
   @extend %text-plain;
 
@@ -246,11 +276,11 @@
   }
 
   @include media-breakpoint-down(lg) {
-    font-size: 10rem;
+    font-size: 11rem;
   }
 
   @include media-breakpoint-down(md) {
-    font-size: 7.5rem;
+    font-size: 10rem;
   }
 
   @include media-breakpoint-down(sm) {
@@ -426,7 +456,7 @@
 @mixin oswald-lg {
   font-family: Oswald;
   font-size: 2.125rem;
-  line-height: 4.375rem;
+  line-height: 3.375rem;
   font-weight: 700;
   font-style: normal;
 
@@ -456,7 +486,6 @@
   font-size: 1.4375rem;
   line-height: 1.685rem;
   font-weight: 700;
-  color: #fff;
   font-style: normal;
 
   @include media-breakpoint-down(lg) {
@@ -576,4 +605,14 @@
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
+
+  @include media-breakpoint-down(md) {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 11px;
+    line-height: 1rem;
+  }
 }

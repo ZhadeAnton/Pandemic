@@ -5,7 +5,7 @@ import { useAppDispatch } from '../../../Hooks/PreTypedHooks'
 import { IUser } from '../../../Interfaces/UserInterfaces'
 import { signOut } from '../../../Redux/User/UserActionCreators'
 
-import ButtonSignOut from '../../Sections/ButtonSignOut/ButtonSignOut'
+import ButtonSecondary from '../../Sections/ButtonSecondary/ButtonSecondary'
 
 interface Props {
   image: IUser['photoURL'],
@@ -55,7 +55,9 @@ export default function UserInformation(props: Props) {
       </div>
 
       <div className='user-information__sign-out'>
-        <ButtonSignOut onClick={handleSignOut}/>
+        <ButtonSecondary onClick={handleSignOut}>
+          Sign out
+        </ButtonSecondary>
       </div>
     </div>
   )

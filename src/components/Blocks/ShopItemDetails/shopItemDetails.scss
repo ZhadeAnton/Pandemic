@@ -1,37 +1,43 @@
 @import '../../../Scss/typography';
 @import '../../../Scss/mixins';
-
-%shop-item-details-price {
-  @include oswald-lg;
-  color: var(--e-global-color-primary);
-}
+@import '../../../Scss/variables';
 
 .shop-item-details {
-  &__price-wrapper {
-    @include flex-align-center;
-
-    &--price {
-      @extend %shop-item-details-price;
-
-      &-old {
-        @extend %shop-item-details-price;
-        margin-right: 1rem !important;
-        text-decoration: line-through;
-        color: var(--e-global-color-text);
-      }
-
-      &-new {
-        @extend %shop-item-details-price;
-      }
-    }
-  }
-
-  &__categories {
-
-  }
-
   @include media-breakpoint-down(xl) {
     margin-top: var(--space-md);
-    padding: 0;
+  }
+
+  &__stars {
+    margin-bottom: var(--space-sm);
+  }
+
+  &__price {
+    margin-bottom: var(--space-md);
+  }
+
+  &__text {
+    margin-bottom: var(--space-lg);
+  }
+
+  &__button {
+    margin-bottom: var(--space-md);
+  }
+
+    @include media-breakpoint-down(sm) {
+      &__stars {
+        margin-bottom: var(--space-vsm);
+      }
+    
+      &__price {
+        margin-bottom: var(--space-sm);
+      }
+    
+      &__text {
+        margin-bottom: var(--space-md);
+      }
+    
+      &__button {
+        margin-bottom: var(--space-sm);
+      }
   }
 }

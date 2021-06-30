@@ -8,7 +8,7 @@
   padding: .3rem 0 0 2rem;
 
   &--title {
-    @include archivo-xl;
+    @include main-heading;
   }
 
   &--sub-title {
@@ -21,7 +21,7 @@
     top: 5px;
     left: 0;
     height: 100%;
-    width: .3rem;
+    width: .5rem;
     background-color: var(--e-global-color-primary);
   }
 

@@ -4,6 +4,7 @@
 .shop-item-page {
   @include full-size;
   overflow: hidden;
+  position: relative;
   background-color: var(--e-global-color-secondary);
 
   &__section-item-info {

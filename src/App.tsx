@@ -1,4 +1,5 @@
 import React from 'react';
+import { Toaster } from 'react-hot-toast';
 import { Switch, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -10,10 +11,19 @@ import TeamInfo from './Routes/Teaminfo/TeamInfo';
 import MatchInfo from './Routes/MatchInfo/MatchInfo';
 import ShopPage from './Routes/ShopPage/ShopPage';
 import ShopItemPage from './Routes/ShopItemPage/ShopItemPage';
+import CartPage from './Routes/CartPage/CartPage';
 
 function App() {
   return (
     <>
+      <Toaster
+        position='bottom-left'
+        toastOptions={{
+          success: {
+            duration: 4000
+          }
+        }}
+      />
       <Header />
       <Switch>
         <Route exact path='/' component={MainPage} />
@@ -23,6 +33,7 @@ function App() {
         <Route path='/match/:matchId' component={MatchInfo} />
         <Route exact path='/shop' component={ShopPage} />
         <Route path='/shop/:itemId' component={ShopItemPage} />
+        <Route path='/cart' component={CartPage} />
       </Switch>
     </>
   )

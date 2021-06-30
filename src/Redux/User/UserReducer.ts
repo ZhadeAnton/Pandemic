@@ -1,15 +1,18 @@
 import * as userTypes from './UserActionTypes'
-
-import { IUser } from '../../Interfaces/UserInterfaces'
+import * as cartTypes from '../Cart/CartActionTypes'
 import { UserTypes } from './UserActionTypes'
+import { CartTypes } from '../Cart/CartActionTypes'
+import { IUser } from './../../Interfaces/UserInterfaces';
 
 export interface IUserState {
   currentUser: IUser | null,
-  authenticationError: string | null
+  authenticationError: string | null,
   isSignUp: boolean,
   isSignIn: boolean,
   isLoading: boolean,
 }
+
+ type UserReducer = UserTypes | CartTypes
 
 const INITIAL_STATE: IUserState = {
   currentUser: null,
@@ -19,7 +22,7 @@ const INITIAL_STATE: IUserState = {
   isLoading: false,
 }
 
-const userReducer = (state = INITIAL_STATE, action: UserTypes) => {
+const userReducer = (state = INITIAL_STATE, action: UserReducer) => {
   switch (action.type) {
     case userTypes.SIGN_IN_SUCCESS:
       return {
@@ -53,6 +56,36 @@ const userReducer = (state = INITIAL_STATE, action: UserTypes) => {
         isSignUp: false,
         isSignIn: false
       }
+
+    case cartTypes.ADD_ITEM_TO_CART:
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          cart: state.currentUser?.cart.includes(action.payload.shopItemId)
+            ? state.currentUser?.cart
+            : state.currentUser?.cart.concat(action.payload.shopItemId)
+        }
+      } as IUserState
+
+    case cartTypes.REMOVE_ITEM_FROM_CART:
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          cart: state.currentUser?.cart.filter(
+              (item) => item !== action.payload.shopItemId)
+        }
+      } as IUserState
+
+    case cartTypes.CLEAR_CART:
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          cart: []
+        }
+      } as IUserState
 
     default:
       return state

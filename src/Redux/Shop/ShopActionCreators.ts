@@ -1,5 +1,5 @@
-import { IShopItem } from '../../Interfaces/ShopInterfaces'
 import * as types from './ShopActionTypes'
+import { IShopItem } from '../../Interfaces/ShopInterfaces'
 
 export const getShopItems = (): types.GetShopItems => ({
   type: types.GET_SHOP_ITEMS

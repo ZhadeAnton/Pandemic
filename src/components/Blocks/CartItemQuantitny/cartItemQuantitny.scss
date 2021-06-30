@@ -1,0 +1,46 @@
+@import '../../../Scss/mixins';
+@import '../../../Scss/variables';
+
+.cart-item-quantity {
+  @include flex-align-center;
+  font-size: 1rem;
+
+  &__icon {
+    cursor: pointer;
+    transition: color .2s ease;
+    color: var(--e-global-color-accent);
+
+    &:hover {
+      color: var(--e-global-color-primary);
+    }
+  }
+
+  &__number {
+    width: 2.2rem;
+    text-align: center;
+    color: var(--e-global-color-accent);
+  }
+
+  
+  @include media-breakpoint-down(md) {
+    font-size: .9rem;
+
+    &__number {
+      font-size: 1.1rem;
+      width: 2.2rem;
+      text-align: center;
+      color: var(--e-global-color-accent);
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: .8rem;
+
+    &__number {
+      font-size: 1rem;
+      width: 2.2rem;
+      text-align: center;
+      color: var(--e-global-color-accent);
+    }
+  }
+}

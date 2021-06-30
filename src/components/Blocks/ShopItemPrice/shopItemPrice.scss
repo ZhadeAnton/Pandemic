@@ -1,0 +1,30 @@
+@import '../../../Scss/mixins';
+@import '../../../Scss/typography';
+
+%shop-item-details-price {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height:inherit;
+  font-weight: inherit;
+  font-style: inherit;
+}
+
+.shop-item-price {
+  @include flex-align-center;
+
+  &__default {
+    @extend %shop-item-details-price;
+  }
+
+  &__old {
+    @extend %shop-item-details-price;
+    margin-right: 1rem !important;
+    text-decoration: line-through;
+    color: var(--e-global-color-text);
+  }
+
+  &__new {
+    @extend %shop-item-details-price;
+  }
+}

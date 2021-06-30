@@ -1,58 +1,42 @@
-import React, { useState } from 'react'
-import { useSprings, animated } from 'react-spring'
+import React from 'react'
 
 import './shopItemsList.scss'
 import { IShopState } from '../../../Redux/Shop/ShopReducer'
+import { useAppSelector } from '../../../Hooks/PreTypedHooks'
+import { IShopItem } from '../../../Interfaces/ShopInterfaces'
+import useShopItemsList from '../../../Hooks/ShopItemsListHooks'
+import useShopToast from '../../../Hooks/ShopToastHook'
 
 import Badge from '../../Custom/Badge/Badge'
-import useSelectShopItem from '../../../Hooks/ShopItemHooks'
 
 interface Props {
   shopItems: IShopState['shopItems']
 }
 
 export default function ShopItemsList(props: Props) {
-  const [index, setIndex] = useState<number | null>(null)
-  const [isDelayed, setIsDelayd] = useState(true)
+  const userUid = useAppSelector((state) => state.user.currentUser!.uid)
 
-  const shopItemHook = useSelectShopItem()
+  const shopHook = useShopItemsList()
+  const animated = shopHook.animated
+  const springAnimation = shopHook.shopItemsAnimation(props.shopItems)
 
-  const spring = useSprings(props.shopItems.length, props.shopItems.map((_, i) => ({
-    delay: isDelayed ? 150 * i : 0,
-    opacity: 1,
-    transform: 'translateY(0)',
-    overlay: i === index ? 'rgba(0, 0, 0, .5)' : 'rgba(0, 0, 0, 0)',
-    imageHiegth: i === index ? '90%' : '100%',
-    contentHeigth: i === index ? '50%' : '40%',
-    contentMargin: i === index ? '30%' : '0%',
-    buttonTransform: i === index ? 'translate(-50%, -50%)' : 'translate(-50%, 200%)',
-    from: {
-      opacity: 0,
-      overlay: 'rgba(0, 0, 0, 0)',
-      transform: 'translateY(100px)',
-      imageHiegth: '100%',
-      contentHeigth: '40%',
-      contentMargin: '0%',
-      buttonTransform: 'translate(50%, 200%)',
+  const handleButtonClick =
+    (shopItemId: IShopItem['id'], shopItemName: IShopItem['title']) => {
+      shopHook.handleAddShopItemToCart(userUid, shopItemId)
+      useShopToast(shopItemName)
     }
-  })))
-
-  const handleItemHover = (i: number) => {
-    setIndex(i)
-    setIsDelayd(false)
-  }
 
   return (
     <ul className='shop-items-list'>
       {
-        spring.map((style, i) => (
+        springAnimation.map((style, i) => (
           <animated.li
             key={i}
             className='shop-item'
             style={{transform: style.transform, opacity: style.opacity}}
-            onMouseEnter={() => handleItemHover(i)}
-            onMouseLeave={() => setIndex(null)}
-            onClick={() => shopItemHook.handleSelectShopItem(props.shopItems[i])}
+            onMouseEnter={() => shopHook.handleItemHover(i)}
+            onMouseLeave={() => shopHook.setIndex(null)}
+            onClick={(e) => shopHook.handleSelectShopItem(e, props.shopItems[i])}
           >
             <div className='shop-item__wrapper'>
               <animated.div
@@ -108,6 +92,8 @@ export default function ShopItemsList(props: Props) {
                 <animated.button
                   className='shop-item__content--button'
                   style={{transform: style.buttonTransform}}
+                  onClick={() =>
+                    handleButtonClick(props.shopItems[i].id, props.shopItems[i].title)}
                 >
                   Add to cart
                 </animated.button>

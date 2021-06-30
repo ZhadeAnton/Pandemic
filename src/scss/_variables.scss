@@ -15,3 +15,7 @@ $grid-breakpoints: (
 );
 
 $main-transition: all .5s ease;
+
+// @include media-breakpoint-down(md) {
+//   flex: 0 0 31%;
+// }

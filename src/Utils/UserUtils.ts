@@ -1,4 +1,5 @@
-import { auth, db } from '../../Firebase/firebase.config'
+import { auth, db } from '../Firebase/firebase.config'
+import { IUser } from '../Interfaces/UserInterfaces'
 
 export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
@@ -19,6 +20,7 @@ export const creacteUserProfileDocument = async (
   if (!snapShot.exists) {
     const {displayName, email, uid, photoURL} = userAuth
     const createAt = new Date()
+    const cart: IUser['cart'] = []
 
     try {
       await userRef.set({
@@ -26,6 +28,7 @@ export const creacteUserProfileDocument = async (
         email,
         uid,
         photoURL,
+        cart,
         createAt,
         ...additionalData,
       })

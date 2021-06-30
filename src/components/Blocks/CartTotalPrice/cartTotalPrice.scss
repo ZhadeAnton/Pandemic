@@ -1,0 +1,19 @@
+@import '../../../Scss/typography';
+@import '../../../Scss/mixins';
+
+.cart-total {
+  @include flex-align-center;
+
+  &__title {
+    @include oswald-medium;
+    margin-right: 1rem !important;
+    color: var(--e-global-color-accent);
+  }
+
+  &__output {
+    @include oswald-medium;
+    color: var(--e-global-color-accent);
+    line-height: 2.3rem;
+    border-bottom: 3px solid var(--e-global-color-primary);
+  }
+}

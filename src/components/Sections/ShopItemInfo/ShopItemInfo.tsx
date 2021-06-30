@@ -35,13 +35,7 @@ export default function ShopItemInfo(props: Props) {
 
         <div className='shop-item-info__product--description'>
           <ShopItemDetails
-            categories={props.currentItem!.categories}
-            details={props.currentItem!.details}
-            description={props.currentItem!.description}
-            popularity={props.currentItem!.popularity}
-            price={props.currentItem!.price}
-            newPrice={props.currentItem!.newPrice}
-            sale={props.currentItem!.sale}
+            currentItem={props.currentItem}
           />
         </div>
       </div>

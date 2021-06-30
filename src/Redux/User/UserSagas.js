@@ -2,7 +2,7 @@ import {takeLatest, put, all, call} from 'redux-saga/effects'
 
 import * as userTypes from './UserActionTypes'
 import * as userActions from './UserActionCreators.ts'
-import * as utils from './utils.ts'
+import * as utils from '../../Utils/UserUtils.ts'
 import {auth, googleProvider, facebookProvider} from '../../Firebase/firebase.config'
 
 function* getSnapshotFromUserAuth(userAuth, additionalData) {
@@ -11,7 +11,9 @@ function* getSnapshotFromUserAuth(userAuth, additionalData) {
     yield call(utils.creacteUserProfileDocument, userAuth, additionalData)
     const userSnapshot = yield userRef.get()
     yield put(userActions.signInSuccess({
-      id: userSnapshot.id, ...userSnapshot.data()
+      id: userSnapshot.id,
+      cart: [],
+      ...userSnapshot.data()
     }))
   } catch (error) {
     yield put(userActions.authenticationError(error.message))

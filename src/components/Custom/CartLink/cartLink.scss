@@ -1,0 +1,30 @@
+@import '../../../Scss/mixins';
+
+.cart-link {
+  position: relative;
+  z-index: 2;
+  padding: .4rem;
+  cursor: pointer;
+
+  &__icon {
+    color: var(--e-global-color-accent);
+    font-size: 1.5rem;
+  }
+
+  &__badge-wrapper {
+    width: 1.2rem;
+    height: 1.2rem;
+    position: absolute;
+    top: 3%;
+    right: -7%;
+    @include flex-center;
+    z-index: 10;
+    background-color: var(--e-global-color-accent);
+    border-radius: 50%;
+
+    &--count {
+      color: var(--e-global-color-secondary);
+      font-weight: 600;
+    }
+  }
+}

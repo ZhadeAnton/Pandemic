@@ -17,7 +17,7 @@
   }
 
   &__navigation {
-    margin-left: 8rem !important;
+    margin-left: 7rem !important;
   }
 
   &__link {
@@ -33,16 +33,14 @@
 
   &__aside {
     @include flex-align-center;
+    justify-content: space-between;
+    width: 13rem;
     margin-left: auto;
-
-    &--hamburger-menu {
-      margin-left: 2.2rem;
-    }
   }
 
   @include media-breakpoint-down(xl) {
     &__navigation {
-      margin-left: 6rem !important;
+      margin-left: auto !important;
     }
   }
 }

@@ -2,14 +2,18 @@ import React from 'react'
 
 import './shopButton.scss'
 
-export default function ShopButton() {
-  return (
-    <button className='shop-button'>
-      <i className="bi bi-cart3 shop-button__icon" />
+interface Props {
+  onClick: () => void
+}
 
-      <h6 className='shop-button__title'>
+export default function ShopButton(props: Props) {
+  return (
+    <button className='shop-button' onClick={props.onClick}>
+      <i className="bi bi-plus-lg shop-button__icon"></i>
+
+      <h5 className='shop-button__title'>
         Add to cart
-      </h6>
+      </h5>
     </button>
   )
 }

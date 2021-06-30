@@ -3,7 +3,7 @@ import React from 'react'
 import './relatedProducts.scss'
 import { IShopItem } from '../../../Interfaces/ShopInterfaces'
 import { IShopState } from '../../../Redux/Shop/ShopReducer'
-import { getRelatedShopItems } from '../../../Utils/sortUtils'
+import { getRelatedShopItems } from '../../../Utils/SortUtils'
 import useShopPaginationHook from '../../../Hooks/ShopPaginationHook'
 
 import ShopItemsList from '../../Blocks/ShopItemsList/ShopItemsList'

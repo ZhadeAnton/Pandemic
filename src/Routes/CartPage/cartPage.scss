@@ -1,0 +1,47 @@
+@import '../../Scss/mixins';
+@import '../../Scss/variables';
+
+.cart-page {
+  @include full-size;
+  overflow: hidden;
+  background-color: var(--e-global-color-secondary);
+
+  &__heading {
+    margin: var(--space-xxl) auto;
+  }
+
+  &__top-row {
+    @include flex-align-center;
+    justify-content: space-between;
+    margin: var(--space-lg) auto;
+
+    &--total-price {
+      margin-right: var(--space-md);
+    }
+  }
+
+  &__list {
+    width: 100%;
+    margin: var(--space-lg) auto;
+  }
+
+  &__empty {
+    margin: var(--space-xxl) auto;
+  }
+
+  @include media-breakpoint-down(lg) {
+    &__top-row {
+      margin: var(--space-md) auto;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__top-row {
+      margin: var(--space-vsm) auto;
+    }
+
+    &__list {
+      margin: var(--space-md) 0;
+    }
+  }
+}
