@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Switch, Route } from 'react-router-dom'
@@ -9,9 +10,9 @@ import LoginPage from './Routes/LoginPage/LoginPage';
 import PlayerInfo from './Routes/PlayerInfo/PlayerInfo';
 import TeamInfo from './Routes/Teaminfo/TeamInfo';
 import MatchInfo from './Routes/MatchInfo/MatchInfo';
-import ShopItemPage from './Routes/ShopItemPage/ShopItemPage';
 import CartPage from './Routes/CartPage/CartPage';
 import ShopPageContainer from './Containers/ShopPageContainer';
+import ShopItemPageContainer from './Containers/ShopItemPageContainer';
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
         <Route path='/team/:teamId' component={TeamInfo} />
         <Route path='/match/:matchId' component={MatchInfo} />
         <Route exact path='/shop' component={ShopPageContainer} />
-        <Route path='/shop/:itemId' component={ShopItemPage} />
+        <Route path='/shop/:itemId' component={ShopItemPageContainer} />
         <Route path='/cart' component={CartPage} />
       </Switch>
     </>

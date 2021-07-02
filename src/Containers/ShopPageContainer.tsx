@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
-import useShopItemsFiltering, { IFnFilterShopItems } from '../Hooks/FilterHook'
 import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHooks'
 import { ArrayOfShopItems } from '../Interfaces/ShopInterfaces'
 import { IUser } from '../Interfaces/UserInterfaces'
 import { getShopItems } from '../Redux/Shop/ShopActionCreators'
 import { IShopState } from '../Redux/Shop/ShopReducer'
-import { sortingNames, filteringNames } from '../Utils/SortUtils'
+import {
+  sortingNames,
+  filteringNames,
+  sortShopItemsByTag,
+  filterShopItemsByTag, } from '../Utils/SortUtils'
 
 import ShopPage from '../Routes/ShopPage/ShopPage'
 import Preloader from '../Components/Custom/CubePreloader/CubePreloader'
@@ -21,25 +24,56 @@ export type IShopPageContainer = {
   sortingNames: Array<string>,
   filteringNames: Array<string>,
   slicedItemsLength: number,
-  paginationData: {
-    itemsPerPage: IShopState['itemsPerPage'],
-    currentPage: IShopState['currentPage'],
-    pagesLength: number
-  },
+  itemsPerPage: IShopState['itemsPerPage'],
+  currentPage: IShopState['currentPage'],
+  pagesLength: number,
   onFilterItems: IFnFilterShopItems,
   onSortItems: IFnFilterShopItems
 }
 
+interface IFnFilterShopItems {
+  (filter: string): void
+}
+
 export default function ShopPageContainer() {
-  const allShopItems = useAppSelector((state) => state.shop.shopItems)
-  const isLoading = useAppSelector((state) => state.shop.isLoading)
   const userUid = useAppSelector((state) => state.user.currentUser?.uid)
+  const shopItems = useAppSelector((state) => state.shop.shopItems)
+  const isLoading = useAppSelector((state) => state.shop.isLoading)
+  const itemsPerPage = useAppSelector((state) => state.shop.itemsPerPage)
+  const currentPage = useAppSelector((state) => state.shop.currentPage)
 
   const dispatch = useAppDispatch()
-  const filterHook = useShopItemsFiltering(allShopItems)
 
-  const paginationData = filterHook.paginationData
-  const slicedItemsLength = paginationData.slicedItems.length
+  const [filterBy, setFilterBy] = useState('Default')
+  const [sortedBy, setSortedBy] = useState('Default')
+
+  // Indexes of first and last items
+  const indexOfLastItem = currentPage * itemsPerPage
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage
+
+  // Pagination's buttons
+  const pagesLength = Math.ceil(shopItems.length / itemsPerPage)
+
+  // Filtering items by filter-word (useState) or get all items back
+  const filteredItems = filterShopItemsByTag(filterBy, shopItems)
+
+  // Slicing items by indexes of first and last items
+  const slicedItems = filteredItems.length > itemsPerPage
+  ? filteredItems.slice(indexOfFirstItem, indexOfLastItem)
+  : filteredItems
+
+  // Sorting items which filtered earlier
+  const sortedItems = sortShopItemsByTag(sortedBy, slicedItems)
+
+  const slicedItemsLength = slicedItems.length
+
+  const handleFilterItems: IFnFilterShopItems = (filter) => {
+    setFilterBy(filter)
+  }
+
+  const handleSortItems: IFnFilterShopItems = (sorting) => {
+    setSortedBy(sorting)
+  }
 
   useEffect(() => {
     dispatch(getShopItems())
@@ -49,18 +83,20 @@ export default function ShopPageContainer() {
 
   return (
     <ShopPage
-      shopItems={allShopItems}
+      shopItems={shopItems}
       userUid={userUid}
       isLoading={isLoading}
       slicedItemsLength={slicedItemsLength}
-      paginationData={paginationData}
-      sortedItems={filterHook.sortedItems}
-      onFilterItems={filterHook.handleFilterItems}
-      onSortItems={filterHook.handleSortItems}
-      filterBy={filterHook.filterBy}
-      sortedBy={filterHook.sortedBy}
+      sortedItems={sortedItems}
+      onFilterItems={handleFilterItems}
+      onSortItems={handleSortItems}
+      filterBy={filterBy}
+      sortedBy={sortedBy}
       sortingNames={sortingNames}
       filteringNames={filteringNames}
+      pagesLength={pagesLength}
+      currentPage={currentPage}
+      itemsPerPage={itemsPerPage}
     />
   )
 }

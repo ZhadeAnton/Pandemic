@@ -19,6 +19,23 @@
     padding-bottom: var(--space-xl);
   }
 
+  &__related-items {
+    text-align: center;
+    margin-bottom: var(--space-xxl);
+
+    &--title {
+      @include oswald-lg;
+      margin-bottom: var(--space-md) !important;
+      text-transform: uppercase;
+      color: var(--e-global-color-accent);
+    }
+  
+    &--pagination {
+      @include flex-center;
+      margin-top: var(--space-md);
+    }
+  }
+
   @include media-breakpoint-down(md) {
     &__section-item-info {
       padding-top: var(--space-md);

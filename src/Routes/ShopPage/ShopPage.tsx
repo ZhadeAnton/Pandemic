@@ -45,9 +45,9 @@ const ShopPage = (props: IShopPageContainer) => {
 
         <div className='shop__pagination'>
           <CustomPagination
-            itemsPerPage={props.paginationData.itemsPerPage}
-            currentPage={props.paginationData.currentPage}
-            pagesLength={props.paginationData.pagesLength}
+            itemsPerPage={props.itemsPerPage}
+            currentPage={props.currentPage}
+            pagesLength={props.pagesLength}
           />
         </div>
       </section>
