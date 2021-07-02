@@ -18,7 +18,7 @@ export interface IShopItemPageContainer {
   pagesLength: number
 }
 
-export default function ShopItemPageContainer() {
+export default function ShopItemContainer() {
   const userUid = useAppSelector((state) => state.user.currentUser?.uid)
   const currentItem = useAppSelector((state) => state.shop.currentShopItem)
   const shopItems = useAppSelector((state) => state.shop.shopItems)

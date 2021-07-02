@@ -10,9 +10,9 @@ import LoginPage from './Routes/LoginPage/LoginPage';
 import PlayerInfo from './Routes/PlayerInfo/PlayerInfo';
 import TeamInfo from './Routes/Teaminfo/TeamInfo';
 import MatchInfo from './Routes/MatchInfo/MatchInfo';
-import CartPage from './Routes/CartPage/CartPage';
-import ShopPageContainer from './Containers/ShopPageContainer';
-import ShopItemPageContainer from './Containers/ShopItemPageContainer';
+import ShopContainer from './Containers/ShopContainer';
+import ShopItemContainer from './Containers/ShopItemContainer';
+import CartContainer from './Containers/CartContainer';
 
 function App() {
   return (
@@ -32,9 +32,9 @@ function App() {
         <Route path='/player/:playerId' component={PlayerInfo} />
         <Route path='/team/:teamId' component={TeamInfo} />
         <Route path='/match/:matchId' component={MatchInfo} />
-        <Route exact path='/shop' component={ShopPageContainer} />
-        <Route path='/shop/:itemId' component={ShopItemPageContainer} />
-        <Route path='/cart' component={CartPage} />
+        <Route exact path='/shop' component={ShopContainer} />
+        <Route path='/shop/:itemId' component={ShopItemContainer} />
+        <Route path='/cart' component={CartContainer} />
       </Switch>
     </>
   )

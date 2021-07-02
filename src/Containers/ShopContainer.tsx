@@ -35,7 +35,7 @@ interface IFnFilterShopItems {
   (filter: string): void
 }
 
-export default function ShopPageContainer() {
+export default function ShopContainer() {
   const userUid = useAppSelector((state) => state.user.currentUser?.uid)
   const shopItems = useAppSelector((state) => state.shop.shopItems)
   const isLoading = useAppSelector((state) => state.shop.isLoading)

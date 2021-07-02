@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './shopPage.scss'
-import { IShopPageContainer } from '../../Containers/ShopPageContainer'
+import { IShopPageContainer } from '../../Containers/ShopContainer'
 
 import SectionBanner from '../../Components/Sections/SectionBanner/SectionBanner'
 import Footer from '../../Components/Sections/Footer/Footer'

@@ -7,7 +7,7 @@ import ReviewsTabs from '../../Components/Custom/ReviewsTabs/ReviewsTabs'
 import Footer from '../../Components/Sections/Footer/Footer'
 import {
   IShopItemPageContainer
-} from '../../Containers/ShopItemPageContainer'
+} from '../../Containers/ShopItemContainer'
 import ShopItemsList from '../../Components/Blocks/ShopItemsList/ShopItemsList'
 import CustomPagination from '../../Components/Custom/Pagination/Pagination'
 
