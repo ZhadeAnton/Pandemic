@@ -1,0 +1,11 @@
+.cart-result {
+  width: 100%;
+  color: var(--e-global-color-accent);
+
+  &__title {
+    &-output {
+      color: var(--e-global-color-primary);
+      margin: 0 .5rem;
+    }
+  }
+}

@@ -1,35 +1,60 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import './shopPage.scss'
-import { useAppDispatch, useAppSelector } from '../../Hooks/PreTypedHooks'
-import { getShopItems } from '../../Redux/Shop/ShopActionCreators'
+import { IShopPageContainer } from '../../Containers/ShopPageContainer'
 
-import Preloader from '../../Components/Custom/CubePreloader/CubePreloader'
-import ShopProducts from '../../Components/Sections/ShopListSection/ShopListSection'
-import Footer from '../../Components/Sections/Footer/Footer'
 import SectionBanner from '../../Components/Sections/SectionBanner/SectionBanner'
+import Footer from '../../Components/Sections/Footer/Footer'
+import CartShowResult from '../../Components/Blocks/CartShowResult/CartShowResult'
+import CustomDropdown from '../../Components/Custom/CustomDropdown/CustomDropdown'
+import ShopItemsList from '../../Components/Blocks/ShopItemsList/ShopItemsList'
+import CustomPagination from '../../Components/Custom/Pagination/Pagination'
 
-export default function ShopPage() {
-  const isLoading = useAppSelector((state) => state.shop.isLoading)
-  const dispatch = useAppDispatch()
+const ShopPage = (props: IShopPageContainer) => {
+  return (
+    <main className='shop'>
+      <SectionBanner sectionName='Shop'/>
 
-  useEffect(() => {
-    dispatch(getShopItems())
-  }, [])
+      <section className='shop__section-list container'>
+        <div className='shop__top-row container'>
+          <div className='shop__result'>
+            <CartShowResult itemsLength={props.slicedItemsLength}/>
+          </div>
 
-  if (isLoading) {
-    return <Preloader />
-  } else {
-    return (
-      <main className='shop'>
-        <SectionBanner sectionName='Shop'/>
+          <div className='shop__filters'>
+            <CustomDropdown
+              filter
+              activeElement={props.filterBy}
+              sortFn={props.onFilterItems}
+              sortingNames={props.filteringNames}
+            />
 
-        <section className='shop__section-list container'>
-          <ShopProducts />
-        </section>
+            <CustomDropdown
+              sort
+              activeElement={props.sortedBy}
+              sortFn={props.onSortItems}
+              sortingNames={props.sortingNames}
+            />
+          </div>
+        </div>
 
-        <Footer />
-      </main>
-    )
-  }
+        <ShopItemsList
+          shopItems={props.sortedItems}
+          userUid={props.userUid}
+        />
+
+        <div className='shop__pagination'>
+          <CustomPagination
+            itemsPerPage={props.paginationData.itemsPerPage}
+            currentPage={props.paginationData.currentPage}
+            pagesLength={props.paginationData.pagesLength}
+          />
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  )
 }
+
+export default ShopPage

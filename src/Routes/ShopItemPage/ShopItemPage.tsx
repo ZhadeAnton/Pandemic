@@ -12,6 +12,7 @@ import useScrollToTop from '../../Hooks/ScrollToTopHook'
 export default function ShopItemPage() {
   const currentItem = useAppSelector((state) => state.shop.currentShopItem!)
   const shopItems = useAppSelector((state) => state.shop.shopItems)
+  const userUid = useAppSelector((state) => state.user.currentUser?.uid)
 
   // Custom hook witch scrolling to the to of the page with useEffect()
   useScrollToTop()
@@ -32,6 +33,7 @@ export default function ShopItemPage() {
 
       <section className='container'>
         <RelatedProducts
+          userUid={userUid}
           shopItems={shopItems}
           categories={currentItem.categories}
         />

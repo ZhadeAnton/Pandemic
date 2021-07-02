@@ -15,7 +15,7 @@ import SectionBanner from '../../Components/Sections/SectionBanner/SectionBanner
 export default function CartPage() {
   const cartPageHook = useCartPage()
 
-  if (cartPageHook.isLoading) {
+  if (cartPageHook && cartPageHook.isLoading) {
     return <Preloader />
   } else {
     return (
@@ -24,7 +24,7 @@ export default function CartPage() {
           <SectionBanner sectionName='Cart' />
 
           {
-            cartPageHook.cartItems.length !== 0
+            cartPageHook && cartPageHook.cartItems.length !== 0
             ?
               <>
                 <section className='cart-page__top-row container'>

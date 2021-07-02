@@ -18,7 +18,7 @@ export default function CartLink(props: Props) {
       <i className="bi bi-cart3 cart-link__icon"></i>
 
       {
-        props.itemsLength !== 0
+        props.itemsLength !== undefined
         ?
           <div className='cart-link__badge-wrapper'>
             <span className='cart-link__badge-wrapper--count'>

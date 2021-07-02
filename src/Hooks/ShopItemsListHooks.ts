@@ -8,7 +8,7 @@ import { addShopItemToCart } from '../Redux/Cart/CartActionCreators'
 import { ArrayOfShopItems, IShopItem } from '../Interfaces/ShopInterfaces'
 import { IFnAddShopItemToCart } from '../Interfaces/CartInterfaces'
 
-export default function useShopItemsList() {
+export default function useShopListAnimation() {
   const [index, setIndex] = useState<number | null>(null)
   const [isDelayed, setIsDelayd] = useState(true)
 

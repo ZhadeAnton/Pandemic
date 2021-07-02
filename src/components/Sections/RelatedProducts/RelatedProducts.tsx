@@ -8,10 +8,12 @@ import useShopPaginationHook from '../../../Hooks/ShopPaginationHook'
 
 import ShopItemsList from '../../Blocks/ShopItemsList/ShopItemsList'
 import CustomPagination from '../../Custom/Pagination/Pagination'
+import { IUser } from '../../../Interfaces/UserInterfaces'
 
 interface Props {
   shopItems: IShopState['shopItems'],
-  categories: IShopItem['categories']
+  categories: IShopItem['categories'],
+  userUid: IUser['uid']
 }
 
 export default function RelatedProducts(props: Props) {
@@ -26,7 +28,10 @@ export default function RelatedProducts(props: Props) {
         related products
       </h2>
 
-      <ShopItemsList shopItems={paginationData.slicedItems}/>
+      <ShopItemsList
+        shopItems={paginationData.slicedItems}
+        userUid={props.userUid}
+      />
 
       <div className='related-items__pagination'>
         <CustomPagination

@@ -1,28 +1,28 @@
 import React from 'react'
 
 import './shopItemsList.scss'
-import { IShopState } from '../../../Redux/Shop/ShopReducer'
-import { useAppSelector } from '../../../Hooks/PreTypedHooks'
+import { IUser } from '../../../Interfaces/UserInterfaces'
 import { IShopItem } from '../../../Interfaces/ShopInterfaces'
-import useShopItemsList from '../../../Hooks/ShopItemsListHooks'
-import useShopToast from '../../../Hooks/ShopToastHook'
+import { IShopState } from '../../../Redux/Shop/ShopReducer'
+import useShopListAnimation from '../../../Hooks/ShopItemsListHooks'
 
 import Badge from '../../Custom/Badge/Badge'
+import useShopToast from '../../../Hooks/ShopToastHook'
 
 interface Props {
-  shopItems: IShopState['shopItems']
+  shopItems: IShopState['shopItems'],
+  userUid: IUser['uid']
 }
 
 export default function ShopItemsList(props: Props) {
-  const userUid = useAppSelector((state) => state.user.currentUser!.uid)
+  const shopListHook = useShopListAnimation()
 
-  const shopHook = useShopItemsList()
-  const animated = shopHook.animated
-  const springAnimation = shopHook.shopItemsAnimation(props.shopItems)
+  const animated = shopListHook.animated
+  const springAnimation = shopListHook.shopItemsAnimation(props.shopItems)
 
   const handleButtonClick =
     (shopItemId: IShopItem['id'], shopItemName: IShopItem['title']) => {
-      shopHook.handleAddShopItemToCart(userUid, shopItemId)
+      shopListHook.handleAddShopItemToCart(props.userUid, shopItemId)
       useShopToast(shopItemName)
     }
 
@@ -34,9 +34,9 @@ export default function ShopItemsList(props: Props) {
             key={i}
             className='shop-item'
             style={{transform: style.transform, opacity: style.opacity}}
-            onMouseEnter={() => shopHook.handleItemHover(i)}
-            onMouseLeave={() => shopHook.setIndex(null)}
-            onClick={(e) => shopHook.handleSelectShopItem(e, props.shopItems[i])}
+            onMouseEnter={() => shopListHook.handleItemHover(i)}
+            onMouseLeave={() => shopListHook.setIndex(null)}
+            onClick={(e) => shopListHook.handleSelectShopItem(e, props.shopItems[i])}
           >
             <div className='shop-item__wrapper'>
               <animated.div
