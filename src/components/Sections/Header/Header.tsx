@@ -6,12 +6,12 @@ import HamburgerMenu from '../../Custom/HamburgerMenu/HamburgerMenu'
 import NavigationMenu from '../../Blocks/NavigationMenu/NavigationMenu'
 import UserProfile from '../../Blocks/UserProfile/UserProfile'
 import CartLink from '../../Custom/CartLink/CartLink'
-import { useAppSelector } from '../../../Hooks/PreTypedHooks'
 
-function Header() {
-  const cartItemsLength = useAppSelector((state) => state.user.currentUser?.cart.length)
-  console.log(cartItemsLength)
+interface Props {
+  cartItemsLength: number | undefined
+}
 
+function Header(props: Props) {
   return (
     <header className='header sticky-top'>
       <div className='header__wrapper'>
@@ -23,7 +23,7 @@ function Header() {
         />
 
         <div className='header__aside'>
-          <CartLink itemsLength={cartItemsLength}/>
+          <CartLink itemsLength={props.cartItemsLength}/>
 
           <UserProfile />
 

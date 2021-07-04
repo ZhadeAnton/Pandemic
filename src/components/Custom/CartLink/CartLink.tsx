@@ -8,12 +8,12 @@ interface Props {
 }
 
 export default function CartLink(props: Props) {
-  const historyHook = useHistoryPush()
+  const redirectToCart = useHistoryPush()
 
   return (
     <div
       className='cart-link'
-      onClick={() => historyHook('/cart')}
+      onClick={() => redirectToCart('/cart')}
     >
       <i className="bi bi-cart3 cart-link__icon"></i>
 

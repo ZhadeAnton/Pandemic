@@ -3,8 +3,6 @@ import React, { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHooks'
 import { totalPriceItemsSelector } from '../Redux/Cart/CartSelectors'
 import * as cartActions from '../Redux/Cart/CartActionCreators'
-
-import CartPage from '../Routes/CartPage/CartPage'
 import { IFnRemoveItem } from '../Interfaces/ShopInterfaces'
 import {
   IFnClearCart,
@@ -12,6 +10,8 @@ import {
   IFnIncreaseQuantity } from '../Interfaces/CartInterfaces'
 import { IUser } from '../Interfaces/UserInterfaces'
 import { ICartState } from '../Redux/Cart/CartReducer'
+
+import CartPage from '../Routes/CartPage/CartPage'
 
 export interface ICartContainer {
   userUid: IUser['uid'],

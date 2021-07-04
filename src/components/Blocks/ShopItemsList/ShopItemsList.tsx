@@ -8,23 +8,33 @@ import useShopListAnimation from '../../../Hooks/ShopItemsListHooks'
 
 import Badge from '../../Custom/Badge/Badge'
 import useShopToast from '../../../Hooks/ShopToastHook'
+import useHistoryPush from '../../../Hooks/HistoryHook'
 
 interface Props {
   shopItems: IShopState['shopItems'],
   userUid: IUser['uid']
 }
 
+interface IHandleAddCartButton {
+  (shopItemId: IShopItem['id'], shopItemName: IShopItem['title']): void
+}
+
 export default function ShopItemsList(props: Props) {
   const shopListHook = useShopListAnimation()
+  const redirectToLogin = useHistoryPush()
 
   const animated = shopListHook.animated
   const springAnimation = shopListHook.shopItemsAnimation(props.shopItems)
 
-  const handleButtonClick =
-    (shopItemId: IShopItem['id'], shopItemName: IShopItem['title']) => {
-      shopListHook.handleAddShopItemToCart(props.userUid, shopItemId)
-      useShopToast(shopItemName)
+  const handleButtonClick: IHandleAddCartButton = (shopItemId, shopItemName) => {
+    if (!props.userUid) {
+      redirectToLogin('/login')
+      return
     }
+
+    shopListHook.handleAddShopItemToCart(props.userUid, shopItemId)
+    useShopToast(shopItemName)
+  }
 
   return (
     <ul className='shop-items-list'>

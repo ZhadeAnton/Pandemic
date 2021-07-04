@@ -5,18 +5,18 @@ import { setCurrentMatch, setCurrentTeam } from '../Redux/Match/MatchActionCreat
 
 export default function useSelectMatch() {
   const dispatch = useAppDispatch()
-  const historyHook = useHistoryPush()
+  const redirect = useHistoryPush()
 
   const handleSelectMatch = (e: any, match: IMatch) => {
     if (e.target.tagName !== 'IMG') {
-      historyHook(`/match/${match.id}`)
+      redirect(`/match/${match.id}`)
 
       dispatch(setCurrentMatch(match))
     }
   }
 
   const handleSelectTeam = (team: ITeam) => {
-    historyHook(`/team/${team.id}`)
+    redirect(`/team/${team.id}`)
     dispatch(setCurrentTeam(team))
   }
 

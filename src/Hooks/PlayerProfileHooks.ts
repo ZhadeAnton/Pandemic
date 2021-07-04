@@ -5,10 +5,10 @@ import useHistoryPush from './HistoryHook'
 
 export default function useSelectPlayer() {
   const dispatch = useAppDispatch()
-  const historyHook = useHistoryPush()
+  const redirectToPlayer = useHistoryPush()
 
   const handleSelectPlayer = (player: IPlayer) => {
-    historyHook(`/player/${player.id}`)
+    redirectToPlayer(`/player/${player.id}`)
 
     dispatch(setCurrentPlayer(player))
   }

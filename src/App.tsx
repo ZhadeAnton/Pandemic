@@ -4,6 +4,8 @@ import { Toaster } from 'react-hot-toast';
 import { Switch, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import { IAppContainer } from './Containers/AppContainer';
+
 import Header from './Components/Sections/Header/Header';
 import MainPage from './Routes/MainPage/MainPage';
 import LoginPage from './Routes/LoginPage/LoginPage';
@@ -14,7 +16,7 @@ import ShopContainer from './Containers/ShopContainer';
 import ShopItemContainer from './Containers/ShopItemContainer';
 import CartContainer from './Containers/CartContainer';
 
-function App() {
+function App(props: IAppContainer) {
   return (
     <>
       <Toaster
@@ -25,7 +27,9 @@ function App() {
           }
         }}
       />
-      <Header />
+
+      <Header cartItemsLength={props.cartItemsLength}/>
+
       <Switch>
         <Route exact path='/' component={MainPage} />
         <Route exact path='/login' component={LoginPage} />
