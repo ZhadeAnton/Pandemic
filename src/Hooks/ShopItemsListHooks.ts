@@ -12,7 +12,7 @@ export default function useShopListAnimation() {
   const [index, setIndex] = useState<number | null>(null)
   const [isDelayed, setIsDelayd] = useState(true)
 
-  const redirectToLogin = useHistoryPush()
+  const redirectToShopItem = useHistoryPush()
   const dispatch = useAppDispatch()
 
   const shopItemsAnimation = (shopItems: ArrayOfShopItems) => {
@@ -48,7 +48,7 @@ export default function useShopListAnimation() {
 
   const handleSelectShopItem = (e: any, shopItem: IShopItem) => {
     if (e.target.tagName !== 'BUTTON') {
-      redirectToLogin('/login')
+      redirectToShopItem(`/shop/${shopItem.id}`)
       dispatch(setCurrentShopItem(shopItem))
     }
   }

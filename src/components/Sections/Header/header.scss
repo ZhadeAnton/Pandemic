@@ -40,7 +40,17 @@
 
   @include media-breakpoint-down(xl) {
     &__navigation {
-      margin-left: auto !important;
+      margin-left: 6rem !important;
+    }
+
+    &__aside {
+      width: 12rem;
+    }
+  }
+
+  @include media-breakpoint-down(xl) {
+    &__aside {
+      width: 11rem;
     }
   }
 }

@@ -22,7 +22,8 @@ export default function Zoom(props: Props) {
   const handleMouseMove: React.MouseEventHandler<HTMLElement> = (e) => {
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect()
     const x = (e.pageX - left) / width * 100
-    const y = (e.pageY - top) / height * 100
+    let y = (e.pageY - top) / height * 100
+    if (y > 100) y = 100
     setBackgroundPosition(`${x}% ${y}%`)
   }
 
@@ -38,13 +39,10 @@ export default function Zoom(props: Props) {
       />
 
       {
-        props.sale
-        ?
+        props.sale &&
          <div className='zoom__badge'>
            <Badge title='Sale'/>
          </div>
-        :
-         null
       }
     </figure>
   )

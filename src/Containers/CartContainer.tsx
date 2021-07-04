@@ -12,6 +12,7 @@ import { IUser } from '../Interfaces/UserInterfaces'
 import { ICartState } from '../Redux/Cart/CartReducer'
 
 import CartPage from '../Routes/CartPage/CartPage'
+import useScrollToTop from '../Hooks/ScrollToTopHook'
 
 export interface ICartContainer {
   userUid: IUser['uid'],
@@ -32,6 +33,8 @@ export default function CartContainer() {
   const totalPrice = totalPriceItemsSelector(useAppSelector((state) => state))
 
   const dispatch = useAppDispatch()
+
+  useScrollToTop()
 
   useEffect(() => {
     dispatch(cartActions.getShopItemsFromCart(userUid))

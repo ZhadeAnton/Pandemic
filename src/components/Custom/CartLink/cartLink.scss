@@ -1,4 +1,5 @@
 @import '../../../Scss/mixins';
+@import '../../../Scss/variables';
 
 .cart-link {
   position: relative;
@@ -25,6 +26,12 @@
     &--count {
       color: var(--e-global-color-secondary);
       font-weight: 600;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__icon {
+      font-size: 1.3rem;
     }
   }
 }

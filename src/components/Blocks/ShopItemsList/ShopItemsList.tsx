@@ -27,7 +27,7 @@ export default function ShopItemsList(props: Props) {
   const springAnimation = shopListHook.shopItemsAnimation(props.shopItems)
 
   const handleButtonClick: IHandleAddCartButton = (shopItemId, shopItemName) => {
-    if (!props.userUid) {
+    if (props.userUid === undefined) {
       redirectToLogin('/login')
       return
     }
