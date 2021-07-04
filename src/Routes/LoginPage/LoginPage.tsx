@@ -1,53 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Nav, Tab } from 'react-bootstrap'
 
 import './loginPage.scss'
-import { useAppDispatch, useAppSelector } from '../../Hooks/PreTypedHooks'
-import { resetAuthenticationMessage } from '../../Redux/User/UserActionCreators'
+import { IAuthContainer } from '../../Containers/LoginContainer'
 
 import SignIn from '../../Components/Custom/SingIn/SignIn'
 import SignUp from '../../Components/Custom/SignUp/SignUp'
-import Heading from '../../Components/Blocks/Heading/Heading'
-import CustomToast from '../../Components/Custom/CustomToast/CustomToast'
+import BrandLogo from '../../Components/Custom/BrandLogo/BrandLogo'
 
-export default function LoginPage() {
-  const authenticationError = useAppSelector((state) => state.user.authenticationError!)
-  const isSignIn = useAppSelector((state) => state.user.isSignIn)
-  const isSignUp = useAppSelector((state) => state.user.isSignUp)
-  const dispatch = useAppDispatch()
-
-  useEffect(() => {
-    return () => {
-      dispatch(resetAuthenticationMessage())
-    }
-  }, [])
-
+export default function LoginPage(props: IAuthContainer) {
   return (
     <main className='login-page'>
-      <CustomToast
-        show={isSignIn}
-        type='success'
-        mainMessage="You are successfully siggned in!"
-        headerMessage="Signing up success!"
-        onReset={resetAuthenticationMessage}
-      />
-
-      <CustomToast
-        show={isSignUp}
-        type='success'
-        mainMessage="You are successfully siggned up and logged in!"
-        headerMessage="Signing up success!"
-        onReset={resetAuthenticationMessage}
-      />
-
-      <CustomToast
-        show={!!authenticationError}
-        type='error'
-        headerMessage="Authentication error"
-        mainMessage={authenticationError}
-        onReset={resetAuthenticationMessage}
-      />
-
       <section className='login-page__wrapper'>
         <div className='login-page__content'>
           <Tab.Container
@@ -106,10 +69,7 @@ export default function LoginPage() {
                 </Nav>
 
                 <div className='login-page__main--title'>
-                  <Heading
-                    title='Pandemic'
-                    subTitle='E-Sports'
-                  />
+                  <BrandLogo />
                 </div>
                 <Tab.Content>
                   <Tab.Pane eventKey="first">

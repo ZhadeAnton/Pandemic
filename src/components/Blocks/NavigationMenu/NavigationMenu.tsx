@@ -29,7 +29,7 @@ const navigationMenu = [
     ]},
   { title: 'blogs' },
   { title: 'shop', link: '/shop' },
-  { title: 'landing' }
+  { title: 'login', link: '/login' }
 ]
 
 interface Props {

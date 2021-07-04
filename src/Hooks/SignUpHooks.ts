@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { authenticationError, signUpWithEmail } from '../Redux/User/UserActionCreators';
+import { authMessage, signUpWithEmail } from '../Redux/User/UserActionCreators';
 import { useAppDispatch } from './PreTypedHooks';
 
 export default function useSignUp() {
@@ -24,7 +24,7 @@ export default function useSignUp() {
     event.preventDefault()
 
     if (password !== confirmPassword) {
-      dispatch(authenticationError('Passwords do not match!'))
+      dispatch(authMessage('Passwords do not match!'))
 
       return
     }

@@ -43,14 +43,14 @@ export interface SignInWithEmail {
   payload: userInterfaces.ISignInWithEmail
 }
 
-export const AUTHENTICATION_ERROR = 'AUTHENTICATION_ERROR'
+export const AUTHENTICATION_MESSAGE = 'AUTHENTICATION_MESSAGE'
 export interface AuthenticationError {
-  type: typeof AUTHENTICATION_ERROR,
+  type: typeof AUTHENTICATION_MESSAGE,
   payload: string
 }
 
 export const RESET_AUTHENTICATION_MESSAGE = 'RESET_AUTHENTICATION_MESSAGE'
-export interface ResetAuthenticationMessage {
+export interface ResetAuthMessage {
   type: typeof RESET_AUTHENTICATION_MESSAGE
 }
 
@@ -64,4 +64,4 @@ export type UserTypes =
 | SignOut
 | SignOutSucess
 | AuthenticationError
-| ResetAuthenticationMessage
+| ResetAuthMessage

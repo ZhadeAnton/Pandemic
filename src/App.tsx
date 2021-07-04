@@ -8,13 +8,13 @@ import { IAppContainer } from './Containers/AppContainer';
 
 import Header from './Components/Sections/Header/Header';
 import MainPage from './Routes/MainPage/MainPage';
-import LoginPage from './Routes/LoginPage/LoginPage';
 import PlayerInfo from './Routes/PlayerInfo/PlayerInfo';
 import TeamInfo from './Routes/Teaminfo/TeamInfo';
 import MatchInfo from './Routes/MatchInfo/MatchInfo';
 import ShopContainer from './Containers/ShopContainer';
 import ShopItemContainer from './Containers/ShopItemContainer';
 import CartContainer from './Containers/CartContainer';
+import LoginContainer from './Containers/LoginContainer';
 
 function App(props: IAppContainer) {
   return (
@@ -32,7 +32,7 @@ function App(props: IAppContainer) {
 
       <Switch>
         <Route exact path='/' component={MainPage} />
-        <Route exact path='/login' component={LoginPage} />
+        <Route exact path='/login' component={LoginContainer} />
         <Route path='/player/:playerId' component={PlayerInfo} />
         <Route path='/team/:teamId' component={TeamInfo} />
         <Route path='/match/:matchId' component={MatchInfo} />

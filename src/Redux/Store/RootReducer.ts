@@ -10,14 +10,21 @@ import cartReducer from '../Cart/CartReducer';
 
 const rootPersistConfig = {
   key: 'root',
-  storage: storage
+  storage: storage,
+  blacklist: ['user']
+}
+
+const userPersistConfig = {
+  key: 'user',
+  storage: storage,
+  blacklist: ['authError', 'authSuccess', 'isLoading']
 }
 
 const rootReducer = combineReducers({
   main: mainReducer,
   match: matchReducer,
   shop: shopReducer,
-  user: userReducer,
+  user: persistReducer(userPersistConfig, userReducer),
   cart: cartReducer,
 })
 
