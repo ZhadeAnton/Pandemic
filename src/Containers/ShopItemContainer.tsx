@@ -1,9 +1,13 @@
 import React from 'react'
+import useHistoryPush from '../Hooks/HistoryHook';
 
-import { useAppSelector } from '../Hooks/PreTypedHooks';
+import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHooks';
 import useScrollToTop from '../Hooks/ScrollToTopHook';
+import useShopToast from '../Hooks/ShopToastHook';
+import { IHandleAddCartButton } from '../Interfaces/CartInterfaces';
 import { ArrayOfShopItems } from '../Interfaces/ShopInterfaces';
 import { IUser } from '../Interfaces/UserInterfaces';
+import { addShopItemToCart } from '../Redux/Cart/CartActionCreators';
 import { IShopState } from '../Redux/Shop/ShopReducer';
 
 import ShopItemPage from '../Routes/ShopItemPage/ShopItemPage';
@@ -15,7 +19,8 @@ export interface IShopItemPageContainer {
   userUid: IUser['uid'],
   currentPage: number,
   itemsPerPage: number,
-  pagesLength: number
+  pagesLength: number,
+  handleAddItemToCart: IHandleAddCartButton
 }
 
 export default function ShopItemContainer() {
@@ -37,8 +42,22 @@ export default function ShopItemContainer() {
   ? shopItems.slice(indexOfFirstItem, indexOfLastItem)
   : shopItems
 
+  const dispatch = useAppDispatch()
+  const redirectToLogin = useHistoryPush()
+
+
   // Custom hook witch scrolling to the to of the page with useEffect()
   useScrollToTop()
+
+  const handleAddItemToCart: IHandleAddCartButton = (shopItemId, itemName) => {
+    if (userUid === undefined) {
+      redirectToLogin('/login')
+      return
+    }
+
+    dispatch(addShopItemToCart({userUid, shopItemId}))
+    useShopToast(itemName)
+  }
 
   return (
     <ShopItemPage
@@ -49,6 +68,7 @@ export default function ShopItemContainer() {
       itemsPerPage={itemsPerPage}
       pagesLength={pagesLength}
       slicedItems={slicedItems}
+      handleAddItemToCart={handleAddItemToCart}
     />
   )
 }

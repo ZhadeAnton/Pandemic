@@ -34,6 +34,7 @@ export default function CartContainer() {
 
   const dispatch = useAppDispatch()
 
+  // Custom hook witch scrolling to the to of the page with useEffect()
   useScrollToTop()
 
   useEffect(() => {

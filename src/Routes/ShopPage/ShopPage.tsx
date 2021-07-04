@@ -40,7 +40,7 @@ const ShopPage = (props: IShopPageContainer) => {
 
         <ShopItemsList
           shopItems={props.sortedItems}
-          userUid={props.userUid}
+          handleAddItemToCart={props.handleAddItemToCart}
         />
 
         <div className='shop__pagination'>

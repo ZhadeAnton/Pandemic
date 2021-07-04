@@ -15,7 +15,10 @@ export default function ShopItemPage(props: IShopItemPageContainer) {
   return (
     <main className='shop-item-page'>
       <section className='shop-item-page__section-item-info'>
-        <ShopItemInfo currentItem={props.currentItem}/>
+        <ShopItemInfo
+          currentItem={props.currentItem}
+          handleAddItemToCart={props.handleAddItemToCart}
+        />
       </section>
 
       <section className='shop-item-page__section-review container'>
@@ -33,7 +36,7 @@ export default function ShopItemPage(props: IShopItemPageContainer) {
 
         <ShopItemsList
           shopItems={props.slicedItems}
-          userUid={props.userUid}
+          handleAddItemToCart={props.handleAddItemToCart}
         />
 
         <div className='shop-item-page__related-items--pagination'>

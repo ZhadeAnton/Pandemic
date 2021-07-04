@@ -1,40 +1,22 @@
 import React from 'react'
 
 import './shopItemsList.scss'
-import { IUser } from '../../../Interfaces/UserInterfaces'
-import { IShopItem } from '../../../Interfaces/ShopInterfaces'
 import { IShopState } from '../../../Redux/Shop/ShopReducer'
+import { IHandleAddCartButton } from '../../../Interfaces/CartInterfaces'
 import useShopListAnimation from '../../../Hooks/ShopItemsListHooks'
 
 import Badge from '../../Custom/Badge/Badge'
-import useShopToast from '../../../Hooks/ShopToastHook'
-import useHistoryPush from '../../../Hooks/HistoryHook'
 
 interface Props {
   shopItems: IShopState['shopItems'],
-  userUid: IUser['uid']
-}
-
-interface IHandleAddCartButton {
-  (shopItemId: IShopItem['id'], shopItemName: IShopItem['title']): void
+  handleAddItemToCart: IHandleAddCartButton
 }
 
 export default function ShopItemsList(props: Props) {
   const shopListHook = useShopListAnimation()
-  const redirectToLogin = useHistoryPush()
 
   const animated = shopListHook.animated
   const springAnimation = shopListHook.shopItemsAnimation(props.shopItems)
-
-  const handleButtonClick: IHandleAddCartButton = (shopItemId, shopItemName) => {
-    if (props.userUid === undefined) {
-      redirectToLogin('/login')
-      return
-    }
-
-    shopListHook.handleAddShopItemToCart(props.userUid, shopItemId)
-    useShopToast(shopItemName)
-  }
 
   return (
     <ul className='shop-items-list'>
@@ -103,7 +85,8 @@ export default function ShopItemsList(props: Props) {
                   className='shop-item__content--button'
                   style={{transform: style.buttonTransform}}
                   onClick={() =>
-                    handleButtonClick(props.shopItems[i].id, props.shopItems[i].title)}
+                    props.handleAddItemToCart(
+                        props.shopItems[i].id, props.shopItems[i].title)}
                 >
                   Add to cart
                 </animated.button>

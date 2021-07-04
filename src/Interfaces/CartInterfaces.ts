@@ -34,3 +34,7 @@ export interface IFnDecreaseQuantity {
 export interface IFnClearCart {
   (userUid: IUser['uid']): any
 }
+
+export interface IHandleAddCartButton {
+  (shopItemId: IShopItem['id'], shopItemName: IShopItem['title']): void
+}

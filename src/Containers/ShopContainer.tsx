@@ -13,6 +13,10 @@ import {
 
 import ShopPage from '../Routes/ShopPage/ShopPage'
 import Preloader from '../Components/Custom/CubePreloader/CubePreloader'
+import { IHandleAddCartButton } from '../Interfaces/CartInterfaces'
+import { addShopItemToCart } from '../Redux/Cart/CartActionCreators'
+import useShopToast from '../Hooks/ShopToastHook'
+import useHistoryPush from '../Hooks/HistoryHook'
 
 export type IShopPageContainer = {
   userUid: IUser['uid']
@@ -28,7 +32,8 @@ export type IShopPageContainer = {
   currentPage: IShopState['currentPage'],
   pagesLength: number,
   onFilterItems: IFnFilterShopItems,
-  onSortItems: IFnFilterShopItems
+  onSortItems: IFnFilterShopItems,
+  handleAddItemToCart: IHandleAddCartButton
 }
 
 interface IFnFilterShopItems {
@@ -43,6 +48,7 @@ export default function ShopContainer() {
   const currentPage = useAppSelector((state) => state.shop.currentPage)
 
   const dispatch = useAppDispatch()
+  const redirectToLogin = useHistoryPush()
 
   const [filterBy, setFilterBy] = useState('Default')
   const [sortedBy, setSortedBy] = useState('Default')
@@ -75,6 +81,16 @@ export default function ShopContainer() {
     setSortedBy(sorting)
   }
 
+  const handleAddItemToCart: IHandleAddCartButton = (shopItemId, itemName) => {
+    if (userUid === undefined) {
+      redirectToLogin('/login')
+      return
+    }
+
+    dispatch(addShopItemToCart({userUid, shopItemId}))
+    useShopToast(itemName)
+  }
+
   useEffect(() => {
     dispatch(getShopItems())
   }, [])
@@ -97,6 +113,7 @@ export default function ShopContainer() {
       pagesLength={pagesLength}
       currentPage={currentPage}
       itemsPerPage={itemsPerPage}
+      handleAddItemToCart={handleAddItemToCart}
     />
   )
 }
