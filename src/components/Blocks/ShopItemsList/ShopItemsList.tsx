@@ -44,13 +44,10 @@ export default function ShopItemsList(props: Props) {
               />
 
               {
-                props.shopItems[i].sale
-                ?
+                props.shopItems[i].sale &&
                   <div className='shop-item__badge'>
                     <Badge title='Sale'/>
                   </div>
-                :
-                  null
               }
 
               <animated.div

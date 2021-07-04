@@ -1,7 +1,7 @@
 import {takeLatest, put, all, call} from 'redux-saga/effects'
 import * as actionCreators from './MatchActionCreators'
 import * as actionTypes from './MatchActionTypes'
-import * as api from '../../API/MatchAPI/MatchAPI'
+import * as api from '../../API/MatchAPI'
 
 function* sortMatches({payload}) {
   try {

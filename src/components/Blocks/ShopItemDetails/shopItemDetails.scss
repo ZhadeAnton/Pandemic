@@ -12,6 +12,8 @@
   }
 
   &__price {
+    color: var(--e-global-color-primary);
+    @include oswald-lg;
     margin-bottom: var(--space-md);
   }
 

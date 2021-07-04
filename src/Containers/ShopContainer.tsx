@@ -53,6 +53,10 @@ export default function ShopContainer() {
   const [filterBy, setFilterBy] = useState('Default')
   const [sortedBy, setSortedBy] = useState('Default')
 
+  useEffect(() => {
+    dispatch(getShopItems())
+  }, [])
+
   // Indexes of first and last items
   const indexOfLastItem = currentPage * itemsPerPage
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
@@ -90,10 +94,6 @@ export default function ShopContainer() {
     dispatch(addShopItemToCart({userUid, shopItemId}))
     useShopToast(itemName)
   }
-
-  useEffect(() => {
-    dispatch(getShopItems())
-  }, [])
 
   if (isLoading) return <Preloader />
 

@@ -14,7 +14,7 @@ function* addItemToCart({payload: {userUid, shopItemId}}) {
 
 function* removeItemFromCart({payload: {userUid, shopItemId, quantity}}) {
   try {
-    yield cartAPI.removeItemFromUserCart(userUid, shopItemId, quantity)
+    yield cartAPI.removeItemFromUserCart({userUid, shopItemId, quantity})
   } catch (erorr) {
     console.log(error)
   }

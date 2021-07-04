@@ -10,9 +10,10 @@ import {
   IFnIncreaseQuantity } from '../Interfaces/CartInterfaces'
 import { IUser } from '../Interfaces/UserInterfaces'
 import { ICartState } from '../Redux/Cart/CartReducer'
+import useScrollToTop from '../Hooks/ScrollToTopHook'
 
 import CartPage from '../Routes/CartPage/CartPage'
-import useScrollToTop from '../Hooks/ScrollToTopHook'
+import Preloader from '../Components/Custom/CubePreloader/CubePreloader'
 
 export interface ICartContainer {
   userUid: IUser['uid'],
@@ -56,6 +57,8 @@ export default function CartContainer() {
   const handleClearCart: IFnClearCart = () => {
     dispatch(cartActions.clearCart(userUid))
   }
+
+  if (isLoading) return <Preloader />
 
   return (
     <CartPage
