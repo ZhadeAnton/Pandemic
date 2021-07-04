@@ -38,11 +38,9 @@ export default function UserInformation(props: Props) {
               alt="User image"
             />
           :
-            <img
-              className='user-information__header--image'
-              src='https://i.ibb.co/Bfhrxx7/user-1.png'
-              alt="User image"
-            />
+          <i
+            className="bi bi-person-bounding-box user-information__header--image-icon"
+          />
         }
 
         <h3 className='user-information__header--name'>

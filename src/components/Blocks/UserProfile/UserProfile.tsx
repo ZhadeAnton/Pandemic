@@ -2,15 +2,18 @@ import React, { useState } from 'react'
 import { useSpring, animated } from 'react-spring'
 
 import './userProfile.scss'
-import { useAppSelector } from '../../../Hooks/PreTypedHooks'
+import { IUserState } from '../../../Redux/User/UserReducer'
 
 import UserAvatar from '../UserAvatar/UserAvatar'
 import UserInformation from '../UserInformation/UserInformation'
 import LoginButton from '../../Custom/LoginLink/LoginLink'
 
-export default function UserProfile() {
+interface Props {
+  currentUser: IUserState['currentUser']
+}
+
+export default function UserProfile(props: Props) {
   const [isVisible, setIsVisible] = useState(false)
-  const currentuser = useAppSelector((state) => state.user.currentUser!)
 
   const styles = useSpring({
     from: {opacity: 0},
@@ -26,14 +29,14 @@ export default function UserProfile() {
   return (
     <div className='user-profile'>
       {
-        currentuser
+        props.currentUser
         ?
           <>
             <div
               className='user-profile__avatar'
               onClick={() => setIsVisible(!isVisible)}
             >
-              <UserAvatar avatar={currentuser.photoURL}/>
+              <UserAvatar avatar={props.currentUser.photoURL}/>
             </div>
 
             <div
@@ -45,9 +48,9 @@ export default function UserProfile() {
                 ?
                   <animated.div style={styles}>
                     <UserInformation
-                      name={currentuser.displayName}
-                      email={currentuser.email}
-                      image={currentuser.photoURL}
+                      name={props.currentUser.displayName}
+                      email={props.currentUser.email}
+                      image={props.currentUser.photoURL}
                       onClose={handleCloseModal}
                     />
                   </animated.div>

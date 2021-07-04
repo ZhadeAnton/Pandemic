@@ -28,7 +28,10 @@ function App(props: IAppContainer) {
         }}
       />
 
-      <Header cartItemsLength={props.cartItemsLength}/>
+      <Header
+        currentUser={props.currentUser}
+        cartItemsLength={props.cartItemsLength}
+      />
 
       <Switch>
         <Route exact path='/' component={MainPage} />

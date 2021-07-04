@@ -1,6 +1,8 @@
 import React from 'react'
 
 import './header.scss'
+import { IUserState } from '../../../Redux/User/UserReducer'
+
 import BrandLogo from '../../Custom/BrandLogo/BrandLogo'
 import HamburgerMenu from '../../Custom/HamburgerMenu/HamburgerMenu'
 import NavigationMenu from '../../Blocks/NavigationMenu/NavigationMenu'
@@ -8,7 +10,8 @@ import UserProfile from '../../Blocks/UserProfile/UserProfile'
 import CartLink from '../../Custom/CartLink/CartLink'
 
 interface Props {
-  cartItemsLength: number | undefined
+  cartItemsLength: number | undefined,
+  currentUser: IUserState['currentUser']
 }
 
 function Header(props: Props) {
@@ -25,7 +28,7 @@ function Header(props: Props) {
         <div className='header__aside'>
           <CartLink itemsLength={props.cartItemsLength}/>
 
-          <UserProfile />
+          <UserProfile currentUser={props.currentUser}/>
 
           <HamburgerMenu className='header__aside--hamburger-menu' />
         </div>

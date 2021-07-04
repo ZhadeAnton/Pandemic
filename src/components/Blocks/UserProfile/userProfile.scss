@@ -1,9 +1,7 @@
+@import '../../../Scss/variables';
+
 .user-profile {
   position: relative;
-
-  &__avatar {
-    
-  }
 
   &__information {
     transition: all .2s ease;
@@ -12,5 +10,11 @@
     right: 0%;
     transform: translateY(3rem) !important;
     display: block;
+  }
+  
+  @include media-breakpoint-down(sm) {
+    &__information {
+      transform: translate(2rem, 3rem) !important;
+    }
   }
 }

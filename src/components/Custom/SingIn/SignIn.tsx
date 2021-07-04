@@ -20,10 +20,7 @@ export default function SignIn() {
   return (
     <>
       <Form className='sign-in'>
-        <Form.Group
-          className='sign-in__group'
-          controlId="formBasicEmail"
-        >
+        <Form.Group className='sign-in__group'>
           <Form.Label>Email address</Form.Label>
 
           <Form.Control
