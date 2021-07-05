@@ -2,7 +2,7 @@ import React from 'react'
 import moment from 'moment'
 
 import './matchDate.scss'
-import { IMatch } from '../../../Interfaces/MainInterfaces'
+import { IMatch } from '../../../Interfaces/MatchInterfaces'
 
 interface Props {
   date: IMatch['date']

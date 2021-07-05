@@ -1,7 +1,8 @@
 import React from 'react'
 
 import './playerInfo.scss'
-import { useAppSelector } from '../../Hooks/PreTypedHooks'
+import { IPlayerContainer } from '../../Containers/PlayerContainer'
+
 import PlayerAvatar from '../../Components/Blocks/PlayerAvatar/PlayerAvatar'
 import SocialList from '../../Components/Blocks/SocialList/SocialList'
 import StatsList from '../../Components/Blocks/StatsList/StatsList'
@@ -14,27 +15,20 @@ import PlayersList from '../../Components/Blocks/PlayersList/PlayersList'
 import ParallaxHeading from '../../Components/Sections/ParallaxHeading/ParallaxHeading'
 import Footer from '../../Components/Sections/Footer/Footer'
 
-function PlayerInfo() {
-  const currentPlayer = useAppSelector((state) => state.match.currentPlayer)
-  const relatedMatch = useAppSelector((state) => state.match.currentMatch)
-
-  const playerTag = currentPlayer?.team
-  const teammates = relatedMatch?.team1.tag === playerTag
-    ? relatedMatch?.team1.players : relatedMatch?.team2.players
-
+function PlayerInfo(props: IPlayerContainer) {
   return (
     <main className='player-page'>
       <section className='player-page__top-row-wrapper'>
         <div className='player-page__top-row container'>
-          <PlayerAvatar photo={currentPlayer!.photo} />
+          <PlayerAvatar photo={props.currentPlayer.photo} />
 
           <div className='player-page__player-info'>
             <h3 className='player-page__player-info--nickname'>
-              {currentPlayer!.nickname}
+              {props.currentPlayer.nickname}
             </h3>
 
             <h4 className='player-page__player-info--role'>
-              {currentPlayer!.role}
+              {props.currentPlayer.role}
             </h4>
 
             <div className='player-page__player-info--social'>
@@ -51,7 +45,7 @@ function PlayerInfo() {
       </section>
 
       <section className='player-page__stats-row-top'>
-        <StatsList valueStyle='medium' stats={currentPlayer!.stats} />
+        <StatsList size='medium' stats={props.currentPlayer.stats} />
       </section>
 
       <Devider />
@@ -61,12 +55,12 @@ function PlayerInfo() {
 
         <div className='player-page__about--content'>
           <article className='player-page__about--text'>
-            <PlainText text={currentPlayer!.about} />
+            <PlainText text={props.currentPlayer.about} />
           </article>
         </div>
 
         <div className='player-page__stats-row-bottom'>
-          <StatsList stats={currentPlayer!.measures} valueStyle='big' />
+          <StatsList stats={props.currentPlayer.measures} size='big' />
         </div>
       </section>
 
@@ -87,7 +81,7 @@ function PlayerInfo() {
           </div>
 
           <div className='player-page__related-teammates--list'>
-            <PlayersList players={teammates}/>
+            <PlayersList players={props.teammates}/>
           </div>
         </div>
       </section>

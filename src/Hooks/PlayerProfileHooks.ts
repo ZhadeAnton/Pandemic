@@ -1,6 +1,6 @@
 import { useAppDispatch } from './PreTypedHooks'
-import { IPlayer } from '../Interfaces/MainInterfaces'
 import { setCurrentPlayer } from '../Redux/Match/MatchActionCreators'
+import { IPlayer } from '../Interfaces/PlayerInterfaces'
 import useHistoryPush from './HistoryHook'
 
 export default function useSelectPlayer() {

@@ -1,4 +1,6 @@
-import { IMatch, IPlayer, ITeam } from '../../Interfaces/MainInterfaces'
+import { IMatch } from '../../Interfaces/MatchInterfaces'
+import { IPlayer } from '../../Interfaces/PlayerInterfaces'
+import { ITeam } from '../../Interfaces/TeamInterfaces'
 
 export const SORT_MATCHES = 'SORT_MATCHES'
 export interface SortMatches {

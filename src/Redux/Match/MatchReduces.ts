@@ -1,4 +1,6 @@
-import { IMatch, IPlayer, ITeam } from '../../Interfaces/MainInterfaces'
+import { IMatch } from '../../Interfaces/MatchInterfaces'
+import { IPlayer } from '../../Interfaces/PlayerInterfaces'
+import { ITeam } from '../../Interfaces/TeamInterfaces'
 import * as actions from './MatchActionTypes'
 
 export interface MatchState {

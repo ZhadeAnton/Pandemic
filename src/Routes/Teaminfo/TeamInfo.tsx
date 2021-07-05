@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './teamInfo.scss'
-import { useAppSelector } from '../../Hooks/PreTypedHooks'
+import { ITeamContainer } from '../../Containers/TeamContainer'
 
 import SponsorsSlider from '../../Components/Blocks/SponsorsSlider/SponsorsSlider'
 import ParallaxHeading from '../../Components/Sections/ParallaxHeading/ParallaxHeading'
@@ -9,9 +9,7 @@ import PlayersList from '../../Components/Blocks/PlayersList/PlayersList'
 import Footer from '../../Components/Sections/Footer/Footer'
 import Heading from '../../Components/Blocks/Heading/Heading'
 
-export default function TeamInfo() {
-  const currentTeam = useAppSelector((state) => state.match.currentTeam)
-
+export default function TeamInfo(props: ITeamContainer) {
   return (
     <main className='team-page'>
       <section className='team-page__main-info'>
@@ -20,25 +18,25 @@ export default function TeamInfo() {
           <div className='team-page__main-info--content'>
             <h3 className='team-page__main-info--title'>
               We are <span className='team-page__main-info--title-green'>
-                {currentTeam!.tag}</span> cyber sport team
+                {props.currentTeam.tag}</span> cyber sport team
             </h3>
 
             <p className='team-page__main-info--desc'>
-              {currentTeam?.about.description}
+              {props.currentTeam.about.description}
             </p>
           </div>
 
           <div className='team-page__main-info--image-wrapper'>
             <img
               className='team-page__main-info--image'
-              src={currentTeam!.logo}
+              src={props.currentTeam.logo}
               alt="Team logo"
             />
           </div>
         </div>
 
         <div className='team-page__main-info--sponsors container'>
-          <SponsorsSlider sponsors={currentTeam!.sponsors}/>
+          <SponsorsSlider sponsors={props.currentTeam.sponsors}/>
         </div>
       </section>
 
@@ -49,7 +47,7 @@ export default function TeamInfo() {
           </div>
 
           <div className='team-page__team--list'>
-            <PlayersList players={currentTeam?.players}/>
+            <PlayersList players={props.currentTeam.players}/>
           </div>
         </div>
       </section>

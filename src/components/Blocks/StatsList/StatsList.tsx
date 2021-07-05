@@ -4,7 +4,7 @@ import cn from 'classnames'
 import './statsList.scss'
 
 interface Props {
-  valueStyle: 'big' | 'medium' | 'small',
+  size: 'big' | 'medium' | 'small',
   stats: any,
 }
 
@@ -21,16 +21,13 @@ export default function StatsList(props: Props) {
                 key={idx}
               >
                 {
-                  item.icon
-                  ?
-                    <img
-                      className={cn(
-                          `line-stats__item${item.icon ? '-extended' : ''}--image`)}
-                      src={item.value}
-                      alt={item.title}
-                    />
-                  :
-                    null
+                  item.icon &&
+                  <img
+                    className={cn(
+                        `line-stats__item${item.icon ? '-extended' : ''}--image`)}
+                    src={item.value}
+                    alt={item.title}
+                  />
                 }
                 <div className={
                   cn(`line-stats__item${item.icon ? '-extended' : ''}--content`)
@@ -46,18 +43,18 @@ export default function StatsList(props: Props) {
                     ?
                     <h3 className={cn(
                         `line-stats__item${item.icon ? '-extended' : ''}--info`,
-                      props.valueStyle === 'big'
+                      props.size === 'big'
                         ? 'line-stats__item-extended--info-big' : '' ||
-                        props.valueStyle === 'medium'
+                        props.size === 'medium'
                         ? 'line-stats__item-extended--info-medium' : ''
                     )}>
                       {item.info}
                     </h3>
                     :
                     <h3 className={cn('line-stats__item--info',
-                      props.valueStyle === 'big'
+                      props.size === 'big'
                         ? 'line-stats__item-extended--info-big' : null ||
-                        props.valueStyle === 'medium'
+                        props.size === 'medium'
                         ? 'line-stats__item-extended--info-medium' : null
                     )}>
                       {item.value}
