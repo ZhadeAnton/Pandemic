@@ -1,33 +1,28 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import './matchFilter.scss'
-import { IDiscipline } from '../../../Interfaces/MainInterfaces'
-import { useAppDispatch, useAppSelector } from '../../../Hooks/PreTypedHooks'
-import { sortMatches } from '../../../Redux/Match/MatchActionCreators'
+import { ArrayOfIDisciplines, IDiscipline } from '../../../Interfaces/MainInterfaces'
+import useMatchFilter from '../../../Hooks/MatchfilterHook'
 
-export default function MatchFilter() {
-  const disciplines = useAppSelector((state) => state.main.disciplines)
-  const initialLatestmatches = useAppSelector((state) => state.match.initialLatestMatches)
+interface Props {
+  disciplines: ArrayOfIDisciplines,
+  initialLatestMatches: string
+}
 
-  const dispatch = useAppDispatch()
-  const [active, setActive] = useState(initialLatestmatches)
-
-  function handleActiveItem(discipline: string) {
-    dispatch(sortMatches(discipline))
-    setActive(discipline)
-  }
+export default function MatchFilter(props: Props) {
+  const matchFilter = useMatchFilter(props.initialLatestMatches)
 
   return (
     <nav className='match-filter'>
       <ul className='match-filter__list'>
         {
-          disciplines.map((discipline: IDiscipline, idx: number) => {
+          props.disciplines.map((discipline: IDiscipline, idx: number) => {
             return (
               <li
-                className={active === discipline.name
+                className={matchFilter.active === discipline.name
                   ? 'match-filter__item--active': 'match-filter__item'}
                 key={idx}
-                onClick={() => handleActiveItem(discipline.name)}
+                onClick={() => matchFilter.handleActiveItem(discipline.name)}
               >
                 <h3 className='match-filter__item--title'>
                   {discipline.name}

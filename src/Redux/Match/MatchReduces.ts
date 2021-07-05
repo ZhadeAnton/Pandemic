@@ -3,7 +3,7 @@ import { IPlayer } from '../../Interfaces/PlayerInterfaces'
 import { ITeam } from '../../Interfaces/TeamInterfaces'
 import * as actions from './MatchActionTypes'
 
-export interface MatchState {
+export interface IMatchState {
   matches: Array<IMatch> | [],
   currentMatch: IMatch | null,
   currentPlayer: IPlayer | null,
@@ -15,7 +15,7 @@ export interface MatchState {
   isLoading: boolean
 }
 
-const INITIAL_STATE: MatchState = {
+const INITIAL_STATE: IMatchState = {
   matches: [],
   currentMatch: null,
   currentPlayer: null,
@@ -28,7 +28,7 @@ const INITIAL_STATE: MatchState = {
 }
 
 const matchReducer =
-  (state = INITIAL_STATE, action: actions.MatchTypes): MatchState => {
+  (state = INITIAL_STATE, action: actions.MatchTypes): IMatchState => {
     switch (action.type) {
       case actions.SORT_MATCHES:
         return {

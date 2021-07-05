@@ -1,9 +1,9 @@
 import * as actions from './MainActionsTypes'
-import { IAnnounce, IDiscipline } from '../../Interfaces/MainInterfaces';
+import { ArrayOfAnnounces, ArrayOfIDisciplines } from '../../Interfaces/MainInterfaces';
 
 export interface MainState {
-  announces: Array<IAnnounce> | [],
-  disciplines: Array<IDiscipline> | []
+  announces: ArrayOfAnnounces | [],
+  disciplines: ArrayOfIDisciplines | []
 }
 
 const INITIAL_STATE: MainState = {

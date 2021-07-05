@@ -2,8 +2,7 @@ import React from 'react'
 import { Pagination } from 'react-bootstrap'
 
 import './pagination..scss'
-import { useAppDispatch } from '../../../Hooks/PreTypedHooks'
-import * as actionCreators from '../../../Redux/General/GeneralActionCreators'
+import usePagination from '../../../Hooks/PaginationHook'
 
 import PageItem from 'react-bootstrap/PageItem'
 
@@ -14,39 +13,31 @@ interface Props {
 }
 
 function CustomPagination(props: Props) {
-  const dispatch = useAppDispatch()
-  const pageNumbers = []
-
-  for (let i = 1; i <= props.pagesLength; i++) {
-    pageNumbers.push(i)
-  }
-
-  const nextArrowDisable = props.currentPage > props.pagesLength - 1 ? true : false
-  const prevArrowDisable = props.currentPage === 1 ? true : false
+  const pagination = usePagination(props.pagesLength, props.currentPage)
 
   return (
     props.pagesLength > 1
     ?
       <Pagination>
         <Pagination.First
-          disabled={prevArrowDisable}
-          onClick={() =>dispatch(actionCreators.setFirstPage())}
+          disabled={pagination.prevArrowDisable}
+          onClick={pagination.handleSetFirstPage}
         />
 
         <PageItem
-          disabled={prevArrowDisable}
-          onClick={() =>dispatch(actionCreators.setPrevPage())}
+          disabled={pagination.prevArrowDisable}
+          onClick={pagination.handleSetPrevPage}
         >
           Prev
         </PageItem>
 
         {
-          pageNumbers.map((num: number, idx: number) => {
+          pagination.pageNumbers.map((num: number, idx: number) => {
             return (
               <PageItem
                 key={idx}
                 active={props.currentPage === num}
-                onClick={() => dispatch(actionCreators.setPageNumber(num))}
+                onClick={() => pagination.handleSetPageNumber(num)}
               >
                 {num}
               </PageItem>
@@ -55,15 +46,15 @@ function CustomPagination(props: Props) {
         }
 
         <Pagination.Next
-          disabled={nextArrowDisable}
-          onClick={() => dispatch(actionCreators.setNextPage())}
+          disabled={pagination.nextArrowDisable}
+          onClick={() => pagination.handleSetNexPage()}
         >
           Next
         </Pagination.Next>
 
         <Pagination.Last
-          disabled={nextArrowDisable}
-          onClick={() => dispatch(actionCreators.setLastPage(props.pagesLength))} />
+          disabled={pagination.nextArrowDisable}
+          onClick={() => pagination.handleSetLastPage(props.pagesLength)} />
       </Pagination>
     :
       null
