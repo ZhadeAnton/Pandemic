@@ -1,5 +1,14 @@
 import { auth, db } from '../Firebase/firebase.config'
+import { IShopItem } from '../Interfaces/ShopInterfaces'
 import { IUser } from '../Interfaces/UserInterfaces'
+
+interface IFnFilterUserCart {
+  (userCart: IUser['cart'], shopItemId: IShopItem['id']): Array<IShopItem['id']>
+}
+
+interface IFnAddItemToUserCart {
+  (userCart: IUser['cart'], shopItemId: IShopItem['id']): Array<IShopItem['id']>
+}
 
 export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
@@ -37,4 +46,12 @@ export const creacteUserProfileDocument = async (
     }
   }
   return userRef;
+}
+
+export const removeItemFromCart: IFnFilterUserCart = (userCart, shopItemId) => {
+  return userCart.filter((item) => item !== shopItemId)
+}
+
+export const addItemToCart: IFnAddItemToUserCart = (userCart, shopItemId) => {
+  return userCart.includes(shopItemId) ? userCart : userCart.concat(shopItemId)
 }

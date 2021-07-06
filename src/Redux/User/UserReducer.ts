@@ -3,6 +3,7 @@ import * as cartTypes from '../Cart/CartActionTypes'
 import { UserTypes } from './UserActionTypes'
 import { CartTypes } from '../Cart/CartActionTypes'
 import { IUser } from './../../Interfaces/UserInterfaces';
+import { addItemToCart, removeItemFromCart } from '../../Utils/UserUtils';
 
 export interface IUserState {
   currentUser: IUser | null,
@@ -57,9 +58,7 @@ const userReducer = (state = INITIAL_STATE, action: UserReducer) => {
         ...state,
         currentUser: {
           ...state.currentUser,
-          cart: state.currentUser?.cart.includes(action.payload.shopItemId)
-            ? state.currentUser?.cart
-            : state.currentUser?.cart.concat(action.payload.shopItemId)
+          cart: addItemToCart(state.currentUser!.cart, action.payload.shopItemId)
         }
       } as IUserState
 
@@ -68,8 +67,7 @@ const userReducer = (state = INITIAL_STATE, action: UserReducer) => {
         ...state,
         currentUser: {
           ...state.currentUser,
-          cart: state.currentUser?.cart.filter(
-              (item) => item !== action.payload.shopItemId)
+          cart: removeItemFromCart(state.currentUser!.cart, action.payload.shopItemId)
         }
       } as IUserState
 

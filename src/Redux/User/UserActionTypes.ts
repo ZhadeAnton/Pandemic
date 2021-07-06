@@ -1,4 +1,7 @@
-import * as userInterfaces from '../../Interfaces/UserInterfaces'
+import {
+  ISignInWithEmail,
+  ISignUpWithEmail,
+  IUser } from '../../Interfaces/UserInterfaces'
 
 export const GOOGLE_SIGN_IN_START = 'GOOGLE_SIGN_IN_START'
 export interface GoogleSignInStart {
@@ -13,7 +16,7 @@ export interface FacebookSignInStart {
 export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS'
 export interface SignInSuccess {
   type: typeof SIGN_IN_SUCCESS,
-  payload: userInterfaces.IUser
+  payload: IUser
 }
 
 export const SIGN_OUT = 'SIGN_OUT'
@@ -34,13 +37,13 @@ export interface SignUpSucess {
 export const SIGN_UP_WITH_EMAIL = 'SIGN_UP_WITH_EMAIL'
 export interface SignUpWithEmail {
   type: typeof SIGN_UP_WITH_EMAIL,
-  payload: userInterfaces.ISignUpWithEmail
+  payload: ISignUpWithEmail
 }
 
 export const SIGN_IN_WITH_EMAIL = 'SIGN_IN_WITH_EMAIL'
 export interface SignInWithEmail {
   type: typeof SIGN_IN_WITH_EMAIL,
-  payload: userInterfaces.ISignInWithEmail
+  payload: ISignInWithEmail
 }
 
 export const AUTHENTICATION_MESSAGE = 'AUTHENTICATION_MESSAGE'

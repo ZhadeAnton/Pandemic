@@ -21,6 +21,14 @@ interface IParsCartItemsPrice {
   (itemPrice: ICartItem['price'] | ICartItem['newPrice']): number
 }
 
+interface IFnFilterCartItem {
+  (cartItems: ArrayICartItems, cartItemId: ICartItem['id']): ArrayICartItems
+}
+
+export const removeCartItem: IFnFilterCartItem = (cartItems, cartItemId) => {
+  return cartItems.filter((item) => item.id !== cartItemId)
+}
+
 export const increaseItemQuantity: IIncreaseItemsQuantity = (cartItems, newItem) => {
   const excistingItem = cartItems.find((item) =>
     item.id === newItem.id

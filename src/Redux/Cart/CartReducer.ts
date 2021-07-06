@@ -1,8 +1,10 @@
 import * as cartTypes from './CartActionTypes'
 import { CartTypes } from './CartActionTypes';
 import { ArrayICartItems } from '../../Interfaces/CartInterfaces';
-import { increaseItemQuantity,
-  decreaseItemQuantity } from '../../Utils/CartUtils';
+import {
+  increaseItemQuantity,
+  decreaseItemQuantity,
+  removeCartItem } from '../../Utils/CartUtils';
 
 export interface ICartState {
   cartItems: ArrayICartItems,
@@ -32,8 +34,7 @@ const cartReducer = (state = INITIAL_STATE, action: CartTypes): ICartState => {
     case cartTypes.REMOVE_ITEM_FROM_CART:
       return {
         ...state,
-        cartItems: state.cartItems.filter(
-            (item) => item.id !== action.payload.shopItemId)
+        cartItems: removeCartItem(state.cartItems, action.payload.shopItemId)
       }
 
     case cartTypes.INCREASE_QUANTITY:
