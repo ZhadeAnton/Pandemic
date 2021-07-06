@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHook';
 import useScrollToTop from '../Hooks/ScrollToTopHook';
 import useShopToast from '../Hooks/ShopToastHook';
 import { IHandleAddCartButton } from '../Interfaces/CartInterfaces';
-import { ArrayOfShopItems } from '../Interfaces/ShopInterfaces';
+import { ArrayOfShopItems, IShopItem } from '../Interfaces/ShopInterfaces';
 import { IUser } from '../Interfaces/UserInterfaces';
 import { addShopItemToCart } from '../Redux/Cart/CartActionCreators';
 import { IShopState } from '../Redux/Shop/ShopReducer';
@@ -13,7 +13,7 @@ import { IShopState } from '../Redux/Shop/ShopReducer';
 import ShopItemPage from '../Routes/ShopItemPage/ShopItemPage';
 
 export interface IShopItemPageContainer {
-  currentItem: IShopState['currentShopItem'],
+  currentItem: IShopItem,
   shopItems: IShopState['shopItems'],
   slicedItems: ArrayOfShopItems,
   userUid: IUser['uid'],
@@ -25,7 +25,7 @@ export interface IShopItemPageContainer {
 
 export default function ShopItemContainer() {
   const userUid = useAppSelector((state) => state.user.currentUser?.uid)
-  const currentItem = useAppSelector((state) => state.shop.currentShopItem)
+  const currentItem = useAppSelector((state) => state.shop.currentShopItem!)
   const shopItems = useAppSelector((state) => state.shop.shopItems)
   const itemsPerPage = useAppSelector((state) => state.shop.itemsPerPage)
   const currentPage = useAppSelector((state) => state.shop.currentPage)

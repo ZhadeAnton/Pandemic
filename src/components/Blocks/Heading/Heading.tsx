@@ -15,15 +15,14 @@ function Heading(props: Props) {
         <h2 className='brand-heading--title'>
           {props.title}
         </h2>
+
         {
-          props.subTitle
-          ?
-            <h6 className='brand-heading--sub-title'>
-              {props.subTitle}
-            </h6>
-          :
-          null
+          props.subTitle &&
+          <h6 className='brand-heading--sub-title'>
+            {props.subTitle}
+          </h6>
         }
+
         <span className='brand-heading--line'></span>
       </div>
     </Slide>

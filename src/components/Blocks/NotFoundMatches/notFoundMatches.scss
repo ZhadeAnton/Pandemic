@@ -1,8 +1,8 @@
 @import '../../../scss/variables';
+@import '../../../scss/mixins';
 
 .not-found-matches {
-  width: 100%;
-  height: 100%;
+  @include full-size;
   text-align: center;
   color: var(--e-global-color-primary);
 

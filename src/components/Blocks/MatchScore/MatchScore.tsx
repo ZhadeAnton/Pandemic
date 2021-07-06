@@ -13,9 +13,17 @@ export default function MatchScore(props: Props) {
 
   return (
     <div className='match-score'>
-      <span>{leftNumberOfScore}</span>
-      <span className='match-score__separator'>:</span>
-      <span>{rightNumberOfScore}</span>
+      <span>
+        {leftNumberOfScore}
+      </span>
+
+      <span className='match-score__separator'>
+        :
+      </span>
+
+      <span>
+        {rightNumberOfScore}
+      </span>
     </div>
   )
 }

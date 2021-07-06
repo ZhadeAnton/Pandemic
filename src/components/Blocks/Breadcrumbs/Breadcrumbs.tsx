@@ -1,16 +1,16 @@
 import React from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import cn from 'classnames'
 
 import './breadcrumbs.scss'
+import useCurrentLocation from '../../../Hooks/CurrentLocationHook'
 
 interface Props {
   crumbs: Array<string>
 }
 
 export default function Breadcrumbs(props: Props) {
-  const location = useLocation()
-  const currentLocation = location.pathname.slice(1)
+  const currentLocation = useCurrentLocation()
 
   return (
     <nav className='breadcrumbs'>

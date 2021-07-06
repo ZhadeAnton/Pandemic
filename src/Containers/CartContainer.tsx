@@ -14,6 +14,7 @@ import useScrollToTop from '../Hooks/ScrollToTopHook'
 
 import CartPage from '../Routes/CartPage/CartPage'
 import Preloader from '../Components/Custom/Preloader/Preloader'
+import useHistoryPush from '../Hooks/HistoryHook'
 
 export interface ICartContainer {
   userUid: IUser['uid'],
@@ -35,10 +36,17 @@ export default function CartContainer() {
 
   const dispatch = useAppDispatch()
 
+  const redirectToLogin = useHistoryPush()
+
   // Custom hook witch scrolling to the to of the page with useEffect()
   useScrollToTop()
 
   useEffect(() => {
+    if (!userUid) {
+      redirectToLogin('login')
+      return
+    }
+
     dispatch(cartActions.getShopItemsFromCart(userUid))
   }, [])
 

@@ -10,7 +10,9 @@ export default function AlternativeSignIn() {
 
   return (
     <div className='alternative-sign-in'>
-      <h2 className='alternative-sign-in__title'>or</h2>
+      <h2 className='alternative-sign-in__title'>
+        or
+      </h2>
 
       <AlternativeButton
         icon='google'

@@ -22,6 +22,7 @@ function* removeItemFromCart({payload: {userUid, shopItemId, quantity}}) {
 
 function* getItemsFromCart({payload: userUid}) {
   try {
+    yield console.log('SAGA', userUid)
     const cartItems = yield cartAPI.getShopItemsFromUserCart(userUid)
     yield put(getShopItemsFromCartSucces(cartItems))
   } catch (erorr) {

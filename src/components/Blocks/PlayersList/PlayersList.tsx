@@ -1,7 +1,6 @@
 import React from 'react'
 
 import './playersList.scss'
-
 import { IArrayOfPlayers } from '../../../Interfaces/PlayerInterfaces'
 
 import PlayerItem from '../PlayerItem/PlayerItem'

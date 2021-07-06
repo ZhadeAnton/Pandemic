@@ -1,50 +1,19 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
-import cn from 'classnames'
 
 import './navigationMenu.scss'
+import { headerNavMenu } from '../../../Utils/HeaderUtils'
 
-const navigationMenu = [
-  {title: 'homepage', link: '/',
-    ul:
-    [
-      'home esports',
-      'home magazine',
-      'home white',
-      'home shop',
-      'home team'
-    ]},
-  {title: 'pages',
-    ul: [
-      'about us',
-      'sponsors',
-      'contact us'
-    ]},
-  {title: 'matches',
-    ul: [
-      'match',
-      'team',
-      'player'
-    ]},
-  { title: 'blogs' },
-  { title: 'shop', link: '/shop' },
-  { title: 'login', link: '/login' }
-]
 
-interface Props {
-  className?: string
-  classNameLinks: string,
-}
-
-function NavigationMenu(props: Props) {
+function NavigationMenu() {
   return (
     <Nav
-      className={cn('navigation-menu d-none d-lg-flex', `${props.className}`)}
+      className='navigation-menu d-none d-lg-flex'
       as='ul'
     >
       {
-        navigationMenu.map((menuItem, idx) => {
+        headerNavMenu.map((menuItem, idx) => {
           return (
             <Nav.Item
               className='navigation-menu__item'
@@ -52,7 +21,7 @@ function NavigationMenu(props: Props) {
               key={idx}
             >
               <NavLink
-                className={`${props.classNameLinks}`}
+                className='header__link'
                 to={`${menuItem.link}`}
               >
                 {menuItem.title}
@@ -74,7 +43,7 @@ function NavigationMenu(props: Props) {
                               key={idx}
                             >
                               <Nav.Link
-                                className={`${props.classNameLinks}`}
+                                className='header__link'
                                 as='a'
                               >
                                 {subMenuItem}

@@ -3,12 +3,12 @@
 @import '../../../Scss/typography';
 
 .match__date {
+  width: 13.75rem;
+  height: 2.5rem;
   @include flex-center;
   @include date;
   @include abs-position(auto, auto, -2%, 50%);
   transform: translate(-50%, 0);
-  width: 13.75rem;
-  height: 2.5rem;
   opacity: .8;
   border-radius: 0 0 1.25rem 1.25rem;
   background-color: var(--e-global-color-secondary);

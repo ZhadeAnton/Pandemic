@@ -1,4 +1,5 @@
 @import '../../../Scss/typography';
+@import '../../../Scss/mixins';
 
 .breadcrumbs {
   width: 100%;
@@ -13,10 +14,8 @@
       &:not(:last-child) {
         &::after {
           content: '\00bb';
-          position: absolute;
-          top: 0;
-          left: 80%;
           height: 100%;
+          @include abs-position(0, auto, auto, 80%);
           color: var(--e-global-color-primary);
         }
       }
@@ -24,12 +23,12 @@
 
     &--link {
       margin-right: 1rem;
-      color: #c1c1c1;
       @include montserat-medium;
+      color: var(--e-global-color-grey-light);
 
       &:hover {
         opacity: .9;
-        color: #c1c1c1;
+        color: var(--e-global-color-grey-light);
       }
 
       &-active {

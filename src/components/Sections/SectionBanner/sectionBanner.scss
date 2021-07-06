@@ -3,8 +3,7 @@
 @import '../../../Scss/typography';
 
 .section-banner {
-  width: 100%;
-  height: 100%;
+  @include full-size;
   padding: var(--space-huge) 0;
   background-image: url(../../../Assets/JPG/team-bg.jpg);
   @include cover-background;
@@ -12,13 +11,10 @@
   position: relative;
 
   &__overlay {
-    background: rgba(14,16,23,.65);
-    position: absolute;
-    top: 0;
-    left: 0;
+    @include full-size;
+    @include abs-position(0, auto, auto, 0);
     z-index: 0;
-    width: 100%;
-    height: 100%;
+    background: rgba(14,16,23,.65);
   }
 
   [data-banner]::after {
@@ -26,23 +22,20 @@
   }
 
   &__wrapper {
+    @include full-size;
     position: relative;
-    width: 100%;
-    height: 100%;
 
     &:after {
-      @include abs-full;
-      top: -90%;
-      left: 5%;
+      @include abs-position(-90%, auto, auto, 5%);
       @include archivo-xxl;
       z-index: 1;
     }
   }
   
   &__content {
+    height: 100%;
     z-index: 10;
     position: relative;
-    height: 100%;
   }
 
   &__breadcrumbs {

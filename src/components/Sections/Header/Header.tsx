@@ -20,10 +20,9 @@ function Header(props: Props) {
       <div className='header__wrapper'>
         <BrandLogo />
 
-        <NavigationMenu
-          className='header__navigation'
-          classNameLinks='header__link'
-        />
+        <div className='header__navigation'>
+          <NavigationMenu />
+        </div>
 
         <div className='header__aside'>
           <CartLink itemsLength={props.cartItemsLength}/>

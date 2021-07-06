@@ -2,19 +2,16 @@
 @import '../../../scss/mixins';
 
 .latest-matches {
-  width: 100%;
-  height: 100%;
+  @include full-size;
   overflow: hidden;
   padding-top: var(--space-xl);
 
   &__wrapper {
-    height: 100%;
-    width: 100%;
+    @include full-size;
   }
 
   &__heading {
-    height: 100%;
-    width: 100%;
+    @include full-size;
     display: inline-block;
   }
 
@@ -23,10 +20,9 @@
   }
 
   &__list {
-    padding: 3rem 0 !important;
+    @include full-size;
     min-height: 20rem;
-    height: 100%;
-    width: 100%;
+    padding: 3rem 0 !important;
     position: relative;
   }
 

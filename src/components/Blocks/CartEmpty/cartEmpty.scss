@@ -5,6 +5,7 @@
   @include roboto-medium;
   @include flex-center;
   flex-direction: column;
+  padding: 1rem;
 
   &__top-row {
     @include flex-center;
