@@ -1,3 +1,4 @@
+import { IDiscipline } from './MainInterfaces';
 import { ITeam } from './TeamInterfaces';
 
 export interface IMatchStats {
@@ -21,3 +22,7 @@ export interface IMatch {
 }
 
 export type ArrayOfMatches = Array<IMatch>
+
+export interface IFnGetMatchesByDiscipline {
+  (discipline: IDiscipline): any
+}

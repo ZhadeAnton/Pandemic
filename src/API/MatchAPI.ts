@@ -1,41 +1,32 @@
 import { db } from '../Firebase/firebase.config';
+import { IFnGetMatchesByDiscipline } from '../Interfaces/MatchInterfaces';
 import {
   mapDocsWithId,
+  mapDocs,
   awaitMatchWithReferences
 } from '../Utils/APIUtils'
 
-export function fetchAnnounces() {
+export function getAnnounces() {
   return db.collection('announces')
       .get()
       .then(mapDocsWithId)
 }
 
-export function fetchListOfDiscipines() {
+export function getListOfDiscipines() {
   return db.collection('disciplines')
       .get()
-      .then(mapDocsWithId)
+      .then(mapDocs)
       .then((res) => {
-        const list = []
-        res.forEach((item) => {
-          list.push(item.list)
-        })
+        const listOfDisciplines = [...res[0].list]
 
-        return list[0]
+        return [...listOfDisciplines]
       })
 }
 
-export function fetchMatchesByDiscipline(discipline) {
+export const getMatchesByDiscipline: IFnGetMatchesByDiscipline = (discipline) => {
   return db.collection('latest-matches')
       .where('discipline', '==', `${discipline}`)
       .get()
       .then(mapDocsWithId)
       .then(awaitMatchWithReferences)
-}
-
-export function fetchTeammatesByTag(tag) {
-  return db.collection('teams')
-      .where('tag', '==', `${tag}`)
-      .get()
-      .then(mapDocsWithId)
-      .then((res) => awaitItems(res[0]))
 }

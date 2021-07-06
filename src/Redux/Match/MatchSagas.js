@@ -5,7 +5,7 @@ import * as api from '../../API/MatchAPI'
 
 function* sortMatches({payload}) {
   try {
-    const sortedMatches = yield api.fetchMatchesByDiscipline(payload)
+    const sortedMatches = yield api.getMatchesByDiscipline(payload)
     yield put(actionCreators.sortMatchesSuccess(sortedMatches))
   } catch (error) {
     console.log(error)

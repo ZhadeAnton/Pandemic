@@ -19,13 +19,13 @@ export default function MatchFilter(props: Props) {
           props.disciplines.map((discipline: IDiscipline, idx: number) => {
             return (
               <li
-                className={matchFilter.active === discipline.name
+                className={matchFilter.active === discipline
                   ? 'match-filter__item--active': 'match-filter__item'}
                 key={idx}
-                onClick={() => matchFilter.handleActiveItem(discipline.name)}
+                onClick={() => matchFilter.handleActiveItem(discipline)}
               >
                 <h3 className='match-filter__item--title'>
-                  {discipline.name}
+                  {discipline}
                 </h3>
               </li>
             )
