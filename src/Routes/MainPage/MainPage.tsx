@@ -6,6 +6,7 @@ import { IMainPagecontainer } from '../../Containers/MainPageContainer'
 import HeroSection from '../../Components/Sections/HeroSection/HeroSection'
 import AnnounceSlider from '../../Components/Sections/AnnounceSlider/AnnounceSlider'
 import LatestMatches from '../../Components/Sections/LatestMatches/LatestMatches'
+import Footer from '../../Components/Sections/Footer/Footer'
 
 function MainPage(props: IMainPagecontainer) {
   return (
@@ -27,6 +28,8 @@ function MainPage(props: IMainPagecontainer) {
           isLoading={props.isLoading}
         />
       </div>
+
+      <Footer />
     </section>
   )
 }

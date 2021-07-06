@@ -8,7 +8,7 @@ import Footer from '../../Components/Sections/Footer/Footer'
 import CartShowResult from '../../Components/Blocks/CartShowResult/CartShowResult'
 import CustomDropdown from '../../Components/Custom/CustomDropdown/CustomDropdown'
 import ShopItemsList from '../../Components/Blocks/ShopItemsList/ShopItemsList'
-import CustomPagination from '../../Components/Custom/Pagination/Pagination'
+import CustomPagination from '../../Components/Blocks/Pagination/Pagination'
 
 const ShopPage = (props: IShopPageContainer) => {
   return (

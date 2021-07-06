@@ -5,28 +5,27 @@
   height: auto;
 
   &__image {
-    width: 150px;
-    height: 50px;
+    width: 9.375rem;
+    height: 3.125rem;
   }
   
   @include media-breakpoint-down(lg) {
     &__image {
-      width: 140px;
-      height: 40px;
+      width: 8.75rem;
+      height: 2.5rem;
     }
   }
 
   @include media-breakpoint-down(md) {
     &__image {
-      width: 120px;
-      height: 40px;
+      width: 7.5rem;
     }
   }
 
   @include media-breakpoint-down(sm) {
     &__image {
-      width: 100px;
-      height: 32px;
+      width: 6.25rem;
+      height: 2rem;
     }
   }
 }

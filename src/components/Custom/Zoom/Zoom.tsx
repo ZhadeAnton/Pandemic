@@ -41,7 +41,7 @@ export default function Zoom(props: Props) {
       {
         props.sale &&
          <div className='zoom__badge'>
-           <Badge title='Sale'/>
+           <Badge>Sale</Badge>
          </div>
       }
     </figure>

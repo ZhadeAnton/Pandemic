@@ -13,7 +13,7 @@ import { ICartState } from '../Redux/Cart/CartReducer'
 import useScrollToTop from '../Hooks/ScrollToTopHook'
 
 import CartPage from '../Routes/CartPage/CartPage'
-import Preloader from '../Components/Custom/CubePreloader/CubePreloader'
+import Preloader from '../Components/Custom/Preloader/Preloader'
 
 export interface ICartContainer {
   userUid: IUser['uid'],
@@ -58,7 +58,7 @@ export default function CartContainer() {
     dispatch(cartActions.clearCart(userUid))
   }
 
-  if (isLoading) return <Preloader />
+  if (isLoading) return <Preloader preloader='cube'/>
 
   return (
     <CartPage

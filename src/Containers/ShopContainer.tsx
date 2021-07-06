@@ -12,7 +12,7 @@ import {
   filterShopItemsByTag, } from '../Utils/SortUtils'
 
 import ShopPage from '../Routes/ShopPage/ShopPage'
-import Preloader from '../Components/Custom/CubePreloader/CubePreloader'
+import Preloader from '../Components/Custom/Preloader/Preloader'
 import { IHandleAddCartButton } from '../Interfaces/CartInterfaces'
 import { addShopItemToCart } from '../Redux/Cart/CartActionCreators'
 import useShopToast from '../Hooks/ShopToastHook'
@@ -95,7 +95,7 @@ export default function ShopContainer() {
     useShopToast(itemName)
   }
 
-  if (isLoading) return <Preloader />
+  if (isLoading) return <Preloader preloader='cube'/>
 
   return (
     <ShopPage

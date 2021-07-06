@@ -3,13 +3,13 @@ import React from 'react'
 import './shopItemPage.scss'
 
 import ShopItemInfo from '../../Components/Sections/ShopItemInfo/ShopItemInfo'
-import ReviewsTabs from '../../Components/Custom/ReviewsTabs/ReviewsTabs'
+import ReviewsTabs from '../../Components/Blocks/ReviewsTabs/ReviewsTabs'
 import Footer from '../../Components/Sections/Footer/Footer'
 import {
   IShopItemPageContainer
 } from '../../Containers/ShopItemContainer'
 import ShopItemsList from '../../Components/Blocks/ShopItemsList/ShopItemsList'
-import CustomPagination from '../../Components/Custom/Pagination/Pagination'
+import CustomPagination from '../../Components/Blocks/Pagination/Pagination'
 
 export default function ShopItemPage(props: IShopItemPageContainer) {
   return (

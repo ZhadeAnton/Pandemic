@@ -46,7 +46,7 @@ export default function ShopItemsList(props: Props) {
               {
                 props.shopItems[i].sale &&
                   <div className='shop-item__badge'>
-                    <Badge title='Sale'/>
+                    <Badge>Sale</Badge>
                   </div>
               }
 

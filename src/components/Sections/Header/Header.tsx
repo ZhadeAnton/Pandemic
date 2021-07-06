@@ -29,8 +29,9 @@ function Header(props: Props) {
           <CartLink itemsLength={props.cartItemsLength}/>
 
           <UserProfile currentUser={props.currentUser}/>
-
-          <HamburgerMenu className='header__aside--hamburger-menu' />
+          <div className='header__aside--hamburger-menu'>
+            <HamburgerMenu />
+          </div>
         </div>
       </div>
     </header>

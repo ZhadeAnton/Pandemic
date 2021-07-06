@@ -7,7 +7,7 @@ import { sortMatches } from '../Redux/Match/MatchActionCreators'
 import { getAnnounces, getListOfDisciplines } from '../Redux/MainPage/MainActionCreators'
 
 import MainPage from '../Routes/MainPage/MainPage'
-import Preloader from '../Components/Custom/CubePreloader/CubePreloader'
+import Preloader from '../Components/Custom/Preloader/Preloader'
 
 export interface IMainPagecontainer {
   announces: ArrayOfAnnounces,
@@ -49,7 +49,7 @@ export default function MainPageContainer() {
     dispatch(sortMatches(initialLatestMatches))
   }, [])
 
-  if (announces.length === 0) return <Preloader />
+  if (announces.length === 0) return <Preloader preloader='cube'/>
 
   return (
     <MainPage

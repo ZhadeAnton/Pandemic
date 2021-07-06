@@ -5,7 +5,7 @@ import { useAppDispatch } from '../../../Hooks/PreTypedHook'
 import { IUser } from '../../../Interfaces/UserInterfaces'
 import { signOut } from '../../../Redux/User/UserActionCreators'
 
-import ButtonSecondary from '../../Sections/ButtonSecondary/ButtonSecondary'
+import ButtonSecondary from '../../Custom/ButtonSecondary/ButtonSecondary'
 
 interface Props {
   image: IUser['photoURL'],

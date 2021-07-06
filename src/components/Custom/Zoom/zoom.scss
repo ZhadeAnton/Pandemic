@@ -10,9 +10,6 @@
   z-index: 10;
 
   &__image {
-    position: absolute;
-    top: 0;
-    left: 0;
     @include full-size;
     display: block;
     object-fit: cover;

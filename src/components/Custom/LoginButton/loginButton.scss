@@ -5,11 +5,11 @@
   padding: .7rem 2rem;
   outline: none;
   border: none;
+  transition: opacity .2s ease;
   @include oswald-sm;
   text-transform: uppercase;
   background-color: var(--e-global-color-primary);
   color: var(--e-global-color-secondary);
-  transition: opacity .2s ease;
 
   &:hover {
     opacity: .85;

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { authMessage, signUpWithEmail } from '../Redux/User/UserActionCreators';
 import { useAppDispatch } from './PreTypedHook';
@@ -11,8 +11,16 @@ export default function useSignUp() {
     confirmPassword: '',
   })
 
-  const {displayName, email, password, confirmPassword} = signUpCredentionals
+  const inputRef = useRef<HTMLInputElement | null>(null)
   const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    if (inputRef !== null) {
+      inputRef.current?.focus()
+    }
+  }, [])
+
+  const {displayName, email, password, confirmPassword} = signUpCredentionals
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const {name, value} = event.target
@@ -58,6 +66,7 @@ export default function useSignUp() {
     displayName,
     email,
     password,
-    confirmPassword
+    confirmPassword,
+    inputRef
   }
 }

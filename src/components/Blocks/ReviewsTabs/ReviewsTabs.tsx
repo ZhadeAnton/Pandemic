@@ -3,7 +3,7 @@ import { Tab, Tabs } from 'react-bootstrap'
 
 import './reviewsTabs.scss'
 import { IShopItem } from '../../../Interfaces/ShopInterfaces'
-import ShopItemReview from '../../Blocks/ShopItemReview/ShopItemReview'
+import ShopItemReview from '../ShopItemReview/ShopItemReview'
 
 interface Props {
   itemName: IShopItem['title'],

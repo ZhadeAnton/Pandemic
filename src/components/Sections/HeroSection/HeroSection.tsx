@@ -3,14 +3,14 @@ const Slide = require('react-reveal/Slide')
 const Zoom = require('react-reveal/Zoom')
 
 import './heroSection.scss'
+
 import { ReactComponent as BottomShape } from '../../../Assets/SVG/bottom-shape.svg'
 import pandemic from '../../../Assets/PNG/pandemic-title.png'
 import doctor from '../../../Assets/PNG/pandemic-doctor.png'
-import BrandButton from '../../Custom/BrandButton/BrandButton'
+import ModalButton from '../../Custom/ModalButton/ModalButton'
+import flameBg from '../../../Assets/WEBM/hero_bg.webm'
 
 const HeroSection = () => {
-  // eslint-disable-next-line max-len
-  const videoSource = 'https:\/\/skywarriorthemes.com\/pandemic\/wp-content\/uploads\/2021\/01\/hero_landings.webm'
   return (
     <div className='hero'>
       <div className='hero__row'>
@@ -22,8 +22,8 @@ const HeroSection = () => {
           />
         </Slide>
 
-        <Zoom clear>
-          <BrandButton className='hero__row--button'/>
+        <Zoom clear className='hero__row--button'>
+          <ModalButton />
         </Zoom>
       </div>
 
@@ -33,12 +33,8 @@ const HeroSection = () => {
           autoPlay
           loop
           muted
+          src={flameBg}
         >
-          <source
-            src={videoSource}
-            type="video/webm"
-          />
-            Your browser does not support the video tag.
         </video>
       </div>
 

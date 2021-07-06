@@ -3,14 +3,14 @@ import React from 'react'
 import './badge.scss'
 
 interface Props {
-  title: string
+  children: string
 }
 
 export default function Badge(props: Props) {
   return (
     <div className='badge'>
       <h6 className='badge--title'>
-        {props.title}
+        {props.children}
       </h6>
     </div>
   )

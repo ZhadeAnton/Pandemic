@@ -4,7 +4,7 @@ import './latestMatches.scss'
 import { ArrayOfMatches } from '../../../Interfaces/MatchInterfaces'
 import { ArrayOfIDisciplines } from '../../../Interfaces/MainInterfaces'
 
-import CustomPagination from '../../Custom/Pagination/Pagination'
+import CustomPagination from '../../Blocks/Pagination/Pagination'
 import MatchFilter from '../../Blocks/MatchFilter/MatchFilter'
 import Heading from '../../Blocks/Heading/Heading'
 import MatchList from '../../Blocks/MatchList/MatchList'

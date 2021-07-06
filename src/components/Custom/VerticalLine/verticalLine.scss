@@ -1,4 +1,5 @@
 @import '../../../scss/variables';
+@import '../../../scss/mixins';
 
 .vertical-separator {
   width: 100%;
@@ -7,11 +8,9 @@
 
   &:after {
     content: '';
-    position: absolute;
-    top: 0;
-    left: calc(50% - 3px);
     width: 3px;
     height: inherit;
+    @include abs-position(0, auto, auto, calc(50% - 3px));
     background-color: var(--e-global-color-primary);
   }
 
