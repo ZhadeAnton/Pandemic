@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import { Form } from 'react-bootstrap'
 
 import './signUp.scss'
-import useSignUp from '../../../Hooks/SignUpHooks'
+import useSignUp from '../../../Hooks/SignUpHook'
 
 import LoginButton from '../LoginButton/LoginButton'
 

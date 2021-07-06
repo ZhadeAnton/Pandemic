@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useAppSelector } from '../Hooks/PreTypedHooks'
+import { useAppSelector } from '../Hooks/PreTypedHook'
 
 import App from '../App'
 import { IUserState } from '../Redux/User/UserReducer'

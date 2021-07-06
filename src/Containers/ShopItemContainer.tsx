@@ -1,7 +1,7 @@
 import React from 'react'
 import useHistoryPush from '../Hooks/HistoryHook';
 
-import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHooks';
+import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHook';
 import useScrollToTop from '../Hooks/ScrollToTopHook';
 import useShopToast from '../Hooks/ShopToastHook';
 import { IHandleAddCartButton } from '../Interfaces/CartInterfaces';

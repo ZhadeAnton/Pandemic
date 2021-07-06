@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './userInformation.scss'
-import { useAppDispatch } from '../../../Hooks/PreTypedHooks'
+import { useAppDispatch } from '../../../Hooks/PreTypedHook'
 import { IUser } from '../../../Interfaces/UserInterfaces'
 import { signOut } from '../../../Redux/User/UserActionCreators'
 

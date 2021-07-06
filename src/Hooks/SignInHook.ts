@@ -1,13 +1,21 @@
-import { useState } from 'react';
-import { signInWithEmail } from '../Redux/User/UserActionCreators';
+import { useEffect, useRef, useState } from 'react';
 
-import { useAppDispatch } from './PreTypedHooks';
+import { useAppDispatch } from './PreTypedHook';
+import { signInWithEmail } from '../Redux/User/UserActionCreators';
 
 export default function useSignIn() {
   const [userData, setUserData] = useState({
     email: '',
     password: ''
   })
+
+  const inputRef = useRef<HTMLInputElement | null>(null)
+
+  useEffect(() => {
+    if (inputRef !== null) {
+      inputRef.current?.focus()
+    }
+  }, [])
 
   const dispatch = useAppDispatch()
   const {email, password} = userData
@@ -32,6 +40,6 @@ export default function useSignIn() {
   }
 
   return {
-    handleChange, handleSubmit, email, password
+    handleChange, handleSubmit, email, password, inputRef
   }
 }

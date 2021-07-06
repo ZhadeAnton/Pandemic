@@ -3,7 +3,7 @@ import React from 'react'
 import './shopItemsList.scss'
 import { IShopState } from '../../../Redux/Shop/ShopReducer'
 import { IHandleAddCartButton } from '../../../Interfaces/CartInterfaces'
-import useShopListAnimation from '../../../Hooks/ShopItemsListHooks'
+import useShopListAnimation from '../../../Hooks/ShopItemsListHook'
 
 import Badge from '../../Custom/Badge/Badge'
 

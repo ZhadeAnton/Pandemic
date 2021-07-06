@@ -2,7 +2,7 @@ import React from 'react'
 
 import './playersItem.scss'
 
-import useSelectPlayer from '../../../Hooks/PlayerProfileHooks';
+import useSelectPlayer from '../../../Hooks/PlayerProfileHook';
 import { IPlayer } from '../../../Interfaces/PlayerInterfaces';
 
 interface Props {

@@ -1,4 +1,4 @@
-import { useAppDispatch } from './PreTypedHooks'
+import { useAppDispatch } from './PreTypedHook'
 import * as generalActions from '../Redux/General/GeneralActionCreators'
 
 export default function usePagination(pagesLength: number, currentPage: number) {

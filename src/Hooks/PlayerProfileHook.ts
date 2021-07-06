@@ -1,4 +1,4 @@
-import { useAppDispatch } from './PreTypedHooks'
+import { useAppDispatch } from './PreTypedHook'
 import { setCurrentPlayer } from '../Redux/Match/MatchActionCreators'
 import { IPlayer } from '../Interfaces/PlayerInterfaces'
 import useHistoryPush from './HistoryHook'

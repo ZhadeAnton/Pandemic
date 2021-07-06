@@ -10,7 +10,7 @@ import Header from './Components/Sections/Header/Header';
 import ShopContainer from './Containers/ShopContainer';
 import ShopItemContainer from './Containers/ShopItemContainer';
 import CartContainer from './Containers/CartContainer';
-import LoginContainer from './Containers/LoginContainer';
+import AuthContainer from './Containers/LoginContainer';
 import MainPageContainer from './Containers/MainPageContainer';
 import MatchContainer from './Containers/MatchContainer';
 import PlayerContainer from './Containers/PlayerContainer';
@@ -35,7 +35,7 @@ function App(props: IAppContainer) {
 
       <Switch>
         <Route exact path='/' component={MainPageContainer} />
-        <Route exact path='/login' component={LoginContainer} />
+        <Route exact path='/login' component={AuthContainer} />
         <Route path='/player/:playerId' component={PlayerContainer} />
         <Route path='/team/:teamId' component={TeamContainer} />
         <Route path='/match/:matchId' component={MatchContainer} />

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useSprings, animated } from 'react-spring'
 
 import useHistoryPush from './HistoryHook'
-import { useAppDispatch } from './PreTypedHooks'
+import { useAppDispatch } from './PreTypedHook'
 import { setCurrentShopItem } from '../Redux/Shop/ShopActionCreators'
 import { addShopItemToCart } from '../Redux/Cart/CartActionCreators'
 import { ArrayOfShopItems, IShopItem } from '../Interfaces/ShopInterfaces'

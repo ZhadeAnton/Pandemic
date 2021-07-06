@@ -1,5 +1,5 @@
 import useHistoryPush from './HistoryHook';
-import { useAppDispatch } from './PreTypedHooks';
+import { useAppDispatch } from './PreTypedHook';
 import { IMatch } from '../Interfaces/MatchInterfaces';
 import { ITeam } from '../Interfaces/TeamInterfaces';
 import { setCurrentMatch, setCurrentTeam } from '../Redux/Match/MatchActionCreators';

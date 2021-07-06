@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { authMessage, signUpWithEmail } from '../Redux/User/UserActionCreators';
-import { useAppDispatch } from './PreTypedHooks';
+import { useAppDispatch } from './PreTypedHook';
 
 export default function useSignUp() {
   const [signUpCredentionals, setUSignUpCredentionals] = useState({

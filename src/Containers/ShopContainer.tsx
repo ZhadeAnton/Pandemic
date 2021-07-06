@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHooks'
+import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHook'
 import { ArrayOfShopItems } from '../Interfaces/ShopInterfaces'
 import { IUser } from '../Interfaces/UserInterfaces'
 import { getShopItems } from '../Redux/Shop/ShopActionCreators'

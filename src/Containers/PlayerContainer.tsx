@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { useAppSelector } from '../Hooks/PreTypedHooks'
+import { useAppSelector } from '../Hooks/PreTypedHook'
+import useScrollToTop from '../Hooks/ScrollToTopHook'
 import { IMatch } from '../Interfaces/MatchInterfaces'
 import { IArrayOfPlayers, IPlayer } from '../Interfaces/PlayerInterfaces'
 
@@ -20,6 +21,9 @@ export default function PlayerContainer() {
   const teammates = relatedMatch.team1.tag === playerTag
     ? relatedMatch.team1.players
     : relatedMatch.team2.players
+
+  // Custom hook witch scrolling to the to of the page with useEffect()
+  useScrollToTop()
 
   return (
     <PlayerInfo

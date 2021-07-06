@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { sortMatches } from '../Redux/Match/MatchActionCreators'
-import { useAppDispatch } from './PreTypedHooks'
+import { useAppDispatch } from './PreTypedHook'
 
 export default function useMatchFilter(initialLatestMatches: string) {
   const [active, setActive] = useState(initialLatestMatches)

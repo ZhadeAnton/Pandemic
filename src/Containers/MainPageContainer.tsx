@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHooks'
+import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHook'
 import { ArrayOfAnnounces, ArrayOfIDisciplines } from '../Interfaces/MainInterfaces'
 import { ArrayOfMatches } from '../Interfaces/MatchInterfaces'
 import { sortMatches } from '../Redux/Match/MatchActionCreators'

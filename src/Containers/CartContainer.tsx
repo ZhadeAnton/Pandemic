@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHooks'
+import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHook'
 import { totalPriceItemsSelector } from '../Redux/Cart/CartSelectors'
 import * as cartActions from '../Redux/Cart/CartActionCreators'
 import { IFnRemoveItem } from '../Interfaces/ShopInterfaces'

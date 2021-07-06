@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './matchItem.scss'
-import useSelectMatch from '../../../Hooks/MatchItemHooks';
+import useSelectMatch from '../../../Hooks/MatchItemHook';
 import { IMatch } from '../../../Interfaces/MatchInterfaces';
 
 import MatchItemTeam from '../MatchItemTeam/MatchItemTeam';
