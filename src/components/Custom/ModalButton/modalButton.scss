@@ -1,13 +1,10 @@
 @import '../../../scss/variables';
+@import '../../../scss/typography';
 
-.brand-button {
+.modal-button {
   padding: 1.3rem 3rem;
   z-index: 100;
   cursor: pointer;
-  line-height: 1.2em;
-  font-size: .9rem;
-  font-weight: 800;
-  text-transform: uppercase;
   transition: all .4s ease;
   border-width: 2px;
   border-style: solid;
@@ -15,18 +12,23 @@
   background-color: transparent;
   border-color: var(--e-global-color-primary);
 
+  &__link {
+    @include font-2;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: var(--e-global-typography-secondary);
+    color: var(--e-global-color-accent);
+  }
+
   @include media-breakpoint-down(md) {
     padding: 1rem 2.5rem;
-    font-size: .8rem;
   }
 
   @include media-breakpoint-down(sm) {
-    padding: .9rem 2rem;
-    font-size: .7rem;
+    padding: .8rem 1.4rem;
   }
 
   &__link {
-    color: #ffffff;
   }
 
   &__icon {

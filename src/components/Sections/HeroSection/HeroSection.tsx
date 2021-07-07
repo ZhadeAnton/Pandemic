@@ -22,9 +22,11 @@ const HeroSection = () => {
           />
         </Slide>
 
-        <Zoom clear className='hero__row--button'>
-          <ModalButton />
-        </Zoom>
+        <div className='hero__row--button'>
+          <Zoom clear>
+            <ModalButton />
+          </Zoom>
+        </div>
       </div>
 
       <div className="hero__background">

@@ -24,8 +24,10 @@
       @include full-size;
       display: block;
       padding: 15px 20px !important;
-      @include oswald-sm;
+      @include font-2;
       text-transform: uppercase;
+      font-family:var(--e-global-typography-primary);
+      font-weight: 600;
       color: var(--e-global-color-accent);
 
       &:hover {

@@ -5,26 +5,25 @@
 
 .announce-slider {
   padding-top: var(--space-xl);
+  padding-bottom: var(--space-huge);
   overflow: hidden;
 
   &__item {
-  overflow: hidden;
-  position: relative;
-  cursor: pointer;
-  height: 100%;
-  border: 11px solid var(--e-global-color-11b58b5);
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    border: 11px solid var(--e-global-color-secondary);
 
     &--image-wrapper {
       height: 100%;
     }
 
     &--image {
-      width: 100%;
-      height: 100%;
+      max-height: 43.75rem;
+      @include full-size;
       object-fit: cover;
-      max-height: 700px;
       transition: all .2s ease;
-      transition: all .3s ease;
 
       &:hover {
         transform: scale(1.1);
@@ -33,25 +32,29 @@
   }
 
   &__content {
-    position: absolute;
-    bottom: 4rem;
-    left: 1rem;
+    @include abs-position(auto, auto, 4rem, 1rem);
     padding: 1.4rem;
 
     &--title {
-      @include heading-match;
-      position: relative;
       width: 65%;
+      position: relative;
+      @include font-8;
+      font-weight: 700;
+      font-family: var(--e-global-typography-primary);
+      color: var(--e-global-color-accent);
+
+      @include media-breakpoint-down(vsm) {
+        font-size: var(--font-size-3);
+        line-height: var(--line-height-3);
+      }
 
       &:after {
         content: '';
-        position: absolute;
-        bottom: -2.7rem;
-        left: 0;
-        height: .65rem;
         width: 8rem;
-        background-color: var(--e-global-color-primary);
+        height: .65rem;
+        @include abs-position(auto, auto, -2.3rem, 0);
         z-index: 1000;
+        background-color: var(--e-global-color-primary);
       }
     }
   }
@@ -61,34 +64,37 @@
     margin-top: var(--space-xl);
 
     &--wrapper {
-      max-width: 1300px;
+      max-width: 81.25rem;
       margin: 0 auto;
       padding: 0 4rem;
       @include flex-align-center;
     }
 
     &--number {
-      @include slider-number;
+      @include font-3;
+      font-weight: 600;
+      font-family: var(--e-global-typography-primary);
+      color: var(--e-global-color-accent);
     }
 
     &--main {
       width: 100% !important;
       height: .1rem;
-      margin: 0 1rem;
-      background-color: white;
       @include flex-align-center;
+      margin: 0 1rem;
+      background-color: var(--e-global-color-accent);
     }
 
     &--main-bar {
-      background-color: var(--e-global-color-primary);
       height: .5rem;
       transition: width .43s linear;
+      background-color: var(--e-global-color-primary);
     }
   }
 
   .slick-slide {
     height: auto;
-    max-width: 1290px;
+    max-width: 80.625rem;
     opacity: .85;
     overflow: hidden;
     transform: scale(.7);
@@ -159,7 +165,7 @@
 
   @include media-breakpoint-down(lg) {
     &__item {
-      border: 6px solid var(--e-global-color-11b58b5);
+      border: 6px solid var(--e-global-color-secondary);
     }
 
     &__content {
@@ -190,6 +196,8 @@
   }
 
   @include media-breakpoint-down(md) {
+    padding-bottom: var(--space-xxl);
+
     &__content {
       bottom: 1.8rem;
       padding: .6rem;
@@ -212,8 +220,10 @@
   }
 
   @include media-breakpoint-down(sm) {
+    padding-bottom: var(--space-xl);
+
     &__item {
-      border: 5px solid var(--e-global-color-11b58b5);
+      border: 5px solid var(--e-global-color-secondary);
     }
 
     &__content {
@@ -230,6 +240,8 @@
     }
 
     &__progress-bar {
+      margin-top: var(--space-lg);
+
       &--main-bar {
         height: .41rem;
       }
@@ -262,10 +274,6 @@
     &__progress-bar {
       &--wrapper {
         padding: 0 3rem;
-      }
-  
-      &--number {
-        font-size: .7rem;
       }
 
       &--main-bar {
@@ -300,10 +308,6 @@
     &__progress-bar {
       &--wrapper {
         padding: 0 3rem;
-      }
-  
-      &--number {
-        font-size: .7rem;
       }
 
       &--main-bar {

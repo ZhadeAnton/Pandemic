@@ -1,7 +1,6 @@
 @import '../../../Scss/mixins';
 
 .navigation-menu {
-
   &__item {
     position: relative;
     margin-left: 1.4rem !important;
@@ -29,6 +28,7 @@
 
       &__item {
         width: 100%;
+        cursor: pointer;
       }
   }
 }

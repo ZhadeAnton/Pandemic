@@ -4,12 +4,12 @@ import './modalButton.scss'
 
 function ModalButton() {
   return (
-    <button className='brand-button'>
+    <button className='modal-button'>
       <a
-        className='brand-button__link'
+        className='modal-button__link'
         href="/"
       >
-        <i className="bi bi-gem brand-button__icon"></i>
+        <i className="bi bi-gem modal-button__icon"></i>
         check out the demo
       </a>
     </button>

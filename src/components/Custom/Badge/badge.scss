@@ -7,8 +7,10 @@
   background-color: var(--e-global-color-primary);
 
   &--title {
-    @include oswald-sm;
     text-transform: uppercase;
+    @include font-2;
+    font-family:var(--e-global-typography-secondary);
+    font-weight: 300;
     color: var(--e-global-color-secondary);
   }
 

@@ -27,9 +27,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-  margin: 0;
-  font-family: Oswald;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Oswald', -apple-system, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -42,31 +40,53 @@ code {
 }
 
 :root {
+  /* Colors */
   --e-global-color-primary: #68fe9a;
   --e-global-color-secondary: #11131c;
-  --e-global-color-accent: #fff;
-  --e-global-color-dark-light: #ffffff0a;
   --e-global-color-dark-deep: #0f1014;
+  --e-global-color-dark-light: #ffffff0a;
+  --e-global-color-accent: #fff;
+  --e-global-color-text: #adb0bc;
+  --e-global-color-text-light: #f7f7f7;
+  --e-global-color-grey-light: #c1c1c1;
+  --e-global-color-grey-light-2: #ADB0BCC2;
   --e-global-color-light-border: #ffffff21;
   --e-global-color-light-border-dark: #91919121;
-  --e-global-color-text: #adb0bc;
-  --e-global-color-grey-light: #c1c1c1;
-  --e-global-color-text-light: #f7f7f7;
-  --e-global-color-text-dark: #0f1013c2;
-  --e-global-color-11b58b5: #2d313c;
-  --e-global-color-161A25: #161A25;
-  --e-global-color-11131c85: #11131c85;
   --e-global-color-error: #ff0033;
-
   --e-global-color-google: #dd4b39;
   --e-global-color-facebook: #4267B2;
-  --e-global-typography-primary-font-family: "Roboto";
-  --e-global-typography-secondary-font-family: "Archivo Black";
-  --e-global-typography-text-font-family: "Montserrat";
-  --e-global-typography-accent-font-family: "Roboto";
-  font-family: var(--e-global-typography-text-font-family),Sans-serif;
-  font-weight: var(--e-global-typography-text-font-weight);
 
+  /* Fonts */
+  --e-global-typography-primary: "Oswald";
+  --e-global-typography-secondary: "Archivo Black";
+  --e-global-typography-tertiary: "Roboto";
+  --e-global-typography-fourth: "Montserrat";
+
+  /* Sizes */
+  --font-size-1: 12px; 
+  --font-size-2: 14px; 
+  --font-size-3: 16px; 
+  --font-size-4: 20px; 
+  --font-size-5: 24px; 
+  --font-size-6: 30px; 
+  --font-size-7: 38px; 
+  --font-size-8: 46px; 
+  --font-size-9: 56px; 
+  --font-size-10: 68px;
+
+  /* Line height */
+  --line-height-1: 20px;
+  --line-height-2: 22px;
+  --line-height-3: 24px;
+  --line-height-4: 28px;
+  --line-height-5: 32px;
+  --line-height-6: 38px;
+  --line-height-7: 46px;
+  --line-height-8: 54px;
+  --line-height-9: 64px;
+  --line-height-10: 76px;
+
+  /* Spaces */
   --baseline: 24px;
   --space-tiny: calc(var(--baseline)/4);
   --space-vsm: calc(var(--baseline)/3);
@@ -78,6 +98,7 @@ code {
   --space-xxxl: calc(var(--baseline)*5);
   --space-huge: calc(var(--baseline)*6);
 
+  /* Measures */
   --header-height: 5.125rem;
 }
 

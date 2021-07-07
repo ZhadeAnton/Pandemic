@@ -2,7 +2,7 @@
 
 .review-tabs {
   &__tab {
-    @include oswald-sm;
+    @include font-2;
     color: var(--e-global-color-accent);
     padding: 1rem 2rem;
 

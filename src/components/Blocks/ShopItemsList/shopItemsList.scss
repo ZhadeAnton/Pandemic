@@ -3,7 +3,7 @@
 @import '../../../Scss/typography';
 
 %shop-item-price {
-  @include oswald-sm;
+  @include font-2;
   color: var(--e-global-color-accent);
 }
 
@@ -87,7 +87,7 @@
       height: auto;
       @include abs-position(auto, auto, 3%, 50%);
       padding: .625rem 1.25rem;
-      @include oswald-sm;
+      @include font-2;
       text-align: center;
       text-transform: uppercase;
       border-radius: 0 .9375rem;
