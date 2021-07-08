@@ -3,8 +3,10 @@
 @import '../../../Scss/typography';
 
 %shop-item-price {
-  @include font-2;
-  color: var(--e-global-color-accent);
+  @include font-3;
+  color: var(--e-global-color-primary);
+  font-family: var(--e-global-typography-fourth);
+  font-weight: 600;
 }
 
 .shop-items-list {
@@ -62,8 +64,10 @@
     }
 
     &--title {
-      @include oswald-medium;
       margin-bottom: var(--space-vsm) !important;
+      @include font-5;
+      font-family: var(--e-global-typography-primary);
+      font-weight: 600;
       color: var(--e-global-color-primary);
     }
 

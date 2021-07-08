@@ -1,8 +1,12 @@
+@import '../../../Scss/typography';
+
 .cart-result {
   width: 100%;
-  color: var(--e-global-color-accent);
 
   &__title {
+    @include font-4;
+    color: var(--e-global-color-accent);
+
     &-output {
       margin: 0 .5rem;
       color: var(--e-global-color-primary);

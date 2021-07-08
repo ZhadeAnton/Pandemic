@@ -2,8 +2,7 @@
 @import '../../Scss/typography';
 
 .shop {
-  height: 100%;
-  width: 100%;
+  @include full-size;
   overflow: hidden;
   background-color: var(--e-global-color-secondary);
 
@@ -50,6 +49,10 @@
     &__result {
       width: 100%;
       margin-bottom: 1.5rem;
+    }
+
+    &__section-list {
+      padding: var(--space-sm) 0;
     }
 
     &__filters {

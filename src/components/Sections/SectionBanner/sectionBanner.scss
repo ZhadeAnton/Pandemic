@@ -7,7 +7,7 @@
   padding: var(--space-huge) 0;
   background-image: url(../../../Assets/JPG/team-bg.jpg);
   @include cover-background;
-  background-position: top center;
+  background-position: center center;
   position: relative;
 
   &__overlay {
@@ -26,9 +26,40 @@
     position: relative;
 
     &:after {
-      @include abs-position(-90%, auto, auto, 5%);
-      @include archivo-xxl;
+      @include abs-position(-80%, auto, auto, 5%);
+      transform: translateY(-20%);
+      opacity: .7;
       z-index: 1;
+      text-transform: uppercase;
+      font-size: 17.625rem;
+      font-family: var(--e-global-typography-secondary);
+      font-weight: 700;
+      color: var(--e-global-color-dark-ligh);
+
+      @include media-breakpoint-down(lg) {
+        font-size: 13.625rem;
+        @include abs-position(-60%, auto, auto, 6%);
+      }
+
+      @include media-breakpoint-down(md) {
+        font-size: 10.625rem;
+        @include abs-position(-40%, auto, auto, 2%);
+      }
+
+      @include media-breakpoint-down(sm) {
+        font-size: 8.625rem;
+        @include abs-position(-20%, auto, auto, 2%);
+      }
+
+      @include media-breakpoint-down(vsm) {
+        font-size: 6.625rem;
+        @include abs-position(-20%, auto, auto, 2%);
+      }
+
+      @include media-breakpoint-down(tiny) {
+        font-size: 5.625rem;
+        @include abs-position(-20%, auto, auto, 2%);
+      }
     }
   }
   
@@ -42,53 +73,15 @@
     margin-top: var(--space-md);
   }
 
-  @include media-breakpoint-down(xl) {
-    &__wrapper {
-      &:after {
-        top: -60%;
-      }
-    }
-  }
-
   @include media-breakpoint-down(lg) {
-    padding: var(--space-xxxl) 0;
-
-    &__wrapper {
-      &:after {
-        top: -55%;
-        left: 10%;
-      }
-    }
+    padding: var(--space-xxl) 0;
   }
 
   @include media-breakpoint-down(md) {
-    padding: var(--space-xxl) 0;
-
-    &__wrapper {
-      &:after {
-        top: - 56%;
-      }
-    }
+    padding: var(--space-xl) 0;
   }
 
   @include media-breakpoint-down(sm) {
-    padding: var(--space-xl) 0;
-
-    &__wrapper {
-      &:after {
-        top: - 50%;
-        left: 2%;
-      }
-    }
-  }
-
-  @include media-breakpoint-down(vsm) {
-    padding: var(--space-xl) 0;
-
-    &__wrapper {
-      &:after {
-        top: - 35%;
-      }
-    }
+    padding: var(--space-lg) 0;
   }
 }
