@@ -8,7 +8,6 @@ import SocialList from '../../Components/Blocks/SocialList/SocialList'
 import StatsList from '../../Components/Blocks/StatsList/StatsList'
 import VerticalLine from '../../Components/Custom/VerticalLine/VerticalLine'
 import Heading from '../../Components/Blocks/Heading/Heading'
-import PlainText from '../../Components/Blocks/PlainText/PlainText'
 import Devider from '../../Components/Custom/Devider/Devider'
 import PlayerFollow from '../../Components/Blocks/PlayerFollow/PlayerFollow'
 import PlayersList from '../../Components/Blocks/PlayersList/PlayersList'
@@ -53,11 +52,9 @@ function PlayerInfo(props: IPlayerContainer) {
       <section className='player-page__about container'>
         <Heading title='About' />
 
-        <div className='player-page__about--content'>
-          <article className='player-page__about--text'>
-            <PlainText text={props.currentPlayer.about} />
-          </article>
-        </div>
+        <p className='player-page__about--text'>
+          {props.currentPlayer.about}
+        </p>
 
         <div className='player-page__stats-row-bottom'>
           <StatsList stats={props.currentPlayer.measures} size='big' />

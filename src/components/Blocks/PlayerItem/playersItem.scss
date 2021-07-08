@@ -8,7 +8,7 @@
   position: relative;
   margin: 1%;
   cursor: pointer;
-  border: 3px solid black;
+  border: 3px solid var(--e-global-color-secondary);
 
   &:hover {
     border: 3px solid var(--e-global-color-primary);
@@ -71,7 +71,7 @@
     @include full-size;
     overflow: hidden;
     transition: $main-transition;
-    filter: grayscale(100%);
+    filter: grayscale(90%);
 
     &--image {
       transition: all .5s ease;

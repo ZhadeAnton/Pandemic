@@ -15,7 +15,9 @@
     &:after {
       content: 'stream';
       @include abs-center;
-      @include archivo-xxl;
+      font-size: 15rem;
+      text-transform: uppercase;
+      font-family: var(--e-global-typography-secondary);
       z-index: -1;
     }
   }
@@ -59,7 +61,29 @@
     }
   }
 
+  @include media-breakpoint-down(xl) {
+    &__list {
+      &:after {
+        font-size: 12rem;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    &__list {
+      &:after {
+        font-size: 10rem;
+      }
+    }
+  }
+
   @include media-breakpoint-down(md) {
+    &__list {
+      &:after {
+        font-size: 7.6rem;
+      }
+    }
+
     &__item {
       &--title {
         @include archivo-medium;
@@ -78,7 +102,6 @@
       &:after {
         content: 'stream';
         @include abs-center;
-        @include archivo-xxl;
         z-index: -1;
         transform: translate(-50%, -50%) rotate(90deg) !important; 
       }
