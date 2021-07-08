@@ -22,7 +22,8 @@
 
   &__list {
     width: 100%;
-    margin: var(--space-lg) auto;
+    margin-bottom: var(--space-xl);
+    margin-top: var(--space-lg);
   }
 
   &__empty {
@@ -38,10 +39,6 @@
   @include media-breakpoint-down(sm) {
     &__top-row {
       margin: var(--space-vsm) auto;
-    }
-
-    &__list {
-      margin: var(--space-md) 0;
     }
   }
 }

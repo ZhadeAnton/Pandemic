@@ -40,13 +40,18 @@
 
     &--title {
       margin-bottom: .1rem !important;
-      @include oswald-lg;
+      @include font-6;
+      font-family: var(--e-global-typography-primary);
+      font-weight: 600;
       color: var(--e-global-color-primary);
     }
 
     &--price {
+      @include font-6;
+      font-family: var(--e-global-typography-primary);
+      font-weight: 600;
       color: var(--e-global-color-primary);
-      @include oswald-lg;
+      margin-bottom: .4rem !important;
     }
 
     &--icon {
@@ -60,7 +65,7 @@
   &__bottom-row {
     @include flex-sb;
     padding-right: var(--space-md);
-    padding-bottom: 1rem;
+    padding-bottom: .6rem;
   }
 
   @include media-breakpoint-down(lg) {
@@ -68,17 +73,6 @@
 
     &__image-wrapper {
       min-width: 16rem;
-    }
-
-    &__info {
-      &--title {
-        @include oswald-medium;
-      }
-
-      &--price {
-        @include oswald-medium;
-        line-height: 2.5rem !important;
-      }
     }
 
     &__bottom-row {
@@ -102,14 +96,8 @@
       min-width: 12rem;
     }
 
-    &__info {
-      &--price {
-        line-height: 2rem !important;
-      }
-    }
-
     &__bottom-row {
-      padding-bottom: .3rem;
+      padding-bottom: .4rem;
   
       &--category-list {
         margin-bottom: .2rem;
@@ -126,7 +114,7 @@
 
     &__info {
       &--price {
-        line-height: 2rem !important;
+        margin-bottom: .1rem !important;
       }
     }
 
@@ -148,10 +136,6 @@
 
     &__info {
       padding: .3rem 3%;
-
-      &--price {
-        line-height: 1.8rem !important;
-      }
     }
 
     &__bottom-row {

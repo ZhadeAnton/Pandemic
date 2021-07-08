@@ -2,10 +2,8 @@
 @import '../../../Scss/mixins';
 
 .cart-empty {
-  @include roboto-medium;
   @include flex-center;
   flex-direction: column;
-  padding: 1rem;
 
   &__top-row {
     @include flex-center;
@@ -13,11 +11,13 @@
     text-align: center;
 
     &--title {
+      @include font-5;
       color: var(--e-global-color-text);
     }
   }
 
   &__link {
+    @include font-5;
     @include flex-align-center;
     
     &--title {

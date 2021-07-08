@@ -1,11 +1,13 @@
 @import '../../../Scss/mixins';
 @import '../../../Scss/variables';
+@import '../../../Scss/typography';
 
 .cart-item-quantity {
   @include flex-align-center;
   font-size: 1rem;
 
   &__icon {
+    @include font-4;
     cursor: pointer;
     transition: color .2s ease;
     color: var(--e-global-color-accent);
@@ -16,6 +18,7 @@
   }
 
   &__number {
+    @include font-4;
     width: 2.2rem;
     text-align: center;
     color: var(--e-global-color-accent);
@@ -26,7 +29,6 @@
     font-size: .9rem;
 
     &__number {
-      font-size: 1.1rem;
       width: 2.2rem;
       text-align: center;
       color: var(--e-global-color-accent);
