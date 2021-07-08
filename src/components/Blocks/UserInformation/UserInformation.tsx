@@ -1,9 +1,8 @@
 import React from 'react'
 
 import './userInformation.scss'
-import { useAppDispatch } from '../../../Hooks/PreTypedHook'
 import { IUser } from '../../../Interfaces/UserInterfaces'
-import { signOut } from '../../../Redux/User/UserActionCreators'
+import useUserInformationHook from '../../../Hooks/UserInformationHook'
 
 import ButtonSecondary from '../../Custom/ButtonSecondary/ButtonSecondary'
 
@@ -15,11 +14,7 @@ interface Props {
 }
 
 export default function UserInformation(props: Props) {
-  const dispatch = useAppDispatch()
-
-  const handleSignOut = () => {
-    dispatch(signOut())
-  }
+  const userInformationHook = useUserInformationHook()
 
   return (
     <div className='user-information'>
@@ -53,7 +48,7 @@ export default function UserInformation(props: Props) {
       </div>
 
       <div className='user-information__sign-out'>
-        <ButtonSecondary onClick={handleSignOut}>
+        <ButtonSecondary onClick={userInformationHook.handleSignOut}>
           Sign out
         </ButtonSecondary>
       </div>

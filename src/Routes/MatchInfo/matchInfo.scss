@@ -58,7 +58,7 @@
   }
 
   &__line-up {
-    padding-top: var(--space-lg);
+    padding-top: var(--space-xxl);
     padding-bottom: var(--space-lg);
   }
 
@@ -93,7 +93,7 @@
 
   @include media-breakpoint-down(md) {
     &__line-up {
-      padding-top: var(--space-lg);
+      padding-top: var(--space-xl);
       padding-bottom: var(--space-lg);
     }
 

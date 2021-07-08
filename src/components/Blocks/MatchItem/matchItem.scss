@@ -16,7 +16,7 @@
 
   &__wrapper {
     height: 100%;
-    @include flex-align-center;
+    @include flex-center;
     position: relative;
   }
 

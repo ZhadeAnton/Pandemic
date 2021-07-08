@@ -38,17 +38,23 @@
     }
 
     &--title {
-      @include archivo-medium;
       margin-bottom: var(--space-sm);
+      @include font-4;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-family: var(--e-global-typography-primary);
+      color: var(--e-global-color-accent);
     }
 
     &--status {
-      @include archivo-tiny;
-      color: grey;
+      @include font-2;
+      text-transform: uppercase;
+      color: var(--e-global-color-text);
       opacity: .8;
 
       &-active {
-        @include archivo-tiny;
+        @include font-2;
+        text-transform: uppercase;
         color: var(--e-global-color-primary);
         opacity: 1;
       }
@@ -56,7 +62,7 @@
 
     &:hover {
       .player-follow__item--icon {
-        color: white;
+        color: var(--e-global-color-accent);
       }
     }
   }
@@ -86,7 +92,6 @@
 
     &__item {
       &--title {
-        @include archivo-medium;
         margin-bottom: var(--space-vsm);
       }
 

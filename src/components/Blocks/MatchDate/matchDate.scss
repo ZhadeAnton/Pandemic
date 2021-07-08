@@ -6,7 +6,7 @@
   width: 35%;
   height: 2.2rem;
   @include flex-center;
-  @include abs-position(auto, auto, -1%, 50%);
+  @include abs-position(auto, auto, 0, 50%);
   transform: translate(-50%, 0);
   opacity: .8;
   border-radius: 0 0 1.25rem 1.25rem;
@@ -36,12 +36,12 @@
   }
 
   @include media-breakpoint-down(vsm) {
-    bottom: -22%;
+    bottom: -25%;
   }
 
   @include media-breakpoint-down(tiny) {
-    height: 1.4rem;
-    bottom: -21%;
+    height: 1.3rem;
+    bottom: -40%;
     border-radius: 0 0 1rem 1rem;
   }
 }

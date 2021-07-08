@@ -1,5 +1,6 @@
 @import '../../Scss/variables';
 @import '../../Scss/mixins';
+@import '../../Scss/typography';
 
 .login-page {
   @include flex-center;
@@ -132,6 +133,7 @@
         border-radius: 0 !important;
         border: none !important;
         background-color: var(--e-global-color-accent);
+        @include font-3;
       }
 
       &--link {
