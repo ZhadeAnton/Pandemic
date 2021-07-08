@@ -7,12 +7,14 @@ import HeroSection from '../../Components/Sections/HeroSection/HeroSection'
 import AnnounceSlider from '../../Components/Sections/AnnounceSlider/AnnounceSlider'
 import LatestMatches from '../../Components/Sections/LatestMatches/LatestMatches'
 import Footer from '../../Components/Sections/Footer/Footer'
+import ParallaxHeading from '../../Components/Sections/ParallaxHeading/ParallaxHeading'
 
 function MainPage(props: IMainPagecontainer) {
   return (
-    <section className='mainPage'>
+    <section className='main-page'>
       <HeroSection />
-      <div className='main-content'>
+
+      <div className='main-page__content'>
         <AnnounceSlider
           announces={props.announces}
         />
@@ -27,9 +29,13 @@ function MainPage(props: IMainPagecontainer) {
           slicedMatches={props.slicedMatches}
           isLoading={props.isLoading}
         />
-      </div>
 
-      <Footer />
+        <div className='main-page__parallax'>
+          <ParallaxHeading backgroundImage='blue'/>
+        </div>
+
+        <Footer />
+      </div>
     </section>
   )
 }

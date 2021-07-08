@@ -25,13 +25,10 @@
     color: var(--e-global-color-accent);
   }
 
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(sm) {
     &__title {
       display: none;
     }
-  }
-
-  @include media-breakpoint-down(md) {
     &__icon {
       margin-right: .5rem;
       font-size: 1.3rem;

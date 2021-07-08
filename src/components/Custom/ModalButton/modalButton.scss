@@ -18,6 +18,10 @@
     font-weight: 600;
     font-family: var(--e-global-typography-secondary);
     color: var(--e-global-color-accent);
+
+    &:hover {
+      color: var(--e-global-color-accent);
+    }
   }
 
   @include media-breakpoint-down(md) {
@@ -28,18 +32,11 @@
     padding: .8rem 1.4rem;
   }
 
-  &__link {
-  }
-
   &__icon {
     margin-right: .5rem;
   }
 
   &:hover {
     background-color: var(--e-global-color-primary);
-
-    .brand-button__link {
-      color: var(--e-global-color-secondary);
-    }
   }
 }

@@ -87,7 +87,7 @@ function PlayerInfo(props: IPlayerContainer) {
       </section>
 
       <section>
-        <ParallaxHeading />
+        <ParallaxHeading backgroundImage='war'/>
       </section>
 
       <Footer />

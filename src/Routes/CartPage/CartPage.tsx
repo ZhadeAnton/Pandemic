@@ -48,7 +48,7 @@ export default function CartPage(props: ICartContainer) {
         }
       </div>
 
-      <ParallaxHeading />
+      <ParallaxHeading backgroundImage='war'/>
       <Footer />
     </main>
   )

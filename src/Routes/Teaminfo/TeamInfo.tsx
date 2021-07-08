@@ -52,7 +52,7 @@ export default function TeamInfo(props: ITeamContainer) {
         </div>
       </section>
 
-      <ParallaxHeading />
+      <ParallaxHeading backgroundImage='war'/>
       <Footer />
     </main>
   )

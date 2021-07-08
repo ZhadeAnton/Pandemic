@@ -73,7 +73,7 @@ function MatchInfo(props: IMatchContainer) {
       </section>
 
       <section className='latest-match-page__parallax'>
-        <ParallaxHeading />
+        <ParallaxHeading backgroundImage='war'/>
       </section>
 
       <Footer />

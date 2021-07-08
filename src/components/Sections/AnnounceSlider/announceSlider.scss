@@ -13,7 +13,7 @@
     overflow: hidden;
     position: relative;
     cursor: pointer;
-    border: 11px solid var(--e-global-color-secondary);
+    border: 7px solid var(--e-global-color-secondary);
 
     &--image-wrapper {
       height: 100%;
@@ -51,7 +51,7 @@
       &:after {
         content: '';
         width: 8rem;
-        height: .65rem;
+        height: .5rem;
         @include abs-position(auto, auto, -2.3rem, 0);
         z-index: 1000;
         background-color: var(--e-global-color-primary);
@@ -97,7 +97,7 @@
     max-width: 80.625rem;
     opacity: .85;
     overflow: hidden;
-    transform: scale(.7);
+    transform: scale(.8);
   
     & + div {
       height: inherit;
@@ -175,7 +175,7 @@
       &--title {
         &:after {
           bottom: -1.9rem;
-          height: .5rem;
+          height: .4rem;
         }
       }
     }
@@ -205,7 +205,7 @@
       &--title {
         &:after {
           bottom: -1.4rem;
-          height: .4rem;
+          height: .34rem;
         }
       }
     }
@@ -233,7 +233,7 @@
       &--title {
         &:after {
           bottom: -.8rem;
-          height: .32rem;
+          height: .25rem;
           width: 4.5rem;
         }
       }
@@ -264,7 +264,7 @@
   
       &--title {
         &:after {
-          bottom: -.5rem;
+          bottom: -.4rem;
           height: .2rem;
           width: 3.5rem;
         }
@@ -298,8 +298,8 @@
   
       &--title {
         &:after {
-          bottom: -.5rem;
-          height: .2rem;
+          bottom: -.35rem;
+          height: .15rem;
           width: 3.5rem;
         }
       }

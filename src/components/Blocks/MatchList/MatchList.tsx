@@ -1,5 +1,6 @@
 import React from 'react'
 
+import './matchList.scss'
 import { ArrayOfMatches } from '../../../Interfaces/MatchInterfaces'
 
 import Spinner from '../../Custom/Spinner/Spinner'

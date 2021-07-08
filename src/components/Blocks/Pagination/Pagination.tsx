@@ -16,16 +16,19 @@ function CustomPagination(props: Props) {
   const pagination = usePagination(props.pagesLength, props.currentPage)
 
   return (
+
     props.pagesLength > 1
     ?
       <Pagination>
-        <Pagination.First
-          disabled={pagination.prevArrowDisable}
+        <PageItem
+          disabled={pagination.isPrevArrowDisable}
           onClick={pagination.handleSetFirstPage}
-        />
+        >
+          &#171;
+        </PageItem>
 
         <PageItem
-          disabled={pagination.prevArrowDisable}
+          disabled={pagination.isPrevArrowDisable}
           onClick={pagination.handleSetPrevPage}
         >
           Prev
@@ -36,6 +39,7 @@ function CustomPagination(props: Props) {
             return (
               <PageItem
                 key={idx}
+                activeLabel=''
                 active={props.currentPage === num}
                 onClick={() => pagination.handleSetPageNumber(num)}
               >
@@ -45,16 +49,19 @@ function CustomPagination(props: Props) {
           })
         }
 
-        <Pagination.Next
-          disabled={pagination.nextArrowDisable}
+        <PageItem
+          disabled={pagination.isNextArrowDisable}
           onClick={() => pagination.handleSetNexPage()}
         >
           Next
-        </Pagination.Next>
+        </PageItem>
 
-        <Pagination.Last
-          disabled={pagination.nextArrowDisable}
-          onClick={() => pagination.handleSetLastPage(props.pagesLength)} />
+        <PageItem
+          disabled={pagination.isNextArrowDisable}
+          onClick={() => pagination.handleSetLastPage(props.pagesLength)}
+        >
+          &#187;
+        </PageItem>
       </Pagination>
     :
       null

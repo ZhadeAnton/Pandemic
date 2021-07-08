@@ -11,7 +11,7 @@ import cartReducer from '../Cart/CartReducer';
 const rootPersistConfig = {
   key: 'root',
   storage: storage,
-  blacklist: ['user']
+  blacklist: ['currentPage']
 }
 
 const userPersistConfig = {
@@ -20,9 +20,15 @@ const userPersistConfig = {
   blacklist: ['authError', 'authSuccess', 'isLoading']
 }
 
+const matchPersistConfig = {
+  key: 'match',
+  storage: storage,
+  blacklist: ['currentPage']
+}
+
 const rootReducer = combineReducers({
   main: mainReducer,
-  match: matchReducer,
+  match: persistReducer(matchPersistConfig, matchReducer),
   shop: shopReducer,
   user: persistReducer(userPersistConfig, userReducer),
   cart: cartReducer,

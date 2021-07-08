@@ -10,8 +10,8 @@ export default function usePagination(pagesLength: number, currentPage: number) 
     pageNumbers.push(i)
   }
 
-  const nextArrowDisable = currentPage > pagesLength - 1 ? true : false
-  const prevArrowDisable = currentPage === 1 ? true : false
+  const isNextArrowDisable = currentPage > pagesLength - 1 ? true : false
+  const isPrevArrowDisable = currentPage === 1 ? true : false
 
   const handleSetPageNumber= (num: number) => dispatch(generalActions.setPageNumber(num))
   const handleSetFirstPage = () => dispatch(generalActions.setFirstPage())
@@ -23,8 +23,8 @@ export default function usePagination(pagesLength: number, currentPage: number) 
 
   return {
     pageNumbers,
-    nextArrowDisable,
-    prevArrowDisable,
+    isNextArrowDisable,
+    isPrevArrowDisable,
     handleSetPageNumber,
     handleSetFirstPage,
     handleSetPrevPage,

@@ -2,6 +2,8 @@ import { IMatch } from '../../Interfaces/MatchInterfaces'
 import { IPlayer } from '../../Interfaces/PlayerInterfaces'
 import { ITeam } from '../../Interfaces/TeamInterfaces'
 import * as actions from './MatchActionTypes'
+import * as generalActions from '../General/GeneralActionTypes'
+import { GeneralTypes } from '../General/GeneralActionTypes';
 
 export interface IMatchState {
   matches: Array<IMatch> | [],
@@ -14,6 +16,8 @@ export interface IMatchState {
   matchesPerPage: number,
   isLoading: boolean
 }
+
+type reducerType = actions.MatchTypes | GeneralTypes
 
 const INITIAL_STATE: IMatchState = {
   matches: [],
@@ -28,7 +32,7 @@ const INITIAL_STATE: IMatchState = {
 }
 
 const matchReducer =
-  (state = INITIAL_STATE, action: actions.MatchTypes): IMatchState => {
+  (state = INITIAL_STATE, action: reducerType): IMatchState => {
     switch (action.type) {
       case actions.SORT_MATCHES:
         return {
@@ -42,7 +46,6 @@ const matchReducer =
           matches: action.payload,
           isLoading: false
         }
-
 
       case actions.SET_CURRENT_MATCH:
         return {
@@ -60,6 +63,36 @@ const matchReducer =
         return {
           ...state,
           currentTeam: action.payload
+        }
+
+      case generalActions.SET_PAGE_NUMBER:
+        return {
+          ...state,
+          currentPage: action.payload,
+        }
+
+      case generalActions.SET_NEXT_PAGE:
+        return {
+          ...state,
+          currentPage: state.currentPage + 1,
+        }
+
+      case generalActions.SET_PREV_PAGE:
+        return {
+          ...state,
+          currentPage: state.currentPage - 1,
+        }
+
+      case generalActions.SET_FIRST_PAGE:
+        return {
+          ...state,
+          currentPage: 1,
+        }
+
+      case generalActions.SET_LAST_PAGE:
+        return {
+          ...state,
+          currentPage: action.payload,
         }
 
       default:
