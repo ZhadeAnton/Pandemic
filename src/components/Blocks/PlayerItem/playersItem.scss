@@ -51,11 +51,19 @@
     z-index: 2;
 
     &--nickname {
-      @include heading-small;
+      @include font-5;
+      font-weight: 600;
+      font-family: var(--e-global-typography-primary);
+      text-transform: uppercase;
+      color: var(--e-global-color-accent);
     }
 
     &--role {
-      @include subtitle-big;
+      @include font-3;
+      font-weight: 600;
+      font-family: var(--e-global-typography-primary);
+      text-transform: uppercase;
+      color: var(--e-global-color-primary);
     }
   }
 

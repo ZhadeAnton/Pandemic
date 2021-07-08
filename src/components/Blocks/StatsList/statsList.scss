@@ -18,7 +18,8 @@
       height: 5rem;
       @include abs-position(50%, 0, auto, auto);
       transform: translate(50%, -50%) rotate(15deg);
-      background-color: var(--e-global-color-11b58b5);
+      background-color: var(--e-global-color-text);
+      opacity: .4;
     }
   }
 }
@@ -38,7 +39,8 @@
     @extend %statsLineItem;
 
     &--title {
-      @include archivo-small;
+      text-transform: uppercase;
+      @include font-3;
       color: var(--e-global-color-primary);
     }
   }
@@ -54,17 +56,26 @@
     }
 
     &--title {
-      @include archivo-small;
+      @include font-3;
+      font-weight: 600;
+      font-family: var(--e-global-typography-primary);
+      text-transform: uppercase;
       color: var(--e-global-color-primary);
     }
 
     &--info {
       &-medium {
-        @include oswald-medium;
+        @include font-3;
+        font-weight: 600;
+        font-family: var(--e-global-typography-primary);
+        color: var(--e-global-color-accent)
       }
 
       &-big {
-        @include archivo-large;
+        @include font-7;
+        font-weight: 600;
+        font-family: var(--e-global-typography-primary);
+        color: var(--e-global-color-accent)
       }
     }
     
