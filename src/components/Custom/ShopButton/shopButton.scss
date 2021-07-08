@@ -4,17 +4,21 @@
 
 .shop-button {
   @include flex-center;
-  padding: 1rem 2.2rem;
+  padding: .9rem 2rem;
   border-radius: 0 13px;
+  outline: none;
+  border: none;
   background-color: var(--e-global-color-primary);
 
   &__icon {
+    @include font-3;
     margin-right: 1rem;
-    font-size: 1.5rem;
   }
 
   &__title {
-    @include oswald-medium;
+    @include font-3;
+    font-weight: 600;
+    font-family: var(--e-global-typography-tertiary);
     color: var(--e-global-color-secondary);
     text-transform: uppercase;
   }
@@ -32,7 +36,6 @@
 
     &__icon {
       margin-right: .9rem;
-      font-size: 1.3rem;
     }
   }
 
@@ -41,7 +44,6 @@
 
     &__icon {
       margin-right: .8rem;
-      font-size: 1.1rem;
     }
   }
 }

@@ -27,8 +27,11 @@
   &__content {
     @include full-size;
     margin: 0 auto;
-    padding: var(--space-xl) 1rem;
     text-align: center;
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     z-index: 10;
     opacity: 1;
 
@@ -77,6 +80,11 @@
 
   @include media-breakpoint-down(lg) {
     padding: var(--space-xxxl) 0;
+
+    &__content {
+      padding-top: 6rem;
+      padding-bottom: 3rem;
+    }
   }
 
   @include media-breakpoint-down(md) {

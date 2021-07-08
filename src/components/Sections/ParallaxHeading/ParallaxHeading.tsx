@@ -5,13 +5,18 @@ import ModalButton from '../../Custom/ModalButton/ModalButton'
 import {ReactComponent as ShapeSVG} from '../../../Assets/SVG/shape-second.svg'
 import warBackground from '../../../Assets/JPG/second-bg.jpg'
 import blueBackground from '../../../Assets/JPG/bluebg.jpg'
+import tournamentBackground from '../../../Assets/JPG/tournament.jpg'
 
 interface Props {
-  backgroundImage: 'war' | 'blue'
+  backgroundImage: 'war' | 'blue' | 'tournament'
 }
 
 export default function ParallaxHeading(props: Props) {
-  const background = props.backgroundImage === 'war' ? warBackground : blueBackground
+  const background = props.backgroundImage === 'war'
+  ? warBackground
+  : props.backgroundImage === 'blue'
+  ? blueBackground
+  : tournamentBackground
 
   return (
     <section className='paralax-row'

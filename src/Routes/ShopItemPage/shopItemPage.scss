@@ -24,8 +24,10 @@
     margin-bottom: var(--space-xxl);
 
     &--title {
-      @include oswald-lg;
       margin-bottom: var(--space-md) !important;
+      @include font-6;
+      font-weight: 600;
+      font-family: var(--e-global-typography-primary);
       text-transform: uppercase;
       color: var(--e-global-color-accent);
     }

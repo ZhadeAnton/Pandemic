@@ -10,6 +10,7 @@ import {
 } from '../../Containers/ShopItemContainer'
 import ShopItemsList from '../../Components/Blocks/ShopItemsList/ShopItemsList'
 import CustomPagination from '../../Components/Blocks/Pagination/Pagination'
+import ParallaxHeading from '../../Components/Sections/ParallaxHeading/ParallaxHeading'
 
 export default function ShopItemPage(props: IShopItemPageContainer) {
   return (
@@ -47,6 +48,8 @@ export default function ShopItemPage(props: IShopItemPageContainer) {
           />
         </div>
       </section>
+
+      <ParallaxHeading backgroundImage='blue'/>
 
       <Footer />
     </main>

@@ -9,6 +9,7 @@ import CartShowResult from '../../Components/Blocks/CartShowResult/CartShowResul
 import CustomDropdown from '../../Components/Custom/CustomDropdown/CustomDropdown'
 import ShopItemsList from '../../Components/Blocks/ShopItemsList/ShopItemsList'
 import CustomPagination from '../../Components/Blocks/Pagination/Pagination'
+import ParallaxHeading from '../../Components/Sections/ParallaxHeading/ParallaxHeading'
 
 const ShopPage = (props: IShopPageContainer) => {
   return (
@@ -51,6 +52,8 @@ const ShopPage = (props: IShopPageContainer) => {
           />
         </div>
       </section>
+
+      <ParallaxHeading backgroundImage='blue'/>
 
       <Footer />
     </main>

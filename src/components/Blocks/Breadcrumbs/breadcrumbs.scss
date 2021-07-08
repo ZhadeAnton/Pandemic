@@ -10,6 +10,7 @@
 
     &--item {
       position: relative;
+      margin-right: .3rem !important;
 
       &:not(:last-child) {
         &::after {
@@ -23,7 +24,9 @@
 
     &--link {
       margin-right: 1rem;
-      @include montserat-medium;
+      @include font-3;
+      font-family: var(--e-global-typography-primary);
+      font-weight: 400;
       color: var(--e-global-color-grey-light);
 
       &:hover {

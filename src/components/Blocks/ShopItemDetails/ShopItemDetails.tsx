@@ -4,7 +4,6 @@ import './shopItemDetails.scss'
 import { IHandleAddCartButton } from '../../../Interfaces/CartInterfaces'
 
 import CategoriesList from '../CategoriesList/CategoriesList'
-import PlainText from '../PlainText/PlainText'
 import Stars from '../../Custom/Stars/Stars'
 import ShopButton from '../../Custom/ShopButton/ShopButton'
 import ShopItemPrice from '../ShopItemPrice/ShopItemPrice'
@@ -33,9 +32,9 @@ export default function ShopItemDetails(props: Props) {
         />
       </div>
 
-      <div className='shop-item-details__text'>
-        <PlainText text={props.currentItem.details}/>
-      </div>
+      <p className='shop-item-details__text'>
+        {props.currentItem.details}
+      </p>
 
       <div className='shop-item-details__button'>
         <ShopButton onClick={() => props.handleAddItemToCart(shopItemId, itemName)}/>

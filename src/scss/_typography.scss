@@ -562,6 +562,16 @@
 @mixin font-7 {
   font-size: var(--font-size-7);
   line-height: var(--line-height-7);
+
+  @include media-breakpoint-down(md) {
+    font-size: var(--font-size-6);
+    line-height: var(--line-height-6);
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: var(--font-size-5);
+    line-height: var(--line-height-5);
+  }
 }
 
 @mixin font-8 {

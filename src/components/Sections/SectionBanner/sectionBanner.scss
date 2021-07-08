@@ -7,7 +7,7 @@
   padding: var(--space-huge) 0;
   background-image: url(../../../Assets/JPG/team-bg.jpg);
   @include cover-background;
-  background-position: center center;
+  background-position: top center;
   position: relative;
 
   &__overlay {

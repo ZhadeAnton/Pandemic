@@ -31,7 +31,7 @@ function MainPage(props: IMainPagecontainer) {
         />
 
         <div className='main-page__parallax'>
-          <ParallaxHeading backgroundImage='blue'/>
+          <ParallaxHeading backgroundImage='tournament'/>
         </div>
 
         <Footer />
