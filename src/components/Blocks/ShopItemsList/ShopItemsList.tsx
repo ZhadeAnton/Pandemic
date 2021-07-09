@@ -2,29 +2,21 @@ import React from 'react'
 
 import './shopItemsList.scss'
 import { IShopState } from '../../../Redux/Shop/ShopReducer'
-import { useAppSelector } from '../../../Hooks/PreTypedHooks'
-import { IShopItem } from '../../../Interfaces/ShopInterfaces'
-import useShopItemsList from '../../../Hooks/ShopItemsListHooks'
-import useShopToast from '../../../Hooks/ShopToastHook'
+import { IHandleAddCartButton } from '../../../Interfaces/CartInterfaces'
+import useShopListAnimation from '../../../Hooks/ShopItemsListHook'
 
 import Badge from '../../Custom/Badge/Badge'
 
 interface Props {
-  shopItems: IShopState['shopItems']
+  shopItems: IShopState['shopItems'],
+  handleAddItemToCart: IHandleAddCartButton
 }
 
 export default function ShopItemsList(props: Props) {
-  const userUid = useAppSelector((state) => state.user.currentUser!.uid)
+  const shopListHook = useShopListAnimation()
 
-  const shopHook = useShopItemsList()
-  const animated = shopHook.animated
-  const springAnimation = shopHook.shopItemsAnimation(props.shopItems)
-
-  const handleButtonClick =
-    (shopItemId: IShopItem['id'], shopItemName: IShopItem['title']) => {
-      shopHook.handleAddShopItemToCart(userUid, shopItemId)
-      useShopToast(shopItemName)
-    }
+  const animated = shopListHook.animated
+  const springAnimation = shopListHook.shopItemsAnimation(props.shopItems)
 
   return (
     <ul className='shop-items-list'>
@@ -34,9 +26,9 @@ export default function ShopItemsList(props: Props) {
             key={i}
             className='shop-item'
             style={{transform: style.transform, opacity: style.opacity}}
-            onMouseEnter={() => shopHook.handleItemHover(i)}
-            onMouseLeave={() => shopHook.setIndex(null)}
-            onClick={(e) => shopHook.handleSelectShopItem(e, props.shopItems[i])}
+            onMouseEnter={() => shopListHook.handleItemHover(i)}
+            onMouseLeave={() => shopListHook.setIndex(null)}
+            onClick={(e) => shopListHook.handleSelectShopItem(e, props.shopItems[i])}
           >
             <div className='shop-item__wrapper'>
               <animated.div
@@ -52,13 +44,10 @@ export default function ShopItemsList(props: Props) {
               />
 
               {
-                props.shopItems[i].sale
-                ?
+                props.shopItems[i].sale &&
                   <div className='shop-item__badge'>
-                    <Badge title='Sale'/>
+                    <Badge>Sale</Badge>
                   </div>
-                :
-                  null
               }
 
               <animated.div
@@ -93,7 +82,8 @@ export default function ShopItemsList(props: Props) {
                   className='shop-item__content--button'
                   style={{transform: style.buttonTransform}}
                   onClick={() =>
-                    handleButtonClick(props.shopItems[i].id, props.shopItems[i].title)}
+                    props.handleAddItemToCart(
+                        props.shopItems[i].id, props.shopItems[i].title)}
                 >
                   Add to cart
                 </animated.button>

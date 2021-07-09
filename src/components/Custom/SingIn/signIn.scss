@@ -3,7 +3,8 @@
 
 .sign-in {
   @include full-size;
-  @include slider-number;
+  @include font-2;
+  font-family: var(--e-global-typography-primary);
   color: var(--e-global-color-accent);
 
   &__group {

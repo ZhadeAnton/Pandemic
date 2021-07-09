@@ -1,22 +1,14 @@
-import React, { useRef, useEffect } from 'react'
+import React from 'react'
 import { Form } from 'react-bootstrap'
 
 import './signUp.scss'
-import useSignUp from '../../../Hooks/SignUpHooks'
+import useSignUp from '../../../Hooks/SignUpHook'
 
 import LoginButton from '../LoginButton/LoginButton'
 
 export default function SignUp() {
-  const inputRef = useRef<HTMLInputElement | null>(null)
-
   const signUpHook = useSignUp()
   const {displayName, email, password, confirmPassword} = signUpHook
-
-  useEffect(() => {
-    if (inputRef !== null) {
-      inputRef.current?.focus()
-    }
-  }, [])
 
   return (
     <Form className='sign-up'>
@@ -29,7 +21,7 @@ export default function SignUp() {
           placeholder="Name"
           onChange={signUpHook.handleChange}
           value={displayName}
-          ref={inputRef}
+          ref={signUpHook.inputRef}
           autoComplete="name"
         />
       </Form.Group>

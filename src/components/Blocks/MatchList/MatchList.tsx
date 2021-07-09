@@ -1,33 +1,30 @@
 import React from 'react'
 
-import { IMatch } from '../../../Interfaces/MainInterfaces'
-import { useAppSelector } from '../../../Hooks/PreTypedHooks'
+import './matchList.scss'
+import { ArrayOfMatches } from '../../../Interfaces/MatchInterfaces'
 
 import Spinner from '../../Custom/Spinner/Spinner'
 import MatchItem from '../MatchItem/MatchItem'
 import NotFoundMatches from '../NotFoundMatches/NotFoundMatches'
 
 interface Props {
-  currentMatches: Array<IMatch>
+  currentMatches: ArrayOfMatches,
+  isLoading: boolean
 }
 
 export default function MatchList(props: Props) {
-  const isLoading = useAppSelector((state) => state.match.isLoading)
-
   return (
     <ul className='match-list'>
       {
-        isLoading
+        props.isLoading
         ?
           <Spinner />
         :
           props.currentMatches.length !== 0
         ?
-          props.currentMatches.map((match: IMatch, idx: number) => {
+          props.currentMatches.map((match, idx: number) => {
             return (
-              <li
-                key={idx}
-              >
+              <li key={idx} >
                 <MatchItem
                   match={match}
                 />

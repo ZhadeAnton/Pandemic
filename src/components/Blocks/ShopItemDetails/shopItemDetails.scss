@@ -3,41 +3,49 @@
 @import '../../../Scss/variables';
 
 .shop-item-details {
-  @include media-breakpoint-down(xl) {
-    margin-top: var(--space-md);
-  }
-
   &__stars {
+    @include font-4;
     margin-bottom: var(--space-sm);
   }
 
   &__price {
     margin-bottom: var(--space-md);
+    @include font-7;
+    font-family: var(--e-global-typography-primary);
+    font-weight: 600;
+    color: var(--e-global-color-primary);
   }
 
   &__text {
     margin-bottom: var(--space-lg);
+    @include font-2;
+    font-weight: 400;
+    color: var(--e-global-color-accent);
   }
 
   &__button {
     margin-bottom: var(--space-md);
   }
 
-    @include media-breakpoint-down(sm) {
-      &__stars {
-        margin-bottom: var(--space-vsm);
-      }
-    
-      &__price {
-        margin-bottom: var(--space-sm);
-      }
-    
-      &__text {
-        margin-bottom: var(--space-md);
-      }
-    
-      &__button {
-        margin-bottom: var(--space-sm);
-      }
+  @include media-breakpoint-down(lg) {
+    &__stars {
+      @include font-4;
+      margin-top: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__stars {
+      margin-bottom: var(--space-vsm);
+    }
+  
+    &__price {
+      margin-bottom: var(--space-sm);
+    }
+  
+    &__button {
+      margin-bottom: var(--space-sm);
+    }
   }
 }

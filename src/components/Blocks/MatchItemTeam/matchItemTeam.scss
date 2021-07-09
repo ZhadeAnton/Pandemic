@@ -26,11 +26,19 @@
     flex-direction: column;
   
     &--tag {
-      @include heading-match;
+      @include font-5;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-family: var(--e-global-typography-primary);
+      color: var(--e-global-color-accent);
     }
   
     &--discipline {
-      @include subtitle-match;
+      @include font-2;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-family: var(--e-global-typography-primary);
+      color: var(--e-global-color-primary);
     }
   }
 

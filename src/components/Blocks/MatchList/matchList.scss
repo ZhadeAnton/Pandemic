@@ -1,0 +1,29 @@
+@import '../../../Scss//variables';
+
+.match-list {
+  min-height: 47rem;
+
+  @include media-breakpoint-down(xl) {
+    min-height: 43rem;
+  }
+
+  @include media-breakpoint-down(lg) {
+    min-height: 37rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    min-height: 31rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    min-height: 26rem;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    min-height: 24rem;
+  }
+
+  @include media-breakpoint-down(tiny) {
+    min-height: 23rem;
+  }
+}

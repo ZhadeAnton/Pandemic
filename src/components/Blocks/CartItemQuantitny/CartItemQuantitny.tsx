@@ -1,12 +1,14 @@
 import React from 'react'
 
 import './cartItemQuantitny.scss'
-import { ICartItem } from '../../../Interfaces/CartInterfaces'
+import { ICartItem,
+  IFnDecreaseQuantity,
+  IFnIncreaseQuantity } from '../../../Interfaces/CartInterfaces'
 
 interface Props {
   cartItem: ICartItem,
-  onIncreaseQuantity: any,
-  onDecreaseQuantity: any
+  onIncreaseQuantity: IFnIncreaseQuantity,
+  onDecreaseQuantity: IFnDecreaseQuantity
 }
 
 export default function CartItemQuantitny(props: Props) {

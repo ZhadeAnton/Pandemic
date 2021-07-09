@@ -3,24 +3,27 @@
 .player-brand-avatar {
   flex: 1;
   position: relative;
+  border-radius: 0 2.9rem;
 
   &__image {
     display: inline-block;
     position: relative;
     z-index: 1;
-    margin-top: .7rem;
-    margin-left: .7rem;
+    margin-top: .6rem;
+    margin-left: .6rem;
     border-radius: 0 2.9rem;
     max-width: 15rem;
+    background-color: var(--e-global-color-primary);
+    z-index: 1;
   }
 
   &:before {
     content: '';
-    position: absolute;
     border-radius: 0 3.125rem;
     width: 9.8rem;
+    height: calc(100% + .6rem);
     background-color: var(--e-global-color-primary);
-    height: calc(100% + .7rem);
+    position: absolute;
   }
 
   @include media-breakpoint-down(lg) {

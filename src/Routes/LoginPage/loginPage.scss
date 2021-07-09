@@ -1,11 +1,12 @@
 @import '../../Scss/variables';
 @import '../../Scss/mixins';
+@import '../../Scss/typography';
 
 .login-page {
   @include flex-center;
   width: 100vw;
   height: calc(100vh - var(--header-height));
-  overflow: hidden;
+  overflow-y: auto;
   position: relative;
   background-image: url(../../Assets/JPG/main-bg.jpg);
   @include cover-background;
@@ -92,8 +93,8 @@
     }
 
     &--title {
+      text-align: center;
       margin-bottom: 3rem;
-      color: var(--e-global-color-accent);
     }
 
     &--content {
@@ -120,10 +121,6 @@
       align-items: start;
       flex: 100%;
 
-      &--title {
-        display: none;
-      }
-
       &--tabs {
         display: flex;
         border: none;
@@ -136,6 +133,7 @@
         border-radius: 0 !important;
         border: none !important;
         background-color: var(--e-global-color-accent);
+        @include font-3;
       }
 
       &--link {
@@ -166,6 +164,8 @@
   }
 
   @include media-breakpoint-down(sm) {
+    height: 100vh;
+
     &__wrapper {
       padding: 1rem .5rem;
     }
@@ -178,6 +178,10 @@
         display: flex;
         border: none;
         margin-bottom: 2rem;
+      }
+
+      &--title {
+        display: none;
       }
     }
   }

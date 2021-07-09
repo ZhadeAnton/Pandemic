@@ -1,16 +1,19 @@
+@import '../../../Scss/variables';
+@import '../../../Scss/mixins';
+
 .user-profile {
   position: relative;
 
-  &__avatar {
-    
-  }
-
   &__information {
     transition: all .2s ease;
-    position: absolute;
-    top: 0%;
-    right: 0%;
+    @include abs-position(0%, 0%, auto, auto);
     transform: translateY(3rem) !important;
     display: block;
+  }
+  
+  @include media-breakpoint-down(sm) {
+    &__information {
+      transform: translate(2rem, 3rem) !important;
+    }
   }
 }

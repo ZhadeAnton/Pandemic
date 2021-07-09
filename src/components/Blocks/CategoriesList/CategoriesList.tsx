@@ -1,6 +1,7 @@
 import React from 'react'
 
 import './categoriesList.scss'
+
 import { IShopItem } from '../../../Interfaces/ShopInterfaces'
 
 interface Props {

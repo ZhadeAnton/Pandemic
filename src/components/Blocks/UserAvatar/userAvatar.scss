@@ -1,17 +1,23 @@
 @import '../../../Scss/mixins';
+@import '../../../Scss/variables';
 
 .user-avatar {
-  display: block;
   width: 2rem;
   height: 2rem;
-  border-radius: 50%;
+  display: block;
   overflow: hidden;
   cursor: pointer;
   position: relative;
+  border-radius: 50%;
 
   &__image {
     @include abs-position(0, auto, auto, 0);
     @include full-size;
     border-radius: 50%;
+  }
+  
+  @include media-breakpoint-down(sm) {
+    width: 1.8rem;
+    height: 1.8rem;
   }
 } 

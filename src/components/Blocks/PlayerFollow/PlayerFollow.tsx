@@ -1,12 +1,7 @@
 import React from 'react'
 
 import './playerFollow.scss'
-
-const followList = [
-  {icon: 'bi bi-twitch', title: 'twitch stream', status: 'offline', active: false},
-  {icon: 'bi bi-discord', title: 'discord', status: 'online', active: true},
-  {icon: 'bi bi-youtube', title: 'youtube', status: 'offline', active: false},
-]
+import { followList } from '../../../Utils/PlayerUtils'
 
 export default function PlayerFollow() {
   return (
@@ -16,7 +11,7 @@ export default function PlayerFollow() {
           followList.map((item, idx: number) => {
             return (
               <li key={idx} className='player-follow__item'>
-                <i className={`${item.icon} player-follow__item--icon`}></i>
+                <i className={`${item.icon} player-follow__item--icon`} />
 
                 <h4 className='player-follow__item--title'>
                   {item.title}

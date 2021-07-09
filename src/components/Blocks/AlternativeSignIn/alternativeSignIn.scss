@@ -8,7 +8,9 @@
   &__title {
     margin-bottom: 1rem !important;
     position: relative;
-    @include oswald-sm;
+    @include font-3;
+    font-family:var(--e-global-typography-secondary);
+    font-weight: 400;
     color: var(--e-global-color-accent);
 
     &:after,

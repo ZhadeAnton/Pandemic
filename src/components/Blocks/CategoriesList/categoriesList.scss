@@ -8,7 +8,7 @@
 
   &__title {
     margin-right: var(--space-sm) !important;
-    @include montserat-medium;
+    @include font-2;
     color: var(--e-global-color-text);
   }
 
@@ -23,10 +23,10 @@
     }
 
     &--title {
-      @include montserat-medium;
       opacity: .9;
       cursor: pointer;
       transition: color .15s linear;
+      @include font-2;
       text-transform: capitalize;
       color: var(--e-global-color-accent);
 

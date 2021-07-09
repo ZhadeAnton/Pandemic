@@ -1,7 +1,7 @@
 import { IShopItem } from './ShopInterfaces';
 
 export interface IUser {
-  uid: string,
+  uid: string | undefined,
   email: string,
   displayName: string,
   createAt: {[key: string]: string},

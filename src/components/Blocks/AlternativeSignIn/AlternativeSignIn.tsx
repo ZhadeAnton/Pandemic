@@ -1,29 +1,29 @@
 import React from 'react'
 
 import './alternativeSignIn.scss'
-import { useAppDispatch } from '../../../Hooks/PreTypedHooks'
-import { signInWithGoogle } from '../../../Redux/User/UserActionCreators'
-import { signInWithFacebook } from '../../../Redux/User/UserActionCreators'
+import useAlternativeSignInHook from '../../../Hooks/AlternativeSignInHook'
 
 import AlternativeButton from '../../Custom/AlternativeButton/AlternativeButton'
 
 export default function AlternativeSignIn() {
-  const dispacth = useAppDispatch()
+  const alternativeHook = useAlternativeSignInHook()
 
   return (
     <div className='alternative-sign-in'>
-      <h2 className='alternative-sign-in__title'>or</h2>
+      <h2 className='alternative-sign-in__title'>
+        or
+      </h2>
 
       <AlternativeButton
         icon='google'
-        onClick={() => dispacth(signInWithGoogle())}
+        onClick={alternativeHook.handleSignInWithGoogle}
       >
         Sign in with Google
       </AlternativeButton>
 
       <AlternativeButton
         icon='facebook'
-        onClick={() => dispacth(signInWithFacebook())}
+        onClick={alternativeHook.handleSignInWithFacebook}
       >
         Sign in with Facebook
       </AlternativeButton>

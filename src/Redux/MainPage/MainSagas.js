@@ -1,11 +1,11 @@
 import {takeLatest, put, all, call} from 'redux-saga/effects'
 import * as actionCreators from './MainActionCreators'
 import * as actionTypes from './MainActionsTypes'
-import * as api from '../../API/MatchAPI/MatchAPI'
+import * as api from '../../API/MatchAPI'
 
 function* getAnnounces() {
   try {
-    const announces = yield api.fetchAnnounces()
+    const announces = yield api.getAnnounces()
     yield put(actionCreators.getAnnouncesSuccess(announces))
   } catch (error) {
     console.log(error)
@@ -14,7 +14,7 @@ function* getAnnounces() {
 
 function* getListOfDisciplines() {
   try {
-    const listOfDisciplines = yield api.fetchListOfDiscipines()
+    const listOfDisciplines = yield api.getListOfDiscipines()
     yield put(actionCreators.getListOfDisciplinesSuccess(listOfDisciplines))
   } catch (error) {
     console.log(error)

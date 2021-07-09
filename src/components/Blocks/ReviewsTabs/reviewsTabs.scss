@@ -1,0 +1,76 @@
+@import '../../../Scss/typography';
+@import '../../../Scss/variables';
+
+%tabs-title {
+  margin-top: var(--space-lg) !important;
+  margin-bottom: var(--space-lg) !important;
+  @include font-6;
+  font-family: var(--e-global-typography-primary);
+  font-weight: 600;
+  color: var(--e-global-color-accent);
+
+  @include media-breakpoint-down(tiny) {
+    margin-top: var(--space-md) !important;
+    margin-bottom: var(--space-md) !important;
+  }
+}
+
+.review-tabs {
+  &__tab {
+    @include font-2;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    font-family: var(--e-global-typography-secondary);
+    color: var(--e-global-color-accent);
+
+    &:hover {
+      outline: none;
+      color: var(--e-global-color-text);
+    }
+  }
+
+  &__tab-description {
+    &--title {
+      @extend %tabs-title;
+    }
+
+    &--about {
+      @include font-2;
+      color: var(--e-global-color-accent);
+    }
+  }
+
+  &__tab-reviews {
+    &--title {
+      @extend %tabs-title;
+
+      span {
+        color: var(--e-global-color-primary);
+      }
+    }
+  }
+
+  &__tab.active {
+    background-color: var(--e-global-color-primary) !important;
+    border-color: var(--e-global-color-primary) !important;
+    color: var(--e-global-color-dark-deep) !important;
+  }
+
+  @include media-breakpoint-down(md) {
+    &__tab {
+      padding: .8rem 1.6rem;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__tab {
+      padding: .7rem 1.4rem;
+    }
+  }
+
+  @include media-breakpoint-down(vsm) {
+    &__tab {
+      padding: .6rem 1.1rem;
+    }
+  }
+}

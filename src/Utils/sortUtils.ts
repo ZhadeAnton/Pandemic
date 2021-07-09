@@ -52,7 +52,7 @@ export const sortShopItemsByTag: ISortShopItemsByTag = (sortedBy, initialItems) 
   : initialItems
 }
 
-export const sortNames = [
+export const sortingNames = [
   'Default',
   'Price: low to high',
   'Price: high to low',
@@ -60,4 +60,4 @@ export const sortNames = [
   'Popularity'
 ]
 
-export const filterNames = ['Default', 'Sale']
+export const filteringNames = ['Default', 'Sale']

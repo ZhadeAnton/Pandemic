@@ -13,6 +13,7 @@ export default function SectionBanner(props: Props) {
   return (
     <section className='section-banner'>
       <div className='section-banner__overlay'></div>
+
       <div
         className='section-banner__wrapper'
         data-banner={`${props.sectionName}`}

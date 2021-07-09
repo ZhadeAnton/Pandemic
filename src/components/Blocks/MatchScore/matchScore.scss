@@ -3,43 +3,34 @@
 
 .match-score {
   @include flex-align-center;
-  @include score;
+  margin: 0 2rem;
   z-index: 5;
-  
+  @include font-9;
+  font-weight: 600;
+  font-family: var(--e-global-typography-tertiary);
+  color: var(--e-global-color-primary);
+
   &__separator {
     margin: 0 .6rem;
-    font-size: 2rem;
-  }
-
-  @include media-breakpoint-down(xl) {
-    &__separator {
-      margin: 0 .6rem;
-    }
   }
 
   @include media-breakpoint-down(lg) {
-    &__separator {
-      margin: 0 .4rem;
-    }
-  }
+    margin: 0 1.4rem;
 
-  @include media-breakpoint-down(md) {
     &__separator {
-      font-size: 1.5rem;
-      margin: 0 .4rem;
+      margin: 0 .5rem;
     }
   }
 
   @include media-breakpoint-down(sm) {
-    &__separator {
-      margin: 0 .4rem;
-    }
+    margin: 0 1rem;
   }
 
   @include media-breakpoint-down(vsm) {
+    margin: 0 .8rem;
+
     &__separator {
-      font-size: 1rem;
-      margin: 0 .25rem
+      margin: 0 .24rem;
     }
   }
 }

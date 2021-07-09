@@ -1,12 +1,15 @@
 import { db } from '../Firebase/firebase.config';
 import firebase from 'firebase'
 
-import { IUser } from '../Interfaces/UserInterfaces';
-import { ICartItem } from '../Interfaces/CartInterfaces';
+import {
+  IFnAddShopItemToCart,
+  IFnClearCart,
+  IFnGetShopItemsFromCart,
+  IFnRemoveItemFromCart } from '../Interfaces/CartInterfaces';
 import { getReferencesFromCart, mapDocs } from '../Utils/APIUtils';
+import { IRemoveShopItem } from '../Interfaces/ShopInterfaces';
 
-export function addItemToUserCart(
-    uid: IUser['uid'], shopItemId: ICartItem['id']) {
+export const addItemToUserCart: IFnAddShopItemToCart = (uid, shopItemId) => {
   return db.collection('users')
       .doc(uid)
       .update({
@@ -18,10 +21,10 @@ export function addItemToUserCart(
       .catch((error: any) => console.error(error))
 }
 
-export function removeItemFromUserCart(
-    uid: IUser['uid'], shopItemId: string, quantity: ICartItem['quantity']) {
+export const removeItemFromUserCart: IFnRemoveItemFromCart = (
+    {userUid, shopItemId, quantity}: IRemoveShopItem) => {
   return db.collection('users')
-      .doc(uid)
+      .doc(userUid)
       .update({
         cart: firebase.firestore.FieldValue.arrayRemove({
           item: db.doc(`/shop/${shopItemId}`),
@@ -31,14 +34,14 @@ export function removeItemFromUserCart(
       .catch((error) => console.error(error))
 }
 
-export function clearUserCart(uid: IUser['uid']) {
+export const clearUserCart: IFnClearCart = (uid) => {
   return db.collection('users')
       .doc(uid)
       .update({cart: []})
       .catch((error) => console.error(error))
 }
 
-export function getShopItemsFromUserCart(userUid: IUser['uid']) {
+export const getShopItemsFromUserCart: IFnGetShopItemsFromCart = (userUid) => {
   return db.collection('users')
       .where('uid', '==', `${userUid}`)
       .get()

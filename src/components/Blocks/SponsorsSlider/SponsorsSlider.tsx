@@ -2,7 +2,8 @@ import React from 'react'
 import Slider from 'react-slick';
 
 import './sponsorsSlider.scss'
-import { ITeam } from '../../../Interfaces/MainInterfaces';
+
+import { ITeam } from '../../../Interfaces/TeamInterfaces';
 
 interface Props {
   sponsors: ITeam['sponsors']

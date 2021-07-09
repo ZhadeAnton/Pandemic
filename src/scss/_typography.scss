@@ -1,618 +1,131 @@
 @import './variables';
 
-%heading {
-  font-family: Oswald;
-  font-size: 4.43rem;
-  font-weight: 700;
-  font-style: normal;
-  color: #fff;
-  text-transform: uppercase;
-  word-wrap: wrap;
+@mixin font-1 {
+  font-size: var(--font-size-1);
+  line-height: var(--line-height-1);
 }
 
-%subtitle {
-  font-family: Oswald;
-  color: var(--e-global-color-primary);
-  line-height: 1.5rem;
-  font-weight: 600;
-  text-transform: uppercase;
+@mixin font-2 {
+  font-size: var(--font-size-2);
+  line-height: var(--line-height-2);
+
+  @include media-breakpoint-down(vsm) {
+    font-size: var(--font-size-1);
+    line-height: var(--line-height-1);
+  }
 }
 
-%text-plain {
-  color: #adb0bc;
-  font-family: "Montserrat",Sans-serif;
-  font-size: 1.065rem;
-  font-weight: 400;
-  line-height: 2.3rem;
+@mixin font-3 {
+  font-size: var(--font-size-3);
+  line-height: var(--line-height-3);
+
+  @include media-breakpoint-down(vsm) {
+    font-size: var(--font-size-2);
+    line-height: var(--line-height-2);
+  }
 }
 
-@mixin main-heading {
-  font-family: var(--e-global-typography-secondary-font-family);
-  font-size: 6rem;
-  line-height: 6rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #ffffff;
-  font-style: normal;
+@mixin font-4 {
+  font-size: var(--font-size-4);
+  line-height: var(--line-height-4);
+
+  @include media-breakpoint-down(md) {
+    font-size: var(--font-size-3);
+    line-height: var(--line-height-3);
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: var(--font-size-2);
+    line-height: var(--line-height-2);
+  }
+}
+
+@mixin font-5 {
+  font-size: var(--font-size-5);
+  line-height: var(--line-height-5);
+
+  @include media-breakpoint-down(md) {
+    font-size: var(--font-size-4);
+    line-height: var(--line-height-4);
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: var(--font-size-3);
+    line-height: var(--line-height-3);
+  }
+}
+
+@mixin font-6 {
+  font-size: var(--font-size-6);
+  line-height: var(--line-height-6);
+
+  @include media-breakpoint-down(md) {
+    font-size: var(--font-size-5);
+    line-height: var(--line-height-5);
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: var(--font-size-4);
+    line-height: var(--line-height-4);
+  }
+}
+
+@mixin font-7 {
+  font-size: var(--font-size-7);
+  line-height: var(--line-height-7);
+
+  @include media-breakpoint-down(md) {
+    font-size: var(--font-size-6);
+    line-height: var(--line-height-6);
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: var(--font-size-5);
+    line-height: var(--line-height-5);
+  }
+}
+
+@mixin font-8 {
+  font-size: var(--font-size-8);
+  line-height: var(--line-height-8);
 
   @include media-breakpoint-down(lg) {
-    font-size: 5.5rem;
-    line-height: 5.5rem;
+    font-size: var(--font-size-7);
+    line-height: var(--line-height-7);
   }
 
   @include media-breakpoint-down(md) {
-    font-size: 5rem;
-    line-height: 5rem;
+    font-size: var(--font-size-6);
+    line-height: var(--line-height-6);
   }
 
   @include media-breakpoint-down(sm) {
-    font-size: 4rem;
-    line-height: 4rem;
+    font-size: var(--font-size-5);
+    line-height: var(--line-height-5);
   }
 
   @include media-breakpoint-down(vsm) {
-    font-size: 3.5rem;
-    line-height: 3.5rem;
+    font-size: var(--font-size-4);
+    line-height: var(--line-height-4);
   }
 }
 
-@mixin text-plain {
-  @extend %text-plain;
-
-  @include media-breakpoint-down(sm) {
-    font-size: .92rem;
-    line-height: 1.4rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    font-size: .8rem;
-  }
-}
-
-@mixin heading-big {
-  @extend %heading;
-
-  @include media-breakpoint-down(xl) {
-    font-size: 4rem;
-  }
-
-  @include media-breakpoint-down(xl) {
-    font-size: 3.8rem;
-  }
-
-  @include media-breakpoint-down(md) {
-    font-size: 3.5rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    font-size: 3rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    font-size: 2.4rem;
-  }
-}
-
-@mixin heading-small {
-  @extend %heading;
-  font-size: 1.56rem;
+@mixin font-9 {
+  font-size: var(--font-size-9);
+  line-height: var(--line-height-9);
 
   @include media-breakpoint-down(lg) {
-    font-size: 1.45rem;
+    font-size: var(--font-size-8);
+    line-height: var(--line-height-8);
   }
 
   @include media-breakpoint-down(md) {
-    font-size: 1.31rem;
+    font-size: var(--font-size-7);
+    line-height: var(--line-height-7);
   }
 
   @include media-breakpoint-down(sm) {
-    font-size: 1.2rem;
-  }
-}
-
-@mixin heading-match {
-  @extend %heading;
-  font-size: 2rem;
-
-  @include media-breakpoint-down(lg) {
-    font-size: 1.5rem;
-  }
-
-  @include media-breakpoint-down(md) {
-    font-size: 1.2rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    line-height: 1rem;
-    font-size: 1rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    font-size: .85rem;
-  }
-
-  @include media-breakpoint-down(tiny) {
-    font-size: .75rem;
-  }
-}
-
-@mixin subtitle-match {
-  @extend %subtitle;
-  font-size: .9rem;
-
-  @include media-breakpoint-down(lg) {
-    font-size: .7rem;
-  }
-
-  @include media-breakpoint-down(md) {
-    line-height: .9rem;
-    font-size: .65rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    font-size: .6rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    line-height: .9rem;
-    font-size: .5rem;
-  }
-
-  @include media-breakpoint-down(tiny) {
-    line-height: .8rem;
-    font-size: .45rem;
-  }
-}
-
-@mixin subtitle-big {
-  @extend %subtitle;
-  font-size: .9rem;
-
-  @include media-breakpoint-down(lg) {
-    font-size: .8rem;
-  }
-
-  @include media-breakpoint-down(md) {
-    font-size: .7rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    font-size: .6rem;
-  }
-}
-
-@mixin date {
-  color: #fff;
-  font-family: Montserrat, arial;
-  font-weight: 300;
-  font-size: .625rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-
-  @include media-breakpoint-down(md) {
-    font-size: .47rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    font-size: .525rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    font-size: .44rem;
-  }
-}
-
-@mixin slider-number {
-  font-family: Oswald;
-  color: white;
-  font-size: .9rem;
-  line-height: 20px;
-  font-weight: 600;
-}
-
-@mixin score {
-  line-height: 4.20rem;
-  font-size: 4.25rem;
-  font-weight: 600;
-  margin: 0 2.3rem;
-  color: var(--e-global-color-primary);
-
-  @include media-breakpoint-down(xl) {
-    font-size: 4rem;
-    margin: 0 2rem;
-  }
-
-  @include media-breakpoint-down(lg) {
-    font-size: 3rem;
-    margin: 0 1.1rem;
-  }
-
-  @include media-breakpoint-down(md) {
-    font-size: 2.3rem;
-    margin: 0 .9rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    font-size: 1.8rem;
-    margin: 0 .7rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    font-size: 1.4rem;
-    margin: 0 .6rem;
-  }
-}
-
-@mixin heading-stats {
-  @extend %heading;
-  font-size: 1.5rem;
-
-  @include media-breakpoint-down(lg) {
-    font-size: 1.4rem;
-  }
-
-  @include media-breakpoint-down(md) {
-    font-size: 1.25rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    font-size: 1rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    font-size: .9rem;
-  }
-}
-
-@mixin archivo-xxl {
-  font-family: var(--e-global-typography-secondary-font-family);
-  font-size: 15.625rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #2E313C85;
-
-  @include media-breakpoint-down(xl) {
-    font-size: 12.5rem;
-  }
-
-  @include media-breakpoint-down(lg) {
-    font-size: 11rem;
-  }
-
-  @include media-breakpoint-down(md) {
-    font-size: 10rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    font-size: 8rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    font-size: 6rem;
-  }
-}
-
-@mixin archivo-xl {
-  font-family: var(--e-global-typography-secondary-font-family);
-  font-size: 3.4375rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  line-height: 4.125rem;
-  letter-spacing: 2px;
-  color: #ffffff;
-  font-style: normal;
-
-  @include media-breakpoint-down(lg) {
-    font-size: 3.3rem;
-    line-height: 4rem;
-  }
-
-  @include media-breakpoint-down(md) {
-    font-size: 2.3rem;
-    line-height: 3rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    font-size: 2rem;
-    line-height: 2.7rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    font-size: 1.7rem;
-    line-height: 2.2rem;
-  }
-
-  @include media-breakpoint-down(tiny) {
-    font-size: 1.4rem;
-    line-height: 1.9rem;
-  }
-}
-
-@mixin archivo-large {
-  font-family: var(--e-global-typography-secondary-font-family);
-  font-size: 2.8125rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  line-height: 3.375rem;
-  color: #ffffff;
-
-  @include media-breakpoint-down(lg) {
-    line-height: 4rem;
-    font-size: 3.3rem;
-  }
-
-  @include media-breakpoint-down(md) {
-    line-height: 3.5rem;
-    font-size: 3rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    line-height: 2.9rem;
-    font-size: 2.6rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    font-size: 2.1rem;
-  }
-}
-
-@mixin archivo-medium {
-  font-family: var(--e-global-typography-secondary-font-family);
-  font-size: 1.25rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  line-height: 1.5rem;
-  color: #ffffff;
-  font-style: normal;
-
-  @include media-breakpoint-down(lg) {
-    font-size: 1.2rem;
-  }
-
-  @include media-breakpoint-down(md) {
-    font-size: 1.1rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    font-size: 1rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    font-size: .9rem;
-  }
-}
-
-@mixin archivo-small {
-  font-family: var(--e-global-typography-secondary-font-family);
-  font-size: .9375rem;
-  font-weight: 600;
-  line-height: 1.125rem;
-  color: #ffffff;
-  font-style: normal;
-
-  @include media-breakpoint-down(lg) {
-    font-size: .9rem;
-  }
-
-  @include media-breakpoint-down(md) {
-    font-size: .84rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    font-size: .78rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    font-size: .7rem;
-  }
-}
-
-@mixin archivo-tiny {
-  font-family: var(--e-global-typography-secondary-font-family);
-  font-size: .8125rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 25px;
-  color: #ffffff;
-  font-style: normal;
-
-  @include media-breakpoint-down(md) {
-    font-size: .76rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    font-size: .63rem;
-  }
-}
-
-@mixin oswald-xl {
-  font-family: Oswald;
-  font-size: 3.4375rem;
-  line-height: 4.125rem;
-  font-weight: 700;
-  font-style: normal;
-
-  @include media-breakpoint-down(lg) {
-    font-size: 3.3rem;
-    line-height: 3.9rem;
-  }
-
-  @include media-breakpoint-down(md) {
-    font-size: 3.1rem;
-    line-height: 3.7rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    font-size: 3rem;
-    line-height: 3.7rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    font-size: 2.7rem;
-    line-height: 3rem;
-  }
-}
-
-@mixin oswald-lg {
-  font-family: Oswald;
-  font-size: 2.125rem;
-  line-height: 3.375rem;
-  font-weight: 700;
-  font-style: normal;
-
-  @include media-breakpoint-down(md) {
-    font-size: 1.9rem;
-    line-height: 4rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    font-size: 1.7rem;
-    line-height: 3.5rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    font-size: 1.6rem;
-    line-height: 3rem;
-  }
-
-  @include media-breakpoint-down(tiny) {
-    font-size: 1.5rem;
-    line-height: 2.5rem;
-  }
-}
-
-@mixin oswald-medium {
-  font-family: Oswald;
-  font-size: 1.4375rem;
-  line-height: 1.685rem;
-  font-weight: 700;
-  font-style: normal;
-
-  @include media-breakpoint-down(lg) {
-    font-size: 1.4rem;
-    line-height: 1.6rem;
-  }
-
-  @include media-breakpoint-down(md) {
-    font-size: 1.2rem;
-    line-height: 1.5rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    font-size: 1rem;
-    line-height: 1.3rem;
-  }
-}
-
-@mixin oswald-sm {
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.875rem;
-  letter-spacing: 1.55px;
-  font-weight: 600;
-
-  @include media-breakpoint-down(lg) {
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-  }
-
-  @include media-breakpoint-down(sm) {
-    font-size: 0.7rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    font-size: 0.65rem;
-  }
-
-  @include media-breakpoint-down(tiny) {
-    font-size: 0.6rem;
-  }
-}
-
-@mixin roboto-medium {
-  font-family: var(--e-global-typography-primary-font-family);
-  font-style: normal;
-  font-size: 2.8125rem;
-  line-height: 3.9375rem;
-  font-weight: 600;
-  color: #ffffff;
-
-  @include media-breakpoint-down(xl) {
-    font-size: 2.5rem;
-    line-height: 3.5rem;
-  }
-
-  @include media-breakpoint-down(lg) {
-    font-size: 2.2rem;
-    line-height: 2.7rem;
-  }
-
-  @include media-breakpoint-down(md) {
-    font-size: 2rem;
-    line-height: 2.5rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    font-size: 1.7rem;
-    line-height: 2.1rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    font-size: 1.5rem;
-    line-height: 1.8rem;
-  }
-}
-
-@mixin roboto-small {
-  font-family: var(--e-global-typography-primary-font-family);
-  font-style: normal;
-  font-size: 1.5625rem;
-  line-height: 2.343rem;
-  font-weight: 400;
-  color: #ffffff;
-
-  @include media-breakpoint-down(xl) {
-    font-size: 1.4rem;
-    line-height: 2.2rem;
-  }
-
-  @include media-breakpoint-down(lg) {
-    font-size: 1.2rem;
-    line-height: 1.89rem;
-  }
-
-  @include media-breakpoint-down(md) {
-    font-size: 1.1rem;
-    line-height: 1.6rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    font-size: 1rem;
-  }
-
-  @include media-breakpoint-down(vsm) {
-    font-size: .9rem;
-    line-height: 1.5rem;
-  }
-
-  @include media-breakpoint-down(tiny) {
-    font-size: .8rem;
-  }
-}
-
-@mixin montserat-medium {
-  font-family: Montserrat;
-  line-height: 24px;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 14px;
-
-  @include media-breakpoint-down(md) {
-    font-size: 13px;
-    line-height: 20px;
-  }
-
-  @include media-breakpoint-down(sm) {
-    font-size: 11px;
-    line-height: 1rem;
+    font-size: var(--font-size-6);
+    line-height: var(--line-height-6);
   }
 }

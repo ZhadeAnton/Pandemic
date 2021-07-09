@@ -1,22 +1,38 @@
 @import '../../../Scss/typography';
+@import '../../../Scss/mixins';
+@import '../../../Scss/variables';
 
 .login-link {
-  display: flex;
-  align-items: center;
-  text-transform: uppercase;
-  color: var(--e-global-color-accent);
+  @include flex-align-center;
   transition: color .2s ease;
 
   &:hover {
-    color: var(--e-global-color-primary) !important;
+    color: var(--e-global-color-primary);
   }
 
   &__icon {
     margin-right: .5rem;
+    font-size: 1.5rem;
+    color: var(--e-global-color-primary);
   }
 
   &__title {
     display: inline-block;
-    @include oswald-sm;
+    @include font-2;
+    text-transform: uppercase;
+    font-family:var(--e-global-typography-primary);
+    font-weight: 600;
+    color: var(--e-global-color-accent);
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__title {
+      display: none;
+    }
+    &__icon {
+      margin-right: .5rem;
+      font-size: 1.3rem;
+      color: var(--e-global-color-primary);
+    }
   }
 }

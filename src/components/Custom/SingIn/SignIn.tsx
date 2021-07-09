@@ -1,29 +1,19 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import { Form } from 'react-bootstrap'
 
 import './signIn.scss'
-import useSignIn from '../../../Hooks/SignInHooks'
+import useSignIn from '../../../Hooks/SignInHook'
 
 import LoginButton from '../LoginButton/LoginButton'
 import AlternativeSignIn from '../../Blocks/AlternativeSignIn/AlternativeSignIn'
 
 export default function SignIn() {
   const signInHook = useSignIn()
-  const inputRef = useRef<HTMLInputElement | null>(null)
-
-  useEffect(() => {
-    if (inputRef !== null) {
-      inputRef.current?.focus()
-    }
-  }, [])
 
   return (
     <>
       <Form className='sign-in'>
-        <Form.Group
-          className='sign-in__group'
-          controlId="formBasicEmail"
-        >
+        <Form.Group className='sign-in__group'>
           <Form.Label>Email address</Form.Label>
 
           <Form.Control
@@ -31,7 +21,7 @@ export default function SignIn() {
             type="email"
             value={signInHook.email}
             onChange={signInHook.handleChange}
-            ref={inputRef}
+            ref={signInHook.inputRef}
             placeholder="Enter email"
             autoComplete="email"
           />

@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import cn from 'classnames'
 
 import './breadcrumbs.scss'
@@ -9,15 +9,12 @@ interface Props {
 }
 
 export default function Breadcrumbs(props: Props) {
-  const location = useLocation()
-  const currentLocation = location.pathname.slice(1)
-
   return (
     <nav className='breadcrumbs'>
       <ul className='breadcrumbs__list'>
         {
           props.crumbs.map((item, idx: number) => {
-            const crumb = item.toLocaleLowerCase()
+            const breadsLength = props.crumbs.length
 
             return (
               <li
@@ -26,8 +23,8 @@ export default function Breadcrumbs(props: Props) {
               >
                 <NavLink
                   className={cn('breadcrumbs__list--link',
-                    currentLocation === crumb ? 'breadcrumbs__list--link-active' : '')}
-                  to={`${item === 'Home' ? '/' : item.toLocaleLowerCase()}`}
+                  breadsLength === idx + 1 ? 'breadcrumbs__list--link-active' : '')}
+                  to={`${item === 'Home' ? '/' : `/${item.toLocaleLowerCase()}`}`}
                 >
                   {item}
                 </NavLink>

@@ -1,37 +1,36 @@
 @mixin slick-arrow {
-  top: 50%;
-  cursor: pointer;
-  z-index: 20;
   width: 150px;
   height: 60px;
+  top: 50%;
   transition: color .4s ease;
+  z-index: 20;
+  cursor: pointer;
   outline: none;
-  background-color: transparent;
   border: none;
+  background-color: transparent;
   
   span {
     display: inline-block;
-    font-size: 14px;
-    color: white;
-    font-weight: 700;
     opacity: 0;
-    z-index: 3333;
-    text-transform: uppercase;
     vertical-align: middle;
+    z-index: 9998;
     transition: opacity .4s ease;
+    font-size: .875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--e-global-color-accent);
   }
 
   &:before, &:after {
-    display: inline-block;
-    font-family: slick;
     width: auto;
-    vertical-align: middle;
-    line-height: 40px;
-    color: #fff;
-    font-size: 20px;
     height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: slick;
     font-weight: 300;
+    line-height: 2.6rem;
     font-size: 3rem !important;
+    color: var(--e-global-color-accent);
   }
 
   &:hover {

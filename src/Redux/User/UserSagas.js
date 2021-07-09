@@ -16,7 +16,7 @@ function* getSnapshotFromUserAuth(userAuth, additionalData) {
       ...userSnapshot.data()
     }))
   } catch (error) {
-    yield put(userActions.authenticationError(error.message))
+    yield put(userActions.authMessage(error.message))
   }
 }
 
@@ -25,7 +25,7 @@ function* signInWithGoogle() {
     const {user} = yield auth.signInWithPopup(googleProvider)
     yield getSnapshotFromUserAuth(user)
   } catch (error) {
-    yield put(userActions.authenticationError(error.message))
+    yield put(userActions.authMessage(error.message))
   }
 }
 
@@ -34,7 +34,7 @@ function* signInWithFacebook() {
     const {user} = yield auth.signInWithPopup(facebookProvider)
     yield getSnapshotFromUserAuth(user)
   } catch (error) {
-    yield put(userActions.authenticationError(error.message))
+    yield put(userActions.authMessage(error.message))
   }
 }
 
@@ -42,9 +42,9 @@ function* signUpWithEmail({payload: {email, password, displayName}}) {
   try {
     const {user} = yield auth.createUserWithEmailAndPassword(email, password)
     yield getSnapshotFromUserAuth(user, {displayName})
-    yield put(userActions.signUpSucess())
+    yield put(userActions.signUpSuccess())
   } catch (error) {
-    yield put(userActions.authenticationError(error.message))
+    yield put(userActions.authMessage(error.message))
   }
 }
 
@@ -53,7 +53,7 @@ function* signInWithEmail({payload: {email, password}}) {
     const {user} = yield auth.signInWithEmailAndPassword(email, password)
     yield getSnapshotFromUserAuth(user)
   } catch (error) {
-    yield put(userActions.authenticationError(error.message))
+    yield put(userActions.authMessage(error.message))
   }
 }
 
@@ -62,7 +62,7 @@ function* signOut() {
     yield auth.signOut()
     yield put(userActions.signOutSuccess())
   } catch (error) {
-    yield put(userActions.authenticationError(error.message))
+    yield put(userActions.authMessage(error.message))
   }
 }
 

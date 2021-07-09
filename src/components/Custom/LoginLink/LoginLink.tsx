@@ -9,10 +9,11 @@ export default function LoginLink() {
       className='login-link'
       to="/login"
     >
-      <div>
-        <i className="bi bi-box-arrow-in-right login-link__icon"></i>
-        <h5 className='login-link__title'>Sign in</h5>
-      </div>
+      <i className="bi bi-box-arrow-in-right login-link__icon"></i>
+
+      <h5 className='login-link__title'>
+        Sign in
+      </h5>
     </NavLink>
   )
 }

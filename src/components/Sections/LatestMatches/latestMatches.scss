@@ -2,19 +2,16 @@
 @import '../../../scss/mixins';
 
 .latest-matches {
-  width: 100%;
-  height: 100%;
+  @include full-size;
   overflow: hidden;
   padding-top: var(--space-xl);
 
   &__wrapper {
-    height: 100%;
-    width: 100%;
+    @include full-size;
   }
 
   &__heading {
-    height: 100%;
-    width: 100%;
+    @include full-size;
     display: inline-block;
   }
 
@@ -23,10 +20,8 @@
   }
 
   &__list {
-    padding: 3rem 0 !important;
-    min-height: 20rem;
-    height: 100%;
-    width: 100%;
+    @include full-size;
+    padding: 2rem 0 !important;
     position: relative;
   }
 
@@ -34,22 +29,15 @@
     @include flex-center;
   }
 
-  @include media-breakpoint-down(md) {
-    &__list {
-      min-height: 15rem;
-    }
-  }
-
   @include media-breakpoint-down(sm) {
     &__list {
-      min-height: 10rem;
-      padding: 1.5rem 0 !important;
+      padding: 1rem 0 !important;
     }
   }
 
   @include media-breakpoint-down(vsm) {
     &__list {
-      padding: 1rem 0 !important;
+      padding: .1rem 0 !important;
     }
   }
 }

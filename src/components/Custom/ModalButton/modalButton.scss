@@ -1,0 +1,42 @@
+@import '../../../scss/variables';
+@import '../../../scss/typography';
+
+.modal-button {
+  padding: 1.3rem 3rem;
+  z-index: 100;
+  cursor: pointer;
+  transition: all .4s ease;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 0 30px;
+  background-color: transparent;
+  border-color: var(--e-global-color-primary);
+
+  &__link {
+    @include font-2;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: var(--e-global-typography-secondary);
+    color: var(--e-global-color-accent);
+
+    &:hover {
+      color: var(--e-global-color-accent);
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 1rem 2.5rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: .8rem 1.4rem;
+  }
+
+  &__icon {
+    margin-right: .5rem;
+  }
+
+  &:hover {
+    background-color: var(--e-global-color-primary);
+  }
+}

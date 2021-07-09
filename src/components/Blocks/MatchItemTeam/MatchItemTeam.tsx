@@ -2,8 +2,7 @@ import React from 'react'
 import cn from 'classnames'
 
 import './matchItemTeam.scss'
-
-import { ITeam } from '../../../Interfaces/MainInterfaces'
+import { ITeam } from '../../../Interfaces/TeamInterfaces'
 
 interface Props {
   team: ITeam,

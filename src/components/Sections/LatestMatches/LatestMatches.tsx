@@ -1,28 +1,26 @@
 import React from 'react'
 
 import './latestMatches.scss'
-import { useAppSelector } from '../../../Hooks/PreTypedHooks'
+import { ArrayOfMatches } from '../../../Interfaces/MatchInterfaces'
+import { ArrayOfIDisciplines } from '../../../Interfaces/MainInterfaces'
 
-import CustomPagination from '../../Custom/Pagination/Pagination'
+import CustomPagination from '../../Blocks/Pagination/Pagination'
 import MatchFilter from '../../Blocks/MatchFilter/MatchFilter'
 import Heading from '../../Blocks/Heading/Heading'
 import MatchList from '../../Blocks/MatchList/MatchList'
 
-function LatestMatches() {
-  const matchesPerPage = useAppSelector((state) => state.match.matchesPerPage)
-  const currentPage = useAppSelector((state) => state.match.currentPage)
-  const matchesLength = useAppSelector((state) => state.match.matches.slice.length)
+interface Props {
+  slicedMatches: ArrayOfMatches,
+  disciplines: ArrayOfIDisciplines,
+  initialLatestMatches: string,
+  matchesPerPage: number,
+  currentPage: number,
+  matchesLength: number,
+  pagesLength: number,
+  isLoading: boolean
+}
 
-  // Indexes of first and last items
-  const indexOfLastMatch = currentPage * matchesPerPage
-  const indexOfFirstMatch = indexOfLastMatch - matchesPerPage
-
-  // Slicing items by indexes of first and last items
-  const slicedMatches = useAppSelector((state) => state.match.matches
-      .slice(indexOfFirstMatch, indexOfLastMatch))
-
-  const pagesLength = Math.ceil(matchesLength / matchesPerPage)
-
+function LatestMatches(props: Props) {
   return (
     <section className='latest-matches container'>
       <div className='latest-matches__wrapper'>
@@ -34,21 +32,25 @@ function LatestMatches() {
         </div>
 
         <div className='latest-matches__sort-row'>
-          <MatchFilter />
+          <MatchFilter
+            initialLatestMatches={props.initialLatestMatches}
+            disciplines={props.disciplines}
+          />
         </div>
 
         <div className='latest-matches__list'>
           <MatchList
-            currentMatches={slicedMatches}
+            currentMatches={props.slicedMatches}
+            isLoading={props.isLoading}
           />
         </div>
       </div>
 
       <div className='latest-matches__pagination'>
         <CustomPagination
-          itemsPerPage={matchesPerPage}
-          currentPage={currentPage}
-          pagesLength={pagesLength}
+          itemsPerPage={props.matchesPerPage}
+          currentPage={props.currentPage}
+          pagesLength={props.pagesLength}
         />
       </div>
     </section>

@@ -1,39 +1,34 @@
 import React from 'react'
 
 import './matchInfo.scss'
+import { IMatchContainer } from '../../Containers/MatchContainer';
+
 import Heading from '../../Components/Blocks/Heading/Heading';
 import MatchItem from '../../Components/Blocks/MatchItem/MatchItem'
 import StatsList from '../../Components/Blocks/StatsList/StatsList';
 import PlayersList from '../../Components/Blocks/PlayersList/PlayersList';
 import TeamLine from '../../Components/Blocks/TeamLine/TeamLine';
 import VerticalLine from '../../Components/Custom/VerticalLine/VerticalLine';
-import { useAppSelector } from '../../Hooks/PreTypedHooks';
 import ParallaxHeading from '../../Components/Sections/ParallaxHeading/ParallaxHeading';
 import Footer from '../../Components/Sections/Footer/Footer';
 
-interface Props {
-  location: any,
-}
-
-function MatchInfo(props: Props) {
-  const currentMatch = useAppSelector((state) => state.match.currentMatch)
-
+function MatchInfo(props: IMatchContainer) {
   return (
     <main className='latest-match-page'>
       <section className='latest-match-page__match-info container'>
         <h4 className='latest-match-page__match-info--title'>
-          {currentMatch!.tournament}
+          {props.currentMatch.tournament}
         </h4>
 
         <div className='latest-match-page__match-info--match'>
-          <MatchItem match={currentMatch!} />
+          <MatchItem match={props.currentMatch} />
         </div>
 
         <div className='latest-match-page__match-info--icon-wrapper'>
           <img
             className='latest-match-page__match-info--icon'
-            src={currentMatch!.icon}
-            alt={currentMatch!.discipline}
+            src={props.currentMatch.icon}
+            alt={props.currentMatch.discipline}
           />
         </div>
 
@@ -42,14 +37,14 @@ function MatchInfo(props: Props) {
         </div>
 
         <div className='latest-match-page__match-info--match-stats'>
-          <StatsList stats={currentMatch!.stats} valueStyle='medium' />
+          <StatsList stats={props.currentMatch.stats} size='medium' />
         </div>
 
         <div className='latest-match-page__match-info--image-wrapper'>
           <img
             className='latest-match-page__match-info--image'
-            src={currentMatch!.background}
-            alt={currentMatch!.discipline}
+            src={props.currentMatch.background}
+            alt={props.currentMatch.discipline}
           />
         </div>
       </section>
@@ -58,21 +53,27 @@ function MatchInfo(props: Props) {
         <Heading title='line ups'/>
 
         <div className='latest-match-page__team-line'>
-          <TeamLine tag={currentMatch!.team1.tag} teamLogo={currentMatch!.team1.logo}/>
+          <TeamLine
+            tag={props.currentMatch.team1.tag}
+            teamLogo={props.currentMatch.team1.logo}
+          />
         </div>
         <div className='latest-match-page__teammates'>
-          <PlayersList players={currentMatch!.team1.players}/>
+          <PlayersList players={props.currentMatch.team1.players}/>
         </div>
         <div className='latest-match-page__team-line'>
-          <TeamLine tag={currentMatch!.team2.tag} teamLogo={currentMatch!.team2.logo}/>
+          <TeamLine
+            tag={props.currentMatch.team2.tag}
+            teamLogo={props.currentMatch.team2.logo}
+          />
         </div>
         <div className='latest-match-page__teammates'>
-          <PlayersList players={currentMatch!.team2.players}/>
+          <PlayersList players={props.currentMatch.team2.players}/>
         </div>
       </section>
 
       <section className='latest-match-page__parallax'>
-        <ParallaxHeading />
+        <ParallaxHeading backgroundImage='war'/>
       </section>
 
       <Footer />

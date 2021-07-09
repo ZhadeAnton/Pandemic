@@ -1,28 +1,31 @@
 @import '../../../scss/variables';
 
 .brand-logo {
-  height: 100%;
+  width: auto;
+  height: auto;
+
+  &__image {
+    width: 9.375rem;
+    height: 3.125rem;
+  }
+  
+  @include media-breakpoint-down(lg) {
+    &__image {
+      width: 8.75rem;
+      height: 2.5rem;
+    }
+  }
 
   @include media-breakpoint-down(md) {
-    margin-left: .5rem;
     &__image {
-      width: 90%;
-      height: auto;
+      width: 7.5rem;
     }
   }
 
   @include media-breakpoint-down(sm) {
     &__image {
-      width: 80%;
-      height: auto;
-    }
-  }
-
-  @include media-breakpoint-down(vsm) {
-
-    &__image {
-      width: 70%;
-      height: auto;
+      width: 6.25rem;
+      height: 2rem;
     }
   }
 }

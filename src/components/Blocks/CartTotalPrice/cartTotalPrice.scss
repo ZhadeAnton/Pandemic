@@ -5,15 +5,16 @@
   @include flex-align-center;
 
   &__title {
-    @include oswald-medium;
     margin-right: 1rem !important;
+    @include font-5;
+    font-family: var(--e-global-typography-secondary);
     color: var(--e-global-color-accent);
   }
 
   &__output {
-    @include oswald-medium;
+    @include font-5;
+    font-family: var(--e-global-typography-secondary);
     color: var(--e-global-color-accent);
-    line-height: 2.3rem;
     border-bottom: 3px solid var(--e-global-color-primary);
   }
 }

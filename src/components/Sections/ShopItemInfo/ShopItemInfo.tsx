@@ -1,7 +1,8 @@
 import React from 'react'
 
 import './shopItemInfo.scss'
-import { IShopState } from '../../../Redux/Shop/ShopReducer'
+import { IHandleAddCartButton } from '../../../Interfaces/CartInterfaces'
+import { IShopItem } from '../../../Interfaces/ShopInterfaces'
 
 import Breadcrumbs from '../../Blocks/Breadcrumbs/Breadcrumbs'
 import Heading from '../../Blocks/Heading/Heading'
@@ -9,7 +10,8 @@ import ShopItemDetails from '../../Blocks/ShopItemDetails/ShopItemDetails'
 import Zoom from '../../Custom/Zoom/Zoom'
 
 interface Props {
-  currentItem: IShopState['currentShopItem']
+  currentItem: IShopItem,
+  handleAddItemToCart: IHandleAddCartButton
 }
 
 export default function ShopItemInfo(props: Props) {
@@ -35,6 +37,7 @@ export default function ShopItemInfo(props: Props) {
 
         <div className='shop-item-info__product--description'>
           <ShopItemDetails
+            handleAddItemToCart={props.handleAddItemToCart}
             currentItem={props.currentItem}
           />
         </div>

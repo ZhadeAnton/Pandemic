@@ -19,6 +19,25 @@
     padding-bottom: var(--space-xl);
   }
 
+  &__related-items {
+    text-align: center;
+    margin-bottom: var(--space-xxl);
+
+    &--title {
+      margin-bottom: var(--space-md) !important;
+      @include font-6;
+      font-weight: 600;
+      font-family: var(--e-global-typography-primary);
+      text-transform: uppercase;
+      color: var(--e-global-color-accent);
+    }
+  
+    &--pagination {
+      @include flex-center;
+      margin-top: var(--space-md);
+    }
+  }
+
   @include media-breakpoint-down(md) {
     &__section-item-info {
       padding-top: var(--space-md);

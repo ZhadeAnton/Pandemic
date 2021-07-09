@@ -3,22 +3,19 @@ import * as cartTypes from '../Cart/CartActionTypes'
 import { UserTypes } from './UserActionTypes'
 import { CartTypes } from '../Cart/CartActionTypes'
 import { IUser } from './../../Interfaces/UserInterfaces';
+import { addItemToCart, removeItemFromCart } from '../../Utils/UserUtils';
 
 export interface IUserState {
   currentUser: IUser | null,
-  authenticationError: string | null,
-  isSignUp: boolean,
-  isSignIn: boolean,
+  authMessage: Array<string> | null,
   isLoading: boolean,
 }
 
- type UserReducer = UserTypes | CartTypes
+type UserReducer = UserTypes | CartTypes
 
 const INITIAL_STATE: IUserState = {
   currentUser: null,
-  authenticationError: null,
-  isSignUp: false,
-  isSignIn: false,
+  authMessage: null,
   isLoading: false,
 }
 
@@ -28,33 +25,32 @@ const userReducer = (state = INITIAL_STATE, action: UserReducer) => {
       return {
         ...state,
         currentUser: action.payload,
-        isSignIn: true
+        authMessage: ['You are successfully logged in!']
       }
 
     case userTypes.SIGN_UP_SUCCESS:
       return {
         ...state,
-        isSignUp: true
+        authMessage: ['You are successfully signed up and logged in!']
       }
 
-    case userTypes.SIGN_OUT:
+    case userTypes.SIGN_OUT_SUCCESS:
       return {
         ...state,
         currentUser: null,
+        authMessage: ['You are successfully signed out!']
       }
 
-    case userTypes.AUTHENTICATION_ERROR:
+    case userTypes.AUTHENTICATION_MESSAGE:
       return {
         ...state,
-        authenticationError: action.payload
+        authMessage: [action.payload],
       }
 
     case userTypes.RESET_AUTHENTICATION_MESSAGE:
       return {
         ...state,
-        authenticationError: null,
-        isSignUp: false,
-        isSignIn: false
+        authMessage: null
       }
 
     case cartTypes.ADD_ITEM_TO_CART:
@@ -62,9 +58,7 @@ const userReducer = (state = INITIAL_STATE, action: UserReducer) => {
         ...state,
         currentUser: {
           ...state.currentUser,
-          cart: state.currentUser?.cart.includes(action.payload.shopItemId)
-            ? state.currentUser?.cart
-            : state.currentUser?.cart.concat(action.payload.shopItemId)
+          cart: addItemToCart(state.currentUser!.cart, action.payload.shopItemId)
         }
       } as IUserState
 
@@ -73,8 +67,7 @@ const userReducer = (state = INITIAL_STATE, action: UserReducer) => {
         ...state,
         currentUser: {
           ...state.currentUser,
-          cart: state.currentUser?.cart.filter(
-              (item) => item !== action.payload.shopItemId)
+          cart: removeItemFromCart(state.currentUser!.cart, action.payload.shopItemId)
         }
       } as IUserState
 

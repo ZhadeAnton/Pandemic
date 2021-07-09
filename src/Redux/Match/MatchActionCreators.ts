@@ -1,4 +1,6 @@
-import { IMatch, IPlayer, ITeam } from '../../Interfaces/MainInterfaces'
+import { ArrayOfMatches, IMatch } from '../../Interfaces/MatchInterfaces'
+import { IPlayer } from '../../Interfaces/PlayerInterfaces'
+import { ITeam } from '../../Interfaces/TeamInterfaces'
 import * as types from './MatchActionTypes'
 
 export const sortMatches = (
@@ -8,7 +10,7 @@ export const sortMatches = (
 })
 
 export const sortMatchesSuccess = (
-    sortedMatches: Array<IMatch>): types.SortMatchesSuccess => ({
+    sortedMatches: ArrayOfMatches): types.SortMatchesSuccess => ({
   type: types.SORT_MATCHES_SUCCESS,
   payload: sortedMatches
 })

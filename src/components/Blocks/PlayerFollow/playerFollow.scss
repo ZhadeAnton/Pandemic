@@ -6,18 +6,18 @@
   width: 100%;
 
   &__list {
-    width: 100%;
+    @include full-size;
     @include flex-align-center;
     flex-wrap: wrap;
-    width: 100%;
-    height: 100%;
     position: relative;
     z-index: 10;
 
     &:after {
       content: 'stream';
       @include abs-center;
-      @include archivo-xxl;
+      font-size: 15rem;
+      text-transform: uppercase;
+      font-family: var(--e-global-typography-secondary);
       z-index: -1;
     }
   }
@@ -31,24 +31,30 @@
     cursor: pointer;
 
     &--icon {
-      font-size: 5rem;
-      color: var(--e-global-color-primary);
       margin-bottom: var(--space-md);
       transition: color .3s ease;
+      font-size: 5rem;
+      color: var(--e-global-color-primary);
     }
 
     &--title {
-      @include archivo-medium;
       margin-bottom: var(--space-sm);
+      @include font-4;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-family: var(--e-global-typography-primary);
+      color: var(--e-global-color-accent);
     }
 
     &--status {
-      @include archivo-tiny;
-      color: grey;
+      @include font-2;
+      text-transform: uppercase;
+      color: var(--e-global-color-text);
       opacity: .8;
 
       &-active {
-        @include archivo-tiny;
+        @include font-2;
+        text-transform: uppercase;
         color: var(--e-global-color-primary);
         opacity: 1;
       }
@@ -56,15 +62,36 @@
 
     &:hover {
       .player-follow__item--icon {
-        color: white;
+        color: var(--e-global-color-accent);
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xl) {
+    &__list {
+      &:after {
+        font-size: 12rem;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    &__list {
+      &:after {
+        font-size: 10rem;
       }
     }
   }
 
   @include media-breakpoint-down(md) {
+    &__list {
+      &:after {
+        font-size: 7.6rem;
+      }
+    }
+
     &__item {
       &--title {
-        @include archivo-medium;
         margin-bottom: var(--space-vsm);
       }
 
@@ -80,7 +107,6 @@
       &:after {
         content: 'stream';
         @include abs-center;
-        @include archivo-xxl;
         z-index: -1;
         transform: translate(-50%, -50%) rotate(90deg) !important; 
       }

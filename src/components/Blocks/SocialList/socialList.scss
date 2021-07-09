@@ -1,15 +1,14 @@
 @import '../../../scss/variables';
+@import '../../../scss/mixins';
 
 .social-list {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
 
   &__item {
     cursor: pointer;
-    color: white;
     font-size: 1.3rem;
     transition: $main-transition;
+    color: var(--e-global-color-accent);
 
     &:not(:last-child) {
       padding-right: 1.3rem !important;

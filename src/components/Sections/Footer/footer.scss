@@ -43,9 +43,12 @@
   }
 
   &__heading {
-    @include oswald-medium;
-    text-transform: uppercase;
     margin-bottom: var(--space-md) !important;
+    @include font-4;
+    text-transform: uppercase;
+    font-family:var(--e-global-typography-secondary);
+    font-weight: 600;
+    color: var(--e-global-color-accent);
   }
 
   @include media-breakpoint-down(lg) {

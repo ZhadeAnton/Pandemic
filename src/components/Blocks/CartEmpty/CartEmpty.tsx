@@ -5,7 +5,7 @@ import './cartEmpty.scss'
 
 export default function CartEmpty() {
   return (
-    <section className='cart-empty'>
+    <section className='cart-empty container'>
       <div className='cart-empty__top-row'>
         <h2 className='cart-empty__top-row--title'>
           Cart is empty. Add something from the shop

@@ -1,15 +1,33 @@
 import React from 'react'
 
 import './parallaxHeading.scss'
-import BrandButton from '../../Custom/BrandButton/BrandButton'
-import {ReactComponent as ShapeSecond} from '../../../Assets/SVG/shape-second.svg'
+import ModalButton from '../../Custom/ModalButton/ModalButton'
+import {ReactComponent as ShapeSVG} from '../../../Assets/SVG/shape-second.svg'
+import warBackground from '../../../Assets/JPG/second-bg.jpg'
+import blueBackground from '../../../Assets/JPG/bluebg.jpg'
+import tournamentBackground from '../../../Assets/JPG/tournament.jpg'
 
-export default function ParallaxHeading() {
+interface Props {
+  backgroundImage: 'war' | 'blue' | 'tournament'
+}
+
+export default function ParallaxHeading(props: Props) {
+  const background = props.backgroundImage === 'war'
+  ? warBackground
+  : props.backgroundImage === 'blue'
+  ? blueBackground
+  : tournamentBackground
+
   return (
-    <section className='paralax-row'>
+    <section className='paralax-row'
+      style={{
+        backgroundImage: 'url(' + background + ')'
+      }}
+    >
       <div className='paralax-row__overlay'></div>
+
       <div className='paralax-row__shape'>
-        <ShapeSecond />
+        <ShapeSVG />
       </div>
 
       <div className='paralax-row__content container'>
@@ -18,7 +36,9 @@ export default function ParallaxHeading() {
           Then what are you waiting for!
         </h2>
 
-        <BrandButton className='paralax-row__content--button'/>
+        <div className='paralax-row__content--button'>
+          <ModalButton />
+        </div>
       </div>
     </section>
   )

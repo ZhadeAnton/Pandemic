@@ -1,11 +1,12 @@
 import React from 'react'
 
 import './matchItem.scss'
-import { IMatch } from '../../../Interfaces/MainInterfaces'
+import useSelectMatch from '../../../Hooks/MatchItemHook';
+import { IMatch } from '../../../Interfaces/MatchInterfaces';
+
 import MatchItemTeam from '../MatchItemTeam/MatchItemTeam';
 import MatchScore from '../MatchScore/MatchScore';
 import MatchDate from '../MatchDate/MatchDate';
-import useSelectMatch from '../../../Hooks/MatchItemHooks';
 
 interface Props {
   match: IMatch,

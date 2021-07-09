@@ -1,22 +1,14 @@
 import React from 'react'
 
 import './socialList.scss'
+import { defaultSocialList } from '../../../Utils/FooterUtils'
 
 interface Props {
   socialList?: Array<string>
 }
 
-const defaultList = [
-  'facebook',
-  'twitter',
-  'youtube',
-  'instagram',
-  'twitch',
-  'discord'
-]
-
 export default function SocialList(props: Props) {
-  const list = props.socialList ? props.socialList : defaultList
+  const list = props.socialList ? props.socialList : defaultSocialList
 
   return (
     <ul className='social-list'>

@@ -1,7 +1,7 @@
 import {takeLatest, put, all, call} from 'redux-saga/effects'
 import * as actionCreators from './ShopActionCreators'
 import * as actionTypes from './ShopActionTypes'
-import * as shopAPI from '../../API/ShopAPI/ShopAPI'
+import * as shopAPI from '../../API/ShopAPI'
 
 function* getShopItems() {
   try {

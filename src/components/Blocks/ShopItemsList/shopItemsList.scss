@@ -3,8 +3,10 @@
 @import '../../../Scss/typography';
 
 %shop-item-price {
-  @include oswald-sm;
-  color: var(--e-global-color-accent);
+  @include font-3;
+  color: var(--e-global-color-primary);
+  font-family: var(--e-global-typography-fourth);
+  font-weight: 600;
 }
 
 .shop-items-list {
@@ -35,9 +37,7 @@
   }
 
   &__badge {
-    position: absolute;
-    top: 2%;
-    left: 2%;
+    @include abs-position(2%, auto, auto, 2%);
     z-index: 100;
   }
 
@@ -64,8 +64,10 @@
     }
 
     &--title {
-      @include oswald-medium;
       margin-bottom: var(--space-vsm) !important;
+      @include font-5;
+      font-family: var(--e-global-typography-primary);
+      font-weight: 600;
       color: var(--e-global-color-primary);
     }
 
@@ -85,11 +87,11 @@
     }
 
     &--button {
-      @include abs-position(auto, auto, 3%, 50%);
       width: 75%;
       height: auto;
+      @include abs-position(auto, auto, 3%, 50%);
       padding: .625rem 1.25rem;
-      @include oswald-sm;
+      @include font-2;
       text-align: center;
       text-transform: uppercase;
       border-radius: 0 .9375rem;

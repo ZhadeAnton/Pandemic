@@ -22,8 +22,10 @@
 
   &__link {
     width: 100%;
-    @include oswald-sm;
+    @include font-2;
     text-transform: uppercase;
+    font-family:var(--e-global-typography-primary);
+    font-weight: 600;
     color: var(--e-global-color-accent);
 
     &:hover {
@@ -34,13 +36,32 @@
   &__aside {
     @include flex-align-center;
     justify-content: space-between;
-    width: 13rem;
+    width: 15rem;
     margin-left: auto;
   }
 
   @include media-breakpoint-down(xl) {
     &__navigation {
-      margin-left: auto !important;
+      margin-left: 6rem !important;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    &__navigation {
+     display: none;
+     visibility: hidden;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    &__aside {
+      width: 12rem;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__aside {
+      width: 10.5rem;
     }
   }
 }

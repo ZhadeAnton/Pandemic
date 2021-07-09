@@ -3,7 +3,7 @@ import React from 'react'
 import './playerAvatar.scss'
 
 interface Props {
-  photo: string,
+  photo: string
 }
 
 export default function PlayerAvatar(props: Props) {

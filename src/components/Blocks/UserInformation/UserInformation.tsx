@@ -1,11 +1,10 @@
 import React from 'react'
 
 import './userInformation.scss'
-import { useAppDispatch } from '../../../Hooks/PreTypedHooks'
 import { IUser } from '../../../Interfaces/UserInterfaces'
-import { signOut } from '../../../Redux/User/UserActionCreators'
+import useUserInformationHook from '../../../Hooks/UserInformationHook'
 
-import ButtonSecondary from '../../Sections/ButtonSecondary/ButtonSecondary'
+import ButtonSecondary from '../../Custom/ButtonSecondary/ButtonSecondary'
 
 interface Props {
   image: IUser['photoURL'],
@@ -15,11 +14,7 @@ interface Props {
 }
 
 export default function UserInformation(props: Props) {
-  const dispatch = useAppDispatch()
-
-  const handleSignOut = () => {
-    dispatch(signOut())
-  }
+  const userInformationHook = useUserInformationHook()
 
   return (
     <div className='user-information'>
@@ -38,11 +33,9 @@ export default function UserInformation(props: Props) {
               alt="User image"
             />
           :
-            <img
-              className='user-information__header--image'
-              src='https://i.ibb.co/Bfhrxx7/user-1.png'
-              alt="User image"
-            />
+          <i
+            className="bi bi-person-bounding-box user-information__header--image-icon"
+          />
         }
 
         <h3 className='user-information__header--name'>
@@ -55,7 +48,7 @@ export default function UserInformation(props: Props) {
       </div>
 
       <div className='user-information__sign-out'>
-        <ButtonSecondary onClick={handleSignOut}>
+        <ButtonSecondary onClick={userInformationHook.handleSignOut}>
           Sign out
         </ButtonSecondary>
       </div>

@@ -8,7 +8,7 @@
   position: relative;
   margin: 1%;
   cursor: pointer;
-  border: 3px solid black;
+  border: 3px solid var(--e-global-color-secondary);
 
   &:hover {
     border: 3px solid var(--e-global-color-primary);
@@ -31,16 +31,15 @@
   }
 
   &__wrapper {
-    width: 100%;
-    height: 100%;
+    @include full-size;
     overflow: hidden;
     position: relative;
 
     &:before {
       content: '';
-      @include abs-bottom;
-      height: 40%;
       width: 100%;
+      height: 40%;
+      @include abs-bottom;
       transition: $main-transition;
       background: linear-gradient(0deg,#161620 0%,rgba(0,0,0,0) 100%);
       z-index: 1;
@@ -48,26 +47,31 @@
   }
 
   &__content {
-    position: absolute;
-    bottom: 7%;
-    left: 7%;
+    @include abs-position(auto, auto, 7%, 7%);
     z-index: 2;
 
     &--nickname {
-      @include heading-small;
+      @include font-5;
+      font-weight: 600;
+      font-family: var(--e-global-typography-primary);
+      text-transform: uppercase;
+      color: var(--e-global-color-accent);
     }
 
     &--role {
-      @include subtitle-big;
+      @include font-3;
+      font-weight: 600;
+      font-family: var(--e-global-typography-primary);
+      text-transform: uppercase;
+      color: var(--e-global-color-primary);
     }
   }
 
   &__image-wrapper {
-    width: 100%;
-    height: 100%;
+    @include full-size;
     overflow: hidden;
     transition: $main-transition;
-    filter: grayscale(100%);
+    filter: grayscale(90%);
 
     &--image {
       transition: all .5s ease;

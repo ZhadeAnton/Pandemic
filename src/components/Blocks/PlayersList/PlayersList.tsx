@@ -1,11 +1,12 @@
 import React from 'react'
 
 import './playersList.scss'
-import { IPlayer } from '../../../Interfaces/MainInterfaces'
+import { IArrayOfPlayers } from '../../../Interfaces/PlayerInterfaces'
+
 import PlayerItem from '../PlayerItem/PlayerItem'
 
 interface Props {
-  players: Array<IPlayer> | undefined
+  players: IArrayOfPlayers | undefined
 }
 
 function PlayersList(props: Props) {
