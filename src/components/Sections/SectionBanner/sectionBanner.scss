@@ -7,7 +7,7 @@
   padding: var(--space-huge) 0;
   background-image: url(../../../Assets/JPG/team-bg.jpg);
   @include cover-background;
-  background-position: top center;
+  background-position: center;
   position: relative;
 
   &__overlay {
@@ -26,39 +26,34 @@
     position: relative;
 
     &:after {
-      @include abs-position(-80%, auto, auto, 5%);
+      @include abs-position(-30%, auto, auto, 8%);
       transform: translateY(-20%);
       opacity: .7;
       z-index: 1;
       text-transform: uppercase;
-      font-size: 17.625rem;
+      font-size: 11.625rem;
       font-family: var(--e-global-typography-secondary);
       font-weight: 700;
       color: var(--e-global-color-dark-ligh);
 
       @include media-breakpoint-down(lg) {
-        font-size: 13.625rem;
-        @include abs-position(-60%, auto, auto, 6%);
+        font-size: 9.625rem;
+        @include abs-position(-10%, auto, auto, 10%);
       }
 
       @include media-breakpoint-down(md) {
-        font-size: 10.625rem;
-        @include abs-position(-40%, auto, auto, 2%);
+        font-size: 7.625rem;
+        @include abs-position(-10%, auto, auto, 10%);
       }
 
       @include media-breakpoint-down(sm) {
-        font-size: 8.625rem;
-        @include abs-position(-20%, auto, auto, 2%);
+        font-size: 5.625rem;
+        @include abs-position(-5%, auto, auto, 2%);
       }
 
       @include media-breakpoint-down(vsm) {
-        font-size: 6.625rem;
-        @include abs-position(-20%, auto, auto, 2%);
-      }
-
-      @include media-breakpoint-down(tiny) {
-        font-size: 5.625rem;
-        @include abs-position(-20%, auto, auto, 2%);
+        font-size: 4.625rem;
+        @include abs-position(0, auto, auto, 2%);
       }
     }
   }

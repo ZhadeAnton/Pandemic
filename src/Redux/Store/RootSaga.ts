@@ -4,6 +4,7 @@ import matchSagas from '../Match/MatchSagas'
 import shopSagas from '../Shop/ShopSagas'
 import userSagas from '../User/UserSagas'
 import cartSagas from '../Cart/CartSagas'
+import postsSagas from '../Post/PostSagas'
 
 export default function* rootSaga() {
   yield all([
@@ -12,5 +13,6 @@ export default function* rootSaga() {
     call(shopSagas),
     call(userSagas),
     call(cartSagas),
+    call(postsSagas),
   ])
 }
