@@ -4,12 +4,18 @@ import * as actions from './PostActionTypes'
 
 export interface IPostsState {
   posts: IArrayOfPosts | [],
-  isLoading: boolean
+  isLoading: boolean,
+  initialPage: number,
+  currentPage: number,
+  postsPerPage: number
 }
 
 const INITIAL_STATE = {
   posts: [] as IArrayOfPosts,
-  isLoading: false
+  isLoading: false,
+  initialPage: 1,
+  currentPage: 1,
+  postsPerPage: 3
 }
 
 const postsReducer = (state = INITIAL_STATE, action: PostTypes): IPostsState => {

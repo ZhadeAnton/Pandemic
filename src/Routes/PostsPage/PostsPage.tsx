@@ -7,6 +7,7 @@ import { recentPosts, categories } from '../../Utils/PostsUtils'
 import PostsList from '../../Components/Blocks/PostsList/PostsList'
 import SectionBanner from '../../Components/Sections/SectionBanner/SectionBanner'
 import PostsNavigation from '../../Components/Blocks/PostsNavigation/PostsNavigation'
+import CustomPagination from '../../Components/Blocks/Pagination/Pagination'
 
 export default function PostsPage(props: IPostsContainer) {
   return (
@@ -17,6 +18,12 @@ export default function PostsPage(props: IPostsContainer) {
         <div className='posts-page__content'>
           <div className='posts-page__content--posts-list'>
             <PostsList posts={props.posts}/>
+
+            <CustomPagination
+              currentPage={props.currentPage}
+              itemsPerPage={props.itemsPerPage}
+              pagesLength={props.pagesLength}
+            />
           </div>
 
           <aside className='posts-page__content--posts-nav'>
