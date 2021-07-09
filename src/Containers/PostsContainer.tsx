@@ -6,9 +6,10 @@ import { getPosts } from '../Redux/Post/PostActionCreators'
 
 import PostsPage from '../Routes/PostsPage/PostsPage'
 import Preloader from '../Components/Custom/Preloader/Preloader'
+import useSliceItemsHook from '../Hooks/SliceItemsHook'
 
 export interface IPostsContainer {
-  posts: IArrayOfPosts,
+  slicedPosts: IArrayOfPosts,
   pagesLength: number,
   itemsPerPage: number,
   currentPage: number
@@ -26,24 +27,15 @@ export default function PostsPageContainer() {
     dispatch(getPosts())
   }, [])
 
-  // Indexes of first and last items
-  const indexOfLastItem = currentPage * itemsPerPage
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage
-
-  // Pagination's buttons
-  const pagesLength = Math.ceil(posts.length / itemsPerPage)
-
-  // Slicing items by indexes of first and last items
-  const slicedPosts = posts.length > itemsPerPage
-  ? posts.slice(indexOfFirstItem, indexOfLastItem)
-  : posts
+  const slisedItems = useSliceItemsHook({
+    itemsForSlide: posts, currentPage, itemsPerPage})
 
   if (isLoading) return <Preloader preloader='cube'/>
 
   return (
     <PostsPage
-      posts={slicedPosts}
-      pagesLength={pagesLength}
+      slicedPosts={slisedItems.slicedItems}
+      pagesLength={slisedItems.pagesLength}
       currentPage={currentPage}
       itemsPerPage={itemsPerPage}
     />

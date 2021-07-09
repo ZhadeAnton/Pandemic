@@ -2,13 +2,14 @@ import React from 'react'
 import useHistoryPush from '../Hooks/HistoryHook';
 
 import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHook';
-import useScrollToTop from '../Hooks/ScrollToTopHook';
-import useShopToast from '../Hooks/ShopToastHook';
+import { IUser } from '../Interfaces/UserInterfaces';
 import { IHandleAddCartButton } from '../Interfaces/CartInterfaces';
 import { ArrayOfShopItems, IShopItem } from '../Interfaces/ShopInterfaces';
-import { IUser } from '../Interfaces/UserInterfaces';
 import { addShopItemToCart } from '../Redux/Cart/CartActionCreators';
 import { IShopState } from '../Redux/Shop/ShopReducer';
+import useScrollToTop from '../Hooks/ScrollToTopHook';
+import useShopToast from '../Hooks/ShopToastHook';
+import useSliceItemsHook from '../Hooks/SliceItemsHook';
 
 import ShopItemPage from '../Routes/ShopItemPage/ShopItemPage';
 
@@ -30,21 +31,11 @@ export default function ShopItemContainer() {
   const itemsPerPage = useAppSelector((state) => state.shop.itemsPerPage)
   const currentPage = useAppSelector((state) => state.shop.currentPage)
 
-  // Indexes of first and last items
-  const indexOfLastItem = currentPage * itemsPerPage
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage
-
-  // Pagination's buttons
-  const pagesLength = Math.ceil(shopItems.length / itemsPerPage)
-
-  // Slicing items by indexes of first and last items
-  const slicedItems = shopItems.length > itemsPerPage
-  ? shopItems.slice(indexOfFirstItem, indexOfLastItem)
-  : shopItems
+  const slisedItems = useSliceItemsHook({
+    itemsForSlide: shopItems, currentPage, itemsPerPage})
 
   const dispatch = useAppDispatch()
   const redirectToLogin = useHistoryPush()
-
 
   // Custom hook witch scrolling to the to of the page with useEffect()
   useScrollToTop()
@@ -66,8 +57,8 @@ export default function ShopItemContainer() {
       userUid={userUid}
       currentPage={currentPage}
       itemsPerPage={itemsPerPage}
-      pagesLength={pagesLength}
-      slicedItems={slicedItems}
+      pagesLength={slisedItems.pagesLength}
+      slicedItems={slisedItems.slicedItems}
       handleAddItemToCart={handleAddItemToCart}
     />
   )

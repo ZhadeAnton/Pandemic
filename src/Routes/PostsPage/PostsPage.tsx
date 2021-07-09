@@ -17,7 +17,7 @@ export default function PostsPage(props: IPostsContainer) {
       <div className='posts-page__wrapper container'>
         <div className='posts-page__content'>
           <div className='posts-page__content--posts-list'>
-            <PostsList posts={props.posts}/>
+            <PostsList posts={props.slicedPosts}/>
 
             <CustomPagination
               currentPage={props.currentPage}
