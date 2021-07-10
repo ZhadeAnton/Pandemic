@@ -1,4 +1,5 @@
-import { IAnnounce, IDiscipline } from '../../Interfaces/MainInterfaces';
+import { IAnnounce } from '../../Interfaces/AnnounceInterfaces';
+import { IDiscipline } from '../../Interfaces/MainInterfaces';
 
 export const SET_LOADING_TRUE = 'SET_LOADING_TRUE'
 export interface SetLoadingTrue {
