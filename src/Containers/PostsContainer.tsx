@@ -1,18 +1,20 @@
 import React, { useEffect } from 'react'
 
 import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHook'
-import { IArrayOfPosts } from '../Interfaces/PostInterfaces'
-import { getPosts } from '../Redux/Post/PostActionCreators'
+import { IArrayOfPosts, IFnSetCurrentPost } from '../Interfaces/PostInterfaces'
+import { getPosts, setCurrentPost } from '../Redux/Post/PostActionCreators'
+import useSliceItemsHook from '../Hooks/SliceItemsHook'
+import useHistoryPush from '../Hooks/HistoryHook'
 
 import PostsPage from '../Routes/PostsPage/PostsPage'
 import Preloader from '../Components/Custom/Preloader/Preloader'
-import useSliceItemsHook from '../Hooks/SliceItemsHook'
 
 export interface IPostsContainer {
   slicedPosts: IArrayOfPosts,
   pagesLength: number,
   itemsPerPage: number,
-  currentPage: number
+  currentPage: number,
+  handlePostClick: IFnSetCurrentPost
 }
 
 export default function PostsPageContainer() {
@@ -23,12 +25,19 @@ export default function PostsPageContainer() {
 
   const dispatch = useAppDispatch()
 
+  const redirectToPostItem = useHistoryPush()
+
   useEffect(() => {
     dispatch(getPosts())
   }, [])
 
   const slisedItems = useSliceItemsHook({
     itemsForSlide: posts, currentPage, itemsPerPage})
+
+  const handlePostClick: IFnSetCurrentPost = (post) => {
+    dispatch(setCurrentPost(post))
+    redirectToPostItem(`/posts/${post.id}`)
+  }
 
   if (isLoading) return <Preloader preloader='cube'/>
 
@@ -38,6 +47,7 @@ export default function PostsPageContainer() {
       pagesLength={slisedItems.pagesLength}
       currentPage={currentPage}
       itemsPerPage={itemsPerPage}
+      handlePostClick={handlePostClick}
     />
   )
 }

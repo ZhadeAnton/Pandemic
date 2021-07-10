@@ -15,16 +15,21 @@ export default function PostsPage(props: IPostsContainer) {
       <SectionBanner sectionName='Posts'/>
 
       <div className='posts-page__wrapper container'>
-        <div className='posts-page__content'>
-          <div className='posts-page__content--posts-list'>
-            <PostsList posts={props.slicedPosts}/>
-
-            <CustomPagination
-              currentPage={props.currentPage}
-              itemsPerPage={props.itemsPerPage}
-              pagesLength={props.pagesLength}
+        <section className='posts-page__content'>
+          <section className='posts-page__content--posts-list'>
+            <PostsList
+              posts={props.slicedPosts}
+              handlePostClick={props.handlePostClick}
             />
-          </div>
+
+            <div className='posts-page__pagination'>
+              <CustomPagination
+                currentPage={props.currentPage}
+                itemsPerPage={props.itemsPerPage}
+                pagesLength={props.pagesLength}
+              />
+            </div>
+          </section>
 
           <aside className='posts-page__content--posts-nav'>
             <PostsNavigation
@@ -37,7 +42,7 @@ export default function PostsPage(props: IPostsContainer) {
               elements={categories}
             />
           </aside>
-        </div>
+        </section>
       </div>
     </main>
   )

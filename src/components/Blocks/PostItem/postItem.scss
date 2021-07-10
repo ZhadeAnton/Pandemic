@@ -10,6 +10,12 @@
     margin-top: var(--space-lg) !important;
   }
 
+  &__date {
+    margin-top: .3rem;
+    @include font-2;
+    color: var(--e-global-color-primary);
+  }
+
   &__image-wrapper {
     width: 100%;
     height: 30rem;
@@ -55,6 +61,7 @@
   }
 
   &__title {
+    display: inline-block;
     margin: 1rem 0 !important;
     cursor: pointer;
     @include font-6;

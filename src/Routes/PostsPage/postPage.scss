@@ -24,6 +24,10 @@
     }
   }
 
+  &__pagination {
+    margin-top: var(--space-lg) !important;
+  }
+
   @include media-breakpoint-down(xl) {
     &__content {
       &--posts-list {

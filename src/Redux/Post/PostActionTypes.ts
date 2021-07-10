@@ -1,4 +1,4 @@
-import { IArrayOfPosts } from '../../Interfaces/PostInterfaces'
+import { IArrayOfPosts, IPost } from '../../Interfaces/PostInterfaces'
 
 export const GET_POSTS = 'GET_POSTS'
 
@@ -13,6 +13,13 @@ export interface GetPostsSuccess {
   payload: IArrayOfPosts
 }
 
+export const SET_CURRENT_POST = 'SET_CURRENT_POST'
+export interface SetCurrentPost {
+  type: typeof SET_CURRENT_POST,
+  payload: IPost
+}
+
 export type PostTypes =
 | GetPosts
 | GetPostsSuccess
+| SetCurrentPost

@@ -7,8 +7,8 @@ import { ITeam } from '../../../Interfaces/TeamInterfaces'
 interface Props {
   team: ITeam,
   discipline: string,
-  handleSelectTeam: (team: ITeam) => void,
   reverse?: boolean
+  handleSelectTeam: (team: ITeam) => void,
 }
 
 export default function MatchItemTeam(props: Props) {

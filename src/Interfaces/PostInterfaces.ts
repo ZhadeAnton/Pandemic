@@ -9,3 +9,6 @@ export interface IPost {
 
 export type IArrayOfPosts = Array<IPost>
 
+export interface IFnSetCurrentPost {
+  (post: IPost): void
+}
