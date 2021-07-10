@@ -2,17 +2,22 @@ import React from 'react'
 
 import './postItemPage.scss'
 import { IPostItemContainer } from '../../Containers/PostItemContainer'
+import { socialList } from '../../Utils/FooterUtils'
+import { categories, recentPosts } from '../../Utils/PostsUtils'
 
 import ConvertDate from '../../Components/Blocks/ConvertDate/ConvertDate'
 import PostsNavigation from '../../Components/Blocks/PostsNavigation/PostsNavigation'
-import { categories, recentPosts } from '../../Utils/PostsUtils'
 import SocialList from '../../Components/Blocks/SocialList/SocialList'
-import { socialList } from '../../Utils/FooterUtils'
+import BackButton from '../../Components/Custom/BackButton/BackButton'
 
 export default function PostItemPage(props: IPostItemContainer) {
   return (
     <main className='post-item-page'>
       <div className='posts-page__wrapper container'>
+        <div className='post-item-page__back-botton'>
+          <BackButton />
+        </div>
+
         <section className='posts-page__content'>
           <section className='posts-page__content--posts-list'>
             <div className='post-item__image-wrapper'>
