@@ -1,0 +1,35 @@
+@import '../../Scss/typography';
+@import '../../Scss/mixins';
+@import '../../Scss/variables';
+
+.post-item-page {
+  padding: var(--space-lg) 0;
+  background-color: var(--e-global-color-secondary);
+
+  &__back-botton {
+    margin: 1rem 0;
+  }
+
+  &__share {
+    @include flex-align-center;
+    justify-content: flex-end;
+    margin-top: var(--space-lg);
+
+    &--title {
+      display: inline-block;
+      margin-right: 1rem !important;
+      @include font-4;
+      text-transform: uppercase;
+      color: var(--e-global-color-accent);
+    }
+  }
+
+  
+  @include media-breakpoint-down(md) {
+    padding: var(--space-md) 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 0;
+  }
+}

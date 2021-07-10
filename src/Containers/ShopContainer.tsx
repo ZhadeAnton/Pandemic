@@ -17,6 +17,7 @@ import { IHandleAddCartButton } from '../Interfaces/CartInterfaces'
 import { addShopItemToCart } from '../Redux/Cart/CartActionCreators'
 import useShopToast from '../Hooks/ShopToastHook'
 import useHistoryPush from '../Hooks/HistoryHook'
+import useSliceItemsHook from '../Hooks/SliceItemsHook'
 
 export type IShopPageContainer = {
   userUid: IUser['uid']
@@ -57,25 +58,16 @@ export default function ShopContainer() {
     dispatch(getShopItems())
   }, [])
 
-  // Indexes of first and last items
-  const indexOfLastItem = currentPage * itemsPerPage
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage
-
-  // Pagination's buttons
-  const pagesLength = Math.ceil(shopItems.length / itemsPerPage)
-
   // Filtering items by filter-word (useState) or get all items back
   const filteredItems = filterShopItemsByTag(filterBy, shopItems)
 
-  // Slicing items by indexes of first and last items
-  const slicedItems = filteredItems.length > itemsPerPage
-  ? filteredItems.slice(indexOfFirstItem, indexOfLastItem)
-  : filteredItems
+  const slisedItemsHook = useSliceItemsHook({
+    itemsForSlide: filteredItems, currentPage, itemsPerPage})
 
   // Sorting items which filtered earlier
-  const sortedItems = sortShopItemsByTag(sortedBy, slicedItems)
+  const sortedItems = sortShopItemsByTag(sortedBy, slisedItemsHook.slicedItems)
 
-  const slicedItemsLength = slicedItems.length
+  const slicedItemsLength = slisedItemsHook.slicedItems.length
 
   const handleFilterItems: IFnFilterShopItems = (filter) => {
     setFilterBy(filter)
@@ -110,7 +102,7 @@ export default function ShopContainer() {
       sortedBy={sortedBy}
       sortingNames={sortingNames}
       filteringNames={filteringNames}
-      pagesLength={pagesLength}
+      pagesLength={slisedItemsHook.pagesLength}
       currentPage={currentPage}
       itemsPerPage={itemsPerPage}
       handleAddItemToCart={handleAddItemToCart}

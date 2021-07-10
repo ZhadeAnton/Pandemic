@@ -1,0 +1,21 @@
+@import '../../../Scss/typography';
+
+.back-button {
+  outline: none;
+  border: none;
+  transition: color .3s ease;
+  @include font-3;
+  font-weight: 600;
+  font-family: var(--e-global-typography-tertiary);
+  text-transform: uppercase;
+  color: var(--e-global-color-accent);
+  background-color: transparent;
+  
+  &__icon {
+    margin-right: .5rem;
+  }
+
+  &:hover {
+    color: var(--e-global-color-primary);
+  }
+}

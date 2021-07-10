@@ -8,6 +8,7 @@ import { getAnnounces, getListOfDisciplines } from '../Redux/MainPage/MainAction
 
 import MainPage from '../Routes/MainPage/MainPage'
 import Preloader from '../Components/Custom/Preloader/Preloader'
+import useSliceItemsHook from '../Hooks/SliceItemsHook'
 
 export interface IMainPagecontainer {
   announces: ArrayOfAnnounces,
@@ -22,6 +23,7 @@ export interface IMainPagecontainer {
 }
 
 export default function MainPageContainer() {
+  const matches = useAppSelector((state) => state.match.matches)
   const announces = useAppSelector((state) => state.main.announces)
   const initialLatestMatches = useAppSelector((state) => state.match.initialLatestMatches)
   const disciplines = useAppSelector((state) => state.main.disciplines)
@@ -32,16 +34,8 @@ export default function MainPageContainer() {
 
   const dispatch = useAppDispatch()
 
-  // Indexes of first and last items
-  const indexOfLastMatch = currentPage * matchesPerPage
-  const indexOfFirstMatch = indexOfLastMatch - matchesPerPage
-
-  // Slicing items by indexes of first and last items
-  const slicedMatches = useAppSelector((state) => state.match.matches
-      .slice(indexOfFirstMatch, indexOfLastMatch))
-
-  // Count of pagination buttons
-  const pagesLength = Math.ceil(matchesLength / matchesPerPage)
+  const slisedItems = useSliceItemsHook({
+    itemsForSlide: matches, currentPage, itemsPerPage: matchesLength})
 
   useEffect(() => {
     dispatch(getAnnounces())
@@ -54,10 +48,10 @@ export default function MainPageContainer() {
   return (
     <MainPage
       announces={announces}
-      slicedMatches={slicedMatches}
+      slicedMatches={slisedItems.slicedItems}
       disciplines={disciplines}
       initialLatestMatches={initialLatestMatches}
-      pagesLength={pagesLength}
+      pagesLength={slisedItems.pagesLength}
       matchesPerPage={matchesPerPage}
       currentPage={currentPage}
       matchesLength={matchesLength}

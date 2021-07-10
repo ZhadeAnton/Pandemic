@@ -16,7 +16,6 @@ function CustomPagination(props: Props) {
   const pagination = usePagination(props.pagesLength, props.currentPage)
 
   return (
-
     props.pagesLength > 1
     ?
       <Pagination>

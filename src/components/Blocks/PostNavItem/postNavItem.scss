@@ -1,0 +1,18 @@
+@import '../../../Scss/typography';
+
+.post-nav-item {
+  padding: 1rem 0 !important;
+  margin: 1rem 0 !important;
+  min-width: 12.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: opacity .2s ease;
+  background-color: var(--e-global-color-dark-light);
+  border-radius: 13px 0;
+  @include font-3;
+  color: var(--e-global-color-accent);
+
+  &:hover {
+    opacity: .76;
+  }
+}

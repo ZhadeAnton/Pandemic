@@ -20,7 +20,7 @@ export const headerNavMenu = [
       'team',
       'player'
     ]},
-  { title: 'blogs' },
+  { title: 'posts', link: '/posts' },
   { title: 'shop', link: '/shop' },
   { title: 'login', link: '/login' }
 ]

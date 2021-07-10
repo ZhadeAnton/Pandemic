@@ -1,0 +1,52 @@
+@import '../../Scss/mixins';
+@import '../../Scss/variables';
+
+.posts-page {
+  @include full-size;
+  background-color: var(--e-global-color-secondary);
+
+  &__wrapper {
+    @include full-size;
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+
+  &__content {
+    display: flex;
+
+    &--posts-list {
+      flex: 3;
+      padding-right: 3rem;
+    }
+
+    &--posts-nav {
+      flex: 1;
+    }
+  }
+
+  &__pagination {
+    margin-top: var(--space-lg) !important;
+  }
+
+  @include media-breakpoint-down(xl) {
+    &__content {
+      &--posts-list {
+        padding-right: 2rem;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    &__content {
+      flex-direction: column;
+
+      &--posts-list {
+        padding-right: 0;
+      }
+
+      &--posts-nav {
+        margin-top: var(--space-lg);
+      }
+    }
+  }
+}
