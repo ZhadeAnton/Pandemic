@@ -1,5 +1,6 @@
 import * as actions from './MainActionsTypes'
-import { ArrayOfAnnounces, ArrayOfIDisciplines } from '../../Interfaces/MainInterfaces';
+import { ArrayOfIDisciplines } from '../../Interfaces/MainInterfaces';
+import { ArrayOfAnnounces } from '../../Interfaces/AnnounceInterfaces';
 
 export interface MainState {
   announces: ArrayOfAnnounces | [],

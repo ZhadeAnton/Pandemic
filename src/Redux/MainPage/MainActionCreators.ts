@@ -1,4 +1,5 @@
-import { IAnnounce, IDiscipline } from '../../Interfaces/MainInterfaces'
+import { IAnnounce } from '../../Interfaces/AnnounceInterfaces'
+import { IDiscipline } from '../../Interfaces/MainInterfaces'
 import * as actions from './MainActionsTypes'
 
 export const setLoadingTrue = (): actions.SetLoadingTrue => ({

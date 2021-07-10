@@ -3,8 +3,9 @@ import { ProgressBar } from 'react-bootstrap';
 import Slider from 'react-slick';
 
 import './announceSlider.scss'
-import { IAnnounce } from '../../../Interfaces/MainInterfaces';
 import { MainState } from '../../../Redux/MainPage/MainReducer';
+import AnnounceSliderItem from '../../Blocks/AnnounceSliderItem/AnnounceSliderItem';
+import { IAnnounce } from '../../../Interfaces/AnnounceInterfaces';
 
 interface Props {
   announces: MainState['announces']
@@ -38,25 +39,12 @@ function AnnounceSlider(props: Props) {
     <div className='announce-slider'>
       <Slider {...settings}>
         {
-          props.announces.map((slide: IAnnounce, idx: number) => {
+          props.announces.map((slide: IAnnounce) => {
             return (
-              <div className='announce-slider__item' key={idx}>
-                <div className='announce-slider__item--image-wrapper'>
-                  <img
-                    className='announce-slider__item--image'
-                    src={`${slide.image}`}
-                    alt='slider image'
-                  />
-                </div>
-
-                <div className='announce-slider__content'>
-                  <h3 className='announce-slider__content--title'>
-                    {slide.title}
-                  </h3>
-
-                  <span className='announce-slider__content--bottom-line'></span>
-                </div>
-              </div>
+              <AnnounceSliderItem
+                key={slide.id}
+                announceSlide={slide}
+              />
             )
           })
         }
