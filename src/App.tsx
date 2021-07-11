@@ -17,6 +17,7 @@ import PlayerContainer from './Containers/PlayerContainer';
 import TeamContainer from './Containers/TeamContainer';
 import PostsPageContainer from './Containers/PostsContainer';
 import PostItemContainer from './Containers/PostItemContainer';
+import MatchesPageContainer from './Containers/MatchesPageContainer';
 
 function App(props: IAppContainer) {
   return (
@@ -46,6 +47,7 @@ function App(props: IAppContainer) {
         <Route path='/cart' component={CartContainer} />
         <Route exact path='/posts' component={PostsPageContainer} />
         <Route path='/posts/:postId' component={PostItemContainer} />
+        <Route path='/matches' component={MatchesPageContainer} />
       </Switch>
     </>
   )

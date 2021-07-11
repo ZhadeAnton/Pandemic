@@ -13,7 +13,6 @@ export interface IMatchState {
   initialLatestMatches: string,
   initialPage: number,
   currentPage: number,
-  matchesPerPage: number,
   isLoading: boolean
 }
 
@@ -27,7 +26,6 @@ const INITIAL_STATE: IMatchState = {
   initialLatestMatches: 'CS:GO',
   initialPage: 1,
   currentPage: 1,
-  matchesPerPage: 3,
   isLoading: false
 }
 

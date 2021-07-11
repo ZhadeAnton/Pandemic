@@ -27,6 +27,7 @@ export default function AnnounceSliderItem(props: Props) {
           height='100%'
           playing={true}
           stopOnUnmount
+          muted
         />
       }
 

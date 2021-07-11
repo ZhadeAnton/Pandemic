@@ -1,18 +1,13 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
-import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHook'
+import { useAppSelector } from '../Hooks/PreTypedHook'
+import useSliceItemsHook from '../Hooks/SliceItemsHook'
 import { ArrayOfIDisciplines } from '../Interfaces/MainInterfaces'
 import { ArrayOfMatches } from '../Interfaces/MatchInterfaces'
-import { sortMatches } from '../Redux/Match/MatchActionCreators'
-import { getAnnounces, getListOfDisciplines } from '../Redux/MainPage/MainActionCreators'
 
-import MainPage from '../Routes/MainPage/MainPage'
-import Preloader from '../Components/Custom/Preloader/Preloader'
-import useSliceItemsHook from '../Hooks/SliceItemsHook'
-import { ArrayOfAnnounces } from '../Interfaces/AnnounceInterfaces'
+import MatchesPage from '../Routes/MatchesPage/MatchesPage'
 
-export interface IMainPageContainer {
-  announces: ArrayOfAnnounces,
+export interface IMatchesContainer {
   slicedMatches: ArrayOfMatches,
   disciplines: ArrayOfIDisciplines,
   initialLatestMatches: string,
@@ -23,32 +18,20 @@ export interface IMainPageContainer {
   isLoading: boolean
 }
 
-export default function MainPageContainer() {
+export default function MatchesPageContainer() {
   const matches = useAppSelector((state) => state.match.matches)
-  const announces = useAppSelector((state) => state.main.announces)
   const initialLatestMatches = useAppSelector((state) => state.match.initialLatestMatches)
   const disciplines = useAppSelector((state) => state.main.disciplines)
   const currentPage = useAppSelector((state) => state.match.currentPage)
   const matchesLength = useAppSelector((state) => state.match.matches.length)
   const isLoading = useAppSelector((state) => state.match.isLoading)
-  const matchesPerPage = 3
-
-  const dispatch = useAppDispatch()
+  const matchesPerPage = 5
 
   const sliceHook = useSliceItemsHook({
     itemsForSlide: matches, currentPage, itemsPerPage: matchesPerPage})
 
-  useEffect(() => {
-    dispatch(getAnnounces())
-    dispatch(getListOfDisciplines())
-    dispatch(sortMatches(initialLatestMatches))
-  }, [])
-
-  if (announces.length === 0) return <Preloader preloader='cube'/>
-
   return (
-    <MainPage
-      announces={announces}
+    <MatchesPage
       slicedMatches={sliceHook.slicedItems}
       disciplines={disciplines}
       initialLatestMatches={initialLatestMatches}

@@ -1,24 +1,17 @@
 import React from 'react'
 
-import './mainPage.scss'
-import { IMainPageContainer } from '../../Containers/MainPageContainer'
+import './matchesPage.scss'
 
-import HeroSection from '../../Components/Sections/HeroSection/HeroSection'
-import AnnounceSlider from '../../Components/Sections/AnnounceSlider/AnnounceSlider'
 import LatestMatches from '../../Components/Sections/LatestMatches/LatestMatches'
+import { IMatchesContainer } from '../../Containers/MatchesPageContainer'
+
 import Footer from '../../Components/Sections/Footer/Footer'
 import ParallaxHeading from '../../Components/Sections/ParallaxHeading/ParallaxHeading'
 
-function MainPage(props: IMainPageContainer) {
+export default function MatchesPage(props: IMatchesContainer) {
   return (
-    <section className='main-page'>
-      <HeroSection />
-
-      <div className='main-page__content'>
-        <AnnounceSlider
-          announces={props.announces}
-        />
-
+    <main className='matches-page'>
+      <section className='matches-page__content'>
         <LatestMatches
           matchesPerPage={props.matchesPerPage}
           disciplines={props.disciplines}
@@ -29,15 +22,11 @@ function MainPage(props: IMainPageContainer) {
           slicedMatches={props.slicedMatches}
           isLoading={props.isLoading}
         />
+      </section>
 
-        <div className='main-page__parallax'>
-          <ParallaxHeading backgroundImage='tournament'/>
-        </div>
+      <ParallaxHeading backgroundImage='war'/>
 
-        <Footer />
-      </div>
-    </section>
+      <Footer />
+    </main>
   )
 }
-
-export default MainPage
