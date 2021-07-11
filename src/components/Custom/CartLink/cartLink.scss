@@ -8,6 +8,7 @@
   cursor: pointer;
 
   &__icon {
+    transition: color .2s ease-in-out;
     font-size: 1.5rem;
     color: var(--e-global-color-accent);
   }
@@ -42,6 +43,12 @@
   @include media-breakpoint-down(vsm) {
     &__icon {
       font-size: 1.1rem;
+    }
+  }
+
+  &:hover {
+    .cart-link__icon {
+      color: var(--e-global-color-primary);
     }
   }
 }

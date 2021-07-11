@@ -14,12 +14,7 @@ export const headerNavMenu = [
       'sponsors',
       'contact us'
     ]},
-  {title: 'matches',
-    ul: [
-      'match',
-      'team',
-      'player'
-    ]},
+  { title: 'matches', link: '/matches' },
   { title: 'posts', link: '/posts' },
   { title: 'shop', link: '/shop' },
   { title: 'login', link: '/login' }
