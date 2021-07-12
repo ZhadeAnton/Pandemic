@@ -1,5 +1,5 @@
 export const headerNavMenu = [
-  {title: 'homepage', link: '/',
+  { title: 'homepage', link: '/',
     ul:
     [
       'home esports',
@@ -8,7 +8,7 @@ export const headerNavMenu = [
       'home shop',
       'home team'
     ]},
-  {title: 'pages',
+  { title: 'pages',
     ul: [
       'about us',
       'sponsors',
@@ -18,4 +18,13 @@ export const headerNavMenu = [
   { title: 'posts', link: '/posts' },
   { title: 'shop', link: '/shop' },
   { title: 'login', link: '/login' }
+]
+
+export const sidebarNavMenu = [
+  { title: 'homepage', link: '/' },
+  { title: 'matches', link: '/matches' },
+  { title: 'posts', link: '/posts' },
+  { title: 'shop', link: '/shop' },
+  { title: 'cart', link: '/cart' },
+  { title: 'login', link: '/login' },
 ]

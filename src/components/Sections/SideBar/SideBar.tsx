@@ -3,9 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import './sideBar.scss'
 import { defaultSocialList } from '../../../Utils/FooterUtils'
-
-import HamburgerMenu from '../../Custom/HamburgerMenu/HamburgerMenu'
-import { headerNavMenu } from '../../../Utils/HeaderUtils'
+import { sidebarNavMenu } from '../../../Utils/HeaderUtils'
 
 interface Props {
   onToggleSidebar: () => void
@@ -15,9 +13,6 @@ export default function SideBar(props: Props) {
   return (
     <main className='sidebar'>
       <div className='sidebar__wrapper'>
-        <div className='sidebar__hamburger-menu'>
-          <HamburgerMenu onToggleSidebar={props.onToggleSidebar}/>
-        </div>
 
         <aside className='sidebar__aside'>
           <h5 className='sidebar__aside--title'>
@@ -44,7 +39,7 @@ export default function SideBar(props: Props) {
           <nav className='sidebar__navigation'>
             <ul className='sidebar__navigation--list'>
               {
-                headerNavMenu.map((item) => {
+                sidebarNavMenu.map((item) => {
                   return (
                     <NavLink
                       key={item.title}

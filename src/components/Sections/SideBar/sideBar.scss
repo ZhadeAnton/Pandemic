@@ -17,11 +17,6 @@
     overflow-y: none;
   }
 
-  &__hamburger-menu {
-    @include abs-position(2.2%, 3.4%, auto, auto);
-    z-index: 9999;
-  }
-
   &__content {
     display: flex;
     @include full-size;
@@ -163,6 +158,10 @@
 
       &--list {
         margin-top: 1rem !important;
+      }
+
+      &--link {
+        margin-bottom: var(--space-lg) !important; 
       }
     }
 
