@@ -6,6 +6,7 @@
   @include flex-center;
   width: 100vw;
   height: 100vh;
+  padding-top: var(--header-height);
   overflow-y: auto;
   position: relative;
   background-image: url(../../Assets/JPG/main-bg.jpg);

@@ -3,6 +3,7 @@
 
 .posts-page {
   @include full-size;
+  padding-top: var(--header-height);
   background-color: var(--e-global-color-secondary);
 
   &__wrapper {

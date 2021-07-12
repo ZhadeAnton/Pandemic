@@ -4,10 +4,11 @@
 
 .team-page {
   @include full-size;
-  background-color: var(--e-global-color-secondary);
+  padding-top: var(--header-height);
   position: relative;
   overflow: hidden;
   z-index: 10;
+  background-color: var(--e-global-color-secondary);
 
   &__main-info {
     height: 100%;

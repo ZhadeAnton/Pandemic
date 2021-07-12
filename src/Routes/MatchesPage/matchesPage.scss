@@ -3,21 +3,18 @@
 
 .matches-page {
   @include full-size;
-  padding: var(--space-xl) auto;
+  padding-top: var(--header-height);
   overflow: hidden;
   background-image: url(../../Assets/JPG/main-bg2.jpg);
   background-repeat: repeat;
   background-size: contain;
-  
-  &__content {
-    padding-bottom: var(--space-xl);
-  }
 
   @include media-breakpoint-down(lg) {
     &__content {
       padding-bottom: var(--space-lg);
     }
   }
+
   @include media-breakpoint-down(sm) {
     &__content {
       padding-bottom: var(--space-md);

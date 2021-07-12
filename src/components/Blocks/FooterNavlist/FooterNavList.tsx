@@ -1,9 +1,10 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 import './footerNavList.scss'
 
 interface Props {
-  list: Array<string>
+  list: Array<{title: string, link: string}>
 }
 
 export default function FooterNavList(props: Props) {
@@ -17,12 +18,12 @@ export default function FooterNavList(props: Props) {
                 className='footer-list-navigation__item'
                 key={idx}
               >
-                <a
+                <NavLink
                   className='footer-list-navigation__item--link'
-                  href='/'
+                  to={`${link.link}`}
                 >
-                  {link}
-                </a>
+                  {link.title}
+                </NavLink>
               </li>
             )
           })

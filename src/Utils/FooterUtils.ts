@@ -1,5 +1,13 @@
-export const importantList = ['about us', 'blogs', 'contact']
-export const esports = ['matches', 'team', 'player']
+export const importantList = [
+  { title: 'homepage', link: '/' },
+  { title: 'shop', link: '/shop' },
+  { title: 'login', link: '/login' }
+]
+export const esports = [
+  { title: 'homepage', link: '/' },
+  { title: 'matches', link: '/matches' },
+  { title: 'posts', link: '/posts' }
+]
 
 export const socialList = [
   'facebook',
