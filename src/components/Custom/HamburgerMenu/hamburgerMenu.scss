@@ -1,8 +1,8 @@
 @import '../../../scss/variables';
 
 .hamburger-menu {
-  width: 47px;
-  height: 30px;
+  width: 2.9375rem;
+  height: 1.875rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -32,6 +32,8 @@
 
   &:hover {
     .hamburger-menu__line {
+      color: var(--e-global-color-primary) !important;
+
       &:nth-child(1) {
         width: 90%;
       }

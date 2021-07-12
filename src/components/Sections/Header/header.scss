@@ -16,8 +16,12 @@
     margin: 0 auto;
   }
 
+  &__content {
+    @include flex-align-center;
+  }
+
   &__navigation {
-    margin-left: 7rem !important;
+    margin-left: 3rem !important;
   }
 
   &__link {
@@ -35,14 +39,11 @@
 
   &__aside {
     @include flex-align-center;
-    justify-content: space-between;
-    width: 15rem;
     margin-left: auto;
-  }
+    padding-right: 3rem;
 
-  @include media-breakpoint-down(xl) {
-    &__navigation {
-      margin-left: 6rem !important;
+    & > * {
+      padding: 0 1rem;
     }
   }
 
@@ -53,15 +54,14 @@
     }
   }
 
-  @include media-breakpoint-down(md) {
-    &__aside {
-      width: 12rem;
-    }
-  }
-
   @include media-breakpoint-down(sm) {
     &__aside {
-      width: 10.5rem;
+      padding-right: 4rem !important;
+
+      &--cart-link {
+        display: none;
+        visibility: none;
+      }
     }
   }
 }

@@ -27,7 +27,7 @@
       cursor: pointer;
     }
 
-    &__play-icon {
+    &--play-icon {
       @include abs-position(50%, auto, auto, 50%);
       transform: translate(-50%, -50%);
       transition: all .3s ease;
@@ -220,6 +220,17 @@
   @include media-breakpoint-down(md) {
     padding-bottom: var(--space-xxl);
 
+    &__item {
+      &--play-icon {
+        font-size: 4rem;
+  
+        &:hover {
+          color: var(--e-global-color-primary);
+          transform: translate(-50%, -50%) scale(1.07);
+        }
+      }
+    }
+
     &__content {
       bottom: 1.8rem;
       padding: .6rem;
@@ -243,6 +254,17 @@
 
   @include media-breakpoint-down(sm) {
     padding-bottom: var(--space-xl);
+
+    &__item {
+      &--play-icon {
+        font-size: 3rem;
+  
+        &:hover {
+          color: var(--e-global-color-primary);
+          transform: translate(-50%, -50%) scale(1.07);
+        }
+      }
+    }
 
     &__content {
       bottom: 1rem;
