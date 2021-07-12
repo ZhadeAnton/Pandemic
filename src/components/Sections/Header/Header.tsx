@@ -11,7 +11,8 @@ import CartLink from '../../Custom/CartLink/CartLink'
 
 interface Props {
   cartItemsLength: number | undefined,
-  currentUser: IUserState['currentUser']
+  currentUser: IUserState['currentUser'],
+  onToggleSidebar: () => void
 }
 
 function Header(props: Props) {
@@ -29,7 +30,7 @@ function Header(props: Props) {
 
           <UserProfile currentUser={props.currentUser}/>
           <div className='header__aside--hamburger-menu'>
-            <HamburgerMenu />
+            <HamburgerMenu onToggleSidebar={props.onToggleSidebar}/>
           </div>
         </div>
       </div>

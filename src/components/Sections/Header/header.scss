@@ -38,6 +38,10 @@
     justify-content: space-between;
     width: 15rem;
     margin-left: auto;
+
+    &--hamburger-menu {
+      z-index: 9999;
+    }
   }
 
   @include media-breakpoint-down(xl) {

@@ -10,14 +10,9 @@ interface Props {
 
 export default function AnnounceSliderItem(props: Props) {
   const [isVissible, setIsVissible] = useState(false)
-  const [isHover, setIsHover] = useState(false)
 
   return (
-    <div className='announce-slider__item'
-      onClick={() => setIsVissible(!isVissible)}
-      onMouseEnter={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
-    >
+    <div className='announce-slider__item'>
       {
         isVissible &&
         <ReactPlayer
@@ -31,10 +26,10 @@ export default function AnnounceSliderItem(props: Props) {
         />
       }
 
-      {
-        isHover &&
-        <i className="bi bi-play-circle announce-slider__item__play-icon" />
-      }
+      <i
+        className="bi bi-play-circle announce-slider__item--play-icon"
+        onClick={() => setIsVissible(!isVissible)}
+      />
 
       <div className='announce-slider__item--image-wrapper'>
         <img

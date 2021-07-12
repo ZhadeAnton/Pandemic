@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React from 'react';
+import React, { useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Switch, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,10 +18,17 @@ import TeamContainer from './Containers/TeamContainer';
 import PostsPageContainer from './Containers/PostsContainer';
 import PostItemContainer from './Containers/PostItemContainer';
 import MatchesPageContainer from './Containers/MatchesPageContainer';
+import SideBar from './Components/Sections/SideBar/SideBar';
 
 function App(props: IAppContainer) {
+  const [isSidebar, setIsSidebar] = useState(false)
+
+  const hadnleToggleSidebar = () => {
+    setIsSidebar(!isSidebar)
+  }
+
   return (
-    <>
+    <main style={{position: 'relative'}}>
       <Toaster
         position='bottom-left'
         toastOptions={{
@@ -34,7 +41,13 @@ function App(props: IAppContainer) {
       <Header
         currentUser={props.currentUser}
         cartItemsLength={props.cartItemsLength}
+        onToggleSidebar={hadnleToggleSidebar}
       />
+
+      {
+        isSidebar && <SideBar onToggleSidebar={hadnleToggleSidebar}
+        />
+      }
 
       <Switch>
         <Route exact path='/' component={MainPageContainer} />
@@ -49,7 +62,7 @@ function App(props: IAppContainer) {
         <Route path='/posts/:postId' component={PostItemContainer} />
         <Route path='/matches' component={MatchesPageContainer} />
       </Switch>
-    </>
+    </main>
   )
 }
 
