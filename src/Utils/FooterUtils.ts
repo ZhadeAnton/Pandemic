@@ -1,10 +1,5 @@
-export const importantList = [
-  'about us', 'blogs', 'contact'
-]
-
-export const esports = [
-  'matches', 'team', 'player'
-]
+export const importantList = ['about us', 'blogs', 'contact']
+export const esports = ['matches', 'team', 'player']
 
 export const socialList = [
   'facebook',

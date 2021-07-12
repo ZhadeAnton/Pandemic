@@ -5,7 +5,7 @@
 .login-page {
   @include flex-center;
   width: 100vw;
-  height: calc(100vh - var(--header-height));
+  height: 100vh;
   overflow-y: auto;
   position: relative;
   background-image: url(../../Assets/JPG/main-bg.jpg);

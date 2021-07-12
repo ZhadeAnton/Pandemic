@@ -10,7 +10,6 @@ export default function CartEmpty() {
         <h2 className='cart-empty__top-row--title'>
           Cart is empty. Add something from the shop
         </h2>
-
       </div>
 
       <NavLink
@@ -21,7 +20,7 @@ export default function CartEmpty() {
           Go to the Shop
         </h2>
 
-        <i className="bi bi-arrow-right"></i>
+        <i className="bi bi-arrow-right" />
       </NavLink>
     </section>
   )

@@ -21,6 +21,7 @@ import PostItemContainer from './Containers/PostItemContainer';
 import MatchesPageContainer from './Containers/MatchesPageContainer';
 import SideBar from './Components/Sections/SideBar/SideBar';
 import HamburgerMenu from './Components/Custom/HamburgerMenu/HamburgerMenu';
+import NotFoundPage from './Routes/NotFoundPage/NotFoundPage';
 
 function App(props: IAppContainer) {
   const [isSidebar, setIsSidebar] = useState(false)
@@ -40,12 +41,6 @@ function App(props: IAppContainer) {
         }}
       />
 
-      <Header
-        currentUser={props.currentUser}
-        cartItemsLength={props.cartItemsLength}
-        onToggleSidebar={hadnleToggleSidebar}
-      />
-
       <div className='app__hamburger-menu'>
         <HamburgerMenu onToggleSidebar={hadnleToggleSidebar}/>
       </div>
@@ -54,6 +49,14 @@ function App(props: IAppContainer) {
         isSidebar && <SideBar onToggleSidebar={hadnleToggleSidebar}
         />
       }
+
+      <div className='app__header'>
+        <Header
+          currentUser={props.currentUser}
+          cartItemsLength={props.cartItemsLength}
+          onToggleSidebar={hadnleToggleSidebar}
+        />
+      </div>
 
       <Switch>
         <Route exact path='/' component={MainPageContainer} />
@@ -67,6 +70,7 @@ function App(props: IAppContainer) {
         <Route exact path='/posts' component={PostsPageContainer} />
         <Route path='/posts/:postId' component={PostItemContainer} />
         <Route path='/matches' component={MatchesPageContainer} />
+        <Route path='' component={NotFoundPage} />
       </Switch>
     </main>
   )

@@ -28,33 +28,30 @@ function NavigationMenu() {
               </NavLink>
 
               {
-                  menuItem.ul
-                  ?
-                    <Nav
-                      className='navigation-menu-sub-menu'
-                      as='ul'
-                    >
-                      {
-                        menuItem.ul.map((subMenuItem, idx) => {
-                          return (
-                            <Nav.Item
-                              className='navigation-menu-sub-menu__item'
-                              as='li'
-                              key={idx}
+                menuItem.ul &&
+                  <Nav
+                    className='navigation-menu-sub-menu'
+                    as='ul'
+                  >
+                    {
+                      menuItem.ul.map((subMenuItem, idx) => {
+                        return (
+                          <Nav.Item
+                            className='navigation-menu-sub-menu__item'
+                            as='li'
+                            key={idx}
+                          >
+                            <Nav.Link
+                              className='header__link'
+                              as='a'
                             >
-                              <Nav.Link
-                                className='header__link'
-                                as='a'
-                              >
-                                {subMenuItem}
-                              </Nav.Link>
-                            </Nav.Item>
-                          )
-                        })
-                      }
-                    </Nav>
-                  :
-                    null
+                              {subMenuItem}
+                            </Nav.Link>
+                          </Nav.Item>
+                        )
+                      })
+                    }
+                  </Nav>
               }
             </Nav.Item>
           )
