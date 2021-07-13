@@ -17,6 +17,7 @@
   }
 
   &__content {
+    width: 100%;
     @include flex-align-center;
   }
 
@@ -48,6 +49,14 @@
   }
 
   @include media-breakpoint-down(lg) {
+    &__aside {
+      padding-right: 4rem;
+  
+      & > * {
+        padding: 0 1rem;
+      }
+    }
+
     &__navigation {
      display: none;
      visibility: hidden;

@@ -7,10 +7,12 @@ import { resetAuthMessage } from '../Redux/User/UserActionCreators';
 import LoginPage from '../Routes/LoginPage/LoginPage';
 
 export interface IAuthContainer {
+  isLoading: boolean
 }
 
 export default function AuthContainer() {
   const authMessage = useAppSelector((state) => state.user?.authMessage)
+  const isLoading = useAppSelector((state) => state.user?.isLoading)
 
   const dispatch = useAppDispatch()
 
@@ -26,5 +28,5 @@ export default function AuthContainer() {
     })
   }
 
-  return <LoginPage/>
+  return <LoginPage isLoading={isLoading}/>
 }

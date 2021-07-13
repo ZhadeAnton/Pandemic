@@ -20,7 +20,7 @@ function Header(props: Props) {
       <div className='header__wrapper'>
         <BrandLogo />
 
-        <div className='header__content container'>
+        <div className='header__content'>
           <div className='header__navigation'>
             <NavigationMenu />
           </div>
