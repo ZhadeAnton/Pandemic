@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { ProgressBar } from 'react-bootstrap';
 import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 import './announceSlider.scss'
 import { MainState } from '../../../Redux/MainPage/MainReducer';

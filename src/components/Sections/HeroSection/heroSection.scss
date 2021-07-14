@@ -4,8 +4,7 @@
 
 .hero {
   @include flex-center;
-  width: 100%;
-  height: 100%;
+  @include full-size;
   max-height: 1000px;
   margin-top: -120px;
   position: relative;
@@ -41,18 +40,13 @@
   }
 
   &__doctor {
-    position: absolute;
-    bottom: -1%;
-    left: 56% !important;
+    @include abs-position(auto, auto, -1%, 56%);
     z-index: -1;
-    transform: translateX(-50%) !important;
+    transform: translateX(-50%);
   }
 
   &__shape {
-    width: 100%;
-    position: absolute;
-    bottom: -1%;
-    left: 0;
+    @include abs-position(auto, auto, -1%, 0);
     fill: var(--e-global-color-secondary);
   }
 
@@ -94,9 +88,7 @@
 
     &__shape {
       width: 100%;
-      position: absolute;
-      bottom: -1px;
-      left: 0;
+      @include abs-position(auto, auto, -1px, 0);
       fill: var(--e-global-color-secondary);
     }
   }

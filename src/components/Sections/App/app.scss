@@ -1,5 +1,5 @@
-@import './Scss/mixins';
-@import './Scss/variables';
+@import '../../../Scss/mixins';
+@import '../../../Scss/variables';
 
 .app {
   @include full-size;

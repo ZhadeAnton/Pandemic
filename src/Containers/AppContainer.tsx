@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useAppSelector } from '../Hooks/PreTypedHook'
 
-import App from '../App'
+import App from '../Components/Sections/App/App'
 import { IUserState } from '../Redux/User/UserReducer'
 
 export interface IAppContainer {
