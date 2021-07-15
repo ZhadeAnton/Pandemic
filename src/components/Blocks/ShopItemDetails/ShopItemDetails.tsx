@@ -24,7 +24,9 @@ export default function ShopItemDetails(props: Props) {
         <Stars starsCount={props.currentItem.popularity}/>
       </div>
 
-      <div className='shop-item-details__price'>
+      <div
+        className='shop-item-details__price'
+      >
         <ShopItemPrice
           sale={props.currentItem.sale}
           oldPrice={props.currentItem.price}

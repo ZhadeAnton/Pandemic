@@ -8,8 +8,14 @@ interface Props {
 
 export default function ShopButton(props: Props) {
   return (
-    <button className='shop-button' onClick={props.onClick}>
-      <i className="bi bi-plus-lg shop-button__icon"></i>
+    <button
+      className='shop-button'
+      onClick={props.onClick}
+    >
+      <i
+        role='icon'
+        className="bi bi-plus-lg shop-button__icon"
+      />
 
       <h5 className='shop-button__title'>
         Add to cart

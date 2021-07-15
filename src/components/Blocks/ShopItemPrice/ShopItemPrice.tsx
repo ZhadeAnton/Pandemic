@@ -4,9 +4,9 @@ import './shopItemPrice.scss'
 import { IShopItem } from '../../../Interfaces/ShopInterfaces'
 
 interface Props {
-  sale: IShopItem['sale']
+  sale?: IShopItem['sale']
+  newPrice?: IShopItem['newPrice']
   oldPrice: IShopItem['price'],
-  newPrice: IShopItem['newPrice']
 }
 
 export default function ShopItemPrice(props: Props) {
@@ -16,11 +16,16 @@ export default function ShopItemPrice(props: Props) {
         props.sale
         ?
           <div className='shop-item-price'>
-            <h4 className='shop-item-price__old'>
+            <h4
+              data-testid='shop-item-price-old'
+              className='shop-item-price__old'
+            >
               {props.oldPrice}
             </h4>
 
-            <h4 className='shop-item-price__new'>
+            <h4
+              data-testid='shop-item-price-new'
+              className='shop-item-price__new'>
               {props.newPrice}
             </h4>
           </div>
