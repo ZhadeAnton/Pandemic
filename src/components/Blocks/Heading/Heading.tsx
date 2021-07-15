@@ -12,13 +12,19 @@ function Heading(props: Props) {
   return (
     <Slide top>
       <div className='brand-heading'>
-        <h2 className='brand-heading__title'>
+        <h2
+          data-testid='heading-title'
+          className='brand-heading__title'
+        >
           {props.title}
         </h2>
 
         {
           props.subTitle &&
-          <h6 className='brand-heading__sub-title'>
+          <h6
+            data-testid='heading-subtitle'
+            className='brand-heading__sub-title'
+          >
             {props.subTitle}
           </h6>
         }
