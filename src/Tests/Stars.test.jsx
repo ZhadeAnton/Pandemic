@@ -4,7 +4,6 @@ import '@testing-library/jest-dom'
 
 import Stars from '../Components/Custom/Stars/Stars'
 
-
 describe('stars', () => {
   it('should have a container', () => {
     const { container } = render(

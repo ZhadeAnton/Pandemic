@@ -10,7 +10,7 @@ interface Props {
 export default function ButtonSecondary(props: Props) {
   return (
     <button
-      className='button-sign-out'
+      className='button-secondary'
       onClick={props.onClick}
     >
       {props.children}

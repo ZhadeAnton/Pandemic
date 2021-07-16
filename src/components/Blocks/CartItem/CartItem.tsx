@@ -28,7 +28,10 @@ export default function CartItem(props: Props) {
   }
 
   return (
-    <li className='cart-item'>
+    <li
+      data-testid='cart-item'
+      className='cart-item'
+    >
       <div className='cart-item__image-wrapper'>
         <img
           className='cart-item__image-wrapper--image'

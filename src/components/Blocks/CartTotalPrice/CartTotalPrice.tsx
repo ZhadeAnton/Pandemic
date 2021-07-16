@@ -13,7 +13,10 @@ export default function CartTotalPrice(props: Props) {
         Cart total:
       </h3>
 
-      <output className='cart-total__output'>
+      <output
+        data-testid='cart-total-output'
+        className='cart-total__output'
+      >
         ${props.totalPrice}
       </output>
     </div>
