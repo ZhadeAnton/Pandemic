@@ -18,10 +18,12 @@ export default function Breadcrumbs(props: Props) {
 
             return (
               <li
+                data-testid='breadcrumb-item'
                 className='breadcrumbs__list--item'
                 key={idx}
               >
                 <NavLink
+                  data-testid='breadcrumb-item-link'
                   className={cn('breadcrumbs__list--link',
                   breadsLength === idx + 1 ? 'breadcrumbs__list--link-active' : '')}
                   to={`${item === 'Home' ? '/' : `/${item.toLocaleLowerCase()}`}`}
