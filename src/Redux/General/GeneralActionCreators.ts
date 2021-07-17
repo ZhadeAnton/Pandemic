@@ -1,3 +1,4 @@
+import { INotification } from './../../Interfaces/NotificationInterfaces';
 import { IFnAddNotification } from '../../Interfaces/MainInterfaces'
 import * as actions from './GeneralActionTypes'
 
@@ -7,7 +8,7 @@ export const addNotification: IFnAddNotification = (type, message, id)
   payload: { type, message, id }
 })
 
-export const removeNotification = (id: number) => ({
+export const removeNotification = (id: INotification['id']) => ({
   type: actions.REMOVE_NOTIFICATION,
   payload: id
 })

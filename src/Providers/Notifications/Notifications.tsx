@@ -3,14 +3,9 @@ import React, { useState, useEffect } from 'react';
 import './notifications.scss'
 import { useAppDispatch } from '../../Hooks/PreTypedHook';
 import { removeNotification } from '../../Redux/General/GeneralActionCreators';
+import { INotification } from '../../Interfaces/NotificationInterfaces';
 
-interface Props {
-  id: number,
-  type: 'ERROR' | 'SUCCESS',
-  message: string
-}
-
-export default function Notification(props: Props) {
+export default function Notification(props: INotification) {
   const [exit, setExit] = useState(false)
   const [width, setWidth] = useState(0);
   const [intervalID, setIntervalID] = useState<any>(null)

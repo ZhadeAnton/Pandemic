@@ -1,5 +1,5 @@
 export interface INotification {
-  id: number,
+  id: string,
   type: 'ERROR' | 'SUCCESS',
   message: string
 }
