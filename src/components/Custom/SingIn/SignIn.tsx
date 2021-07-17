@@ -12,11 +12,15 @@ export default function SignIn() {
 
   return (
     <>
-      <Form className='sign-in'>
+      <Form
+        data-testid='sign-in-form'
+        className='sign-in'
+      >
         <Form.Group className='sign-in__group'>
           <Form.Label>Email address</Form.Label>
 
           <Form.Control
+            data-testid='sign-in-input'
             name="email"
             type="email"
             value={signInHook.email}
@@ -24,6 +28,7 @@ export default function SignIn() {
             ref={signInHook.inputRef}
             placeholder="Enter email"
             autoComplete="email"
+            required
           />
         </Form.Group>
 
@@ -33,6 +38,7 @@ export default function SignIn() {
         >
           <Form.Label>Password</Form.Label>
           <Form.Control
+            data-testid='sign-in-input'
             name="password"
             type="password"
             placeholder="Password"

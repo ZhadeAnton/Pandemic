@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { Provider } from 'react-redux';
 import '@testing-library/jest-dom'
@@ -8,44 +8,68 @@ import '@testing-library/jest-dom'
 import store from '../Redux/Store/Store';
 import SingIn from '../Components/Custom/SingIn/SignIn'
 
-describe('Sign-in', () => {
-  it('email form', () => {
-    render(
+describe('sign-in', () => {
+  it('should render correctly', () => {
+    const { container } = render(
         <Provider store={store}>
           <Router>
             <SingIn />
           </Router>
         </Provider>)
 
-    const emailInput = screen.queryByPlaceholderText('Enter email')
-
-    userEvent.type(emailInput, 'React')
-
-    expect(emailInput).toHaveValue('React')
+    expect(container.firstChild).toHaveClass('sign-in')
+    expect(container.firstChild.nodeName).toBe('FORM')
   })
 
-  it('inputs focus', () => {
-    render(
+  it('should have 2 inputs', () => {
+    const { getAllByTestId } = render(
         <Provider store={store}>
           <Router>
             <SingIn />
           </Router>
         </Provider>)
 
-    const passwordInput = screen.queryByPlaceholderText('Password')
+    const inputs = getAllByTestId('sign-in-input')
+
+    expect(inputs.length).toBe(2)
+    expect(inputs.length).not.toBe(1)
+  })
+
+  it('should correctly change focus', () => {
+    const { getByPlaceholderText } = render(
+        <Provider store={store}>
+          <Router>
+            <SingIn />
+          </Router>
+        </Provider>)
+
+    const emailInput = getByPlaceholderText('Enter email')
+    const passwordInput = getByPlaceholderText('Password')
+
+    expect(emailInput).toHaveFocus()
     expect(passwordInput).not.toHaveFocus()
 
     userEvent.click(passwordInput)
 
     expect(passwordInput).toHaveFocus()
+    expect(emailInput).not.toHaveFocus()
   })
 
-  it('function handler call on inputs', () => {
-    const onChange = jest.fn()
-    const { container } = render(<input type='text' onChange={onChange}/>)
-    const input = container.firstChild;
+  it('should correctly render text', () => {
+    const { getByPlaceholderText } = render(
+        <Provider store={store}>
+          <Router>
+            <SingIn />
+          </Router>
+        </Provider>)
 
-    userEvent.type(input, 'React')
-    expect(onChange).toHaveBeenCalledTimes(5)
+    const emailInput = getByPlaceholderText('Enter email')
+    const passwordInput = getByPlaceholderText('Password')
+
+    userEvent.type(emailInput, 'user@gmail.com')
+
+    expect(emailInput).toHaveDisplayValue('user@gmail.com')
+    expect(passwordInput).toHaveDisplayValue('')
+    expect(passwordInput).not.toHaveDisplayValue('user@gmail.com')
   })
 })

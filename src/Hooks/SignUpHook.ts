@@ -18,7 +18,7 @@ export default function useSignUp() {
     if (inputRef !== null) {
       inputRef.current?.focus()
     }
-  }, [])
+  }, [inputRef])
 
   const {displayName, email, password, confirmPassword} = signUpCredentionals
 
@@ -33,6 +33,12 @@ export default function useSignUp() {
 
     if (password !== confirmPassword) {
       dispatch(authMessage('Passwords do not match!'))
+
+      return
+    }
+
+    if (displayName.length || email.length || password.length < 4) {
+      dispatch(authMessage('Text is too short. It have to be more than 4 symbols'))
 
       return
     }
@@ -58,11 +64,21 @@ export default function useSignUp() {
     return password !== confirmPassword ? true : false
   }
 
+  const isEmailInputValid = () => {
+    return email.includes('@') ? true : false
+  }
+
+  const isNameInputvalid = () => {
+    return displayName.length > 4 ? true : false
+  }
+
   return {
     handleChange,
     handleSubmit,
     isValid,
     isInValid,
+    isEmailInputValid,
+    isNameInputvalid,
     displayName,
     email,
     password,
