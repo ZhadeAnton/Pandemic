@@ -1,4 +1,4 @@
-import * as userTypes from './UserActionTypes'
+import * as userActions from './UserActionTypes'
 import * as cartTypes from '../Cart/CartActionTypes'
 import { UserTypes } from './UserActionTypes'
 import { CartTypes } from '../Cart/CartActionTypes'
@@ -21,16 +21,16 @@ const INITIAL_STATE: IUserState = {
 
 const userReducer = (state = INITIAL_STATE, action: UserReducer) => {
   switch (action.type) {
-    case userTypes.GOOGLE_SIGN_IN_START:
-    case userTypes.FACEBOOK_SIGN_IN_START:
-    case userTypes.SIGN_IN_WITH_EMAIL:
-    case userTypes.SIGN_UP_WITH_EMAIL:
+    case userActions.GOOGLE_SIGN_IN_START:
+    case userActions.FACEBOOK_SIGN_IN_START:
+    case userActions.SIGN_IN_WITH_EMAIL:
+    case userActions.SIGN_UP_WITH_EMAIL:
       return {
         ...state,
         isLoading: true
       }
 
-    case userTypes.SIGN_IN_SUCCESS:
+    case userActions.SIGN_IN_SUCCESS:
       return {
         ...state,
         currentUser: action.payload,
@@ -38,14 +38,14 @@ const userReducer = (state = INITIAL_STATE, action: UserReducer) => {
         isLoading: false
       }
 
-    case userTypes.SIGN_UP_SUCCESS:
+    case userActions.SIGN_UP_SUCCESS:
       return {
         ...state,
         authMessage: ['You are successfully signed up and logged in!'],
         isLoading: false
       }
 
-    case userTypes.SIGN_OUT_SUCCESS:
+    case userActions.SIGN_OUT_SUCCESS:
       return {
         ...state,
         currentUser: null,
@@ -53,14 +53,14 @@ const userReducer = (state = INITIAL_STATE, action: UserReducer) => {
         isLoading: false
       }
 
-    case userTypes.AUTHENTICATION_MESSAGE:
+    case userActions.AUTHENTICATION_MESSAGE:
       return {
         ...state,
         authMessage: [action.payload],
         isLoading: false
       }
 
-    case userTypes.RESET_AUTHENTICATION_MESSAGE:
+    case userActions.RESET_AUTHENTICATION_MESSAGE:
       return {
         ...state,
         authMessage: null

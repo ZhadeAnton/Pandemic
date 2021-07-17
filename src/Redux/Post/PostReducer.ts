@@ -1,7 +1,7 @@
 import { IArrayOfPosts, IPost } from '../../Interfaces/PostInterfaces';
 import { PostTypes } from './PostActionTypes';
 import { GeneralTypes } from '../General/GeneralActionTypes';
-import * as actions from './PostActionTypes'
+import * as postActions from './PostActionTypes'
 import * as generalActions from '../General/GeneralActionTypes'
 
 export interface IPostsState {
@@ -26,20 +26,20 @@ type reduserType = PostTypes | GeneralTypes
 
 const postsReducer = (state = INITIAL_STATE, action: reduserType): IPostsState => {
   switch (action.type) {
-    case actions.GET_POSTS:
+    case postActions.GET_POSTS:
       return {
         ...state,
         isLoading: true
       }
 
-    case actions.GET_POSTS_SUCCESS:
+    case postActions.GET_POSTS_SUCCESS:
       return {
         ...state,
         posts: [...action.payload],
         isLoading: false
       }
 
-    case actions.SET_CURRENT_POST:
+    case postActions.SET_CURRENT_POST:
       return {
         ...state,
         currentPost: action.payload

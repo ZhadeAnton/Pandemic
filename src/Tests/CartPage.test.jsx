@@ -13,53 +13,41 @@ const mockHandleRemoveItem = jest.fn()
 const mockHandleIncreaseQuantity = jest.fn()
 const mockHandleDecreaseQuantity = jest.fn()
 
-const cartItems = [
-  {
-    id: 'afsdfsgf',
-    image: 'https://i.ibb.co/CKSzk2x/1-1.jpg',
-    imageFull: 'https://i.ibb.co/CKSzk2x/1-1.jpg',
-    title: 'Atari-Black',
-    price: '$20',
-    popularity: 4,
-    description: 'lorem10',
-    details: 'lorem30',
-    reviews: ['lorem5', 'lorem10', 'lorem20'],
-    categories: ['music', 'electronic'],
-    sale: true,
-    newPrice: '$18'
-  },
-  {
-    id: 'bf5hgfd3',
-    image: 'https://i.ibb.co/CKSzk2x/1-1.jpg',
-    imageFull: 'https://i.ibb.co/CKSzk2x/1-1.jpg',
-    title: 'Atari-Black',
-    price: '$12',
-    popularity: 5,
-    description: 'lorem10',
-    details: 'lorem30',
-    reviews: ['lorem5', 'lorem10', 'lorem20'],
-    categories: ['music', 'electronic'],
-  }
-]
+// Cart item with sale
+const cartItem1 = {
+  id: 'afsdfsgf',
+  image: 'https://i.ibb.co/CKSzk2x/1-1.jpg',
+  imageFull: 'https://i.ibb.co/CKSzk2x/1-1.jpg',
+  title: 'Atari-Black',
+  price: '$20',
+  popularity: 4,
+  description: 'lorem10',
+  details: 'lorem30',
+  reviews: ['lorem5', 'lorem10', 'lorem20'],
+  categories: ['music', 'electronic'],
+  sale: true,
+  newPrice: '$18'
+}
+
+// Cart item without sale
+const cartItem2 = {
+  id: 'bf5hgfd3',
+  image: 'https://i.ibb.co/CKSzk2x/1-1.jpg',
+  imageFull: 'https://i.ibb.co/CKSzk2x/1-1.jpg',
+  title: 'Atari-Black',
+  price: '$12',
+  popularity: 5,
+  description: 'lorem10',
+  details: 'lorem30',
+  reviews: ['lorem5', 'lorem10', 'lorem20'],
+  categories: ['music', 'electronic']
+}
+
+const cartItems = [cartItem1, cartItem2]
 
 const initialState = {
   userUid: 'fAad4gdfg',
-  cartItems: [
-    {
-      id: 'afsdfsgf',
-      image: 'https://i.ibb.co/CKSzk2x/1-1.jpg',
-      imageFull: 'https://i.ibb.co/CKSzk2x/1-1.jpg',
-      title: 'Atari-Black',
-      price: '$20',
-      popularity: 4,
-      description: 'lorem10',
-      details: 'lorem30',
-      reviews: ['lorem5', 'lorem10', 'lorem20'],
-      categories: ['music', 'electronic'],
-      sale: true,
-      newPrice: '$18'
-    }
-  ],
+  cartItems: [cartItem1],
   isLoading: false,
   handleClearCart: mockHandleClearCart,
   handleRemoveItem: mockHandleRemoveItem,

@@ -1,4 +1,4 @@
-import * as actions from './MainActionsTypes'
+import * as mainActions from './MainActionsTypes'
 import { ArrayOfIDisciplines } from '../../Interfaces/MainInterfaces';
 import { ArrayOfAnnounces } from '../../Interfaces/AnnounceInterfaces';
 
@@ -13,15 +13,15 @@ const INITIAL_STATE: MainState = {
 }
 
 const mainReducer =
-  (state = INITIAL_STATE, action: actions.MatchTypes): MainState => {
+  (state = INITIAL_STATE, action: mainActions.MatchTypes): MainState => {
     switch (action.type) {
-      case actions.GET_ANNOUNCES_SUCCESS:
+      case mainActions.GET_ANNOUNCES_SUCCESS:
         return {
           ...state,
           announces: [...action.payload]
         }
 
-      case actions.GET_LIST_OF_DISCIPLINES_SUCCESS:
+      case mainActions.GET_LIST_OF_DISCIPLINES_SUCCESS:
         return {
           ...state,
           disciplines: [...action.payload]

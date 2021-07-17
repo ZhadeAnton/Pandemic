@@ -8,6 +8,22 @@ import userEvent from '@testing-library/user-event'
 import cartReducer from '../Redux/Cart/CartReducer'
 import CartItemQuantitny from '../Components/Blocks/CartItemQuantitny/CartItemQuantitny'
 
+const cartItem = {
+  id: 'afsdfsgf',
+  image: 'https://i.ibb.co/CKSzk2x/1-1.jpg',
+  imageFull: 'https://i.ibb.co/CKSzk2x/1-1.jpg',
+  title: 'Atari-Black',
+  price: '$20',
+  popularity: 4,
+  description: 'lorem10',
+  details: 'lorem30',
+  reviews: ['lorem5', 'lorem10', 'lorem20'],
+  categories: ['music', 'electronic'],
+  sale: true,
+  newPrice: '$18',
+  quantity: 1
+}
+
 const renderWithRedux = (component,
     {initialState, store = createStore(cartReducer, initialState)} = {}) => {
   return {
@@ -24,9 +40,10 @@ describe('cart item', () => {
         <CartItemQuantitny
           onIncreaseQuantity={OnIncreaseQuantity}
           onDecreaseQuantity={OnDecreaseQuantity}
-          cartItem={{quantity: 1}}
+          cartItem={cartItem}
         />
     )
+
     const increaseButton = getByTestId('increase-button')
     const decreaseButton = getByTestId('decrease-button')
 
@@ -38,26 +55,24 @@ describe('cart item', () => {
   })
 
   it('mocked function increase quantity', () => {
-    let quantity = 1
+    const { getByRole, getByTestId } = renderWithRedux(
+        <CartItemQuantitny
+          onIncreaseQuantity={() => handleIncreaseQuantity(cartItem.quantity)}
+          onDecreaseQuantity={() => handleDecreaseQuantity(cartItem.quantity)}
+          cartItem={cartItem}
+        />
+    )
 
     const mockIncreaseQuantity = jest.fn((quantity) => quantity + 1)
     const mockDecreaseQuantity = jest.fn((quantity) => quantity - 1)
 
     const handleIncreaseQuantity = (currentQuantity) => {
-      quantity = mockIncreaseQuantity(currentQuantity)
+      cartItem.quantity = mockIncreaseQuantity(currentQuantity)
     }
 
     const handleDecreaseQuantity = (currentQuantity) => {
-      quantity = mockDecreaseQuantity(currentQuantity)
+      cartItem.quantity = mockDecreaseQuantity(currentQuantity)
     }
-
-    const { getByRole, getByTestId } = renderWithRedux(
-        <CartItemQuantitny
-          onIncreaseQuantity={() => handleIncreaseQuantity(quantity)}
-          onDecreaseQuantity={() => handleDecreaseQuantity(quantity)}
-          cartItem={{quantity}}
-        />
-    )
 
     const increaseButton = getByTestId('increase-button')
     const decreaseButton = getByTestId('decrease-button')
@@ -66,12 +81,12 @@ describe('cart item', () => {
     expect(quantityOutput).toHaveTextContent('1')
 
     userEvent.click(increaseButton)
-    expect(quantity).toBe(2)
+    expect(cartItem.quantity).toBe(2)
 
     userEvent.dblClick(increaseButton)
-    expect(quantity).toBe(4)
+    expect(cartItem.quantity).toBe(4)
 
     userEvent.dblClick(decreaseButton)
-    expect(quantity).toBe(2)
+    expect(cartItem.quantity).toBe(2)
   })
 })

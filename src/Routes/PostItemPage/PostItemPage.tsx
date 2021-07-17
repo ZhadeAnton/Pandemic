@@ -9,6 +9,7 @@ import ConvertDate from '../../Components/Blocks/ConvertDate/ConvertDate'
 import PostsNavigation from '../../Components/Blocks/PostsNavigation/PostsNavigation'
 import SocialList from '../../Components/Blocks/SocialList/SocialList'
 import BackButton from '../../Components/Custom/BackButton/BackButton'
+import Footer from '../../Components/Sections/Footer/Footer'
 
 export default function PostItemPage(props: IPostItemContainer) {
   return (
@@ -62,6 +63,8 @@ export default function PostItemPage(props: IPostItemContainer) {
           </aside>
         </section>
       </div>
+
+      <Footer />
     </main>
   )
 }

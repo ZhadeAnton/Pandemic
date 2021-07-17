@@ -3,7 +3,7 @@
 @import '../../Scss/variables';
 
 .post-item-page {
-  padding: var(--space-lg) 0;
+  padding-top: var(--space-lg);
   background-color: var(--e-global-color-secondary);
 
   &__back-botton {

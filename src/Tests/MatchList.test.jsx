@@ -38,6 +38,7 @@ describe('Match list', () => {
           isLoading={initialMatchState.isLoading}
         />
     )
+
     expect(getByRole('heading')).toHaveTextContent('No discipline events were held...')
   })
 
@@ -48,7 +49,9 @@ describe('Match list', () => {
           isLoading={true}
         />
     )
+
     const spinner = getByTestId('spinner')
     expect(spinner).toBeInTheDocument()
+    expect(spinner).toHaveClass('spinner')
   })
 })
