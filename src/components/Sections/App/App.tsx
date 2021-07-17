@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
-import { Toaster } from 'react-hot-toast';
 import { Switch, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -32,15 +31,6 @@ function App(props: IAppContainer) {
 
   return (
     <main className='app'>
-      <Toaster
-        position='bottom-left'
-        toastOptions={{
-          success: {
-            duration: 4000
-          }
-        }}
-      />
-
       <div className='app__hamburger-menu'>
         <HamburgerMenu onToggleSidebar={hadnleToggleSidebar}/>
       </div>

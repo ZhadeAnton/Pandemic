@@ -1,7 +1,5 @@
 import React, { createContext } from 'react'
-
 import { useAppSelector } from '../../Hooks/PreTypedHook'
-
 import Notification from './Notifications'
 
 const NotificationContext = createContext('');

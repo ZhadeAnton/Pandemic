@@ -57,15 +57,20 @@ export default function Notification(props: Props) {
 
   return (
     <div
+      className={`notification-item ${
+      props.type === 'SUCCESS' ? 'notification-item__success' : 'notification-item__error'
+      } ${exit ? 'exit' : ''}`}
       onMouseEnter={handlePauseTimer}
       onMouseLeave={handleStartTimer}
-      className={`notification-item ${
-      props.type === 'SUCCESS' ? 'success' : 'error'
-      } ${exit ? 'exit' : ''}`}
     >
-      <p>
-        {props.message}
-      </p>
+      <div className='notification-item__content'>
+        <i className={`bi ${props.type === 'SUCCESS'
+        ? 'bi-check' : 'bi-exclamation-triangle'} notification-item__content--icon`} />
+
+        <p className='notification-item__content--message'>
+          {props.message}
+        </p>
+      </div>
 
       <div className='bar' style={{ width: `${width}%` }} />
     </div>
