@@ -1,14 +1,16 @@
 import {takeLatest, put, all, call} from 'redux-saga/effects'
 import * as actionCreators from './ShopActionCreators'
 import * as actionTypes from './ShopActionTypes'
+import * as generalActions from '../General/GeneralActionCreators'
 import * as shopAPI from '../../API/ShopAPI'
+import { v4 } from 'uuid'
 
 function* getShopItems() {
   try {
     const shopItems = yield shopAPI.getShopItems()
     yield put(actionCreators.getShopItemsSuccess(shopItems))
   } catch (error) {
-    console.log(error)
+    yield put(generalActions.addNotification('ERROR', error.message, v4()))
   }
 }
 
