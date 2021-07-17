@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { authMessage, signUpWithEmail } from '../Redux/User/UserActionCreators';
+import { signUpWithEmail } from '../Redux/User/UserActionCreators';
 import { useAppDispatch } from './PreTypedHook';
 
 export default function useSignUp() {
@@ -31,17 +31,17 @@ export default function useSignUp() {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
 
-    if (password !== confirmPassword) {
-      dispatch(authMessage('Passwords do not match!'))
+    // if (password !== confirmPassword) {
+    //   dispatch(authError('Passwords do not match!'))
 
-      return
-    }
+    //   return
+    // }
 
-    if (displayName.length || email.length || password.length < 4) {
-      dispatch(authMessage('Text is too short. It have to be more than 4 symbols'))
+    // if (displayName.length || email.length || password.length < 4) {
+    //   dispatch(authError('Text is too short. It have to be more than 4 symbols'))
 
-      return
-    }
+    //   return
+    // }
 
     dispatch(signUpWithEmail({email, password, displayName}))
     clear()

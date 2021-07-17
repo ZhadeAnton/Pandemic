@@ -1,4 +1,16 @@
+import { IFnAddNotification } from '../../Interfaces/MainInterfaces'
 import * as actions from './GeneralActionTypes'
+
+export const addNotification: IFnAddNotification = (type, message, id)
+: actions.AddNotification => ({
+  type: actions.ADD_NOTIFICATION,
+  payload: { type, message, id }
+})
+
+export const removeNotification = (id: number) => ({
+  type: actions.REMOVE_NOTIFICATION,
+  payload: id
+})
 
 export const setPageNumber = (pageNum: number): actions.SetPageNumber => ({
   type: actions.SET_PAGE_NUMBER,

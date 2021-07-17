@@ -1,8 +1,10 @@
 import {takeLatest, put, all, call} from 'redux-saga/effects'
+import { v4 } from 'uuid'
 
 import * as userTypes from './UserActionTypes'
 import * as userActions from './UserActionCreators.ts'
 import * as utils from '../../Utils/UserUtils.ts'
+import * as generalActions from '../General/GeneralActionCreators'
 import {auth, googleProvider, facebookProvider} from '../../Firebase/firebase.config'
 
 function* getSnapshotFromUserAuth(userAuth, additionalData) {
@@ -16,7 +18,8 @@ function* getSnapshotFromUserAuth(userAuth, additionalData) {
       ...userSnapshot.data()
     }))
   } catch (error) {
-    yield put(userActions.authMessage(error.message))
+    yield put(generalActions.addNotification('ERROR', error.message, v4()))
+    yield put(userActions.authError())
   }
 }
 
@@ -25,7 +28,8 @@ function* signInWithGoogle() {
     const {user} = yield auth.signInWithPopup(googleProvider)
     yield getSnapshotFromUserAuth(user)
   } catch (error) {
-    yield put(userActions.authMessage(error.message))
+    yield put(generalActions.addNotification('ERROR', error.message, v4()))
+    yield put(userActions.authError())
   }
 }
 
@@ -34,7 +38,8 @@ function* signInWithFacebook() {
     const {user} = yield auth.signInWithPopup(facebookProvider)
     yield getSnapshotFromUserAuth(user)
   } catch (error) {
-    yield put(userActions.authMessage(error.message))
+    yield put(generalActions.addNotification('ERROR', error.message, v4()))
+    yield put(userActions.authError())
   }
 }
 
@@ -44,7 +49,8 @@ function* signUpWithEmail({payload: {email, password, displayName}}) {
     yield getSnapshotFromUserAuth(user, {displayName})
     yield put(userActions.signUpSuccess())
   } catch (error) {
-    yield put(userActions.authMessage(error.message))
+    yield put(generalActions.addNotification('ERROR', error.message, v4()))
+    yield put(userActions.authError())
   }
 }
 
@@ -53,7 +59,8 @@ function* signInWithEmail({payload: {email, password}}) {
     const {user} = yield auth.signInWithEmailAndPassword(email, password)
     yield getSnapshotFromUserAuth(user)
   } catch (error) {
-    yield put(userActions.authMessage(error.message))
+    yield put(generalActions.addNotification('ERROR', error.message, v4()))
+    yield put(userActions.authError())
   }
 }
 
@@ -62,7 +69,8 @@ function* signOut() {
     yield auth.signOut()
     yield put(userActions.signOutSuccess())
   } catch (error) {
-    yield put(userActions.authMessage(error.message))
+    yield put(generalActions.addNotification('ERROR', error.message, v4()))
+    yield put(userActions.authError())
   }
 }
 

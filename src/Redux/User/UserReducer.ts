@@ -7,7 +7,6 @@ import { addItemToCart, removeItemFromCart } from '../../Utils/UserUtils';
 
 export interface IUserState {
   currentUser: IUser | null,
-  authMessage: Array<string> | null,
   isLoading: boolean,
 }
 
@@ -15,7 +14,6 @@ type UserReducer = UserTypes | CartTypes
 
 const INITIAL_STATE: IUserState = {
   currentUser: null,
-  authMessage: null,
   isLoading: false,
 }
 
@@ -34,14 +32,12 @@ const userReducer = (state = INITIAL_STATE, action: UserReducer) => {
       return {
         ...state,
         currentUser: action.payload,
-        authMessage: ['You are successfully logged in!'],
         isLoading: false
       }
 
     case userActions.SIGN_UP_SUCCESS:
       return {
         ...state,
-        authMessage: ['You are successfully signed up and logged in!'],
         isLoading: false
       }
 
@@ -49,21 +45,13 @@ const userReducer = (state = INITIAL_STATE, action: UserReducer) => {
       return {
         ...state,
         currentUser: null,
-        authMessage: ['You are successfully signed out!'],
         isLoading: false
       }
 
-    case userActions.AUTHENTICATION_MESSAGE:
+    case userActions.AUTHENTICATION_ERROR:
       return {
         ...state,
-        authMessage: [action.payload],
         isLoading: false
-      }
-
-    case userActions.RESET_AUTHENTICATION_MESSAGE:
-      return {
-        ...state,
-        authMessage: null
       }
 
     case cartTypes.ADD_ITEM_TO_CART:

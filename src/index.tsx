@@ -8,12 +8,15 @@ import './index.css';
 import store from './Redux/Store/Store';
 import {persistor} from './Redux/Store/Store';
 import AppContainer from './Containers/AppContainer';
+import NotificationProvider from './Providers/Notifications/NotificationProvider';
 
 ReactDOM.render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
-          <AppContainer />
+          <NotificationProvider>
+            <AppContainer />
+          </NotificationProvider>
         </BrowserRouter>
       </PersistGate>
     </Provider>,
