@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 import CartPage from '../Routes/CartPage/CartPage'
 import ButtonSecondary from '../Components/Custom/ButtonSecondary/ButtonSecondary'
-import CartList from '../Components/Blocks/CartList/CartList'
+import CartList from '../Components/Cart/CartList/CartList'
 
 const mockHandleClearCart = jest.fn()
 const mockHandleRemoveItem = jest.fn()

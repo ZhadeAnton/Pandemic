@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHook'
+import { useAppDispatch, useAppSelector } from '../Hooks/usePreTypedHook'
 import { ArrayOfShopItems } from '../Interfaces/ShopInterfaces'
 import { IUser } from '../Interfaces/UserInterfaces'
 import { getShopItems } from '../Redux/Shop/ShopActionCreators'
@@ -15,8 +15,8 @@ import ShopPage from '../Routes/ShopPage/ShopPage'
 import Preloader from '../Components/Custom/Preloader/Preloader'
 import { IHandleAddCartButton } from '../Interfaces/CartInterfaces'
 import { addShopItemToCart } from '../Redux/Cart/CartActionCreators'
-import useHistoryPush from '../Hooks/HistoryHook'
-import useSliceItemsHook from '../Hooks/SliceItemsHook'
+import useHistoryPush from '../Hooks/useHistory'
+import useSliceItems from '../Hooks/useSliceItems'
 import useNotification from '../Hooks/useNotification'
 
 export type IShopPageContainer = {
@@ -62,7 +62,7 @@ export default function ShopContainer() {
   // Filtering items by filter-word (useState) or get all items back
   const filteredItems = filterShopItemsByTag(filterBy, shopItems)
 
-  const slisedItemsHook = useSliceItemsHook({
+  const slisedItemsHook = useSliceItems({
     itemsForSlide: filteredItems, currentPage, itemsPerPage})
 
   // Sorting items which filtered earlier

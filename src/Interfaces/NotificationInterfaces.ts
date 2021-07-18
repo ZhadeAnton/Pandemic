@@ -5,3 +5,7 @@ export interface INotification {
 }
 
 export type IArrayOfNotifications = Array<INotification>
+
+export interface IFnRemoveNotification {
+  (id: INotification['id']): void
+}

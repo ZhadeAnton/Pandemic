@@ -6,7 +6,7 @@ import '@testing-library/jest-dom/extend-expect'
 import userEvent from '@testing-library/user-event'
 
 import cartReducer from '../Redux/Cart/CartReducer'
-import CartItemQuantitny from '../Components/Blocks/CartItemQuantitny/CartItemQuantitny'
+import CartItemQuantitny from '../Components/Cart/CartItemQuantitny/CartItemQuantitny'
 
 const cartItem = {
   id: 'afsdfsgf',

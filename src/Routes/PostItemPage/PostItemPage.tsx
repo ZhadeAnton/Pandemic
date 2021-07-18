@@ -5,11 +5,11 @@ import { IPostItemContainer } from '../../Containers/PostItemContainer'
 import { socialList } from '../../Utils/FooterUtils'
 import { categories, recentPosts } from '../../Utils/PostsUtils'
 
-import ConvertDate from '../../Components/Blocks/ConvertDate/ConvertDate'
-import PostsNavigation from '../../Components/Blocks/PostsNavigation/PostsNavigation'
-import SocialList from '../../Components/Blocks/SocialList/SocialList'
+import ConvertDate from '../../Components/Custom/ConvertDate/ConvertDate'
+import PostsNavigation from '../../Components/Posts/PostsNavigation/PostsNavigation'
+import SocialList from '../../Components/Custom/SocialList/SocialList'
 import BackButton from '../../Components/Custom/BackButton/BackButton'
-import Footer from '../../Components/Sections/Footer/Footer'
+import Footer from '../../Components/Footer/Footer'
 
 export default function PostItemPage(props: IPostItemContainer) {
   return (

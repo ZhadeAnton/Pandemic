@@ -3,13 +3,13 @@ import React from 'react'
 import './cartPage.scss'
 import { ICartContainer } from '../../Containers/CartContainer'
 
-import CartList from '../../Components/Blocks/CartList/CartList'
-import Footer from '../../Components/Sections/Footer/Footer'
-import CartTotalPrice from '../../Components/Blocks/CartTotalPrice/CartTotalPrice'
+import CartList from '../../Components/Cart/CartList/CartList'
+import Footer from '../../Components/Footer/Footer'
+import CartTotalPrice from '../../Components/Cart/CartTotalPrice/CartTotalPrice'
 import ButtonSecondary from '../../Components/Custom/ButtonSecondary/ButtonSecondary'
-import CartEmpty from '../../Components/Blocks/CartEmpty/CartEmpty'
-import ParallaxHeading from '../../Components/Sections/ParallaxHeading/ParallaxHeading'
-import SectionBanner from '../../Components/Sections/SectionBanner/SectionBanner'
+import CartEmpty from '../../Components/Cart/CartEmpty/CartEmpty'
+import ParallaxHeading from '../../Components/ParallaxHeading/ParallaxHeading'
+import SectionBanner from '../../Components/SectionBanner/SectionBanner'
 
 export default function CartPage(props: ICartContainer) {
   return (

@@ -1,7 +1,7 @@
 import { INotification } from './../Interfaces/NotificationInterfaces';
 import { v4 } from 'uuid'
 
-import { useAppDispatch } from './PreTypedHook'
+import { useAppDispatch } from './usePreTypedHook'
 import { addNotification } from '../Redux/General/GeneralActionCreators'
 
 

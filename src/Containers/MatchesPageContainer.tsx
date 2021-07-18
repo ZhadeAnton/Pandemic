@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { useAppSelector } from '../Hooks/PreTypedHook'
-import useSliceItemsHook from '../Hooks/SliceItemsHook'
+import { useAppSelector } from '../Hooks/usePreTypedHook'
+import useSliceItems from '../Hooks/useSliceItems'
 import { ArrayOfIDisciplines } from '../Interfaces/MainInterfaces'
 import { ArrayOfMatches } from '../Interfaces/MatchInterfaces'
 
@@ -27,7 +27,7 @@ export default function MatchesPageContainer() {
   const isLoading = useAppSelector((state) => state.match.isLoading)
   const matchesPerPage = 5
 
-  const sliceHook = useSliceItemsHook({
+  const sliceHook = useSliceItems({
     itemsForSlide: matches, currentPage, itemsPerPage: matchesPerPage})
 
   return (

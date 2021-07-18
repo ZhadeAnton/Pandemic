@@ -8,7 +8,7 @@ import './index.css';
 import store from './Redux/Store/Store';
 import {persistor} from './Redux/Store/Store';
 import AppContainer from './Containers/AppContainer';
-import NotificationProvider from './Providers/Notifications/NotificationProvider';
+import NotificationProvider from './Providers/NotificationProvider';
 
 ReactDOM.render(
     <Provider store={store}>

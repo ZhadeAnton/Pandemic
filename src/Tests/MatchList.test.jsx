@@ -5,7 +5,7 @@ import { render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 import matchReducer from '../Redux/Match/MatchReduces'
-import MatchList from '../Components/Blocks/MatchList/MatchList'
+import MatchList from '../Components/Match/MatchList/MatchList'
 
 const initialMatchState = {
   matches: [],

@@ -4,8 +4,8 @@ import { Nav, Tab } from 'react-bootstrap'
 import './loginPage.scss'
 import { IAuthContainer } from '../../Containers/LoginContainer'
 
-import SignIn from '../../Components/Custom/SingIn/SignIn'
-import SignUp from '../../Components/Custom/SignUp/SignUp'
+import SignIn from '../../Components/Login/SingIn/SignIn'
+import SignUp from '../../Components/Login/SignUp/SignUp'
 import BrandLogo from '../../Components/Custom/BrandLogo/BrandLogo'
 import Spinner from '../../Components/Custom/Spinner/Spinner'
 

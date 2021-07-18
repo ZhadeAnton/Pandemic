@@ -3,9 +3,9 @@ import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 
-import ShopItemDetails from '../Components/Blocks/ShopItemDetails/ShopItemDetails'
-import ShopItemPrice from '../Components/Blocks/ShopItemPrice/ShopItemPrice'
-import ShopButton from '../Components/Custom/ShopButton/ShopButton'
+import ShopItemDetails from '../Components/Shop/ShopItemDetails/ShopItemDetails'
+import ShopItemPrice from '../Components/Shop/ShopItemPrice/ShopItemPrice'
+import ShopButton from '../Components/Shop/ShopButton/ShopButton'
 
 const mockAddToCart = jest.fn()
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useAppSelector } from '../Hooks/PreTypedHook';
+import { useAppSelector } from '../Hooks/usePreTypedHook';
 
 import LoginPage from '../Routes/LoginPage/LoginPage';
 

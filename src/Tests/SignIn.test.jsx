@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import '@testing-library/jest-dom'
 
 import store from '../Redux/Store/Store';
-import SingIn from '../Components/Custom/SingIn/SignIn'
+import SingIn from '../Components/Login/SingIn/SignIn'
 
 describe('sign-in', () => {
   it('should render correctly', () => {

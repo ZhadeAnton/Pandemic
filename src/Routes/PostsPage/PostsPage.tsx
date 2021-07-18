@@ -4,10 +4,10 @@ import './postPage.scss'
 import { IPostsContainer } from '../../Containers/PostsContainer'
 import { recentPosts, categories } from '../../Utils/PostsUtils'
 
-import PostsList from '../../Components/Blocks/PostsList/PostsList'
-import SectionBanner from '../../Components/Sections/SectionBanner/SectionBanner'
-import PostsNavigation from '../../Components/Blocks/PostsNavigation/PostsNavigation'
-import CustomPagination from '../../Components/Blocks/Pagination/Pagination'
+import PostsList from '../../Components/Posts/PostsList/PostsList'
+import SectionBanner from '../../Components/SectionBanner/SectionBanner'
+import PostsNavigation from '../../Components/Posts/PostsNavigation/PostsNavigation'
+import CustomPagination from '../../Components/Pagination/Pagination'
 
 export default function PostsPage(props: IPostsContainer) {
   return (

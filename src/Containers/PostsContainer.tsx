@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 
-import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHook'
+import { useAppDispatch, useAppSelector } from '../Hooks/usePreTypedHook'
 import { IArrayOfPosts, IFnSetCurrentPost } from '../Interfaces/PostInterfaces'
 import { getPosts, setCurrentPost } from '../Redux/Post/PostActionCreators'
-import useSliceItemsHook from '../Hooks/SliceItemsHook'
-import useHistoryPush from '../Hooks/HistoryHook'
+import useSliceItems from '../Hooks/useSliceItems'
+import useHistoryPush from '../Hooks/useHistory'
 
 import PostsPage from '../Routes/PostsPage/PostsPage'
 import Preloader from '../Components/Custom/Preloader/Preloader'
@@ -31,7 +31,7 @@ export default function PostsPageContainer() {
     dispatch(getPosts())
   }, [])
 
-  const slisedItems = useSliceItemsHook({
+  const slisedItems = useSliceItems({
     itemsForSlide: posts, currentPage, itemsPerPage})
 
   const handlePostClick: IFnSetCurrentPost = (post) => {

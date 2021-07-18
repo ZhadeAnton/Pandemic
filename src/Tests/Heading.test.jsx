@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
-import Heading from '../Components/Blocks/Heading/Heading'
+import Heading from '../Components/Heading/Heading'
 
 describe('heading', () => {
   const propTitle = 'Gaming'

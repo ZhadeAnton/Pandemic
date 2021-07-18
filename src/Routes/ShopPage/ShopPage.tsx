@@ -3,13 +3,13 @@ import React from 'react'
 import './shopPage.scss'
 import { IShopPageContainer } from '../../Containers/ShopContainer'
 
-import SectionBanner from '../../Components/Sections/SectionBanner/SectionBanner'
-import Footer from '../../Components/Sections/Footer/Footer'
-import CartShowResult from '../../Components/Blocks/CartShowResult/CartShowResult'
+import SectionBanner from '../../Components/SectionBanner/SectionBanner'
+import Footer from '../../Components/Footer/Footer'
+import CartShowResult from '../../Components/Cart/CartShowResult/CartShowResult'
 import CustomDropdown from '../../Components/Custom/CustomDropdown/CustomDropdown'
-import ShopItemsList from '../../Components/Blocks/ShopItemsList/ShopItemsList'
-import CustomPagination from '../../Components/Blocks/Pagination/Pagination'
-import ParallaxHeading from '../../Components/Sections/ParallaxHeading/ParallaxHeading'
+import ShopItemsList from '../../Components/Shop/ShopItemsList/ShopItemsList'
+import CustomPagination from '../../Components/Pagination/Pagination'
+import ParallaxHeading from '../../Components/ParallaxHeading/ParallaxHeading'
 
 const ShopPage = (props: IShopPageContainer) => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { useAppSelector } from '../Hooks/PreTypedHook'
-import useScrollToTop from '../Hooks/ScrollToTopHook'
+import { useAppSelector } from '../Hooks/usePreTypedHook'
+import useScrollToTop from '../Hooks/useScrollToTop'
 import { IMatch } from '../Interfaces/MatchInterfaces'
 import { IArrayOfPlayers, IPlayer } from '../Interfaces/PlayerInterfaces'
 

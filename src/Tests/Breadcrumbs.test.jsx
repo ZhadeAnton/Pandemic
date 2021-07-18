@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-import Breadcrumbs from '../Components/Blocks/Breadcrumbs/Breadcrumbs'
+import Breadcrumbs from '../Components/Custom/Breadcrumbs/Breadcrumbs'
 
 describe('breadcrumbs', () => {
   it('should render items correctly', () => {
