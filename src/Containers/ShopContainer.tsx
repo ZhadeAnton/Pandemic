@@ -9,7 +9,7 @@ import {
   sortingNames,
   filteringNames,
   sortShopItemsByTag,
-  filterShopItemsByTag, } from '../Utils/SortUtils'
+  filterShopItemsByTag, } from '../Utils/sortUtils'
 
 import ShopPage from '../Routes/ShopPage/ShopPage'
 import Preloader from '../Components/Custom/Preloader/Preloader'

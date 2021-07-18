@@ -13,7 +13,7 @@ import NotificationProvider from './Providers/NotificationProvider';
 ReactDOM.render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter>
+        <BrowserRouter basename='/Pandemic'>
           <NotificationProvider>
             <AppContainer />
           </NotificationProvider>
