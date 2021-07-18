@@ -60,7 +60,7 @@ export default function Notification(props: INotification) {
     >
       <div className='notification-item__content'>
         <i className={`bi ${props.type === 'SUCCESS'
-        ? 'bi-check' : 'bi-exclamation-triangle'} notification-item__content--icon`} />
+        ? 'bi-check-lg' : 'bi-exclamation-triangle'} notification-item__content--icon`} />
 
         <p className='notification-item__content--message'>
           {props.message}

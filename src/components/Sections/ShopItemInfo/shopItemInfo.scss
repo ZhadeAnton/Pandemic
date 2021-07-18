@@ -10,10 +10,14 @@
     margin-top: var(--space-md);
   }
 
+  &__back-button {
+
+  }
+
   &__product {
     @include full-size;
     display: flex;
-    margin-top: var(--space-xl);
+    margin-top: var(--space-lg);
 
     &--image-wrapper {
       flex: 2.5;

@@ -8,6 +8,7 @@ import Breadcrumbs from '../../Blocks/Breadcrumbs/Breadcrumbs'
 import Heading from '../../Blocks/Heading/Heading'
 import ShopItemDetails from '../../Blocks/ShopItemDetails/ShopItemDetails'
 import Zoom from '../../Custom/Zoom/Zoom'
+import BackButton from '../../Custom/BackButton/BackButton'
 
 interface Props {
   currentItem: IShopItem,
@@ -28,6 +29,10 @@ export default function ShopItemInfo(props: Props) {
       </div>
 
       <div className='shop-item-info__product'>
+        <div className='shop-item-back-button'>
+          <BackButton />
+        </div>
+
         <div className='shop-item-info__product--image-wrapper'>
           <Zoom
             image={props.currentItem!.imageFull}

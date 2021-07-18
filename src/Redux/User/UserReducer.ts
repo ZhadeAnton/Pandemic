@@ -38,7 +38,7 @@ const userReducer = (state = INITIAL_STATE, action: UserReducer) => {
     case userActions.SIGN_UP_SUCCESS:
       return {
         ...state,
-        isLoading: false
+        isLoading: false,
       }
 
     case userActions.SIGN_OUT_SUCCESS:
