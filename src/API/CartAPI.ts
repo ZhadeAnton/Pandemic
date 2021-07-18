@@ -18,7 +18,9 @@ export const addItemToUserCart: IFnAddShopItemToCart = (uid, shopItemId) => {
           quantity: 1
         })
       })
-      .catch((error: any) => console.error(error))
+      .catch((error: any) => {
+        throw new Error(error.message)
+      })
 }
 
 export const removeItemFromUserCart: IFnRemoveItemFromCart = (
@@ -31,14 +33,18 @@ export const removeItemFromUserCart: IFnRemoveItemFromCart = (
           quantity: quantity
         })
       })
-      .catch((error) => console.error(error))
+      .catch((error: any) => {
+        throw new Error(error.message)
+      })
 }
 
 export const clearUserCart: IFnClearCart = (uid) => {
   return db.collection('users')
       .doc(uid)
       .update({cart: []})
-      .catch((error) => console.error(error))
+      .catch((error: any) => {
+        throw new Error(error.message)
+      })
 }
 
 export const getShopItemsFromUserCart: IFnGetShopItemsFromCart = (userUid) => {
@@ -48,5 +54,7 @@ export const getShopItemsFromUserCart: IFnGetShopItemsFromCart = (userUid) => {
       .then(mapDocs)
       .then((userDoc) => userDoc[0].cart)
       .then(getReferencesFromCart)
-      .catch((error) => console.error(error))
+      .catch((error: any) => {
+        throw new Error(error.message)
+      })
 }
