@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Pandemic/static/css/main.1bec73f6.chunk.css",
-    "main.js": "/Pandemic/static/js/main.ae212073.chunk.js",
-    "main.js.map": "/Pandemic/static/js/main.ae212073.chunk.js.map",
+    "main.js": "/Pandemic/static/js/main.759d98dd.chunk.js",
+    "main.js.map": "/Pandemic/static/js/main.759d98dd.chunk.js.map",
     "runtime-main.js": "/Pandemic/static/js/runtime-main.e67328ee.js",
     "runtime-main.js.map": "/Pandemic/static/js/runtime-main.e67328ee.js.map",
     "static/css/2.55c2c830.chunk.css": "/Pandemic/static/css/2.55c2c830.chunk.css",
@@ -33,6 +33,6 @@
     "static/css/2.55c2c830.chunk.css",
     "static/js/2.d87c7f9a.chunk.js",
     "static/css/main.1bec73f6.chunk.css",
-    "static/js/main.ae212073.chunk.js"
+    "static/js/main.759d98dd.chunk.js"
   ]
 }
