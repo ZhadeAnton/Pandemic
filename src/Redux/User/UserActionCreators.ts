@@ -41,11 +41,6 @@ export const signOutSuccess = (): userActions.SignOutSucess => ({
   type: userActions.SIGN_OUT_SUCCESS
 })
 
-export const authMessage = (message: string): userActions.AuthenticationError => ({
-  type: userActions.AUTHENTICATION_MESSAGE,
-  payload: message
-})
-
-export const resetAuthMessage = (): userActions.ResetAuthMessage => ({
-  type: userActions.RESET_AUTHENTICATION_MESSAGE
+export const authError = (): userActions.AuthenticationError => ({
+  type: userActions.AUTHENTICATION_ERROR
 })

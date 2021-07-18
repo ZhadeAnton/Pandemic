@@ -2,15 +2,15 @@ import React from 'react'
 
 import './shopItemPage.scss'
 
-import ShopItemInfo from '../../Components/Sections/ShopItemInfo/ShopItemInfo'
-import ReviewsTabs from '../../Components/Blocks/ReviewsTabs/ReviewsTabs'
-import Footer from '../../Components/Sections/Footer/Footer'
+import ShopItemInfo from '../../Components/Shop/ShopItemInfo/ShopItemInfo'
+import ReviewsTabs from '../../Components/Login/ReviewsTabs/ReviewsTabs'
+import Footer from '../../Components/Footer/Footer'
 import {
   IShopItemPageContainer
 } from '../../Containers/ShopItemContainer'
-import ShopItemsList from '../../Components/Blocks/ShopItemsList/ShopItemsList'
-import CustomPagination from '../../Components/Blocks/Pagination/Pagination'
-import ParallaxHeading from '../../Components/Sections/ParallaxHeading/ParallaxHeading'
+import ShopItemsList from '../../Components/Shop/ShopItemsList/ShopItemsList'
+import CustomPagination from '../../Components/Pagination/Pagination'
+import ParallaxHeading from '../../Components/ParallaxHeading/ParallaxHeading'
 
 export default function ShopItemPage(props: IShopItemPageContainer) {
   return (

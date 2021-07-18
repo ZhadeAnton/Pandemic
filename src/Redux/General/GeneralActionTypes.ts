@@ -1,3 +1,17 @@
+import { INotification } from './../../Interfaces/NotificationInterfaces';
+
+export const ADD_NOTIFICATION = 'ADD_NOTIFICATION'
+export interface AddNotification {
+  type: typeof ADD_NOTIFICATION,
+  payload: INotification
+}
+
+export const REMOVE_NOTIFICATION = 'REMOVE_NOTIFICATION'
+export interface RemoveNotification {
+  type: typeof REMOVE_NOTIFICATION,
+  payload: INotification['id']
+}
+
 export const SET_PAGE_NUMBER = 'SET_PAGE_NUMBER'
 export interface SetPageNumber {
   type: typeof SET_PAGE_NUMBER,
@@ -31,3 +45,5 @@ export type GeneralTypes =
 |SetPrevPage
 |SetFirstPage
 |SetLastPage
+|AddNotification
+|RemoveNotification

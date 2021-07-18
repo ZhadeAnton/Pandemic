@@ -4,9 +4,10 @@ import { Nav, Tab } from 'react-bootstrap'
 import './loginPage.scss'
 import { IAuthContainer } from '../../Containers/LoginContainer'
 
-import SignIn from '../../Components/Custom/SingIn/SignIn'
-import SignUp from '../../Components/Custom/SignUp/SignUp'
+import SignIn from '../../Components/Login/SingIn/SignIn'
+import SignUp from '../../Components/Login/SignUp/SignUp'
 import BrandLogo from '../../Components/Custom/BrandLogo/BrandLogo'
+import Spinner from '../../Components/Custom/Spinner/Spinner'
 
 export default function LoginPage(props: IAuthContainer) {
   return (
@@ -20,6 +21,7 @@ export default function LoginPage(props: IAuthContainer) {
           >
             <aside className='login-page__aside'>
               <div className='login-page__aside__overlay'></div>
+
               <Nav
                 className="flex-column login-page__aside--tabs"
                 variant="tabs"
@@ -45,7 +47,13 @@ export default function LoginPage(props: IAuthContainer) {
             </aside>
 
             <section className='login-page__main'>
-              <div className='login-page__main--overlay'></div>
+              {
+                props.isLoading &&
+                <div className='login-page__main--overlay'><Spinner /></div>
+              }
+
+              <div className='login-page__main--background'></div>
+
               <div className='login-page__main--content'>
                 <Nav
                   className="login-page__main--tabs"
@@ -71,6 +79,7 @@ export default function LoginPage(props: IAuthContainer) {
                 <div className='login-page__main--title'>
                   <BrandLogo />
                 </div>
+
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
                     <SignIn />

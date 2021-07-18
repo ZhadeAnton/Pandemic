@@ -1,30 +1,15 @@
-import React, { useEffect } from 'react'
-import toast from 'react-hot-toast';
+import React from 'react'
 
-import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHook';
-import { resetAuthMessage } from '../Redux/User/UserActionCreators';
+import { useAppSelector } from '../Hooks/usePreTypedHook';
 
 import LoginPage from '../Routes/LoginPage/LoginPage';
 
 export interface IAuthContainer {
+  isLoading: boolean
 }
 
 export default function AuthContainer() {
-  const authMessage = useAppSelector((state) => state.user?.authMessage)
+  const isLoading = useAppSelector((state) => state.user?.isLoading)
 
-  const dispatch = useAppDispatch()
-
-  useEffect(() => {
-    return () => {
-      dispatch(resetAuthMessage())
-    }
-  }, [])
-
-  if (authMessage) {
-    toast(authMessage.toString(), {
-      icon: '✋'
-    })
-  }
-
-  return <LoginPage/>
+  return <LoginPage isLoading={isLoading}/>
 }

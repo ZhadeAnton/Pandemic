@@ -3,6 +3,7 @@
 
 .shop-item-page {
   @include full-size;
+  padding-top: var(--header-height);
   overflow: hidden;
   position: relative;
   background-color: var(--e-global-color-secondary);

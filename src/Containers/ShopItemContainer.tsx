@@ -1,17 +1,17 @@
 import React from 'react'
-import useHistoryPush from '../Hooks/HistoryHook';
+import useHistoryPush from '../Hooks/useHistory';
 
-import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHook';
+import { useAppDispatch, useAppSelector } from '../Hooks/usePreTypedHook';
 import { IUser } from '../Interfaces/UserInterfaces';
 import { IHandleAddCartButton } from '../Interfaces/CartInterfaces';
 import { ArrayOfShopItems, IShopItem } from '../Interfaces/ShopInterfaces';
 import { addShopItemToCart } from '../Redux/Cart/CartActionCreators';
 import { IShopState } from '../Redux/Shop/ShopReducer';
-import useScrollToTop from '../Hooks/ScrollToTopHook';
-import useShopToast from '../Hooks/ShopToastHook';
-import useSliceItemsHook from '../Hooks/SliceItemsHook';
+import useScrollToTop from '../Hooks/useScrollToTop';
+import useSliceItems from '../Hooks/useSliceItems';
 
 import ShopItemPage from '../Routes/ShopItemPage/ShopItemPage';
+import { addNotification } from '../Redux/General/GeneralActionCreators';
 
 export interface IShopItemPageContainer {
   currentItem: IShopItem,
@@ -31,7 +31,7 @@ export default function ShopItemContainer() {
   const itemsPerPage = useAppSelector((state) => state.shop.itemsPerPage)
   const currentPage = useAppSelector((state) => state.shop.currentPage)
 
-  const slisedItems = useSliceItemsHook({
+  const slisedItems = useSliceItems({
     itemsForSlide: shopItems, currentPage, itemsPerPage})
 
   const dispatch = useAppDispatch()
@@ -47,7 +47,8 @@ export default function ShopItemContainer() {
     }
 
     dispatch(addShopItemToCart({userUid, shopItemId}))
-    useShopToast(itemName)
+    dispatch(addNotification(
+        'SUCCESS', `You are successfully added ${itemName} to the cart`, shopItemId))
   }
 
   return (

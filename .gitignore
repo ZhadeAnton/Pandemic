@@ -9,6 +9,7 @@ tsconfig.json
 yarn.lock
 README.md
 package-lock.json
+.vscode
 
 # testing
 /coverage

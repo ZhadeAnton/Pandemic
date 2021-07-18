@@ -1,0 +1,49 @@
+@import '../../Scss/mixins';
+@import '../../Scss/typography';
+@import '../../Scss/variables';
+
+.not-found-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--e-global-color-secondary);
+
+  &__wrapper {
+    @include full-size;
+    display: flex;
+  }
+
+  &__content {
+    flex: 1;
+    @include flex-center;
+    flex-direction: column;
+    text-align: center;
+
+    &--title {
+      @include font-7;
+      font-family: var(--e-global-typography-primary);
+      margin-bottom: 1rem !important;
+      text-transform: uppercase;
+      color: var(--e-global-color-text);
+
+      span {
+        color: var(--e-global-color-error);
+      }
+    }
+
+    &--link {
+      @include font-5;
+      font-family: var(--e-global-typography-primary);
+      margin-bottom: 1rem !important;
+      text-transform: uppercase;
+      color: var(--e-global-color-accent);
+
+      i {
+        margin-left: 1rem;
+      }
+
+      &:hover {
+        color: var(--e-global-color-primary);
+      }
+    }
+  }
+}

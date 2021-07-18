@@ -2,11 +2,11 @@ import React from 'react'
 
 import './matchesPage.scss'
 
-import LatestMatches from '../../Components/Sections/LatestMatches/LatestMatches'
+import LatestMatches from '../../Components/Match/LatestMatches/LatestMatches'
 import { IMatchesContainer } from '../../Containers/MatchesPageContainer'
 
-import Footer from '../../Components/Sections/Footer/Footer'
-import ParallaxHeading from '../../Components/Sections/ParallaxHeading/ParallaxHeading'
+import Footer from '../../Components/Footer/Footer'
+import ParallaxHeading from '../../Components/ParallaxHeading/ParallaxHeading'
 
 export default function MatchesPage(props: IMatchesContainer) {
   return (

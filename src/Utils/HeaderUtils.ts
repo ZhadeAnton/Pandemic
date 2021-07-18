@@ -3,12 +3,9 @@ export const headerNavMenu = [
     ul:
     [
       'home esports',
-      'home magazine',
-      'home white',
-      'home shop',
       'home team'
     ]},
-  { title: 'pages',
+  { title: 'info',
     ul: [
       'about us',
       'sponsors',

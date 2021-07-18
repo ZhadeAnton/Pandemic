@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHook'
+import { useAppDispatch, useAppSelector } from '../Hooks/usePreTypedHook'
 import { ArrayOfIDisciplines } from '../Interfaces/MainInterfaces'
 import { ArrayOfMatches } from '../Interfaces/MatchInterfaces'
 import { sortMatches } from '../Redux/Match/MatchActionCreators'
@@ -8,7 +8,7 @@ import { getAnnounces, getListOfDisciplines } from '../Redux/MainPage/MainAction
 
 import MainPage from '../Routes/MainPage/MainPage'
 import Preloader from '../Components/Custom/Preloader/Preloader'
-import useSliceItemsHook from '../Hooks/SliceItemsHook'
+import useSliceItems from '../Hooks/useSliceItems'
 import { ArrayOfAnnounces } from '../Interfaces/AnnounceInterfaces'
 
 export interface IMainPageContainer {
@@ -35,7 +35,7 @@ export default function MainPageContainer() {
 
   const dispatch = useAppDispatch()
 
-  const sliceHook = useSliceItemsHook({
+  const sliceHook = useSliceItems({
     itemsForSlide: matches, currentPage, itemsPerPage: matchesPerPage})
 
   useEffect(() => {

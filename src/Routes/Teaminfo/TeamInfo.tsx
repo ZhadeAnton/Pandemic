@@ -3,11 +3,11 @@ import React from 'react'
 import './teamInfo.scss'
 import { ITeamContainer } from '../../Containers/TeamContainer'
 
-import SponsorsSlider from '../../Components/Blocks/SponsorsSlider/SponsorsSlider'
-import ParallaxHeading from '../../Components/Sections/ParallaxHeading/ParallaxHeading'
-import PlayersList from '../../Components/Blocks/PlayersList/PlayersList'
-import Footer from '../../Components/Sections/Footer/Footer'
-import Heading from '../../Components/Blocks/Heading/Heading'
+import SponsorsSlider from '../../Components/SponsorsSlider/SponsorsSlider'
+import ParallaxHeading from '../../Components/ParallaxHeading/ParallaxHeading'
+import PlayersList from '../../Components/Player/PlayersList/PlayersList'
+import Footer from '../../Components/Footer/Footer'
+import Heading from '../../Components/Heading/Heading'
 
 export default function TeamInfo(props: ITeamContainer) {
   return (

@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { useAppSelector } from '../Hooks/PreTypedHook'
+import { useAppSelector } from '../Hooks/usePreTypedHook'
 import { IPost } from '../Interfaces/PostInterfaces'
-import useScrollToTop from '../Hooks/ScrollToTopHook'
+import useScrollToTop from '../Hooks/useScrollToTop'
 
 import PostItemPage from '../Routes/PostItemPage/PostItemPage'
 

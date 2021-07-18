@@ -3,11 +3,11 @@ import React from 'react'
 import './mainPage.scss'
 import { IMainPageContainer } from '../../Containers/MainPageContainer'
 
-import HeroSection from '../../Components/Sections/HeroSection/HeroSection'
-import AnnounceSlider from '../../Components/Sections/AnnounceSlider/AnnounceSlider'
-import LatestMatches from '../../Components/Sections/LatestMatches/LatestMatches'
-import Footer from '../../Components/Sections/Footer/Footer'
-import ParallaxHeading from '../../Components/Sections/ParallaxHeading/ParallaxHeading'
+import HeroSection from '../../Components/HeroSection/HeroSection'
+import AnnounceSlider from '../../Components/AnnounceSlider/AnnounceSlider'
+import LatestMatches from '../../Components/Match/LatestMatches/LatestMatches'
+import Footer from '../../Components/Footer/Footer'
+import ParallaxHeading from '../../Components/ParallaxHeading/ParallaxHeading'
 
 function MainPage(props: IMainPageContainer) {
   return (

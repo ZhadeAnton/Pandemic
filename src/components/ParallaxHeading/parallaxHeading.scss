@@ -1,0 +1,101 @@
+@import '../../scss/typography';
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.paralax-row {
+  @include full-size;
+  padding: var(--space-huge) 0;
+  @include cover-background;
+  background-attachment: fixed;
+  position: relative;
+  z-index: 1;
+
+  &__overlay {
+    @include full-size;
+    @include abs-position(0, 0, 0, 0);
+    opacity: .5;
+    z-index: -1;
+    background-color: var(--e-global-color-secondary);
+  }
+
+  &__shape {
+    width: 100%;
+    @include abs-position(-1px, 0, auto, auto);
+    fill: var(--e-global-color-secondary);
+  }
+
+  &__content {
+    @include full-size;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    z-index: 10;
+    opacity: 1;
+
+    &--title {
+      @include font-8 ;
+      color: var(--e-global-color-primary);
+      font-family: var(--e-global-typography-primary);
+      font-weight: 600;
+      position: relative;
+
+      &:after, &:before {
+        content: '"';
+        position: absolute;
+        font-size: 4rem;
+        line-height: 0;
+        color: var(--e-global-color-primary);
+
+        @include media-breakpoint-down(lg) {
+          font-size: 3.6rem;
+        }
+
+        @include media-breakpoint-down(md) {
+          font-size: 3rem;
+        }
+
+        @include media-breakpoint-down(sm) {
+          font-size: 2rem;
+        }
+      }
+
+      &:after {
+        bottom: 0;
+        right: 0;
+      }
+
+      &:before {
+        top: 0;
+        left: 0;
+      }
+    }
+
+    &--button {
+      margin-top: var(--space-xl);
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding: var(--space-xxxl) 0;
+
+    &__content {
+      padding-top: 6rem;
+      padding-bottom: 3rem;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: var(--space-xxl) 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: var(--space-xl) 0;
+  }
+
+  @include media-breakpoint-down(vsm) {
+    padding: var(--space-lg) 0;
+  }
+}

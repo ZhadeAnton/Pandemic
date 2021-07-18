@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHook'
+import { useAppDispatch, useAppSelector } from '../Hooks/usePreTypedHook'
 import { totalPriceItemsSelector } from '../Redux/Cart/CartSelectors'
 import * as cartActions from '../Redux/Cart/CartActionCreators'
 import { IFnRemoveItem } from '../Interfaces/ShopInterfaces'
@@ -10,11 +10,11 @@ import {
   IFnIncreaseQuantity } from '../Interfaces/CartInterfaces'
 import { IUser } from '../Interfaces/UserInterfaces'
 import { ICartState } from '../Redux/Cart/CartReducer'
-import useScrollToTop from '../Hooks/ScrollToTopHook'
+import useScrollToTop from '../Hooks/useScrollToTop'
 
 import CartPage from '../Routes/CartPage/CartPage'
 import Preloader from '../Components/Custom/Preloader/Preloader'
-import useHistoryPush from '../Hooks/HistoryHook'
+import useHistoryPush from '../Hooks/useHistory'
 
 export interface ICartContainer {
   userUid: IUser['uid'],

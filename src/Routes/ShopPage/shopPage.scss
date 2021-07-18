@@ -5,6 +5,7 @@
   @include full-size;
   overflow: hidden;
   background-color: var(--e-global-color-secondary);
+  padding-top: var(--header-height);
 
   &__section-list {
     padding: var(--space-md) 0;

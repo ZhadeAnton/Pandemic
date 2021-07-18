@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { useAppDispatch, useAppSelector } from '../Hooks/PreTypedHook'
+import { useAppDispatch, useAppSelector } from '../Hooks/usePreTypedHook'
 import { ArrayOfShopItems } from '../Interfaces/ShopInterfaces'
 import { IUser } from '../Interfaces/UserInterfaces'
 import { getShopItems } from '../Redux/Shop/ShopActionCreators'
@@ -15,9 +15,9 @@ import ShopPage from '../Routes/ShopPage/ShopPage'
 import Preloader from '../Components/Custom/Preloader/Preloader'
 import { IHandleAddCartButton } from '../Interfaces/CartInterfaces'
 import { addShopItemToCart } from '../Redux/Cart/CartActionCreators'
-import useShopToast from '../Hooks/ShopToastHook'
-import useHistoryPush from '../Hooks/HistoryHook'
-import useSliceItemsHook from '../Hooks/SliceItemsHook'
+import useHistoryPush from '../Hooks/useHistory'
+import useSliceItems from '../Hooks/useSliceItems'
+import useNotification from '../Hooks/useNotification'
 
 export type IShopPageContainer = {
   userUid: IUser['uid']
@@ -50,6 +50,7 @@ export default function ShopContainer() {
 
   const dispatch = useAppDispatch()
   const redirectToLogin = useHistoryPush()
+  const notification = useNotification()
 
   const [filterBy, setFilterBy] = useState('Default')
   const [sortedBy, setSortedBy] = useState('Default')
@@ -61,7 +62,7 @@ export default function ShopContainer() {
   // Filtering items by filter-word (useState) or get all items back
   const filteredItems = filterShopItemsByTag(filterBy, shopItems)
 
-  const slisedItemsHook = useSliceItemsHook({
+  const slisedItemsHook = useSliceItems({
     itemsForSlide: filteredItems, currentPage, itemsPerPage})
 
   // Sorting items which filtered earlier
@@ -84,7 +85,8 @@ export default function ShopContainer() {
     }
 
     dispatch(addShopItemToCart({userUid, shopItemId}))
-    useShopToast(itemName)
+    notification.handleAddNotification('SUCCESS',
+        `You are successfuly added ${itemName} to the cart!`)
   }
 
   if (isLoading) return <Preloader preloader='cube'/>

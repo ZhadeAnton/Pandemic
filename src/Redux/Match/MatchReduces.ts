@@ -1,7 +1,7 @@
 import { IMatch } from '../../Interfaces/MatchInterfaces'
 import { IPlayer } from '../../Interfaces/PlayerInterfaces'
 import { ITeam } from '../../Interfaces/TeamInterfaces'
-import * as actions from './MatchActionTypes'
+import * as matchActions from './MatchActionTypes'
 import * as generalActions from '../General/GeneralActionTypes'
 import { GeneralTypes } from '../General/GeneralActionTypes';
 
@@ -16,7 +16,7 @@ export interface IMatchState {
   isLoading: boolean
 }
 
-type reducerType = actions.MatchTypes | GeneralTypes
+type reducerType = matchActions.MatchTypes | GeneralTypes
 
 const INITIAL_STATE: IMatchState = {
   matches: [],
@@ -32,32 +32,32 @@ const INITIAL_STATE: IMatchState = {
 const matchReducer =
   (state = INITIAL_STATE, action: reducerType): IMatchState => {
     switch (action.type) {
-      case actions.SORT_MATCHES:
+      case matchActions.SORT_MATCHES:
         return {
           ...state,
           isLoading: true
         }
 
-      case actions.SORT_MATCHES_SUCCESS:
+      case matchActions.SORT_MATCHES_SUCCESS:
         return {
           ...state,
           matches: action.payload,
           isLoading: false
         }
 
-      case actions.SET_CURRENT_MATCH:
+      case matchActions.SET_CURRENT_MATCH:
         return {
           ...state,
           currentMatch: action.payload
         }
 
-      case actions.SET_CURRENT_PLAYER:
+      case matchActions.SET_CURRENT_PLAYER:
         return {
           ...state,
           currentPlayer: action.payload
         }
 
-      case actions.SET_CURRENT_TEAM:
+      case matchActions.SET_CURRENT_TEAM:
         return {
           ...state,
           currentTeam: action.payload

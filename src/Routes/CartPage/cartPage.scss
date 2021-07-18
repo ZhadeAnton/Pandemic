@@ -4,6 +4,7 @@
 .cart-page {
   @include full-size;
   overflow: hidden;
+  padding-top: var(--header-height);
   background-color: var(--e-global-color-secondary);
 
   &__heading {

@@ -1,0 +1,82 @@
+@import '../../Scss/variables';
+@import '../../Scss/mixins';
+@import '../../Scss/typography';
+
+.section-banner {
+  @include full-size;
+  padding: var(--space-huge) 0;
+  background-image: url(../../Assets/JPG/team-bg.jpg);
+  @include cover-background;
+  background-position: center;
+  position: relative;
+
+  &__overlay {
+    @include full-size;
+    @include abs-position(0, auto, auto, 0);
+    z-index: 0;
+    background: rgba(14,16,23,.65);
+  }
+
+  [data-banner]::after {
+    content: attr(data-banner)
+  }
+
+  &__wrapper {
+    @include full-size;
+    position: relative;
+
+    &:after {
+      @include abs-position(-30%, auto, auto, 8%);
+      transform: translateY(-20%);
+      opacity: .7;
+      z-index: 1;
+      text-transform: uppercase;
+      font-size: 11.625rem;
+      font-family: var(--e-global-typography-secondary);
+      font-weight: 700;
+      color: var(--e-global-color-dark-ligh);
+
+      @include media-breakpoint-down(lg) {
+        font-size: 9.625rem;
+        @include abs-position(-10%, auto, auto, 10%);
+      }
+
+      @include media-breakpoint-down(md) {
+        font-size: 7.625rem;
+        @include abs-position(-10%, auto, auto, 10%);
+      }
+
+      @include media-breakpoint-down(sm) {
+        font-size: 5.625rem;
+        @include abs-position(-5%, auto, auto, 2%);
+      }
+
+      @include media-breakpoint-down(vsm) {
+        font-size: 4.625rem;
+        @include abs-position(0, auto, auto, 2%);
+      }
+    }
+  }
+  
+  &__content {
+    height: 100%;
+    z-index: 10;
+    position: relative;
+  }
+
+  &__breadcrumbs {
+    margin-top: var(--space-md);
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding: var(--space-xxl) 0;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: var(--space-xl) 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: var(--space-lg) 0;
+  }
+}

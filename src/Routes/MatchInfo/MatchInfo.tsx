@@ -3,14 +3,14 @@ import React from 'react'
 import './matchInfo.scss'
 import { IMatchContainer } from '../../Containers/MatchContainer';
 
-import Heading from '../../Components/Blocks/Heading/Heading';
-import MatchItem from '../../Components/Blocks/MatchItem/MatchItem'
-import StatsList from '../../Components/Blocks/StatsList/StatsList';
-import PlayersList from '../../Components/Blocks/PlayersList/PlayersList';
-import TeamLine from '../../Components/Blocks/TeamLine/TeamLine';
+import Heading from '../../Components/Heading/Heading';
+import MatchItem from '../../Components/Match/MatchItem/MatchItem'
+import StatsList from '../../Components/Custom/StatsList/StatsList';
+import PlayersList from '../../Components/Player/PlayersList/PlayersList';
+import TeamLine from '../../Components/Match/TeamLine/TeamLine';
 import VerticalLine from '../../Components/Custom/VerticalLine/VerticalLine';
-import ParallaxHeading from '../../Components/Sections/ParallaxHeading/ParallaxHeading';
-import Footer from '../../Components/Sections/Footer/Footer';
+import ParallaxHeading from '../../Components/ParallaxHeading/ParallaxHeading';
+import Footer from '../../Components/Footer/Footer';
 
 function MatchInfo(props: IMatchContainer) {
   return (
