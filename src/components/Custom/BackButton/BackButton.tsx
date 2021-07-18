@@ -9,7 +9,8 @@ export default function BackButton() {
   return (
     <button
       className='back-button'
-      onClick={() => history.goBack()}>
+      onClick={() => history.goBack()}
+    >
       <i className="bi bi-chevron-left back-button__icon" />
       Back
     </button>

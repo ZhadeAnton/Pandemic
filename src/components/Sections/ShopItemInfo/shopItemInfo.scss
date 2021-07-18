@@ -11,27 +11,27 @@
   }
 
   &__back-button {
-
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
   }
 
   &__product {
     @include full-size;
     display: flex;
-    margin-top: var(--space-lg);
 
     &--image-wrapper {
       flex: 2.5;
       width: 100%;
-      max-width: 638px;
-      min-width: 546px;
-      height: 380px;
-      max-height: 380px;
+      max-width: 39.875rem;
+      min-width: 34.125rem;
+      height: 23.75rem;
+      max-height: 23.75rem;
       overflow: hidden;
       border: 2px solid var(--e-global-color-dark-deep);
     }
 
     &--image {
-      height: 338px;
+      height: 21.125rem;
       object-fit: cover;
     }
 
@@ -44,7 +44,6 @@
   @include media-breakpoint-down(lg) {
     &__product {
       flex-direction: column;
-      margin-top: var(--space-lg);
 
       &--image-wrapper {
         min-width: 100%;
@@ -60,7 +59,7 @@
   @include media-breakpoint-down(sm) {
     &__product {
       &--image-wrapper {
-        max-height: 320px;
+        max-height: 20rem;
       }
     }
   }

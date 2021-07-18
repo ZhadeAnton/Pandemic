@@ -8,10 +8,10 @@ import { ArrayOfShopItems, IShopItem } from '../Interfaces/ShopInterfaces';
 import { addShopItemToCart } from '../Redux/Cart/CartActionCreators';
 import { IShopState } from '../Redux/Shop/ShopReducer';
 import useScrollToTop from '../Hooks/ScrollToTopHook';
-import useShopToast from '../Hooks/ShopToastHook';
 import useSliceItemsHook from '../Hooks/SliceItemsHook';
 
 import ShopItemPage from '../Routes/ShopItemPage/ShopItemPage';
+import { addNotification } from '../Redux/General/GeneralActionCreators';
 
 export interface IShopItemPageContainer {
   currentItem: IShopItem,
@@ -47,7 +47,8 @@ export default function ShopItemContainer() {
     }
 
     dispatch(addShopItemToCart({userUid, shopItemId}))
-    useShopToast(itemName)
+    dispatch(addNotification(
+        'SUCCESS', `You are successfully added ${itemName} to the cart`, shopItemId))
   }
 
   return (

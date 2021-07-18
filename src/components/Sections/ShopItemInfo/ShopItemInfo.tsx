@@ -28,11 +28,11 @@ export default function ShopItemInfo(props: Props) {
         <Breadcrumbs crumbs={['Home', 'Shop', `${shopItemName}`]}/>
       </div>
 
-      <div className='shop-item-info__product'>
-        <div className='shop-item-back-button'>
-          <BackButton />
-        </div>
+      <div className='shop-item-info__back-button'>
+        <BackButton />
+      </div>
 
+      <div className='shop-item-info__product'>
         <div className='shop-item-info__product--image-wrapper'>
           <Zoom
             image={props.currentItem!.imageFull}
