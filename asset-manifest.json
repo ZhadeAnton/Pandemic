@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/Pandemic/static/css/main.1bec73f6.chunk.css",
-    "main.js": "/Pandemic/static/js/main.759d98dd.chunk.js",
-    "main.js.map": "/Pandemic/static/js/main.759d98dd.chunk.js.map",
+    "main.js": "/Pandemic/static/js/main.0c0798a6.chunk.js",
+    "main.js.map": "/Pandemic/static/js/main.0c0798a6.chunk.js.map",
     "runtime-main.js": "/Pandemic/static/js/runtime-main.e67328ee.js",
     "runtime-main.js.map": "/Pandemic/static/js/runtime-main.e67328ee.js.map",
     "static/css/2.55c2c830.chunk.css": "/Pandemic/static/css/2.55c2c830.chunk.css",
-    "static/js/2.d87c7f9a.chunk.js": "/Pandemic/static/js/2.d87c7f9a.chunk.js",
-    "static/js/2.d87c7f9a.chunk.js.map": "/Pandemic/static/js/2.d87c7f9a.chunk.js.map",
+    "static/js/2.5f76f55b.chunk.js": "/Pandemic/static/js/2.5f76f55b.chunk.js",
+    "static/js/2.5f76f55b.chunk.js.map": "/Pandemic/static/js/2.5f76f55b.chunk.js.map",
     "index.html": "/Pandemic/index.html",
     "static/css/2.55c2c830.chunk.css.map": "/Pandemic/static/css/2.55c2c830.chunk.css.map",
     "static/css/main.1bec73f6.chunk.css.map": "/Pandemic/static/css/main.1bec73f6.chunk.css.map",
-    "static/js/2.d87c7f9a.chunk.js.LICENSE.txt": "/Pandemic/static/js/2.d87c7f9a.chunk.js.LICENSE.txt",
+    "static/js/2.5f76f55b.chunk.js.LICENSE.txt": "/Pandemic/static/js/2.5f76f55b.chunk.js.LICENSE.txt",
     "static/media/playerInfo.scss": "/Pandemic/static/media/portal-bg.5e4e418f.jpg",
     "static/media/bottom-shape.20e94f12.svg": "/Pandemic/static/media/bottom-shape.20e94f12.svg",
     "static/media/hero_bg.8c345f2e.webm": "/Pandemic/static/media/hero_bg.8c345f2e.webm",
@@ -31,8 +31,8 @@
   "entrypoints": [
     "static/js/runtime-main.e67328ee.js",
     "static/css/2.55c2c830.chunk.css",
-    "static/js/2.d87c7f9a.chunk.js",
+    "static/js/2.5f76f55b.chunk.js",
     "static/css/main.1bec73f6.chunk.css",
-    "static/js/main.759d98dd.chunk.js"
+    "static/js/main.0c0798a6.chunk.js"
   ]
 }
